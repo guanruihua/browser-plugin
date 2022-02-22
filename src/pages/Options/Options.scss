@@ -1,0 +1,39 @@
+.OptionsContainer {
+  // position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  // width: 100%;
+  // height: 50vh;
+  // font-size: 14px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // background-color: rgb(127, 211, 127);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  // overflow: hidden;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0 0 6px 6px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 6px 6px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+  }
+}

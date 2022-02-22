@@ -1,0 +1,43 @@
+$rh-table-header-h: 70px;
+$rh-table-cell-h: 50px;
+$border: 1px solid #e9e9e9;
+// $border: 1px solid #000;
+
+.rh-table {
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  table {
+    min-width: 100%;
+    border: $border;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  tr>td,
+  tr>th {
+    padding: 6px 8px;
+    border-bottom: $border;
+    border-right: $border;
+    overflow-wrap: break-word;
+  }
+
+  tr>td:last-child,
+  tr>th:last-child {
+    border-right: none;
+  }
+
+  tr:last-child>td {
+    border-bottom: none;
+    // background-color: red;
+  }
+
+}

@@ -1,0 +1,81 @@
+$max-width:49vw;
+
+.panel-fanyi-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 5px;
+
+  * {
+    border-radius: 3px;
+  }
+
+  &:first-child {
+    border-right: none;
+  }
+
+  textarea {
+    height: auto;
+    min-height: 300px;
+    max-width: $max-width;
+    padding: 5px 8px;
+    resize: none;
+    font-size: 16px;
+    outline-style: none;
+  }
+
+  &-translate {
+    display: grid;
+    grid-template-columns: 7fr 28px;
+    max-width: $max-width;
+
+    button {
+      display: block;
+    }
+  }
+
+  &-var {
+    max-width: $max-width;
+    font-size: 18px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 1.2;
+
+    span {
+      display: inline-block;
+      max-width: 46vw;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    button>img {
+      padding-left: 5px;
+      padding-top: 3px;
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  button {
+    border: none;
+    min-height: 25px;
+    color: #000;
+    background-color: royalblue;
+
+
+    span {
+      display: block;
+      color: #fff;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      color: #fff;
+      background-color: #fff;
+      min-height: 20px;
+    }
+  }
+
+}

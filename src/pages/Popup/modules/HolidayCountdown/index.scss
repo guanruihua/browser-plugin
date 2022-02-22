@@ -1,0 +1,63 @@
+.holiday-countdown {
+  box-sizing: border-box;
+  margin-bottom: 80px;
+
+  h2.holiday-countdown-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    &>button.holiday-countdown-day-add-btn {
+      margin-left: 10px;
+      vertical-align: middle;
+      width: 18px;
+      height: 18px;
+      border-color: aliceblue;
+      border-radius: 4px;
+    }
+  }
+
+  h2.holiday-countdown-result-title {
+    margin-bottom: 10px;
+  }
+
+  .holiday-countdown-day {
+    &-item {
+      margin-bottom: 8px;
+
+      &>input {
+        margin-right: 8px;
+        border-radius: 4px;
+        padding: 4px;
+      }
+    }
+
+  }
+
+  input {
+    height: 30px;
+    outline: 0;
+  }
+
+
+  button {
+    vertical-align: top;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border-width: 1px;
+    border: 1px solic #000;
+    width: 30px;
+    height: 30px;
+
+    &>img {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border: none;
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+# Ignore artifacts:
+build
+components
+
+# Ignore all HTML files:
+*.html
+*.geo.json
+**/*.geo.json

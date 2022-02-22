@@ -1,0 +1,222 @@
+$myColor: red;
+$itemW: 100px;
+$gap: 10px;
+$w: $gap+7*($gap+$itemW);
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-button {
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+  }
+}
+
+.newTab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #131417;
+  // background-image: url('./park.jpg');
+  background-image: url('./1162084.jpg');
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  // background-position: right;
+  background-position: left bottom;
+  background-size: cover;
+  padding-bottom: 30px;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  animation: all .3s ease-in-out;
+
+  .main-content {
+    border-radius: 10px;
+
+    .rh-header {
+      width: 100%;
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }
+
+    .rh-input-search {
+      margin: 30px auto 15px;
+      width: 60vw;
+
+      input {
+        background-color: rgba($color: #000000, $alpha: 0);
+        color: #fff;
+      }
+    }
+
+    .search-setting {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+
+      *>div {
+        display: inline-block;
+        color: #fff;
+        height: 25px;
+        line-height: 1.9;
+        text-align: center;
+        border-radius: 3px;
+        margin-right: 3px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+
+      .rh-card-title {
+        display: none;
+      }
+
+      .localhost {
+        background-color: rgba(#58657c, .3);
+        width: 50px;
+
+        input {
+          background-color: #282c34;
+          border: none;
+          font-size: 12px;
+          color: #fff;
+          padding: 5px;
+          width: 100%;
+          list-style: none;
+          outline-style: none;
+          border-radius: 3px;
+          text-align: center;
+        }
+
+        &:hover {
+          color: rgb(196, 183, 255);
+        }
+      }
+
+      .rh-button-check {
+        padding-left: 8px;
+        background-color: #282c34;
+
+        label {
+          padding-right: 5px;
+        }
+      }
+    }
+
+    .webContent {
+
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-gap: 0.5vw;
+      width: 98vw;
+      margin: 0 1vw;
+
+      @media screen and (max-width:900px) {
+        grid-template-columns: 1fr;
+      }
+
+      .rh-card {
+        display: inline-block;
+        vertical-align: top;
+        border-radius: 4px;
+        color: #fff;
+        transition: all .2s ease-in-out;
+        background-color: rgba(#58657c, .2);
+        margin-top: 5px;
+        padding: 3px 10px;
+
+        &-title {
+          font-weight: 800;
+          margin: 0 4px;
+          border: none;
+          padding: 1px auto 1px 10px;
+          color: rgba($color: #bebebe, $alpha: .9);
+          border-radius: 3px;
+          font-style: oblique;
+        }
+
+        &-content {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .webContent-card-item {
+          margin-right: 8px;
+          margin-bottom: 5px;
+          padding: 4px 7px;
+          word-break: keep-all;
+          word-wrap: break-word;
+          overflow: hidden;
+          cursor: pointer;
+          border-radius: 6px;
+          font-size: 13px;
+          line-height: 1.3;
+          font-weight: 500;
+          background-color: rgba(#2f3746, .6);
+
+          img {
+            display: inline-block;
+            vertical-align: middle;
+            width: 13px;
+            height: 13px;
+            border-radius: 3px;
+            margin-right: 5px;
+          }
+
+          &:last-child {
+            margin-right: 0;
+            margin-bottom: 0;
+          }
+
+          &:hover {
+            color: rgb(196, 183, 255);
+            background-color: rgba(#1d232e, .6);
+          }
+        }
+
+      }
+
+      @media screen and (min-width: 1600px) {
+        .webContent-left {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 0.5vw;
+        }
+      }
+
+      @media screen and (max-width: 900px) {}
+
+      &-left {
+        .rh-card {
+          .webContent-card-item {
+            padding: 6px 10px;
+            font-size: 16px;
+            font-weight: 300;
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}

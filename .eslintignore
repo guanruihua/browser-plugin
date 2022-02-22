@@ -1,0 +1,5 @@
+.eslintrc.js
+test/
+lib/
+src/*/__test__
+webpack*

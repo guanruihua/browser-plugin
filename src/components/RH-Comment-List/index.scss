@@ -1,0 +1,34 @@
+$user-logo-w-h: 25px;
+
+.rh-comment-list {
+  .comment {
+    display: flex;
+    background-color: rgb(211, 102, 102);
+    padding-bottom: 20px;
+
+    &-user-logo {
+      display: inline-block;
+      width: $user-logo-w-h;
+      height: $user-logo-w-h;
+      border-radius: 50%;
+      margin: 5px 10px auto 5px;
+    }
+
+    &>div {
+      word-break: keep-all;
+      word-wrap: break-word;
+      overflow: hidden;
+
+      .comment-user-info {
+        padding: 6px 10px;
+        background-color: bisque;
+      }
+
+      .comment-message {
+        background-color: rgb(153, 145, 134);
+        padding: 6px 10px;
+      }
+    }
+
+  }
+}
