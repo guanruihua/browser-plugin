@@ -202,7 +202,7 @@ $w: $gap+7*($gap+$itemW);
         .webContent-left {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          grid-gap: 0.5vw;
+          grid-gap: 0.2vh 0.3vw;
         }
       }
 
