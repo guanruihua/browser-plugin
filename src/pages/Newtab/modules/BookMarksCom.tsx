@@ -27,7 +27,9 @@ const BookMarksCom = (props: bookMarksItemProps): any => {
                       className='webContent-card-item-group'>
                       <span className='webContent-card-item-group-title'>{iitem?.title || `Temp${index}`}</span>
                       {iitem?.children?.map((iiitem: any): any => {
-                        return <div>
+                        return <div onClick={(): void => {
+                          iiitem.url && windowOpenUrl(iiitem.url)
+                        }}>
                           <RHImg url={iiitem.url} isFavicon alt='' />
                           {iiitem.title || ''}
                         </div>
