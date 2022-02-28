@@ -18,8 +18,23 @@ const BookMarksCom = (props: bookMarksItemProps): any => {
           if (onlyShow && onlyShow !== item.title) return
           return (
             <RHCard key={item.id} title={item.title}>
-              {item.children.map((iitem: any): any => {
-                if (iitem.children && iitem.children.length > 0) return
+              {item.children.map((iitem: any, index: number): any => {
+
+                // 把document 的二级文件夹显示出来
+                if (iitem.children && iitem.children.length > 0) {
+                  if (item.title === 'Document' || item.title === "资讯&工具") {
+                    return <div
+                      className='webContent-card-item-group'>
+                      <span className='webContent-card-item-group-title'>{iitem?.title || `Temp${index}`}</span>
+                      {iitem?.children?.map((iiitem: any): any => {
+                        return <div>
+                          <RHImg url={iiitem.url} isFavicon alt='' />
+                          {iiitem.title || ''}
+                        </div>
+                      })}</div>
+                  }
+                }
+
                 return (
                   <div
                     onClick={(): void => {
