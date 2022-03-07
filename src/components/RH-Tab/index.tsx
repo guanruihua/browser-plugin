@@ -18,6 +18,10 @@ export interface TabProps {
   titleSize?: number // default 34 标题的尺寸
   showPadding?: number // default 6 内容的padding
   defaultActiveKey?: string
+  top?: number
+  right?: number
+  bottom?: number
+  left?: number
   onChange?: (val: any) => void
   width?: number | string
   height?: number | string
@@ -42,6 +46,10 @@ function Index(props: TabProps) {
     style,
     noPosition = false,
     position = 'top',
+    top = 0,
+    right = 0,
+    bottom = 0,
+    left = 0,
     children
   }: TabProps = props
 
@@ -50,7 +58,11 @@ function Index(props: TabProps) {
     position,
     noPosition,
     titleSize,
-    showPadding
+    showPadding,
+    top,
+    right,
+    bottom,
+    left
   )
   useEffect(() => {
     setSelectActive(defaultActiveKey)
@@ -72,11 +84,10 @@ function Index(props: TabProps) {
                 <div
                   key={active}
                   style={{ fontSize }}
-                  className={`rh-tab-title ${
-                    selectActive === active
-                      ? `rh-tab-title-${position}-select`
-                      : 'rh-tab-title-noselect'
-                  }`}
+                  className={`rh-tab-title ${selectActive === active
+                    ? `rh-tab-title-${position}-select`
+                    : 'rh-tab-title-noselect'
+                    }`}
                   onClick={(): void => handleTitleSelect(active)}
                 >
                   {tab}
@@ -101,9 +112,8 @@ function Index(props: TabProps) {
                         : 'block'
                       : 'none'
                 }}
-                className={`rh-tab-pane ${
-                  selectActive === active ? `rh-tab-pane-select` : 'rh-tab-pane-noselect'
-                }`}
+                className={`rh-tab-pane ${selectActive === active ? `rh-tab-pane-select` : 'rh-tab-pane-noselect'
+                  }`}
                 key={active + 'pane'}
               >
                 {item.props.children}

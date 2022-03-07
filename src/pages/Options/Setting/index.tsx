@@ -1,58 +1,32 @@
 import React from 'react'
-import { RHTable } from '../../../components'
+import { RHTab } from '@/components'
+import { settingDictionary } from './dictionary'
 import './index.scss'
+import HolidayCountdownSetting from './modules/holidayCountdown'
+
+const activeKey = settingDictionary.activeKey
 
 function Index() {
-  const dataSource = [
-    {
-      key: '1',
-      name: '胡彦斌',
-      age: 32,
-      address: '西湖区湖底公园1号'
-    },
-    {
-      key: '2',
-      name: '胡彦祖',
-      age: 42,
-      address:
-        '西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号西湖区湖底公园1号'
-    }
-  ]
 
-  const columns = [
-    {
-      title: '姓名',
-      dataIndex: 'name',
-      key: 'name'
-    },
-    {
-      title: '年龄',
-      dataIndex: 'age',
-      key: 'age'
-    },
-    {
-      title: '住址',
-      dataIndex: 'address',
-      key: 'address',
-      maxWidth: 100,
-      render: (record: any, text: any): any => {
-        return <div>aaaa{text}</div>
-      }
-    },
-    {
-      title: 'action',
-      dataIndex: 'action',
-      key: 'action',
-      render: () => {
-        return <button>btn</button>
-      }
-    }
-  ]
+  const [active, setActive] = React.useState(localStorage.getItem(activeKey) || '1')
 
   return (
-    <div className='options-setting'>
-      <RHTable dataSource={dataSource} columns={columns} serialNumber rowSelection={{}}></RHTable>
-    </div>
+    <RHTab
+      defaultActiveKey={active || '1'}
+      fontSize={14}
+      width={'100%'}
+      position='left'
+      titleSize={180}
+      top={34}
+      className='options-setting'
+      onChange={(val: string): void => {
+        setActive(val)
+      }}
+    >
+      <RHTab.TabPane tab='Holiday Countdown' key='1' active='1'>
+        <HolidayCountdownSetting />
+      </RHTab.TabPane>
+    </RHTab>
   )
 }
 

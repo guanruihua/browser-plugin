@@ -23,21 +23,26 @@ function RHSwitch(props: iRHSwitch): any {
 	}, [initChecked])
 
 	const switchClick: any = (e: MouseEvent<HTMLButtonElement>): void => {
-		if (initChecked === undefined || (onChange && onChange(!!checked, e)))
+		if (initChecked === undefined || (onChange && onChange(!!checked, e))) {
 			setChecked(!checked)
+		}
 	}
-	return (<button
-		className={`rh-switch rh-switch${checked ? '' : '-un'}-select`}
-		style={{ ...style }}
-		disabled={!!disabled}
-		onClick={(e: MouseEvent<HTMLButtonElement>): void => switchClick(e)}
-		{...tempProps}
-	>
-		<div className={`rh-switch-handle`} />
-		<span className={`rh-switch-inner`}>
-			{checked ? checkedChildren : uncheckedChildren}
+	return (
+		<span>
+			<button
+				className={`rh-switch rh-switch${checked ? '' : '-un'}-select`}
+				style={{ ...style }}
+				disabled={!!disabled}
+				onClick={(e: MouseEvent<HTMLButtonElement>): void => switchClick(e)}
+				{...tempProps}
+			>
+				<div className={`rh-switch-handle`} />
+				<span className={`rh-switch-inner`}>
+					{checked ? checkedChildren : uncheckedChildren}
+				</span>
+			</button >
 		</span>
-	</button >)
+	)
 }
 
 export default RHSwitch

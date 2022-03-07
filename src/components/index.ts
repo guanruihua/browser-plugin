@@ -6,6 +6,7 @@
  * Modified By: ruihuag
  * Last Modified: Monday, 19th July 2021 5:50:21 pm
  */
+
 export { default as RHImg } from './RH-Img'
 
 export { default as RHTab } from './RH-Tab'
@@ -23,5 +24,8 @@ export { default as RHEdit } from './RH-Edit'
 
 export { default as RHLayout } from './RH-Layout'
 export type { LayoutProps } from './RH-Layout'
+
+export { default as RHTextArea } from './RH-TextArea'
+export * from './RH-TextArea/type'
 
 export * as RHChart from './RH-Chart'

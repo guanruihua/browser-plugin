@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactNode } from "react";
+import { MouseEvent } from "react";
 
 export interface iRHSwitch {
 	disabled?: boolean;

@@ -11,13 +11,14 @@ $title-h: 34px;
   width: 100%;
   height: auto;
   overflow: auto;
+  position: relative;
+
 
   &-show {
-    // position: fixed;
+    position: absolute;
+
     width: 100%;
-    // top: $title-h;
     height: 100%;
-    // left: 0;
     overflow: auto;
 
     .rh-tab-pane {
@@ -32,16 +33,12 @@ $title-h: 34px;
   }
 
   .rh-tab-header {
-    // width: 100%;
     color: #000;
     border-bottom: #f0f0f0 solid 1px;
-    // position: fixed;
-    // top: 0;
-    // left: 0;
+    position: absolute;
 
     .rh-tab-title {
       display: inline-block;
-      // display: block;
       height: $title-h;
       line-height: 1;
       padding: 10px 15px 20px 10px;

@@ -6,7 +6,11 @@ export function useLayout(
   position = 'top',
   noPosition = false,
   titleSize = 34,
-  showPadding = 6
+  showPadding = 6,
+  top?: number,
+  right?: number,
+  bottom?: number,
+  left?: number
 ): LayoutResult {
   if (noPosition) {
     return {
@@ -20,64 +24,64 @@ export function useLayout(
       return {
         headerLayoutStyle: {
           position: 'fixed',
-          top: 0,
-          left: 0
+          top: top || 0,
+          left: left || 0
         },
         paneLayoutStyle: {
           position: 'fixed',
-          top: titleSize,
+          top: top ? top + titleSize : titleSize,
           padding: showPadding,
-          left: 0
+          left: left || 0
         }
       }
     case 'left':
       return {
         headerLayoutStyle: {
           position: 'fixed',
-          width: titleSize,
+          width: left ? titleSize + left : titleSize,
           wordBreak: 'break-word',
-          top: 0,
-          left: 0,
+          top: top || 0,
+          left: left || 0,
           zIndex: 99999
         },
         paneLayoutStyle: {
           position: 'fixed',
           padding: showPadding,
           paddingLeft: titleSize + showPadding,
-          left: 0,
-          top: 0
+          left: left || 0,
+          top: top || 0
         }
       }
     case 'right':
       return {
         headerLayoutStyle: {
           position: 'fixed',
-          width: titleSize,
+          width: right ? titleSize + right : titleSize,
           wordBreak: 'break-word',
-          top: 0,
-          right: 0,
+          top: top || 0,
+          right: right || 0,
           zIndex: 99999
         },
         paneLayoutStyle: {
           position: 'fixed',
           padding: showPadding,
           paddingRight: titleSize + showPadding,
-          right: 0,
-          top: 0
+          right: right || 0,
+          top: top || 0
         }
       }
     case 'bottom':
       return {
         headerLayoutStyle: {
           position: 'fixed',
-          bottom: 0,
-          left: 0
+          bottom: bottom || 0,
+          left: left || 0
         },
         paneLayoutStyle: {
           position: 'fixed',
           padding: showPadding,
-          bottom: titleSize,
-          left: 0
+          bottom: bottom ? bottom + titleSize : titleSize,
+          left: left || 0
         }
       }
   }

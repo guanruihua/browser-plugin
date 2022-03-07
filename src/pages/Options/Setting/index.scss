@@ -1,3 +1,20 @@
 .options-setting {
-  padding: 10px;
+
+  &-holiday-setting {
+    // background-color: red;
+
+    &-item {
+      display: flex;
+      justify-items: left;
+      align-items: center;
+      font-size: 16px;
+      color: #000;
+
+      span {
+        margin-right: 10px;
+      }
+    }
+
+  }
+
 }
