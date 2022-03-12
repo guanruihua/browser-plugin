@@ -245,15 +245,15 @@ $w: $gap+7*($gap+$itemW);
 
       }
 
-      @media screen and (min-width: 1600px) {
-        .webContent-left {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-gap: 0.2vh 0.3vw;
-        }
-      }
+      // @media screen and (min-width: 1600px) {
+      //   .webContent-left {
+      //     display: grid;
+      //     grid-template-columns: 1fr 1fr;
+      //     grid-gap: 0.2vh 0.3vw;
+      //   }
+      // }
 
-      @media screen and (max-width: 900px) {}
+      // @media screen and (max-width: 900px) {}
 
       &-left {
         .rh-card {
