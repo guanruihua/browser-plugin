@@ -52,7 +52,7 @@ axios.interceptors.response.use(
     return Promise.reject(response)
   },
   function (error: any) {
-    if (error.response.data) {
+    if (error?.response?.data) {
       return Promise.reject(error.response)
     }
   }
@@ -65,22 +65,7 @@ function get(url: any, params: any) {
         params
       })
       .then((res: any) => {
-        resolve(res.data)
-      })
-      .catch(() => {
-        resolve({ code: '-2', message: '请求错误', data: 'err.readyState' })
-      })
-  })
-}
-
-function deletetd(url: any, params: any) {
-  return new Promise(resolve => {
-    axios
-      .delete(url, {
-        params: params
-      })
-      .then((res: any) => {
-        resolve(res.data)
+        resolve(res?.data)
       })
       .catch(() => {
         resolve({ code: '-2', message: '请求错误', data: 'err.readyState' })
@@ -124,8 +109,6 @@ function request(url: any, options: any = {}) {
         return post(url, options.data, options?.contentType)
       case 'GET':
         return get(url, options.data)
-      case 'DELETE':
-        return deletetd(url, options.data)
       default:
         return get(url, options.data)
     }

@@ -24,7 +24,7 @@ function Newtab() {
   }
 
   return (
-    <div className='newTab'>
+    <div className='newTab' key={'newTab'}>
       <div className='main-content'>
         <RHHeader style={{ color: '#fff' }} onClick={() => updateSettingShow(!isSettingShow)} />
         <SettingCom {...settingComProps} />

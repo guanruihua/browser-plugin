@@ -22,13 +22,19 @@ const BookMarksCom = (props: bookMarksItemProps): any => {
                 if (iitem.children && iitem.children.length > 0) {
                   if (item.title === 'TEMP') return <div />
                   return <div
+                    key={item.id + index}
                     className='webContent-card-item-group'>
                     <span className='webContent-card-item-group-title'>{iitem?.title || `Temp${index}`}</span>
                     {iitem?.children?.map((iiitem: any): any => {
-                      return <div onClick={(): void => {
-                        iiitem.url && windowOpenUrl(iiitem.url)
-                      }}>
-                        <RHImg url={iiitem.url} isFavicon alt='' />
+                      return <div
+                        key={item.id + index + iiitem.id}
+                        onClick={(): void => {
+                          iiitem.url && windowOpenUrl(iiitem.url)
+                        }}>
+                        <RHImg
+                          url={iiitem.url}
+                          isFavicon
+                          alt='' />
                         {iiitem.title || ''}
                       </div>
                     })}</div>
@@ -36,11 +42,11 @@ const BookMarksCom = (props: bookMarksItemProps): any => {
 
                 return (
                   <div
+                    key={iitem.id}
                     onClick={(): void => {
                       windowOpenUrl(iitem.url)
                     }}
                     className='webContent-card-item'
-                    key={iitem.id}
                   >
                     <RHImg url={iitem.url} isFavicon alt='' />
                     {iitem.title}
