@@ -5,6 +5,7 @@ import SettingPage from './Setting'
 import TestComponent from './TestComponent'
 import CodePage from './Code'
 import './Options.scss'
+import MockPage from './Mock'
 
 const TabPane: FC<any> = RHTab.TabPane
 const [Config, { setConfig, getConfig }] = useConfig()
@@ -23,10 +24,6 @@ const Options: React.FC = () => {
       defaultActiveKey={active}
       fontSize={14}
       width={'100%'}
-      // position='left'
-      // position='right'
-      // titleSize={120}
-      // position='top'
       className='OptionsContainer'
       key={'rh-options-options'}
       onChange={(val: string): void => {
@@ -36,6 +33,9 @@ const Options: React.FC = () => {
     >
       <TabPane tab='Setting' key='1' active='1'>
         <SettingPage />
+      </TabPane>
+      <TabPane tab='Mock' key='3' active='3'>
+        <MockPage />
       </TabPane>
       <TabPane tab='Code' key='2' active='2'>
         <CodePage />
