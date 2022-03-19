@@ -1,4 +1,4 @@
-import React, { ChangeEvent} from 'react'
+import React, { ChangeEvent } from 'react'
 import './index.scss'
 import { iRHCheck } from './type'
 import { useWatch } from '../../assets/Hooks/hook'

@@ -23,7 +23,7 @@ function handleMockScript(iscript: string, updateResult: any) {
 		updateResult({
 			script: iscript,
 			msg: '生成失败',
-			tip: '多余都要要去掉, 不可以使用功单引号',
+			tip: '多余逗号都要要去掉, 不可以使用功单引号',
 			error: JSON.stringify(error)
 		})
 	}
