@@ -1,5 +1,5 @@
 import React from 'react'
-import { RHCard, RHImg } from '../../../components'
+import { RHCard, /* RHImg */ } from '../../../components'
 import { windowOpenUrl } from '../utils'
 
 type bookMarksItemProps = {
@@ -31,11 +31,11 @@ const BookMarksCom = (props: bookMarksItemProps): any => {
                         onClick={(): void => {
                           iiitem.url && windowOpenUrl(iiitem.url)
                         }}>
-                        <RHImg
+                        {/* <RHImg
                           url={iiitem.url}
                           isFavicon
-                          alt='' />
-                        {iiitem.title || ''}
+                          alt='' /> */}
+                        {iiitem.title}
                       </div>
                     })}</div>
                 }
@@ -48,7 +48,7 @@ const BookMarksCom = (props: bookMarksItemProps): any => {
                     }}
                     className='webContent-card-item'
                   >
-                    <RHImg url={iitem.url} isFavicon alt='' />
+                    {/* <RHImg url={iitem.url} isFavicon alt='' /> */}
                     {iitem.title}
                   </div>
                 )

@@ -55,7 +55,7 @@ $w: $gap+7*($gap+$itemW);
 }
 
 %font {
-  color: rgb(223, 221, 241);
+  color: rgb(45, 158, 149);
   word-break: keep-all;
   word-wrap: break-word;
   cursor: pointer;
@@ -97,14 +97,14 @@ $w: $gap+7*($gap+$itemW);
         border-radius: 6px;
         @extend %font;
         transition: all .2s ease-in-out;
-        background-color: rgba(#58657c, .2);
+        background-color: rgba(#191555, .3);
         margin-top: 4px;
         padding: 4px 0 0 7px;
 
         &-title {
           font-weight: 800;
           border: none;
-          color: rgba($color: #bebebe, $alpha: .9);
+          color: rgba($color: #3173ca, $alpha: .9);
           border-radius: 3px;
           font-style: oblique;
         }
@@ -117,7 +117,7 @@ $w: $gap+7*($gap+$itemW);
         .webContent-card-item {
           @extend %common-padding-margin;
           @extend %font;
-          background-color: rgba(#2f3746, .6);
+          background-color: rgba(#2f3746, .3);
           border-radius: 3px;
 
           &-group {
@@ -128,11 +128,11 @@ $w: $gap+7*($gap+$itemW);
               @extend %common-padding-margin;
               @extend %font;
               border-radius: 3px;
-              background-color: rgba(#23375e, .6);
+              background-color: rgba(#23375e, .3);
 
               &:hover {
                 color: rgb(196, 183, 255);
-                background-color: rgba(#1d232e, .6);
+                background-color: rgba(#1d232e, .3);
               }
 
             }
