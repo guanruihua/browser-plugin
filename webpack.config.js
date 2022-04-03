@@ -17,7 +17,19 @@ let alias = {
 // load the secrets
 let secretsPath = path.join(__dirname, 'secrets.' + env.NODE_ENV + '.js')
 
-let fileExtensions = ['jpg', 'jpeg', 'png', 'gif', 'eot', 'otf', 'svg', 'ttf', 'woff', 'woff2']
+let fileExtensions = [
+  'jpg',
+  'jpeg',
+  'png',
+  'gif',
+  'eot',
+  'otf',
+  'svg',
+  'ttf',
+  'woff',
+  'woff2',
+  'mp3'
+]
 
 if (fileSystem.existsSync(secretsPath)) {
   alias['secrets'] = secretsPath

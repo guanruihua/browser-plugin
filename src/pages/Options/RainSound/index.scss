@@ -1,0 +1,19 @@
+.options-rainSound {
+  div {
+    margin-bottom: 5px;
+
+    span,
+    audio {
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+
+  audio {
+    // display: block;
+    display: inline-block;
+  }
+}

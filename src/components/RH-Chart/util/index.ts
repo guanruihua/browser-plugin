@@ -21,7 +21,6 @@ export class CanvasHelper implements ICanvasHelper {
     ctx.beginPath()
     ctx.arc(100, 200, 30, 0, 2 * Math.PI)
     ctx.fill()
-    console.log('123')
   }
   line(x: number, y: number, x1: number, y1: number, strokeStyle = '#7C8B8C') {
     const ctx: any = this.context2d

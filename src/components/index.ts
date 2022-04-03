@@ -9,6 +9,8 @@
 
 export { default as RHImg } from './RH-Img'
 
+export { default as RHAudio } from './RH-Audio'
+
 export { default as RHTab } from './RH-Tab'
 export type { TabPaneProps, TabProps } from './RH-Tab'
 

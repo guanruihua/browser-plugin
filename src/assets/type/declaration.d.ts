@@ -2,6 +2,7 @@ declare module 'react-syntax-highlighter/dist/esm/styles/prism';
 declare module '../../../assets/img/*';
 declare module '../../../../assets/img/*';
 declare module '@/assets/img/*';
+declare module '@assets/video/*';
 declare module "../../components"
 declare module "./modules"
 declare module "./default.png"

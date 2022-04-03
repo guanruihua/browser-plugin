@@ -7,10 +7,7 @@ import './index.scss'
 const _key = '_options_mock_param'
 
 function handleMockScript(iscript: string, updateResult: any) {
-	// console.log(localStorage.getItem(_key))
-	// console.log(rMock.mock({ "name|3-5": "@name" }))
 	try {
-		console.log({ iscript })
 		const result = rMock.mock(JSON.parse(iscript.replace(/\n/gi, '')))
 		if (result) {
 			updateResult({

@@ -6,6 +6,7 @@ import TestComponent from './TestComponent'
 import CodePage from './Code'
 import './Options.scss'
 import MockPage from './Mock'
+import RainSound from './RainSound'
 
 const TabPane: FC<any> = RHTab.TabPane
 const [Config, { setConfig, getConfig }] = useConfig()
@@ -31,6 +32,10 @@ const Options: React.FC = () => {
         setActive(val)
       }}
     >
+
+      <TabPane tab='RainSound' key='01' active='01'>
+        <RainSound />
+      </TabPane>
       <TabPane tab='Setting' key='1' active='1'>
         <SettingPage />
       </TabPane>
