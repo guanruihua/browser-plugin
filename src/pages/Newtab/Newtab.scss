@@ -41,7 +41,8 @@ $w: $gap+7*($gap+$itemW);
 
 %bg-image {
   background: #131417;
-  background-image: url('./1140272.png');
+  background-image: url('./bg.jpg');
+  // background-image: url('./1140272.png');
   background-repeat: no-repeat;
   background-origin: border-box;
   background-attachment: fixed;
@@ -98,7 +99,7 @@ $w: $gap+7*($gap+$itemW);
         border-radius: 6px;
         @extend %font;
         transition: all .2s ease-in-out;
-        background-color: rgba(#191555, .6);
+        background-color: rgba(#16294c, .6);
 
         &-title {
           font-weight: 800;
@@ -116,9 +117,9 @@ $w: $gap+7*($gap+$itemW);
         .webContent-card-item {
           @extend %common-padding-margin;
           @extend %font;
-          background-color: rgba(#0d46b1, .3);
+          background-color: rgba(#16294c, .3);
           border-radius: 3px;
-          border: 1px solid #0343bb;
+          border: 1px solid #2c5bb3;
 
           &-group {
             width: 100%;
