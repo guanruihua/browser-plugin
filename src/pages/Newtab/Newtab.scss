@@ -42,7 +42,6 @@ $w: $gap+7*($gap+$itemW);
 %bg-image {
   background: #131417;
   background-image: url('./bg.jpg');
-  // background-image: url('./1140272.png');
   background-repeat: no-repeat;
   background-origin: border-box;
   background-attachment: fixed;
@@ -89,7 +88,7 @@ $w: $gap+7*($gap+$itemW);
 
     .webContent {
       display: grid;
-      grid-template-columns: 5fr 2fr;
+      grid-template-columns: 4fr 2fr;
       grid-gap: 4px;
       width: 100%;
 
@@ -132,12 +131,10 @@ $w: $gap+7*($gap+$itemW);
 
             &>div {
               display: inline-block;
-              // @extend %common-padding-margin;
               @extend %font;
               border-radius: 3px;
               padding: 4px 6px 4px 4px;
               margin-right: 3px;
-              // background-color: rgba(#23375e, .3);
               background-color: rgba(#0d46b1, .2);
               border: 1px solid #015aff;
 
@@ -153,7 +150,6 @@ $w: $gap+7*($gap+$itemW);
               display: inline-block;
               padding: 4px 6px 4px 4px;
               margin-right: 3px;
-              // @extend %common-padding-margin;
               cursor: default;
               @extend %font;
               background-color: #0d2d68;
@@ -162,19 +158,6 @@ $w: $gap+7*($gap+$itemW);
               border: 1px solid #006958;
             }
 
-            // img {
-            //   @extend %img;
-            // }
-
-          }
-
-          // img {
-          //   @extend %img;
-          // }
-
-          &:last-child {
-            margin-right: 0;
-            margin-bottom: 0;
           }
 
           &:hover {
@@ -186,8 +169,8 @@ $w: $gap+7*($gap+$itemW);
       }
 
       &-left {
-        column-count: 2;
-        column-gap: 3px;
+        // column-count: 2;
+        // column-gap: 3px;
 
         .rh-card {
           width: 100%;
