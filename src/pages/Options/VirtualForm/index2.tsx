@@ -1,3 +1,11 @@
+/*
+ * @Author: ruihuag
+ * @Date: 2022-06-27 15:27:54
+ * @LastEditTime: 2022-06-27 16:22:45
+ * @LastEditors: ruihuag
+ * @Description: 修改成支持 Postman 导出的数据结构
+ * @FilePath: \notepostc:\RUIHUA\project\edge-plugin\src\pages\Options\VirtualForm\index2.tsx
+ */
 import React, { FC, useEffect, useState } from 'react'
 import ApiConfigList from './ApiConfigList'
 import ApiConfig from './ApiConfig'
@@ -19,7 +27,7 @@ import './index.scss'
 
 const defaultURL = 'http://localhost:3000'
 
-const Index: FC<any> = () => {
+const VirtualForm: FC<any> = () => {
   const uid: string = id()
   const [result, setResult] = useState({})
   const [APIMETHOD, setMETHOD] = useState('')
@@ -143,4 +151,4 @@ const Index: FC<any> = () => {
   )
 }
 
-export default Index
+export default VirtualForm

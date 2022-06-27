@@ -31,3 +31,6 @@ export { default as RHTextArea } from './RH-TextArea'
 export * from './RH-TextArea/type'
 
 export * as RHChart from './RH-Chart'
+
+export * from './Rh-DocTree'
+export * from './BreadCrumb'

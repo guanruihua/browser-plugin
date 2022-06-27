@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import RHTab from '../../components/RH-Tab'
 import './Panel.scss'
-import VirtualForm from './VirtualForm'
 import Fanyi from './Fanyi'
 import DiffStr from './DiffStr'
 
@@ -16,9 +15,6 @@ const Panel: React.FC = () => {
         localStorage.setItem('panel_active_key', val)
       }}
     >
-      <TabPane tab='Virtual Form' key='1' active='1'>
-        <VirtualForm />
-      </TabPane>
 
       <TabPane tab='Translate' key='2' active='2'>
         <Fanyi />

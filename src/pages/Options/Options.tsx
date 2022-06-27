@@ -7,12 +7,14 @@ import CodePage from './Code'
 import './Options.scss'
 import MockPage from './Mock'
 import RainSound from './RainSound'
+// import VirtualForm from './VirtualForm/index2'
+import VirtualForm from './VirtualForm/index'
 
 const TabPane: FC<any> = RHTab.TabPane
 const [Config, { setConfig, getConfig }] = useConfig()
 
 const Options: React.FC = () => {
-  const [active, setActive] = useState<string>('1')
+  const [active, setActive] = useState<string>('999')
 
   useEffect(() => {
     getConfig(Config.optionsTabActive, (val: string): void => {
@@ -33,6 +35,9 @@ const Options: React.FC = () => {
       }}
     >
 
+      <TabPane tab='Postman' key='v1' active='v1'>
+        <VirtualForm />
+      </TabPane>
       <TabPane tab='RainSound' key='01' active='01'>
         <RainSound />
       </TabPane>
