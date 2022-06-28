@@ -15,6 +15,7 @@ function TabPane(props: TabPaneProps) {
 
 export interface TabProps {
   position?: 'left' | 'right' | 'bottom' | 'top' | undefined // default top, header 的位置
+  headStyle?: { [key: string]: any }
   titleSize?: number // default 34 标题的尺寸
   showPadding?: number // default 6 内容的padding
   defaultActiveKey?: string
@@ -35,6 +36,7 @@ export interface TabProps {
 
 function Index(props: TabProps) {
   const {
+    headStyle = {},
     defaultActiveKey = '',
     onChange,
     titleSize = 34,
@@ -74,8 +76,10 @@ function Index(props: TabProps) {
   }
 
   return (
-    <div className={`rh-tab-content ${className}`} style={{ width, height, ...style }}>
-      <div className='rh-tab-header' style={{ ...headerLayoutStyle }}>
+    <div
+      className={`rh-tab-content ${className}`}
+      style={{ width, height, ...style }}>
+      <div className='rh-tab-header' style={{ ...headerLayoutStyle, ...headStyle }}>
         {children &&
           [].concat(children).map((item: any) => {
             const { tab, active = undefined } = item.props

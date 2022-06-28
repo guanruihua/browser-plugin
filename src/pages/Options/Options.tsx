@@ -6,8 +6,6 @@ import TestComponent from './TestComponent'
 import CodePage from './Code'
 import './Options.scss'
 import MockPage from './Mock'
-import RainSound from './RainSound'
-// import VirtualForm from './VirtualForm/index2'
 import VirtualForm from './VirtualForm/index'
 
 const TabPane: FC<any> = RHTab.TabPane
@@ -38,9 +36,6 @@ const Options: React.FC = () => {
       <TabPane tab='Postman' key='v1' active='v1'>
         <VirtualForm />
       </TabPane>
-      <TabPane tab='RainSound' key='01' active='01'>
-        <RainSound />
-      </TabPane>
       <TabPane tab='Setting' key='1' active='1'>
         <SettingPage />
       </TabPane>
@@ -61,3 +56,6 @@ const Options: React.FC = () => {
 }
 
 export default Options
+	// <pre contentEditable>
+	// 		`这是一段正常的文字\r\n这是换行（<div style={{ color: "red" }}>这是提示的红色</div>）\r\n这段文字为可编辑状态``
+	// 	</pre>

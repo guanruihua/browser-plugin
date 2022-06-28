@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+.rh-Tab-20220628063151 {
+
+  position: relative;
+
+  &-unit {
+    &-content {
+      padding-top: 10px;
+      margin: 0 5px;
+
+      &>div {
+        padding: 3px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+      }
+    }
+
+    &-header {
+      &>span {
+        display: inline-block;
+        color: gray;
+        height: 30px;
+        line-height: 1.7;
+        vertical-align: middle;
+        padding: 5px;
+        font-weight: 600;
+        margin-right: 5px;
+        cursor: pointer;
+
+        &.active {
+          border-bottom: 1px solid #1890ff;
+          color: #1890ff;
+        }
+      }
+    }
+  }
+}

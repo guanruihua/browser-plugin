@@ -1,4 +1,4 @@
-import { Collections, Info, CollectionUnit } from './type';
+import { Collections, CollectionUnit } from '../type';
 import React from "react"
 
 export function getCollections(): Collections {

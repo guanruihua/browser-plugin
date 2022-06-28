@@ -1,0 +1,91 @@
+.rh-doc-tree-20220627090738 {
+  background-color: #f9f9f9;
+  height: 100%;
+
+  padding: 5px;
+
+  .method-GET {
+    color: #38c671;
+  }
+
+  .method-POST {
+    color: #feb911;
+  }
+
+  &-bottom-arrow {
+    width: 10px;
+    display: inline-block;
+    margin: auto 3px;
+    position: absolute;
+    top: -1px;
+
+    &::after {
+      display: inline-block;
+      content: " ";
+      height: 6px;
+      width: 6px;
+      border-width: 0 1px 1px 0;
+      border-color: #575757;
+      border-style: solid;
+      transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    }
+  }
+
+  &-right-arrow {
+    width: 10px;
+    display: inline-block;
+    margin: auto 3px;
+    position: absolute;
+    top: 1px;
+
+    &::after {
+      display: inline-block;
+      content: " ";
+      height: 6px;
+      width: 6px;
+      border-width: 1px 1px 0 0;
+      border-color: #575757;
+      border-style: solid;
+      transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    }
+  }
+
+  &-unit {
+    position: relative;
+
+    &-title {
+      height: 25px;
+      width: 290px;
+      overflow: hidden;
+      line-height: 25px;
+      padding-left: 20px;
+      padding-right: 5px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+  }
+
+
+
+  &-tree-child {
+    line-height: 25px;
+    padding-bottom: 5px;
+
+    &-name {
+      position: relative;
+      cursor: pointer;
+
+      .name-arrow {
+        top: -6px;
+      }
+    }
+
+    &-method {
+      display: inline-block;
+      width: 35px;
+      padding-right: 3px;
+      text-align: end;
+    }
+  }
+}
