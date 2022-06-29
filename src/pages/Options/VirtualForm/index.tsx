@@ -5,6 +5,8 @@ import './vrForm.scss'
 import { SendInput } from './SendInput'
 import { Tab, Tabs } from './Tabs'
 import { RHParams } from './RHParams'
+import { RHBody } from './RHBody'
+import { RHHeader } from './RHHeader'
 
 const Blass = 'vrForm'
 
@@ -26,10 +28,10 @@ export default function VirtualForm() {
 					<RHParams />
 				</Tab>
 				<Tab tab='Body' key='Body' active='Body'>
-					Body content
+					<RHBody />
 				</Tab>
 				<Tab tab='Headers' key='Headers' active='Headers'>
-					Headers content
+					<RHHeader />
 				</Tab>
 			</Tabs>
 		</div>

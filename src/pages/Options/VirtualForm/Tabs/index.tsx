@@ -28,11 +28,17 @@ export function Tabs(props: any) {
 				const { key } = unit
 				const { tab, active }: Tab = unit.props
 				headProps.push({ tab, active })
-				contentProps.push(<div key={key} style={{ zIndex: nowActive === active ? 10 : -1 }}>{unit}</div>)
+				contentProps.push(<div
+					key={key}
+					className={nowActive === active ? 'active' : 'no-active'}
+				>
+					{unit}
+				</div>)
 			})
 
 			if (nowActive === '') {
-				setNowActive(headProps[0].active)
+				// setNowActive(headProps[0].active)
+				setNowActive(headProps[1].active)
 			}
 
 			return <div
@@ -42,7 +48,7 @@ export function Tabs(props: any) {
 					className={Blass('-unit-header')}
 				>
 					{headProps.map((item) => <span
-						className={nowActive === item.active ? 'active' : ''}
+						className={nowActive === item.active ? 'active' : 'no-active'}
 						onClick={() => setNowActive(item.active)}
 						key={item.tab}>
 						{item.tab}

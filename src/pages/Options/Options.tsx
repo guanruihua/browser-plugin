@@ -56,6 +56,3 @@ const Options: React.FC = () => {
 }
 
 export default Options
-	// <pre contentEditable>
-	// 		`这是一段正常的文字\r\n这是换行（<div style={{ color: "red" }}>这是提示的红色</div>）\r\n这段文字为可编辑状态``
-	// 	</pre>

@@ -11,7 +11,17 @@
       padding-top: 10px;
       margin: 0 5px;
 
+
+
       &>div {
+        &.no-active {
+          display: none;
+        }
+
+        &.active {
+          display: block;
+        }
+
         padding: 3px;
         position: absolute;
         width: 100%;

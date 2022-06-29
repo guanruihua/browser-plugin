@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './index.scss'
 
-const Blass = (name = ''): string => 'rh-params-20220628082657' + name
+const Blass = (name = ''): string => 'rh-header-20220628082657' + name
 
 export interface ParamUnit {
 	key?: string
@@ -16,7 +16,7 @@ const tmplist: ParamUnit[] = [
 ]
 
 
-export function RHParams() {
+export function RHHeader() {
 	const len = tmplist.length || 0
 
 	if (tmplist[len - 1].key || tmplist[len - 1].value) {
@@ -24,7 +24,7 @@ export function RHParams() {
 	}
 	const [list, setList] = useState<ParamUnit[]>(tmplist)
 
-	return <div className={Blass()}>
+	return <div className={Blass()} key={Blass()}>
 
 		<div className={Blass('-title')}>Query Params</div>
 		<div className={Blass('-params')}>
