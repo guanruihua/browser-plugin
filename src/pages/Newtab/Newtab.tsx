@@ -11,12 +11,9 @@ function Newtab() {
   const [bookMarks] = useBookMarks()
   const [filters, uses, { updateFilters, updateUses, params, useUrl }]: any = useNewTabSetting()
   const [isSettingShow, updateSettingShow] = useState(false)
-  const [localhost, setlocalhost] = React.useState(8000)
 
   const settingComProps: SettingComType = {
     isSettingShow,
-    localhost,
-    setlocalhost,
     filters,
     updateFilters,
     uses,

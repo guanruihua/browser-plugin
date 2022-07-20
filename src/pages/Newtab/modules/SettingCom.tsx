@@ -1,15 +1,11 @@
 import React from 'react'
 import { RHCard, RHButton } from '../../../components'
-import { windowOpenUrl } from '../utils'
-import LocalhostCom from './LocalhostCom'
 import { SettingComType } from './type'
 const RHCheck: any = RHButton.RHCheck
 
 const SettingCom = (props: SettingComType) => {
   const {
     isSettingShow,
-    localhost,
-    setlocalhost,
     uses,
     updateUses,
     updateFilters,
@@ -22,23 +18,6 @@ const SettingCom = (props: SettingComType) => {
       className={'search-setting'}
       style={{ display: isSettingShow ? 'flex' : 'none' }}
     >
-      <div className='localhost'>
-        <input
-          value={localhost}
-          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>): void => {
-            if (e.key === 'Enter') {
-              windowOpenUrl(`http://localhost:${localhost}`)
-            }
-          }}
-          onChange={(e: any): void => {
-            setlocalhost(e.target.value)
-          }}
-        />
-      </div>
-
-      {[3000, 3456, 8000, 8080].map((item: number) => (
-        <LocalhostCom key={item + 'key'} port={item} />
-      ))}
 
       {uses.map((item: any): any => {
         return (

@@ -6,7 +6,7 @@ const webpack = require('webpack'),
   CopyWebpackPlugin = require('copy-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   TerserPlugin = require('terser-webpack-plugin')
-const ESLintPlugin = require('eslint-webpack-plugin')
+// const ESLintPlugin = require('eslint-webpack-plugin')
 
 const ASSET_PATH = process.env.ASSET_PATH || '/'
 
@@ -15,21 +15,9 @@ let alias = {
 }
 
 // load the secrets
-let secretsPath = path.join(__dirname, 'secrets.' + env.NODE_ENV + '.js')
+const secretsPath = path.join(__dirname, 'secrets.' + env.NODE_ENV + '.js')
 
-let fileExtensions = [
-  'jpg',
-  'jpeg',
-  'png',
-  'gif',
-  'eot',
-  'otf',
-  'svg',
-  'ttf',
-  'woff',
-  'woff2',
-  'mp3'
-]
+const fileExtensions = ['jpg', 'jpeg', 'png', 'gif', 'eot', 'otf', 'svg', 'ttf', 'woff', 'woff2', 'mp3']
 
 if (fileSystem.existsSync(secretsPath)) {
   alias['secrets'] = secretsPath
@@ -100,7 +88,7 @@ let options = {
           }
         ],
         include: [path.resolve(__dirname, 'src')],
-        exclude: /\.module.less|node_modules/
+        exclude: /\.module.scss|node_modules/
       },
       {
         test: new RegExp('.(' + fileExtensions.join('|') + ')$'),
@@ -154,10 +142,10 @@ let options = {
       verbose: true,
       cleanStaleWebpackAssets: true
     }),
-    new ESLintPlugin({
-      context: './src', // 检查目录
-      extensions: ['js', 'jsx', 'ts', 'tsx'] // 文件扩展
-    }),
+    // new ESLintPlugin({
+    //   context: './src', // 检查目录
+    //   extensions: ['js', 'jsx', 'ts', 'tsx'] // 文件扩展
+    // }),
     new webpack.EnvironmentPlugin(['NODE_ENV']),
     new CopyWebpackPlugin({
       patterns: [

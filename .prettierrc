@@ -1,4 +1,4 @@
-module.exports = {
+{
   "requirePragma": false,
   "printWidth": 100,
   "tabWidth": 2,

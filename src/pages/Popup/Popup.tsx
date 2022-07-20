@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { QRCodePage } from './modules'
-// import { QRCodePage, HolidayCountdown } from './modules'
+import { QRCodePage, Localhost } from './modules'
 import { RHTab } from '../../components'
 import './Popup.css'
 
@@ -20,6 +19,9 @@ const Popup = () => {
         key={'popup_key'}
         style={{ border: 'none' }}
       >
+        <TabPane tab='Localhost' key='lo' active='lo'>
+          <Localhost />
+        </TabPane>
         <TabPane tab='QR Code' key='1' active='1'>
           <QRCodePage />
         </TabPane>

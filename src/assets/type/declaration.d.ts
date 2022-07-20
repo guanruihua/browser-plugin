@@ -10,6 +10,7 @@ declare module 'qs'
 declare module 'rh-mock'
 declare module 'qrcode.react'
 declare module '../../assets/img/search.svg'
+declare module "*.scss"
 declare module "*.png" {
 	const value: any;
 	export default value;

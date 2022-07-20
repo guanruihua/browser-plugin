@@ -11,7 +11,6 @@ type bookMarksItemProps = {
 
 const handleTitleShow = (title: string) => {
   if (typeof title === 'string') {
-    console.log(title)
     return title.replace(/(菜鸟教程)|(掘金)|(博客园)|(_脚本之家)|( - )|(CSDN博客)|(csdn)|(简书)|([\u4e00-\u9fa5]*的博客)|(\([0-9]*条消息\))|(【近[0-9/.]*W字】)/gi, '')
   }
   return false

@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+.rh-popup-localhost-20220720083326 {
+  &-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+
+    input,
+    button {
+      display: inline-block;
+      padding: 5px 8px;
+      outline-style: none;
+      height: 25px;
+      line-height: 25px;
+      margin-left: 5px;
+    }
+
+    button {
+      display: flex;
+      border-radius: 3px;
+      justify-content: center;
+      align-items: center;
+      margin-left: 10px;
+      background-color: rgb(0, 102, 255);
+      border-color: rgb(0, 102, 255);
+      color: #fff;
+    }
+  }
+
+  &-port-item {
+    display: inline-block;
+    border: 1px solid #eee;
+    padding-left: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: auto;
+    margin: 3px;
+
+    &>span {
+      display: inline-block;
+      cursor: pointer;
+      margin-left: 5px;
+      padding: 5px;
+      font-size: larger;
+      color: #fff;
+      background-color: rgb(192, 24, 24);
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}
