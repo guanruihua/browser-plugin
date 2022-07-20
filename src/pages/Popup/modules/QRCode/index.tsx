@@ -4,7 +4,7 @@ import './index.scss'
 
 const Index = () => {
 
-	const [qrCode, setQRCode]: [string | undefined, (val: string) => void] = useState('')
+	const [qrCode, setQRCode] = useState<string>('')
 
 	useEffect((): void => {
 		if (qrCode === '') {
@@ -24,7 +24,7 @@ const Index = () => {
 				className="popup-qr-code-textarea"
 				key="qr-code-textarea"
 				placeholder="输入你要转为的字串"
-				rows={4}
+				rows={6}
 				maxLength={2000}
 				onChange={(e: ChangeEvent<HTMLTextAreaElement>): void => {
 					setQRCode(e.target.value)

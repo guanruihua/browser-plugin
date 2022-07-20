@@ -7,8 +7,14 @@ const Index = () => {
 
 	return <div className={Blass()}>
 		<div className={Blass('-header')}>
-			<input type={'text'} value={action.baseUrl} onChange={(e) => action.setBaseUrl(e.target.value)} />
-			<input type={'text'} value={action.port} onChange={(e) => action.setPort(e.target.value)} />
+			<input
+				type={'text'}
+				value={action.baseUrl}
+				onChange={(e) => action.setBaseUrl(e.target.value)} />
+			<input
+				type={'text'}
+				value={action.port}
+				onChange={(e) => action.setPort(e.target.value)} />
 			<button onClick={() => action.addPort()} >ADD</button>
 		</div>
 		{action.ports.map((i, index) => <div

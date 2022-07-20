@@ -14,12 +14,13 @@
   &-textarea {
     margin: 5px;
     overflow: hidden;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 14px;
     outline: 0 none;
     resize: none;
     border: none;
-    width: 90%;
+    width: 98%;
+    padding: 4px 5px;
   }
 
   &-code {

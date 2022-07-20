@@ -6,7 +6,7 @@ import './Popup.css'
 const TabPane = RHTab.TabPane
 
 const Popup = () => {
-  const [active, setActive] = useState(localStorage.getItem('active') || '1')
+  const [active, setActive] = useState<string>(localStorage.getItem('active') || '1')
   return (
     <div className='App'>
       <RHTab
@@ -19,7 +19,7 @@ const Popup = () => {
         key={'popup_key'}
         style={{ border: 'none' }}
       >
-        <TabPane tab='Localhost' key='lo' active='lo'>
+        <TabPane tab='Href' key='href' active='href'>
           <Localhost />
         </TabPane>
         <TabPane tab='QR Code' key='1' active='1'>

@@ -2,11 +2,16 @@
   box-sizing: border-box;
 }
 
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .rh-popup-localhost-20220720083326 {
+
   &-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter;
     margin: 10px auto;
 
     input,
@@ -14,16 +19,22 @@
       display: inline-block;
       padding: 5px 8px;
       outline-style: none;
-      height: 25px;
-      line-height: 25px;
+      height: 35px;
+      line-height: 35px;
       margin-left: 5px;
+      font-size: 16px;
+    }
+
+    input {
+      width: 40%;
+      border: none;
+      border-bottom: 1px solid;
     }
 
     button {
-      display: flex;
+      @include flexCenter;
+      font-weight: 700;
       border-radius: 3px;
-      justify-content: center;
-      align-items: center;
       margin-left: 10px;
       background-color: rgb(0, 102, 255);
       border-color: rgb(0, 102, 255);
@@ -33,18 +44,20 @@
 
   &-port-item {
     display: inline-block;
-    border: 1px solid #eee;
-    padding-left: 5px;
+    border: 1px solid rgb(196, 194, 194);
+    padding-left: 12px;
     border-radius: 8px;
     cursor: pointer;
     width: auto;
     margin: 3px;
+    font-size: 20px;
+    font-weight: 600;
 
     &>span {
       display: inline-block;
       cursor: pointer;
       margin-left: 5px;
-      padding: 5px;
+      padding: 8px;
       font-size: larger;
       color: #fff;
       background-color: rgb(192, 24, 24);
