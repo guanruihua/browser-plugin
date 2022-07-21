@@ -18,6 +18,7 @@ export function useWatch(val: any): tUseState {
 
 export function getLocalStorage(key: string, parse = false) {
 	try {
+		if (!localStorage.getItem(key)) return null
 		return parse
 			? JSON.parse((localStorage.getItem(key) || '{}') as string)
 			: localStorage.getItem(key)

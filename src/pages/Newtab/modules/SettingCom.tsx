@@ -19,33 +19,29 @@ const SettingCom = (props: SettingComType) => {
       style={{ display: isSettingShow ? 'flex' : 'none' }}
     >
 
-      {uses.map((item: any): any => {
-        return (
-          <RHCheck
-            key={item.id}
-            id={item.id}
-            name={item.id}
-            checked={item.use}
-            onCheck={(beforeChecked: boolean): boolean => updateUses(item.id, !beforeChecked)}
-          >
-            {`${item.title} ( USE )`}
-          </RHCheck>
-        )
-      })}
+      {uses.map((item: any) =>
+        <RHCheck
+          key={item.id}
+          id={item.id}
+          name={item.id}
+          checked={item.use}
+          onCheck={(beforeChecked: boolean): boolean => updateUses(item.id, !beforeChecked)}
+        >
+          {`${item.title} ( USE )`}
+        </RHCheck>
+      )}
 
-      {filters.map((item: any): any => {
-        return (
-          <RHCheck
-            key={item.id}
-            id={item.id}
-            name={item.id}
-            checked={item.use}
-            onCheck={(beforeChecked: boolean): boolean => updateFilters(item.id, !beforeChecked)}
-          >
-            {`${item.title} ( FIL )`}
-          </RHCheck>
-        )
-      })}
+      {filters.map((item: any) =>
+        <RHCheck
+          key={item.id}
+          id={item.id}
+          name={item.id}
+          checked={item.use}
+          onCheck={(beforeChecked: boolean): boolean => updateFilters(item.id, !beforeChecked)}
+        >
+          {`${item.title} ( FIL )`}
+        </RHCheck>
+      )}
     </RHCard>
   )
 }
