@@ -5,8 +5,8 @@ export const Blass = (name = ''): string => 'rh-popup-localhost-20220720083326' 
 
 export function usePorts() {
 	const [port, setPort] = useState<string>('')
-	const [baseUrl, setBaseUrl] = useLocalStorage<string>(Blass('lodb-baseUrl'), false, 'http://172.16.30.128:')
-	const [ports, setPorts] = useLocalStorage<Array<string>>(Blass('lodb-ports'), true, [])
+	const [baseUrl, setBaseUrl] = useLocalStorage<string>(Blass('lodb-baseUrl'), 'http://172.16.30.128:', false)
+	const [ports, setPorts] = useLocalStorage<Array<string>>(Blass('lodb-ports'), [], true)
 
 	const addPort = () => {
 		if (ports.includes(port) || !port) return

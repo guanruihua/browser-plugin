@@ -1,76 +1,72 @@
 import React, { useEffect, useState } from 'react';
-
-
 /**
  * @title hook
  * @description 基础 hook 的二次封装 的通用hook
  */
 
-export type tUseState = [any, (value: any) => void]
+export type tUseState<T = any> = [T, (value: T) => void]
 
-export function useWatch(val: any): tUseState {
-	const [value, setValue]: tUseState = React.useState(val);
+export function useWatch<T = any>(val: T): tUseState<T> {
+	const [value, setValue]: tUseState = React.useState<T>(val);
 	React.useEffect((): void => {
 		setValue(value)
 	}, [val])
 	return [value, setValue]
 }
 
-export function getLocalStorage(key: string, parse = false) {
+/**
+ * 获取 localstorage
+ */
+export function getLocalStorage<T = any>(key: string, defaultValue: T, parse = false): T {
+	if (localStorage.getItem(key) === null) {
+		if (parse) {
+			localStorage.setItem(key, JSON.stringify(defaultValue))
+		} else if (typeof defaultValue === 'string')
+			localStorage.setItem(key, defaultValue)
+	}
 	try {
-		return parse
-			? JSON.parse((localStorage.getItem(key) || '{}') as string)
-			: localStorage.getItem(key)
+		const result = localStorage.getItem(key)
+		if (result === null) return defaultValue
+		if (parse) return JSON.parse(result || JSON.stringify(defaultValue))
+		return result as unknown as T
 	} catch (error) {
-		return null
+		console.error('Get Error:', key)
+		return defaultValue
 	}
 }
 
-export function setLocalStorage(key: string, parse = false, value: any) {
-	localStorage.setItem(key, parse ? JSON.stringify(value) : value as string)
+/**
+ * 设置 localstorage
+ */
+export function setLocalStorage<T = any>(key: string, value: T, parse = false): boolean {
+	try {
+		if (parse) {
+			localStorage.setItem(key, JSON.stringify(value))
+			return true
+		} else {
+			if (typeof value === 'string') {
+				localStorage.setItem(key, value)
+				return true
+			}
+		}
+		return false
+	} catch {
+		console.error('Set Error:', key)
+		return false
+	}
 }
 
-export function useLocalStorage<T>(key: string, parse = false, defaultValue?: T): [T, (val: T) => void] {
-	const loVal = getLocalStorage(key, parse) || defaultValue
+export function useLocalStorage<T = any>(key: string, defaultValue: T, parse = false): tUseState<T> {
+	const loVal = getLocalStorage<T>(key, defaultValue, parse)
 	useEffect(() => {
 		if (getLocalStorage(key, parse) === null) {
-			setLocalStorage(key, parse, defaultValue)
+			setLocalStorage(key, defaultValue, parse)
 		}
 	}, [])
 	const [val, _setVal] = useState<T>(loVal)
 
 	function setVal(newVal: T): void {
-		setLocalStorage(key, parse, newVal)
-		_setVal(newVal)
-	}
-
-	return [val, setVal]
-}
-
-export function getSessionStorage(key: string, parse = false) {
-	try {
-		return parse
-			? JSON.parse((sessionStorage.getItem(key) || '{}') as string)
-			: sessionStorage.getItem(key)
-	} catch (error) {
-		return null
-	}
-}
-
-export function setSessionStorage(key: string, parse = false, value: any) {
-	sessionStorage.setItem(key, parse ? JSON.stringify(value) : value as string)
-}
-
-export function useSessionStorage<T>(key: string, parse = false, defaultValue?: T): [T, (val: T) => void] {
-	let loVal = getSessionStorage(key, parse) || defaultValue
-
-	if (defaultValue !== loVal) {
-		setSessionStorage(key, parse, defaultValue)
-	}
-	const [val, _setVal] = useState<T>(loVal)
-
-	function setVal(newVal: T) {
-		setSessionStorage(key, parse, newVal)
+		setLocalStorage(key, newVal, parse)
 		_setVal(newVal)
 	}
 

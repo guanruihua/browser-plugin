@@ -1,0 +1,47 @@
+$header: 55px;
+
+.breadCrumb {
+
+  height: $header;
+
+  font-size: 25px;
+  font-weight: 500;
+  width: 100%;
+  border-bottom: 2px solid #a6a6a6;
+  padding-left: 15px;
+
+  & {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &-name {
+    color: #a6a6a6;
+    cursor: pointer;
+
+    &:last-child {
+      color: #000;
+    }
+  }
+
+  &-slash {
+    color: #a6a6a6;
+    padding: 0 5px;
+  }
+
+  &>span,
+  &>input {
+    display: inline-flex;
+    border: none;
+    height: $header;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-input {
+    background: rgba($color: #fff, $alpha: 0);
+    outline-style: none;
+  }
+}

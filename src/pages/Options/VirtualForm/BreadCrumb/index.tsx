@@ -1,6 +1,7 @@
-import React from 'react'
-import './index.scss'
-const Blass = (name = ''): string => 'rh-BreadCrumb-20220628031638' + name
+import React, { useState } from 'react'
+import styles from './index.module.scss'
+
+const Blass = (name = ''): string => styles['breadCrumb' + name]
 
 export interface BreadCrumb {
 	list: {
@@ -16,11 +17,19 @@ export function BreadCrumb(props: BreadCrumb) {
 	return <div className={Blass()}>
 		{list.map((item, index) => {
 			const { name } = item
+			if (index + 1 === list.length) {
+				const [_name, setName] = useState<string>(name)
+				return <input
+					key={name + index}
+					className={Blass('-input')}
+					value={_name}
+					onChange={e => setName(e.target.value)} />
+			}
 
-			return <span key={name + index}>
+			return <>
 				<span className={Blass('-name')}>{name}</span>
 				{index + 1 !== list.length && <span className={Blass('-slash')}>/</span>}
-			</span>
+			</>
 		})}
 	</div>
 }

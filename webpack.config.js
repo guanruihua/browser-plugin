@@ -62,9 +62,11 @@ let options = {
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
-              importLoaders: 2,
-              javascriptEnabled: true
+              sassOptions: {
+                sourceMap: true,
+                importLoaders: 2,
+                javascriptEnabled: true
+              }
             }
           }
         ],
