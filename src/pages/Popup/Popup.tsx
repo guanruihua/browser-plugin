@@ -25,9 +25,6 @@ const Popup = () => {
         <TabPane tab='QR Code' key='1' active='1'>
           <QRCodePage />
         </TabPane>
-        {/* <TabPane tab='Holiday Countdown' key='HolidayCountdown' active='HolidayCountdown'>
-          <HolidayCountdown />
-        </TabPane> */}
       </RHTab>
     </div>
   )

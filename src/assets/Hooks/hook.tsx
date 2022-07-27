@@ -25,10 +25,17 @@ export function getLocalStorage<T = any>(key: string, defaultValue: T, parse = f
 			localStorage.setItem(key, defaultValue)
 	}
 	try {
+<<<<<<< HEAD
 		const result = localStorage.getItem(key)
 		if (result === null) return defaultValue
 		if (parse) return JSON.parse(result || JSON.stringify(defaultValue))
 		return result as unknown as T
+=======
+		if (!localStorage.getItem(key)) return null
+		return parse
+			? JSON.parse((localStorage.getItem(key) || '{}') as string)
+			: localStorage.getItem(key)
+>>>>>>> 6140cfa4c498f8ff6412614570a06154cf18b10a
 	} catch (error) {
 		console.error('Get Error:', key)
 		return defaultValue

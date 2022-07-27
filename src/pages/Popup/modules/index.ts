@@ -8,11 +8,9 @@
  */
 
 import QRCodePage from './QRCode'
-import HolidayCountdown from './HolidayCountdown'
 import Localhost from './localhost'
 
 export {
 	QRCodePage,
-	HolidayCountdown,
 	Localhost,
 }
