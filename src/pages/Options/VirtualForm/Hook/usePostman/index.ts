@@ -21,8 +21,15 @@ export function setCollections(collections: Collections = []): boolean {
 /**
  * 设置索引
  */
-export function setCollectionKey(key: string): boolean {
-	return setLocalStorage(namespaceIndex, key)
+export function setCollectionKey(value: string): boolean {
+	return setLocalStorage(namespaceIndex, value)
+}
+
+/**
+ * 获取索引
+ */
+export function getCollectionKey(): string {
+	return getLocalStorage(namespaceIndex, '')
 }
 
 /**

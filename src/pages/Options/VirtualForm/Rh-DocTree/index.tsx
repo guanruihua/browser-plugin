@@ -6,7 +6,7 @@ import './index.scss'
 const Blass = (name = ''): string => 'rh-doc-tree-20220627090738' + name
 
 function TreeChild(props: any) {
-	const { list = [], id = '', indexes = '' } = props
+	const { list = [], indexes = '' } = props
 	return <div
 		className={Blass('-tree-child')}
 		style={{ paddingLeft: 20 }}
@@ -42,7 +42,6 @@ function TreeChild(props: any) {
 				>{name}</span>}
 
 				{item && isOpenUnit && <TreeChild
-					id={id}
 					indexes={indexes === '' ? String(index) : `${indexes + '.' + index}`}
 					list={item || []}
 				/>}
@@ -73,8 +72,7 @@ export function RHDocTree() {
 					</div>
 				</div>
 				{isOpenUnit && <TreeChild
-					id={_postman_id}
-					indexes=''
+					indexes={_postman_id}
 					list={unit.item || []} />}
 			</div>
 		})}

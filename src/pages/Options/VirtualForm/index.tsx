@@ -1,6 +1,6 @@
 import { BreadCrumb } from './BreadCrumb'
 import { RHDocTree } from './Rh-DocTree'
-import React from "react"
+import React, { useState } from "react"
 import './vrForm.scss'
 import { SendInput } from './SendInput'
 import { Tab, Tabs } from './Tabs'
@@ -16,12 +16,7 @@ export default function VirtualForm() {
 			<RHDocTree />
 		</div>
 		<div className={`${Blass}-right`}>
-			<BreadCrumb list={[
-				{ name: '11' },
-				{ name: '22' },
-				{ name: '33' },
-				{ name: '44' },
-			]} />
+			<BreadCrumb key='BreadCrumb' />
 			<SendInput />
 			<Tabs>
 				<Tab tab='Params' key='Params' active='Params'>

@@ -67,11 +67,7 @@ let options = {
                 sourceMap: true,
                 importLoaders: 2,
                 javascriptEnabled: true
-<<<<<<< HEAD
               }
-=======
-              },
->>>>>>> 6140cfa4c498f8ff6412614570a06154cf18b10a
             }
           }
         ],
