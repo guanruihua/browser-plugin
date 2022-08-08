@@ -9,9 +9,6 @@ const Index = () => {
 	const action = usePorts()
 
 	return <div className={Blass()}>
-		<div className={styles["rui"]}>
-			jfskjdfkjsdfk
-		</div>
 		<div className={Blass('-header')}>
 			<input
 				type={'text'}

@@ -1,15 +1,14 @@
 import React, { ChangeEvent, useEffect, useState } from "react"
 import QRCode from 'qrcode.react'
+import { useLocalStorage } from '@/assets'
 import './index.scss'
 
 const Index = () => {
-
-	const [qrCode, setQRCode] = useState<string>('')
+	const [qrCode, setQRCode] = useLocalStorage<string>('qrcode-lodb-baseUrl', '', false)
 
 	useEffect((): void => {
 		if (qrCode === '') {
 			setQRCode(location.href)
-
 			chrome.tabs.query(
 				{ active: true, currentWindow: true },
 				function (tabs: any[]): void {
@@ -18,6 +17,7 @@ const Index = () => {
 				});
 		}
 	}, [qrCode])
+
 	return <div className="popup-qr-code">
 		<div className="popup-qr-code-textarea-content">
 			<textarea
