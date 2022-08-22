@@ -10,15 +10,15 @@ import './Newtab.scss'
 function Newtab() {
   const [bookMarks] = useBookMarks()
   const [filters, uses, { updateFilters, updateUses, params, useUrl }]: any = useNewTabSetting()
-  const [isSettingShow, updateSettingShow] = useState(false)
+  // const [isSettingShow, updateSettingShow] = useState(false)
 
-  const settingComProps: SettingComType = {
-    isSettingShow,
-    filters,
-    updateFilters,
-    uses,
-    updateUses
-  }
+  // const settingComProps: SettingComType = {
+  //   isSettingShow,
+  //   filters,
+  //   updateFilters,
+  //   uses,
+  //   updateUses
+  // }
 
   return (
     <div className='newTab' key='newTab'>
@@ -26,7 +26,8 @@ function Newtab() {
         {/* <RHHeader style={{ color: '#a5ccec' }} onClick={() => updateSettingShow(!isSettingShow)} /> */}
         {/* <SettingCom {...settingComProps} /> */}
         <div className='rh-input-search-content'>
-          <RHInput.Search onSearch={(value: string): void => windowSearch(value, useUrl, params)} />
+          {/* <RHInput.Search onSearch={(value: string): void => windowSearch(value, useUrl, params)} /> */}
+          <RHInput.Search onSearch={(value: string): void => windowSearch(value, useUrl, '')} />
         </div>
         <div className='webContent'>
           <div className='webContent-left'>
