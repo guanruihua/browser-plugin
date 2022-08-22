@@ -91,6 +91,7 @@ $w: $gap+7*($gap+$itemW);
       grid-template-columns: 4fr 2fr;
       grid-gap: 4px;
       width: 100%;
+      margin-bottom: 80px;
 
       .rh-card {
         display: inline-block;
@@ -191,9 +192,19 @@ $w: $gap+7*($gap+$itemW);
       margin-top: 15px;
     }
 
+
+    .rh-input-search-content {
+      width: 100vw;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(#000000, .8);
+    }
+
     .rh-input-search {
       margin: 30px auto 15px;
-      width: 60vw;
+      width: 90%;
 
       input {
         background-color: rgba($color: #000000, $alpha: 0);

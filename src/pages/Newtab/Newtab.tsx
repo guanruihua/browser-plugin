@@ -23,9 +23,11 @@ function Newtab() {
   return (
     <div className='newTab' key='newTab'>
       <div className='main-content'>
-        <RHHeader style={{ color: '#a5ccec' }} onClick={() => updateSettingShow(!isSettingShow)} />
-        <SettingCom {...settingComProps} />
-        <RHInput.Search onSearch={(value: string): void => windowSearch(value, useUrl, params)} />
+        {/* <RHHeader style={{ color: '#a5ccec' }} onClick={() => updateSettingShow(!isSettingShow)} /> */}
+        {/* <SettingCom {...settingComProps} /> */}
+        <div className='rh-input-search-content'>
+          <RHInput.Search onSearch={(value: string): void => windowSearch(value, useUrl, params)} />
+        </div>
         <div className='webContent'>
           <div className='webContent-left'>
             <BookMarksCom bookMarks={bookMarks} noShow='TEMP' />
