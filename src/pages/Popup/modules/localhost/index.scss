@@ -11,10 +11,16 @@
 .rh-popup-localhost-20220720083326 {
 
   &-header {
-    @include flexCenter;
-    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    row-gap: 10px;
+    margin-bottom: 10px;
 
-    input,
+    &>input,
+    &>div {
+      height: 100%;
+    }
+
     button {
       display: inline-block;
       padding: 5px 8px;
@@ -23,12 +29,6 @@
       line-height: 35px;
       margin-left: 5px;
       font-size: 16px;
-    }
-
-    input {
-      width: 40%;
-      border: none;
-      border-bottom: 1px solid;
     }
 
     button {

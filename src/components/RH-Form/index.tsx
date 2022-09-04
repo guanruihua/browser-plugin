@@ -1,46 +1,33 @@
 import React, { FC, FormEvent, useState } from "react";
 import { getDomList, createDomByList } from './Utils'
-type tRule = { [key: string]: any, message: string; }
+import styles from './index.module.scss'
+import { Item } from './Item'
 
+export * from './Item'
 
-interface iItem {
-	name?: string;
-	label?: string;
-	rules?: tRule[];
+interface Form {
+	onSubmit?: (values: Record<string, any>) => void;
+	onReset?: (values?: Record<string, any>) => void;
+	defaultValues?: Record<string, any>;
 	children: any;
 }
 
-const Item: FC<iItem> = (props: iItem) => {
-	const { label, name, children } = props;
-	return <div className="rh-form-item">
-		<label htmlFor={name}> {label}</label>
-		{children}
-	</div>
-}
+export const FormContext = React.createContext({
+	setFormValue: (name: string, value?: number | string) => { }
+})
 
-type tAnyObj = { [key: string]: any }
+const RHForm = (props: Form) => {
 
-interface iForm {
-	onSubmit?: (values: tAnyObj) => void;
-	onReset?: (values?: tAnyObj) => void;
-	defaultValues?: tAnyObj;
-	children: any;
-}
+	const formData: Record<string, number | string | undefined> = {}
+	const setFormValue = (name: string, value?: number | string) => {
+		formData[name] = value
+	}
 
-const RHForm = (props: iForm) => {
 	const { onSubmit, onReset, defaultValues = {}, children } = props;
-	// const [values, setValues] = useState(defaultValues)
-	const [values] = useState(defaultValues)
-
-	// console.log(getDomList(props));
-
-	const newChildren: any[] = getDomList(props)
-
-	// console.log(createDomByList(newChildren))
 
 	const handleSubmit = (e: FormEvent): void => {
 		e.preventDefault();
-		onSubmit && onSubmit(values);
+		onSubmit && onSubmit(formData);
 	}
 
 	const handleReset = (e: FormEvent): void => {
@@ -48,13 +35,17 @@ const RHForm = (props: iForm) => {
 		onReset && onReset();
 	}
 
-	return <form
-		onSubmit={(e: FormEvent): any => handleSubmit(e)}
-		onReset={(e: FormEvent): any => handleReset(e)}
-	>
-		{children}
-		{createDomByList(newChildren)}
-	</form>
+	return <FormContext.Provider value={{ setFormValue }}>
+		<form
+			className={styles.form}
+			onSubmit={(e: FormEvent): void => handleSubmit(e)}
+			onReset={(e: FormEvent): void => handleReset(e)}
+		>
+			{children}
+			{/* {createDomByList(newChildren)} */}
+		</form>
+	</FormContext.Provider>
+
 }
 
 RHForm.Item = Item;

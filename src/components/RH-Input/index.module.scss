@@ -1,0 +1,8 @@
+@import '../index.scss';
+
+.input {
+  @include border;
+  display: inline-block;
+  outline: none;
+  padding: $control-padding;
+}

@@ -1,4 +1,5 @@
 import React, { ChangeEvent, KeyboardEvent, FC, useState } from "react";
+import styles from './index.module.scss'
 import './index.scss'
 
 const Password: FC<any> = () => {
@@ -9,20 +10,19 @@ const TextArea: FC<any> = () => {
 	return <div>Under development ...  textArea</div>
 }
 
-
-export interface iSearch {
+export interface Search {
 	onSearch: (value: string) => void;
 }
 
-function Search(props: iSearch): any {
+function Search(props: Search): any {
 	const [value, setValue]: [string, (val: string) => void] = useState('')
 
 	return <div className="rh-input-search">
 		<input
 			onKeyDown={(e: KeyboardEvent<HTMLInputElement>): void => {
 				if (e.key === 'Enter') {
-          props.onSearch(value)
-        }
+					props.onSearch(value)
+				}
 			}}
 			onChange={(e: ChangeEvent<HTMLInputElement>): void => {
 				setValue(e.target.value)
@@ -32,17 +32,17 @@ function Search(props: iSearch): any {
 	</div>
 }
 
-
-
-
 interface iRHInput {
+	classname?: string
 	[key: string]: any;
 }
 
 
 const RHInput: any = (props: iRHInput): any => {
-
-	return <input {...props} />
+	const { classname } = props
+	return <input
+		className={styles.input + (classname ? ' ' + classname : '')}
+		{...props} />
 }
 
 RHInput.Password = Password;

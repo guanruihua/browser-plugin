@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { RHTab } from '@/components'
 import TestChart from './TestChart'
+import TextArea from './textArea'
 import { useConfig } from '@/assets/config'
 import './index.scss'
 const [Config, { setConfig, getConfig }] = useConfig()
@@ -26,8 +27,8 @@ function TestComponent(): any {
         setActive(val)
       }}
     >
-      <RHTab.TabPane tab='layout' key='1' active='1'>
-        a
+      <RHTab.TabPane tab='textArea' key='1' active='1'>
+        <TextArea />
       </RHTab.TabPane>
       <RHTab.TabPane tab='Chart' key='chart' active='chart'>
         <TestChart />

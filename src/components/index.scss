@@ -1,0 +1,17 @@
+$border: 1px solid #eee;
+$border-radius: 4px;
+$control-padding: 5px 8px;
+
+
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+
+@mixin border() {
+  border: $border;
+  border-radius: $border-radius;
+}

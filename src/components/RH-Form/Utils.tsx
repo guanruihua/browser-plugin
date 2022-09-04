@@ -34,22 +34,6 @@ export const getDomList = (props: any): any[] => {
 // const i = 0;
 const createDom = (config: any): any => {
 	console.log(config)
-	// const { type, state } = config;
-	// state.key = String(i++)
-	// // return <div key={String(i++)} >123</div>
-	// if (isFunction(type)) {
-	// 	return <config.type {...state} />
-	// }
-
-	// if (typeof type === 'string') {
-	// 	return React.createElement(
-	// 		type,
-	// 		state,
-	// 	)
-	// }
-
-	// return config
-
 }
 
 export const createDomByList = (config: any[]) => {
