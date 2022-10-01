@@ -6,6 +6,7 @@ type bookMarksItemProps = {
   bookMarks: any[]
   onlyShow?: string
   noShow?: string
+  [key: string]: any
 }
 
 const handleTitleShow = (title: string) => {
@@ -16,14 +17,14 @@ const handleTitleShow = (title: string) => {
 }
 
 const BookMarksCom = (props: bookMarksItemProps) => {
-  const { bookMarks = [], onlyShow, noShow }: bookMarksItemProps = props
+  const { bookMarks = [], onlyShow, noShow, ...rest }: bookMarksItemProps = props
   return (
     <React.Fragment>
       {bookMarks && bookMarks.map((item: any): any => {
         if (noShow && noShow === item.title) return
         if (onlyShow && onlyShow !== item.title) return
         return (
-          <RHCard key={item.id} title={item.title}>
+          <RHCard key={item.id} title={item.title} {...rest}>
             {item.children.map((iitem: any, index: number): any => {
               if (iitem.children && iitem.children.length > 0) {
                 if (item.title === 'TEMP') return
@@ -52,6 +53,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
                     windowOpenUrl(iitem.url)
                   }}
                   className='webContent-card-item'
+                  {...rest}
                 >
                   {iitem.title && handleTitleShow(iitem.title)}
                 </div>

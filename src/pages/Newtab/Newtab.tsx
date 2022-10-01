@@ -1,44 +1,32 @@
-import React, { useState } from 'react'
-import { useBookMarks, useNewTabSetting } from './hook'
-import { RHHeader, RHInput } from '../../components'
-import { windowSearch } from './utils'
+import React from 'react'
+import { useState } from 'react'
+import { useBookMarks } from './hook'
 import BookMarksCom from './modules/BookMarksCom'
-import { SettingComType } from './modules/type'
-import SettingCom from './modules/SettingCom'
 import './Newtab.scss'
 
-function Newtab() {
-  const [bookMarks] = useBookMarks()
-  const [filters, uses, { updateFilters, updateUses, params, useUrl }]: any = useNewTabSetting()
-  // const [isSettingShow, updateSettingShow] = useState(false)
+const _grid_tc = '3fr 2fr'
 
-  // const settingComProps: SettingComType = {
-  //   isSettingShow,
-  //   filters,
-  //   updateFilters,
-  //   uses,
-  //   updateUses
-  // }
+function Newtab() {
+  const [grid_tc, setGrid_tc] = useState<string>(_grid_tc)
+  const [bookMarks] = useBookMarks()
 
   return (
-    <div className='newTab' key='newTab'>
-      <div className='main-content'>
-        {/* <RHHeader style={{ color: '#a5ccec' }} onClick={() => updateSettingShow(!isSettingShow)} /> */}
-        {/* <SettingCom {...settingComProps} /> */}
-        <div className='rh-input-search-content'>
-          {/* <RHInput.Search onSearch={(value: string): void => windowSearch(value, useUrl, params)} /> */}
-          <RHInput.Search onSearch={(value: string): void => windowSearch(value, useUrl, '')} />
-        </div>
-        <div className='webContent'>
-          <div className='webContent-left'>
-            <BookMarksCom bookMarks={bookMarks} noShow='TEMP' />
-          </div>
-          <div className='webContent-right'>
-            <BookMarksCom bookMarks={bookMarks} onlyShow='TEMP' />
-          </div>
-        </div>
+    <div className='newTab' key='newTab' style={{ gridTemplateColumns: grid_tc }}>
+      <div className='webContent-left'
+        onMouseEnter={() => { setGrid_tc('4fr 1fr') }}
+        onMouseLeave={() => { setGrid_tc(_grid_tc) }}
+      >
+        <BookMarksCom bookMarks={bookMarks} noShow='TEMP'
+        />
       </div>
-    </div>
+      <div className='webContent-right'
+        onMouseEnter={() => { setGrid_tc('1fr 4fr') }}
+        onMouseLeave={() => { setGrid_tc(_grid_tc) }}
+      >
+        <BookMarksCom bookMarks={bookMarks} onlyShow='TEMP'
+        />
+      </div>
+    </div >
   )
 }
 

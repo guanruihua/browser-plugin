@@ -131,7 +131,6 @@ let options = {
   },
   resolve: {
     alias: {
-      '@assets': path.resolve('src/assets'),
       '@': path.resolve('src'),
       ...alias
     },
