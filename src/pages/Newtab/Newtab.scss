@@ -31,7 +31,7 @@ $w: $gap+7*($gap+$itemW);
 }
 
 %transition {
-  transition: all .4s linear;
+  transition: all .15s linear;
   // transition: all .2s linear, padding .2s linear, background-color .2s linear;
 }
 
@@ -43,8 +43,6 @@ $w: $gap+7*($gap+$itemW);
 
 %bg-image {
   background: #0c1120;
-  // background-image: url('./bg.jpg');
-  // background-image: url('./1266910.jpg');
   background-repeat: no-repeat;
   background-origin: border-box;
   background-attachment: fixed;
@@ -99,6 +97,7 @@ $w: $gap+7*($gap+$itemW);
   }
 
   .rh-card {
+    width: 100%;
     display: inline-block;
     vertical-align: top;
     border-radius: 6px;
