@@ -27,7 +27,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
         if (onlyShow && onlyShow !== item.title) return
         return (
           <RHCard key={item.id} title={item.title} {...rest}>
-            {item.children.map((iitem: any, index: number): any => {
+            {item.children && [].concat(item.children).map((iitem: any, index: number): any => {
               if (iitem.children && iitem.children.length > 0) {
                 if (item.title === 'TEMP') return
                 return <div
