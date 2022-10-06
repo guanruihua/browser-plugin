@@ -1,5 +1,5 @@
 import React from 'react'
-import { RHCard } from '../../../components'
+import { RHCard, RHImg } from '../../../components'
 import { windowOpenUrl } from '../utils'
 
 type bookMarksItemProps = {
@@ -25,8 +25,13 @@ const BookMarksCom = (props: bookMarksItemProps) => {
       {bookMarks && bookMarks.map((item: any): any => {
         if (noShow && noShow === item.title) return
         if (onlyShow && onlyShow !== item.title) return
+        if (item.title === 'Index') { item.title = '' }
         return (
-          <RHCard key={item.id} title={item.title} {...rest}>
+          <RHCard
+            key={item.id}
+            title={item.title}
+            className={item.title === '' ? 'Index' : undefined}
+            {...rest}>
             {item.children && [].concat(item.children).map((iitem: any, index: number): any => {
               if (iitem.children && iitem.children.length > 0) {
                 if (item.title === 'TEMP') return
@@ -57,7 +62,9 @@ const BookMarksCom = (props: bookMarksItemProps) => {
                   className='webContent-card-item'
                   {...rest}
                 >
-                  {iitem.title && handleTitleShow(iitem.title)}
+                  {/* <RHImg url={iitem.url} /> */}
+                  {item.title === '' ? (<RHImg isFavicon url={iitem.url} alt={item.title} />) : (iitem.title && handleTitleShow(iitem.title))}
+                  {/* {iitem.title && handleTitleShow(iitem.title)} */}
                 </div>
               )
             })}

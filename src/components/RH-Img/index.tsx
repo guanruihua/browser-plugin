@@ -11,6 +11,10 @@ import defaultUrl from './default.png'
 import axios from 'axios'
 axios.defaults.timeout = 30000 //设置超时时间为30s
 
+const urlMap: Record<string, string> = {
+  'https://www.npmjs.com/favicon.ico': 'https://static.npmjs.com/b0f1a8318363185cc2ea6a40ac23eeb2.png'
+}
+
 function ping(url: string): Promise<boolean> {
   return axios.get(url).then((res: { [key: string]: any }) => {
     try {
@@ -21,8 +25,16 @@ function ping(url: string): Promise<boolean> {
   })
 }
 
+
+function handleMapUrl(__src__: string) {
+  if (urlMap[__src__]) {
+    return urlMap[__src__]
+  }
+  return __src__
+}
+
 const Index = (props: any) => {
-  const { url = defaultUrl, errorUrl, isFavicon = false, ...config }: any = props
+  const { url = defaultUrl, errorUrl, isFavicon = false, alt, ...config }: any = props
   const [showDefaultImage, updateDefaultImage] = React.useState<boolean>(true)
 
   const imgGetError = (e: any): void => {
@@ -39,20 +51,26 @@ const Index = (props: any) => {
     let urlArr: string[] = []
     if (url) urlArr = url.split('/')
     if (url && urlArr.length > 3) {
+      const __src__: string = handleMapUrl(urlArr[0] + '//' + urlArr[2] + '/favicon.ico')
       React.useEffect(() => {
-        ping(urlArr[0] + '//' + urlArr[2] + '/favicon.ico').then((res: boolean) => {
+        ping(__src__).then((res: boolean) => {
           updateDefaultImage(!res)
         })
       }, [url])
       return (
         <>
           {showDefaultImage
-            ? <img src={defaultUrl} alt='default' />
+            ? <img
+              key={__src__}
+              src={defaultUrl}
+              alt={alt} />
             : <img
-              src={urlArr[0] + '//' + urlArr[2] + '/favicon.ico'}
+              key={__src__}
+              src={__src__}
               onError={imgGetError}
+              title={alt}
+              alt={alt}
               {...config}
-              alt=''
             />}
         </>
       )
@@ -62,7 +80,8 @@ const Index = (props: any) => {
   return <img
     src={defaultUrl}
     onError={(e: any) => imgGetError(e)}
-    alt=''
+    title={alt}
+    alt={alt}
     {...config}
   />
 }

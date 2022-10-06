@@ -106,10 +106,42 @@ $w: $gap+7*($gap+$itemW);
     background-color: transparent;
     @extend %transition;
 
-    &:hover {
-      &:target-within {
-        grid-template-columns: 3fr 2fr;
+    &.Index {
+      .rh-card-title {
+        display: none;
       }
+
+      background: #647a9c linear-gradient(135deg, #2e4cb8, #0d111f);
+      margin-bottom: 10px;
+
+      .webContent-card-item {
+        color: rgb(189, 189, 189);
+        padding: 9px 12px;
+        background-color: rgba(#1d232e, .3);
+        border-radius: 12px;
+        box-shadow: #6e7fb1;
+        box-sizing: content-box;
+        font-size: larger;
+        font-weight: bolder;
+        width: 30px;
+        min-height: 30px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+        &:hover {
+          color: #fff;
+          background-color: rgba(#fff, .2);
+          text-shadow: 0 0px 1px #fff;
+          font-style: italic;
+        }
+      }
+    }
+
+
+    &:hover {
 
       .rh-card-title {
         font-size: xx-large;
