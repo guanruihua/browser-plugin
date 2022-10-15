@@ -107,6 +107,10 @@ $w: $gap+7*($gap+$itemW);
     @extend %transition;
 
     &.Index {
+      &:hover {
+        padding-bottom: 5px;
+      }
+
       .rh-card-title {
         display: none;
       }
@@ -142,12 +146,15 @@ $w: $gap+7*($gap+$itemW);
 
 
     &:hover {
+      padding: 5px;
+      padding-bottom: 40px;
 
       .rh-card-title {
         font-size: xx-large;
         color: #eee;
         text-shadow: 0 0px 2px #fff;
         font-style: italic;
+        margin-bottom: 5px;
       }
 
       background: #647a9c linear-gradient(135deg, #2a9a9c, #130cb7);
@@ -161,6 +168,8 @@ $w: $gap+7*($gap+$itemW);
         box-sizing: content-box;
         font-size: larger;
         font-weight: bolder;
+        margin-right: 8px;
+        margin-bottom: 5px;
 
         &:hover {
           color: #fff;

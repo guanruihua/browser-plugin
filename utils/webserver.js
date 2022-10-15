@@ -27,7 +27,7 @@ delete config.chromeExtensionBoilerplate
 
 let compiler = webpack(config)
 
-let server = new WebpackDevServer(compiler, {
+const server = new WebpackDevServer(compiler, {
   https: false,
   hot: true,
   injectClient: false,
