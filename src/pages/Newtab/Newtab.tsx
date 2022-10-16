@@ -13,14 +13,14 @@ function Newtab() {
   return (
     <div className='newTab' key='newTab' style={{ gridTemplateColumns: grid_tc }}>
       <div className='webContent-left'
-        onMouseEnter={() => { setGrid_tc('5fr 2fr') }}
+        onMouseEnter={() => { setGrid_tc('5fr 3fr') }}
         onMouseLeave={() => { setGrid_tc(_grid_tc) }}
       >
         <BookMarksCom bookMarks={bookMarks} noShow='TEMP'
         />
       </div>
       <div className='webContent-right'
-        onMouseEnter={() => { setGrid_tc('2fr 5fr') }}
+        onMouseEnter={() => { setGrid_tc('3fr 5fr') }}
         onMouseLeave={() => { setGrid_tc(_grid_tc) }}
       >
         <BookMarksCom bookMarks={bookMarks} onlyShow='TEMP'

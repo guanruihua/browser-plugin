@@ -148,6 +148,7 @@ $w: $gap+7*($gap+$itemW);
     &:hover {
       padding: 5px;
       padding-bottom: 40px;
+      height: fit-content;
 
       .rh-card-title {
         font-size: xx-large;
