@@ -6,11 +6,15 @@ export function useBookMarks(): tUseBookMarkMarks {
 
 	const [bookMarks, setBookMarks] = React.useState([]);
 
-	const updateBookMarks: any = (callback: (val: any) => void): void => {
+	const updateBookMarks = (): void => {
 		chrome.bookmarks.getTree(function (browserBookmarks: any[]): void {
-			// console.log("bookmarks:", browserBookmarks[0].children[0].children);
-			setBookMarks(browserBookmarks[0].children[0].children)
-			callback && callback(browserBookmarks[0].children[0].children)
+			const list = browserBookmarks[0].children[0].children || []
+			setBookMarks(list.filter((item: any) => {
+				if (item.title && /^\./.test(item.title)) {
+					return false
+				}
+				return true
+			}))
 		})
 	}
 

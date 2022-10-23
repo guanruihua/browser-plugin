@@ -32,7 +32,6 @@ $w: $gap+7*($gap+$itemW);
 
 %transition {
   transition: all .15s linear;
-  // transition: all .2s linear, padding .2s linear, background-color .2s linear;
 }
 
 %flex-center {
@@ -55,7 +54,6 @@ $w: $gap+7*($gap+$itemW);
   margin-bottom: 4px;
   padding: 0;
   padding: 1px 2px;
-  // padding: 4px 6px 4px 4px;
 }
 
 %font {
@@ -82,53 +80,56 @@ $w: $gap+7*($gap+$itemW);
 
 .newTab {
   min-height: 100vh;
-  padding: 5px;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   @extend %bg-image;
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  padding-left: 75px;
+  grid-template-columns: 1fr;
   width: 100%;
   @extend %transition;
-
-
-  @media screen and (max-width:800px) {
-    grid-template-columns: 1fr;
-  }
+  padding-top: 5px;
 
   .rh-card {
-    width: 100%;
+    width: 99%;
     display: inline-block;
     vertical-align: top;
     border-radius: 6px;
     padding: 0;
     @extend %font;
-    background-color: transparent;
     @extend %transition;
 
     &.Index {
+      width: 100%;
+      min-height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 65px;
+      border-radius: 0;
+      background: #647a9c linear-gradient(135deg, #2e4cb8, #0d111f);
+      margin-bottom: 10px;
+
       &:hover {
-        padding-bottom: 5px;
+        height: 100%;
+        padding: 0;
       }
 
       .rh-card-title {
         display: none;
       }
 
-      background: #647a9c linear-gradient(135deg, #2e4cb8, #0d111f);
-      margin-bottom: 10px;
 
       .webContent-card-item {
+        margin: 3px auto;
         color: rgb(189, 189, 189);
         padding: 9px 12px;
         background-color: rgba(#1d232e, .3);
         border-radius: 12px;
-        box-shadow: #6e7fb1;
         box-sizing: content-box;
         font-size: larger;
         font-weight: bolder;
         width: 30px;
-        min-height: 30px;
 
         img {
           width: 100%;
@@ -137,8 +138,7 @@ $w: $gap+7*($gap+$itemW);
 
         &:hover {
           color: #fff;
-          background-color: rgba(#fff, .2);
-          text-shadow: 0 0px 1px #fff;
+          background-color: rgba(#fff, .1);
           font-style: italic;
         }
       }
@@ -147,8 +147,9 @@ $w: $gap+7*($gap+$itemW);
 
     &:hover {
       padding: 5px;
-      padding-bottom: 40px;
+      padding-bottom: 20px;
       height: fit-content;
+      background: #647a9c linear-gradient(135deg, #2a9a9c, #130cb7);
 
       .rh-card-title {
         font-size: xx-large;
@@ -158,24 +159,20 @@ $w: $gap+7*($gap+$itemW);
         margin-bottom: 5px;
       }
 
-      background: #647a9c linear-gradient(135deg, #2a9a9c, #130cb7);
 
       .webContent-card-item {
         color: rgb(189, 189, 189);
         padding: 9px 12px;
         background-color: rgba(#1d232e, .3);
         border-radius: 12px;
-        box-shadow: #6e7fb1;
+
         box-sizing: content-box;
         font-size: larger;
         font-weight: bolder;
-        margin-right: 8px;
-        margin-bottom: 5px;
 
         &:hover {
           color: #fff;
-          background-color: rgba(#fff, .2);
-          text-shadow: 0 0px 1px #fff;
+          background-color: rgba(#fff, .1);
           font-style: italic;
         }
       }
@@ -197,7 +194,6 @@ $w: $gap+7*($gap+$itemW);
 
     div.webContent-card-item {
       @extend %transition;
-
       @extend %common-padding-margin;
       @extend %font;
       overflow: hidden;
@@ -205,48 +201,6 @@ $w: $gap+7*($gap+$itemW);
       display: flex;
       align-items: center;
       box-sizing: border-box;
-
-      &-group {
-        width: 100%;
-        border: none;
-        padding: 0;
-        margin: 0;
-        overflow: hidden;
-        box-sizing: border-box;
-
-
-        &>div {
-          display: inline-block;
-          @extend %font;
-          border-radius: 3px;
-          padding: 4px 6px 4px 4px;
-          margin-right: 3px;
-          background-color: rgba(#074ccc, .2);
-          border: 1px solid #015aff;
-
-          &:hover {
-            color: rgb(132, 0, 255);
-            background-color: rgba(#1d232e, .9);
-          }
-
-        }
-
-        &-title {
-          border-radius: 3px;
-          display: inline-block;
-          padding: 4px 6px 4px 4px;
-          margin-right: 3px;
-          cursor: none;
-          @extend %font;
-          background-color: #0d2d68;
-          font-weight: 800;
-          color: rgba($color: rgb(187, 243, 217), $alpha: .6);
-          border: 1px solid #006958;
-        }
-
-      }
-
-
     }
 
   }

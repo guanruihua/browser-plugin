@@ -33,25 +33,6 @@ const BookMarksCom = (props: bookMarksItemProps) => {
             className={item.title === '' ? 'Index' : undefined}
             {...rest}>
             {item.children && [].concat(item.children).map((iitem: any, index: number): any => {
-              if (iitem.children && iitem.children.length > 0) {
-                if (item.title === 'TEMP') return
-                return <div
-                  key={item.id + index}
-                  className='webContent-card-item-group'
-                >
-                  <span className='webContent-card-item-group-title'>
-                    {iitem?.title && handleTitleShow(iitem.title) || `Temp${index}`}
-                  </span>
-                  {iitem?.children?.map((iiitem: any): any => {
-                    return <div
-                      key={item.id + index + iiitem.id}
-                      onClick={(): void => {
-                        iiitem.url && windowOpenUrl(iiitem.url)
-                      }}>
-                      {iiitem.title && handleTitleShow(iiitem.title)}
-                    </div>
-                  })}</div>
-              }
 
               return (
                 <div
