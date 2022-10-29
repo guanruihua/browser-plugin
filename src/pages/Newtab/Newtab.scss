@@ -83,9 +83,7 @@ $w: $gap+7*($gap+$itemW);
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   @extend %bg-image;
-  display: grid;
   padding-left: 75px;
-  grid-template-columns: 1fr;
   width: 100%;
   @extend %transition;
   padding-top: 5px;
@@ -96,6 +94,7 @@ $w: $gap+7*($gap+$itemW);
     vertical-align: top;
     border-radius: 6px;
     padding: 0;
+    height: auto;
     @extend %font;
     @extend %transition;
 

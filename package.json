@@ -1,5 +1,5 @@
 {
-  "name": "rh-react-ui",
+  "name": "edge-plugin",
   "version": "0.0.2",
   "description": "浏览器插件, 自定义React UI 控件",
   "main": "src/components/index.ts",
