@@ -141,8 +141,8 @@ let options = {
   plugins: [
     new webpack.ProgressPlugin(),
     new CleanWebpackPlugin({
-      verbose: true,
-      cleanStaleWebpackAssets: true
+      // verbose: true,
+      // cleanStaleWebpackAssets: true
     }),
     // new ESLintPlugin({
     //   context: './src', // 检查目录
