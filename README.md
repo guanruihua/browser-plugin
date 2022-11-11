@@ -7,7 +7,7 @@
 > 3. 通过弹框添加 标签页
 >    1. 修改成分组的
 
-
+```js
    // "background",
     // "webRequest",
     // "activeTab",
@@ -54,3 +54,4 @@
     "activeTab"
   ]
 }
+```
