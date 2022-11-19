@@ -54,7 +54,7 @@
     "prettier": "^2.2.1",
     "qrcode.react": "^1.0.1",
     "react-json-view": "^1.21.3",
-    "rh-mock": "^0.0.11",
+    "rh-mock": "^2.0.0-beta.0",
     "sass-loader": "^11.0.1",
     "source-map-loader": "^2.0.1",
     "style-loader": "^2.0.0",

@@ -9,10 +9,12 @@
 import React from 'react'
 import defaultUrl from './default.png'
 import axios from 'axios'
+import GithubLogo from '@/assets/img/GitHub-Mark-32px.png'
 axios.defaults.timeout = 30000 //设置超时时间为30s
 
 const urlMap: Record<string, string> = {
-  'https://www.npmjs.com/favicon.ico': 'https://static.npmjs.com/b0f1a8318363185cc2ea6a40ac23eeb2.png'
+  'https://www.npmjs.com/favicon.ico': 'https://static.npmjs.com/b0f1a8318363185cc2ea6a40ac23eeb2.png',
+  'github': GithubLogo
 }
 
 function ping(url: string): Promise<boolean> {
@@ -27,6 +29,9 @@ function ping(url: string): Promise<boolean> {
 
 
 function handleMapUrl(__src__: string) {
+  if (/github.com/.exec(__src__)) {
+    return urlMap.github
+  }
   if (urlMap[__src__]) {
     return urlMap[__src__]
   }
