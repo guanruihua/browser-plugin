@@ -1,11 +1,10 @@
 import React, { FC, useEffect, useState } from 'react'
 import { RHTab } from '@/components'
 import { useConfig } from '@/assets/config'
-import SettingPage from './Setting'
 import TestComponent from './TestComponent'
 import CodePage from './Code'
 import './Options.scss'
-import MockPage from './Mock'
+import FakingDataPage from './FakingData'
 
 const TabPane: FC<any> = RHTab.TabPane
 const [Config, { setConfig, getConfig }] = useConfig()
@@ -31,11 +30,8 @@ const Options: React.FC = () => {
         setActive(val)
       }}
     >
-      <TabPane tab='Setting' key='1' active='1'>
-        <SettingPage />
-      </TabPane>
-      <TabPane tab='Mock' key='3' active='3'>
-        <MockPage />
+      <TabPane tab='Fake Data' key='3' active='3'>
+        <FakingDataPage />
       </TabPane>
       <TabPane tab='Code' key='2' active='2'>
         <CodePage />

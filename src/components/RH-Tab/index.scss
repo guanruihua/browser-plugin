@@ -1,4 +1,4 @@
-$title-h: 34px;
+$title-h: 17px;
 
 * {
   padding: 0;
@@ -36,13 +36,16 @@ $title-h: 34px;
     color: #000;
     border-bottom: #f0f0f0 solid 1px;
     position: absolute;
+    white-space: nowrap;
 
     .rh-tab-title {
       display: inline-block;
       height: $title-h;
       line-height: 1;
-      padding: 10px 15px 20px 10px;
+      padding: 10px 15px 5px 10px;
       margin-right: 5px;
+      margin-bottom: -1px;
+      box-sizing: content-box;
       cursor: pointer;
 
       &:hover {

@@ -2,22 +2,31 @@
   width: 100%;
   position: relative;
 
+  & .control-btns {
+    display: block;
+    width: 100%;
+
+    button {
+      background: transparent;
+    }
+  }
+
   .rh-edit-code {
     position: absolute;
     left: 0;
     display: inline-block;
     width: 49.5%;
     height: 600px;
-    top: 37px;
   }
 
   .react-json-view {
     right: 0;
     display: inline-block;
     width: 49.5%;
-    margin-left: .5%;
     border: 1px solid #767676;
     border-radius: 6px;
     padding: 10px;
+    background-color: #6685d3 !important;
+
   }
 }

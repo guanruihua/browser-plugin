@@ -1,23 +1,27 @@
-.OptionsContainer {
-  // position: relative;
+.rh-tab-content.OptionsContainer {
+  min-height: 100vh;
+
+  background-color: red;
+  background: url('../../assets/img/filter-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  // width: 100%;
-  // height: 50vh;
-  // font-size: 14px;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // background-color: rgb(127, 211, 127);
 }
+
+
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  // overflow: hidden;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.534);
 
   &::-webkit-scrollbar {
     width: 6px;

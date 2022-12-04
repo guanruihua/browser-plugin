@@ -33,9 +33,6 @@ function TestComponent(): any {
       <RHTab.TabPane tab='Chart' key='chart' active='chart'>
         <TestChart />
       </RHTab.TabPane>
-      <RHTab.TabPane tab='Test Component' key='998' active='998'>
-        ccc
-      </RHTab.TabPane>
     </RHTab>
   )
 }

@@ -9,7 +9,6 @@ function PerCSS(props: PerCSSProps) {
 
   return (
     <div className='options-code-edit-css'>
-      <div className='title'>CSS</div>
       <RHCodeEdit onChange={onChange} onEnter={onChange} value={show} />
     </div>
   )
