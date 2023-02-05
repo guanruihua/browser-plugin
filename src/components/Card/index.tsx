@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.scss'
 
-interface iRHCard {
+interface iCard {
   title?: string
   children?: any
   titleChildren?: any
@@ -9,9 +9,9 @@ interface iRHCard {
   [key: string]: any
 }
 
-function RHCard(props: iRHCard): any {
+function Card(props: iCard): any {
 
-  const { title, titleChildren, children, className, ...rest }: iRHCard = props
+  const { title, titleChildren, children, className, ...rest }: iCard = props
   return (
     <div className={`rh-card ${className ? className : ''}`} {...rest}>
       <div className='rh-card-title'>
@@ -23,4 +23,4 @@ function RHCard(props: iRHCard): any {
   )
 }
 
-export default RHCard
+export default Card

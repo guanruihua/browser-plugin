@@ -1,22 +1,22 @@
 import React, { ChangeEvent } from 'react'
 import './index.scss'
-import { iRHCheck } from './type'
+import { iCheck } from './type'
 import { useWatch } from '../../assets/Hooks/hook'
 
-function RHCheckGroup(props: any) {
+function CheckGroup(props: any) {
   const { children } = props
   return <div className='rh-button-check-group'>{children}</div>
 }
 
-function RHCheckGroupOption(props: any) {
+function CheckGroupOption(props: any) {
   const { children } = props
   return <div className='rh-button-check-group-option'>{children}</div>
 }
 
-RHCheckGroup.Option = RHCheckGroupOption
+CheckGroup.Option = CheckGroupOption
 
-function RHCheck(props: iRHCheck) {
-  const { name, id, checked, children, onCheck, ...rest }: iRHCheck = props
+function Check(props: iCheck) {
+  const { name, id, checked, children, onCheck, ...rest }: iCheck = props
   const [isChecked, setChecked] = useWatch(checked || false)
 
   return (
@@ -37,7 +37,7 @@ function RHCheck(props: iRHCheck) {
   )
 }
 
-const RHButton: any = (props: any) => {
+const Button: any = (props: any) => {
   const { ...rest } = props
   return (
     <button className='rh-btn' {...rest}>
@@ -46,7 +46,7 @@ const RHButton: any = (props: any) => {
   )
 }
 
-RHButton.RHCheck = RHCheck
-RHButton.RHCheckGroup = RHCheckGroup
+Button.Check = Check
+Button.CheckGroup = CheckGroup
 
-export default RHButton
+export default Button

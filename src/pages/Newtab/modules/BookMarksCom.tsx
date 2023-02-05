@@ -1,5 +1,5 @@
 import React from 'react'
-import { RHCard, Img } from '../../../components'
+import { Card, Img } from '../../../components'
 import { windowOpenUrl } from '../utils'
 
 interface bookMarksItemProps {
@@ -18,7 +18,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
         if (onlyShow && onlyShow !== item.title) return
         if (item.title === 'Index') { item.title = '' }
         return (
-          <RHCard
+          <Card
             key={item.id}
             title={item.title}
             className={item.title === '' ? 'Index' : undefined}
@@ -41,7 +41,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
                 : (iitem.title && (iitem.title))}
             </div>)
             )}
-          </RHCard>
+          </Card>
         )
       })}
     </React.Fragment>

@@ -23,7 +23,7 @@ export default class Flow extends React.Component<FlowProps> {
     const { actions = [] }: FlowProps = this.props
     return (
       <div>
-        RHCHart
+        Chart
         <h3>{JSON.stringify(actions)}</h3>
         <canvas ref={this.canvas} width={800} height={600}>
           Your browser does not support Canvas

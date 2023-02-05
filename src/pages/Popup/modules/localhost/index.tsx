@@ -1,5 +1,5 @@
 import React from "react"
-import { RHInput } from '@/components'
+import { Input } from '@/components'
 import { Blass, usePorts } from './hook'
 import './index.scss'
 
@@ -8,12 +8,12 @@ const Index = () => {
 
 return <div className={Blass()}>
 		<div className={Blass('-header')}>
-			<RHInput
+			<Input
 				type={'text'}
 				defaultValue={action.baseUrl || ''}
 				onChange={(e: any) => action.setBaseUrl(e.target.value)} />
 
-			<RHInput
+			<Input
 				type={'text'}
 				value={action.port}
 				onChange={(e: any) => action.setPort(e.target.value)} />

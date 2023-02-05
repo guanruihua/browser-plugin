@@ -1,6 +1,6 @@
-import React, { ChangeEvent, FC } from 'react'
+import { ChangeEvent } from 'react'
 
-export interface iRHCheck {
+export interface iCheck {
   name: string
   id: string
   checked?: boolean

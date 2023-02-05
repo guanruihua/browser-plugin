@@ -24,18 +24,18 @@ function Search(props: Search): any {
 	</div>
 }
 
-interface iRHInput {
+interface iInput {
 	className?: string
 	[key: string]: any;
 }
 
-const RHInput: any = (props: iRHInput): any => {
+const Input: any = (props: iInput): any => {
 	const { className } = props
 	return <input
 		className={styles.input + (className ? ' ' + className : '')}	
 		{...props} />
 }
 
-RHInput.Search = Search;
+Input.Search = Search;
 
-export default RHInput;
+export default Input;

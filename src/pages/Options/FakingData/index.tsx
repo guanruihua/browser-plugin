@@ -1,5 +1,5 @@
 import React from "react"
-import { RHButton, RHEdit } from "@/components"
+import { Button, Edit } from "@/components"
 import ReactJson from 'react-json-view'
 import Fake from 'fakingjs'
 import './index.scss'
@@ -36,11 +36,11 @@ export default function FakingDataPage() {
 
 	return <div className="options-mock">
 		<div className="control-btns">
-			<RHButton onClick={() => {
+			<Button onClick={() => {
 				handleMockScript(param, updateResult)
-			}}>生成</RHButton>
+			}}>生成</Button>
 		</div>
-		<RHEdit.Code
+		<Edit.Code
 			value={param}
 			onChange={(value: string) => {
 				updateParam(value)
