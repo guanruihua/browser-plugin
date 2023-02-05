@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import RHTab from '../../components/RH-Tab'
+import RHTab from '../../components/Tab'
 import './Panel.scss'
 import Fanyi from './Fanyi'
 import DiffStr from './DiffStr'

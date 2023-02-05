@@ -1,10 +1,10 @@
 import React from 'react'
-import { RHChart } from '@/components'
+import { Chart } from '@/components'
 
 export default function () {
   return (
     <div style={{ background: '#fff' }}>
-      <RHChart.Flow
+      <Chart.Flow
         actions={[
           'st=>start: 开始',
           'ipt=>inputoutput: 输入一个x',

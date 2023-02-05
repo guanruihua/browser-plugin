@@ -18,6 +18,9 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["./src/**/*"],
+  "include": [
+    "./src/**/*",
+    "node_modules/**/*.d.ts"
+  ],
   "exclude": ["build", "node_modules"]
 }

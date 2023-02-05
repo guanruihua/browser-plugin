@@ -1,7 +1,7 @@
 import React from 'react'
 import { BaseCodeEdit } from '../assets/type'
-import { RHEdit } from '../../../../components'
-const RHCodeEdit: React.FC<any> = RHEdit.Code
+import { Edit } from '../../../../components'
+const RHCodeEdit: React.FC<any> = Edit.Code
 export type PerCSSProps = BaseCodeEdit
 
 function PerCSS(props: PerCSSProps) {
@@ -9,7 +9,6 @@ function PerCSS(props: PerCSSProps) {
 
   return (
     <div className='options-code-edit-css'>
-      <div className='title'>CSS</div>
       <RHCodeEdit onChange={onChange} onEnter={onChange} value={show} />
     </div>
   )

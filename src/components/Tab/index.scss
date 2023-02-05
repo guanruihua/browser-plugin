@@ -1,0 +1,77 @@
+$title-h: 17px;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.rh-tab-content {
+  border: none;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  position: relative;
+
+
+  &-show {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    .rh-tab-pane {
+      display: none;
+      width: 100%;
+      border-radius: 3px;
+
+      &.rh-tab-pane-select {
+        display: block;
+      }
+    }
+  }
+
+  .rh-tab-header {
+    color: #000;
+    border-bottom: #f0f0f0 solid 1px;
+    position: absolute;
+    white-space: nowrap;
+
+    .rh-tab-title {
+      display: inline-block;
+      height: $title-h;
+      line-height: 1;
+      padding: 10px 15px 5px 10px;
+      margin-right: 5px;
+      margin-bottom: -1px;
+      box-sizing: content-box;
+      cursor: pointer;
+
+      &:hover {
+        color: #1890ff;
+      }
+
+      &.rh-tab-title-top-select,
+      &.rh-tab-title-bottom-select,
+      &.rh-tab-title-select {
+        color: #1890ff;
+        border-bottom: #1890ff solid 2px;
+      }
+
+      &.rh-tab-title-left-select {
+        color: #1890ff;
+        width: 100%;
+        border-right: #1890ff solid 2px;
+      }
+
+      &.rh-tab-title-right-select {
+        color: #1890ff;
+        width: 100%;
+        border-left: #1890ff solid 2px;
+      }
+    }
+
+
+  }
+}

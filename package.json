@@ -1,7 +1,7 @@
 {
   "name": "edge-plugin",
-  "version": "0.0.2",
-  "description": "浏览器插件, 自定义React UI 控件",
+  "version": "0.2.0",
+  "description": "浏览器插件",
   "main": "src/components/index.ts",
   "license": "MIT",
   "scripts": {
@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "axios": "^0.23.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-hot-loader": "^4.13.0"
   },
   "devDependencies": {
@@ -29,6 +29,7 @@
     "@types/react-dom": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
+    "abandonjs": "^2.5.3",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
@@ -44,6 +45,7 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-webpack-plugin": "^3.1.1",
+    "fakingjs": "0.1.1",
     "file-loader": "^6.2.0",
     "fs-extra": "^9.1.0",
     "fs-react": "0.0.4",
@@ -53,8 +55,8 @@
     "node-sass": "^7.0.1",
     "prettier": "^2.2.1",
     "qrcode.react": "^1.0.1",
+    "qs": "^6.11.0",
     "react-json-view": "^1.21.3",
-    "rh-mock": "^0.0.11",
     "sass-loader": "^11.0.1",
     "source-map-loader": "^2.0.1",
     "style-loader": "^2.0.0",

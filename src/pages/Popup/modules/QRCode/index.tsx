@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from "react"
+/* eslint-disable*/
+import React, { ChangeEvent, useEffect } from "react"
 import QRCode from 'qrcode.react'
 import { useLocalStorage } from '@/assets'
 import './index.scss'

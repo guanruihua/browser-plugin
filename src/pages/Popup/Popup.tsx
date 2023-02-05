@@ -5,7 +5,7 @@ import './Popup.css'
 
 const TabPane = RHTab.TabPane
 
-const Popup = () => {
+export default () => {
   const [active, setActive] = useState<string>(localStorage.getItem('active') || '1')
   return (
     <div className='App'>
@@ -29,5 +29,3 @@ const Popup = () => {
     </div>
   )
 }
-
-export default Popup

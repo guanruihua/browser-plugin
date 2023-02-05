@@ -1,7 +1,7 @@
 import React from 'react'
 import { BaseCodeEdit } from '../assets/type'
-import { RHEdit } from '../../../../components'
-const RHCodeEdit: React.FC<any> = RHEdit.Code
+import { Edit } from '../../../../components'
+const RHCodeEdit: React.FC<any> = Edit.Code
 export type PerHTMLProps = BaseCodeEdit
 
 function PerHTML(props: PerHTMLProps) {
@@ -9,7 +9,6 @@ function PerHTML(props: PerHTMLProps) {
 
   return (
     <div className='options-code-edit-html'>
-      <div className='title'>HTML</div>
       <RHCodeEdit onChange={onChange} onEnter={onChange} value={show} />
     </div>
   )

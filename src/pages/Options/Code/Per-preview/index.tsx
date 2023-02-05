@@ -4,7 +4,9 @@ export type PerPreviewProps = BaseCodeEdit
 
 function PerPreview(props: PerPreviewProps) {
   return (
-    <div className='options-code-preview-show' dangerouslySetInnerHTML={{ __html: props.show }} />
+    <div
+      className='options-code-preview-show'
+      dangerouslySetInnerHTML={{ __html: props.show }} />
   )
 }
 export default PerPreview
