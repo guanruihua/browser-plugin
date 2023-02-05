@@ -3,7 +3,6 @@ import { useBookMarks } from './hook'
 import BookMarksCom from './modules/BookMarksCom'
 import './Newtab.scss'
 
-
 function Newtab() {
   const [bookMarks] = useBookMarks()
   return (

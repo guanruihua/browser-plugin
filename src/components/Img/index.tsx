@@ -1,18 +1,12 @@
-/*
- * File: index.js
- * Project: RH
- * Author: ruihuag
- * File Created: Monday, 19th July 2021 5:39:04 pm
- * Modified By: ruihuag
- * Last Modified: Monday, 19th July 2021 5:57:03 pm
- */
 import React from 'react'
 import defaultUrl from './default.png'
 import axios from 'axios'
 import GithubLogo from '@/assets/img/GitHub-Mark-32px.png'
+import { ObjectType } from 'abandonjs'
+
 axios.defaults.timeout = 30000 //设置超时时间为30s
 
-const urlMap: Record<string, string> = {
+const urlMap: ObjectType<string> = {
   'https://www.npmjs.com/favicon.ico': 'https://static.npmjs.com/b0f1a8318363185cc2ea6a40ac23eeb2.png',
   'github': GithubLogo
 }
@@ -24,12 +18,13 @@ function ping(url: string): Promise<boolean> {
     } catch (error) {
       return false
     }
+  }).catch(() => {
+    return false
   })
 }
 
-
 function handleMapUrl(__src__: string) {
-  if (/github.com/.exec(__src__)) {
+  if (/github/.exec(__src__)) {
     return urlMap.github
   }
   if (urlMap[__src__]) {
@@ -68,7 +63,8 @@ const Index = (props: any) => {
             ? <img
               key={__src__}
               src={defaultUrl}
-              alt={alt} />
+              alt={alt}
+              {...config} />
             : <img
               key={__src__}
               src={__src__}

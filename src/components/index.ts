@@ -1,13 +1,4 @@
-/*
- * File: index.js
- * Project: RH
- * Author: ruihuag
- * File Created: Monday, 19th July 2021 5:41:55 pm
- * Modified By: ruihuag
- * Last Modified: Monday, 19th July 2021 5:50:21 pm
- */
-
-export { default as RHImg } from './RH-Img'
+export { default as Img } from './Img'
 
 export { default as RHAudio } from './RH-Audio'
 

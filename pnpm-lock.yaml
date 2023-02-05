@@ -11,7 +11,7 @@ specifiers:
   '@types/react-dom': ^17.0.1
   '@typescript-eslint/eslint-plugin': ^5.12.0
   '@typescript-eslint/parser': ^5.12.0
-  abandonjs: ^2.2.2
+  abandonjs: ^2.5.3
   axios: ^0.23.0
   babel-eslint: ^10.1.0
   babel-loader: ^8.2.2
@@ -38,11 +38,11 @@ specifiers:
   node-sass: ^7.0.1
   prettier: ^2.2.1
   qrcode.react: ^1.0.1
-  react: ^17.0.1
-  react-dom: ^17.0.1
+  qs: ^6.11.0
+  react: '18'
+  react-dom: '18'
   react-hot-loader: ^4.13.0
   react-json-view: ^1.21.3
-  rh-mock: ^2.0.0-beta.0
   sass-loader: ^11.0.1
   source-map-loader: ^2.0.1
   style-loader: ^2.0.0
@@ -55,22 +55,22 @@ specifiers:
 
 dependencies:
   axios: 0.23.0
-  react: 17.0.2
-  react-dom: 17.0.2_react@17.0.2
-  react-hot-loader: 4.13.1_gzv7pa6nrbev3fs6gyzn7sadkq
+  react: 18.2.0
+  react-dom: 18.2.0_react@18.2.0
+  react-hot-loader: 4.13.1_4c3rps5tc2yowtcrqid3cuwlea
 
 devDependencies:
   '@babel/core': 7.20.5
   '@babel/plugin-proposal-class-properties': 7.18.6_@babel+core@7.20.5
   '@babel/preset-env': 7.20.2_@babel+core@7.20.5
   '@babel/preset-react': 7.18.6_@babel+core@7.20.5
-  '@hot-loader/react-dom': 17.0.2_react@17.0.2
+  '@hot-loader/react-dom': 17.0.2_react@18.2.0
   '@types/chrome': 0.0.132
   '@types/react': 17.0.52
   '@types/react-dom': 17.0.18
   '@typescript-eslint/eslint-plugin': 5.45.0_bq23d4eyosgl3prll2fwsiqj2m
   '@typescript-eslint/parser': 5.45.0_77fvizpdb3y4icyeo2mf4eo7em
-  abandonjs: 2.2.2
+  abandonjs: 2.5.3
   babel-eslint: 10.1.0_eslint@7.32.0
   babel-loader: 8.3.0_ztqwsvkb6z73luspkai6ilstpu
   babel-preset-react-app: 10.0.1
@@ -95,9 +95,9 @@ devDependencies:
   ip: 1.1.8
   node-sass: 7.0.3
   prettier: 2.8.0
-  qrcode.react: 1.0.1_react@17.0.2
-  react-json-view: 1.21.3_gzv7pa6nrbev3fs6gyzn7sadkq
-  rh-mock: 2.0.0-beta.0
+  qrcode.react: 1.0.1_react@18.2.0
+  qs: 6.11.0
+  react-json-view: 1.21.3_4c3rps5tc2yowtcrqid3cuwlea
   sass-loader: 11.1.1_m747edfdbufymktlnircx3mhmy
   source-map-loader: 2.0.2_webpack@5.75.0
   style-loader: 2.0.0_webpack@5.75.0
@@ -1467,14 +1467,14 @@ packages:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
     dev: true
 
-  /@hot-loader/react-dom/17.0.2_react@17.0.2:
+  /@hot-loader/react-dom/17.0.2_react@18.2.0:
     resolution: {integrity: sha512-G2RZrFhsQClS+bdDh/Ojpk3SgocLPUGnvnJDTQYnmKSSwXtU+Yh+8QMs+Ia3zaAvBiOSpIIDSUxuN69cvKqrWg==}
     peerDependencies:
       react: 17.0.2
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-      react: 17.0.2
+      react: 18.2.0
       scheduler: 0.20.2
     dev: true
 
@@ -1997,8 +1997,8 @@ packages:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
     dev: true
 
-  /abandonjs/2.2.2:
-    resolution: {integrity: sha512-Duo47IjkXQppuZ9rFe0+P48oHynC6HUUtAhgcmr78r0tGj2fIAjvwshYCVFlxutsoP/W9Hkig1XYTsETpWfVWw==}
+  /abandonjs/2.5.3:
+    resolution: {integrity: sha512-DDALa6quY75yDQ3Kx/gosTpCpAYeoWCagjyvWmwMUEl1/uZznIauUBAXEdAR4YDEY2SuF5wT8aERzK3NZqd+7Q==}
     engines: {node: '>=16'}
     dev: true
 
@@ -4179,14 +4179,14 @@ packages:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
     dev: true
 
-  /flux/4.0.3_react@17.0.2:
+  /flux/4.0.3_react@18.2.0:
     resolution: {integrity: sha512-yKAbrp7JhZhj6uiT1FTuVMlIAT1J4jqEyBpFApi1kxpGZCvacMVc/t1pMQyotqHhAgvoE3bNvAykhCo2CLjnYw==}
     peerDependencies:
       react: ^15.0.2 || ^16.0.0 || ^17.0.0
     dependencies:
       fbemitter: 3.0.0
       fbjs: 3.0.4
-      react: 17.0.2
+      react: 18.2.0
     transitivePeerDependencies:
       - encoding
     dev: true
@@ -6427,7 +6427,7 @@ packages:
     resolution: {integrity: sha512-c4iYnWb+k2E+vYpRimHqSu575b1/wKl4XFeJGpFmrJQz5I88v9aY2czh7s0w36srfCM1sXgC/xpoJz5dJfq+OQ==}
     dev: true
 
-  /qrcode.react/1.0.1_react@17.0.2:
+  /qrcode.react/1.0.1_react@18.2.0:
     resolution: {integrity: sha512-8d3Tackk8IRLXTo67Y+c1rpaiXjoz/Dd2HpcMdW//62/x8J1Nbho14Kh8x974t9prsLHN6XqVgcnRiBGFptQmg==}
     peerDependencies:
       react: ^15.5.3 || ^16.0.0 || ^17.0.0
@@ -6435,7 +6435,7 @@ packages:
       loose-envify: 1.4.0
       prop-types: 15.8.1
       qr.js: 0.0.0
-      react: 17.0.2
+      react: 18.2.0
     dev: true
 
   /qs/6.11.0:
@@ -6499,17 +6499,16 @@ packages:
       pure-color: 1.3.0
     dev: true
 
-  /react-dom/17.0.2_react@17.0.2:
-    resolution: {integrity: sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==}
+  /react-dom/18.2.0_react@18.2.0:
+    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
-      react: 17.0.2
+      react: ^18.2.0
     dependencies:
       loose-envify: 1.4.0
-      object-assign: 4.1.1
-      react: 17.0.2
-      scheduler: 0.20.2
+      react: 18.2.0
+      scheduler: 0.23.0
 
-  /react-hot-loader/4.13.1_gzv7pa6nrbev3fs6gyzn7sadkq:
+  /react-hot-loader/4.13.1_4c3rps5tc2yowtcrqid3cuwlea:
     resolution: {integrity: sha512-ZlqCfVRqDJmMXTulUGic4lN7Ic1SXgHAFw7y/Jb7t25GBgTR0fYAJ8uY4mrpxjRyWGWmqw77qJQGnYbzCvBU7g==}
     engines: {node: '>= 6'}
     peerDependencies:
@@ -6526,8 +6525,8 @@ packages:
       hoist-non-react-statics: 3.3.2
       loader-utils: 2.0.4
       prop-types: 15.8.1
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
       react-lifecycles-compat: 3.0.4
       shallowequal: 1.1.0
       source-map: 0.7.4
@@ -6536,18 +6535,18 @@ packages:
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  /react-json-view/1.21.3_gzv7pa6nrbev3fs6gyzn7sadkq:
+  /react-json-view/1.21.3_4c3rps5tc2yowtcrqid3cuwlea:
     resolution: {integrity: sha512-13p8IREj9/x/Ye4WI/JpjhoIwuzEgUAtgJZNBJckfzJt1qyh24BdTm6UQNGnyTq9dapQdrqvquZTo3dz1X6Cjw==}
     peerDependencies:
       react: ^17.0.0 || ^16.3.0 || ^15.5.4
       react-dom: ^17.0.0 || ^16.3.0 || ^15.5.4
     dependencies:
-      flux: 4.0.3_react@17.0.2
-      react: 17.0.2
+      flux: 4.0.3_react@18.2.0
+      react: 18.2.0
       react-base16-styling: 0.6.0
-      react-dom: 17.0.2_react@17.0.2
+      react-dom: 18.2.0_react@18.2.0
       react-lifecycles-compat: 3.0.4
-      react-textarea-autosize: 8.4.0_q5o373oqrklnndq2vhekyuzhxi
+      react-textarea-autosize: 8.4.0_dsvndo4wjx7umk5x4kyqypffly
     transitivePeerDependencies:
       - '@types/react'
       - encoding
@@ -6556,26 +6555,25 @@ packages:
   /react-lifecycles-compat/3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
 
-  /react-textarea-autosize/8.4.0_q5o373oqrklnndq2vhekyuzhxi:
+  /react-textarea-autosize/8.4.0_dsvndo4wjx7umk5x4kyqypffly:
     resolution: {integrity: sha512-YrTFaEHLgJsi8sJVYHBzYn+mkP3prGkmP2DKb/tm0t7CLJY5t1Rxix8070LAKb0wby7bl/lf2EeHkuMihMZMwQ==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       '@babel/runtime': 7.20.6
-      react: 17.0.2
-      use-composed-ref: 1.3.0_react@17.0.2
-      use-latest: 1.2.1_q5o373oqrklnndq2vhekyuzhxi
+      react: 18.2.0
+      use-composed-ref: 1.3.0_react@18.2.0
+      use-latest: 1.2.1_dsvndo4wjx7umk5x4kyqypffly
     transitivePeerDependencies:
       - '@types/react'
     dev: true
 
-  /react/17.0.2:
-    resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
+  /react/18.2.0:
+    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-      object-assign: 4.1.1
 
   /read-pkg-up/7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
@@ -6850,11 +6848,6 @@ packages:
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
     dev: true
 
-  /rh-mock/2.0.0-beta.0:
-    resolution: {integrity: sha512-ZXnFUTPRtIquUdeNTZIPRXulCVl5J5vh5UKTAGUOiEFhgP8S4lyZemQe9zgnObrELN+WHnDyIUCc6WVJHU+opQ==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    dev: true
-
   /rimraf/2.7.1:
     resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
     hasBin: true
@@ -6939,6 +6932,12 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
+    dev: true
+
+  /scheduler/0.23.0:
+    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
+    dependencies:
+      loose-envify: 1.4.0
 
   /schema-utils/1.0.0:
     resolution: {integrity: sha512-i27Mic4KovM/lnGsy8whRCHhc7VicJajAjTrYg11K9zfZXnYIt4k5F+kZkwjnrhKzLic/HLU4j11mjsz2G/75g==}
@@ -7914,15 +7913,15 @@ packages:
       querystring: 0.2.0
     dev: true
 
-  /use-composed-ref/1.3.0_react@17.0.2:
+  /use-composed-ref/1.3.0_react@18.2.0:
     resolution: {integrity: sha512-GLMG0Jc/jiKov/3Ulid1wbv3r54K9HlMW29IWcDFPEqFkSO2nS0MuefWgMJpeHQ9YJeXDL3ZUF+P3jdXlZX/cQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      react: 17.0.2
+      react: 18.2.0
     dev: true
 
-  /use-isomorphic-layout-effect/1.1.2_q5o373oqrklnndq2vhekyuzhxi:
+  /use-isomorphic-layout-effect/1.1.2_dsvndo4wjx7umk5x4kyqypffly:
     resolution: {integrity: sha512-49L8yCO3iGT/ZF9QttjwLF/ZD9Iwto5LnH5LmEdk/6cFmXddqi2ulF0edxTwjj+7mqvpVVGQWvbXZdn32wRSHA==}
     peerDependencies:
       '@types/react': '*'
@@ -7932,10 +7931,10 @@ packages:
         optional: true
     dependencies:
       '@types/react': 17.0.52
-      react: 17.0.2
+      react: 18.2.0
     dev: true
 
-  /use-latest/1.2.1_q5o373oqrklnndq2vhekyuzhxi:
+  /use-latest/1.2.1_dsvndo4wjx7umk5x4kyqypffly:
     resolution: {integrity: sha512-xA+AVm/Wlg3e2P/JiItTziwS7FK92LWrDB0p+hgXloIMuVCeJJ8v6f0eeHyPZaJrM+usM1FkFfbNCrJGs8A/zw==}
     peerDependencies:
       '@types/react': '*'
@@ -7945,8 +7944,8 @@ packages:
         optional: true
     dependencies:
       '@types/react': 17.0.52
-      react: 17.0.2
-      use-isomorphic-layout-effect: 1.1.2_q5o373oqrklnndq2vhekyuzhxi
+      react: 18.2.0
+      use-isomorphic-layout-effect: 1.1.2_dsvndo4wjx7umk5x4kyqypffly
     dev: true
 
   /use/3.1.1:
