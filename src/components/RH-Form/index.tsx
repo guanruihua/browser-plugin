@@ -1,3 +1,4 @@
+/* eslint-disable*/
 import React, { FC, FormEvent, useState } from "react";
 import { getDomList, createDomByList } from './Utils'
 import styles from './index.module.scss'

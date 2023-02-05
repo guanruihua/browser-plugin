@@ -1,18 +1,14 @@
-const webpack = require('webpack'),
-  path = require('path'),
-  fileSystem = require('fs-extra'),
-  env = require('./utils/env'),
-  { CleanWebpackPlugin } = require('clean-webpack-plugin'),
-  CopyWebpackPlugin = require('copy-webpack-plugin'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  TerserPlugin = require('terser-webpack-plugin')
-// const ESLintPlugin = require('eslint-webpack-plugin')
+const webpack = require('webpack')
+const path = require('path')
+const fileSystem = require('fs-extra')
+const env = require('./utils/env')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 const ASSET_PATH = process.env.ASSET_PATH || '/'
-
-let alias = {
-  'react-dom': '@hot-loader/react-dom'
-}
 
 // load the secrets
 const secretsPath = path.join(__dirname, 'secrets.' + env.NODE_ENV + '.js')
@@ -47,13 +43,10 @@ let options = {
       {
         test: /\.module.scss$/,
         use: [
-          {
-            loader: 'style-loader'
-          },
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
-              // modules: true,
               modules: {
                 localIdentName: '_[local]_[hash:base64:6]'
               },
@@ -77,12 +70,8 @@ let options = {
       {
         test: /\.(css|scss)$/,
         use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
+          'style-loader',
+          'css-loader',
           {
             loader: 'sass-loader',
             options: {
@@ -117,12 +106,8 @@ let options = {
       {
         test: /\.(js|jsx)$/,
         use: [
-          {
-            loader: 'source-map-loader'
-          },
-          {
-            loader: 'babel-loader'
-          }
+          'source-map-loader',
+          'babel-loader'
         ],
         exclude: /node_modules/,
         include: [path.resolve(__dirname, 'src')]
@@ -132,7 +117,7 @@ let options = {
   resolve: {
     alias: {
       '@': path.resolve('src'),
-      ...alias
+      'react-dom': '@hot-loader/react-dom'
     },
     extensions: fileExtensions
       .map(extension => '.' + extension)
@@ -144,10 +129,10 @@ let options = {
       // verbose: true,
       // cleanStaleWebpackAssets: true
     }),
-    // new ESLintPlugin({
-    //   context: './src', // 检查目录
-    //   extensions: ['js', 'jsx', 'ts', 'tsx'] // 文件扩展
-    // }),
+    new ESLintPlugin({
+      context: './src', // 检查目录
+      extensions: ['js', 'jsx', 'ts', 'tsx'] // 文件扩展
+    }),
     new webpack.EnvironmentPlugin(['NODE_ENV']),
     new CopyWebpackPlugin({
       patterns: [

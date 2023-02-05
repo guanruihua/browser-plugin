@@ -1,5 +1,5 @@
-import React, { FC, FormEvent, useState } from "react";
-import { getDomList, createDomByList } from './Utils'
+/* eslint-disable*/
+import React, { FC } from "react";
 import styles from './index.module.scss'
 import { FormContext } from './index'
 

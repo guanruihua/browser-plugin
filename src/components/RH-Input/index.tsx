@@ -1,14 +1,6 @@
-import React, { ChangeEvent, KeyboardEvent, FC, useState } from "react";
+import React, { ChangeEvent, KeyboardEvent, useState } from "react";
 import styles from './index.module.scss'
 import './index.scss'
-
-const Password: FC<any> = () => {
-	return <div>Under development ...  pwd</div>
-}
-
-const TextArea: FC<any> = () => {
-	return <div>Under development ...  textArea</div>
-}
 
 export interface Search {
 	onSearch: (value: string) => void;
@@ -33,20 +25,17 @@ function Search(props: Search): any {
 }
 
 interface iRHInput {
-	classname?: string
+	className?: string
 	[key: string]: any;
 }
 
-
 const RHInput: any = (props: iRHInput): any => {
-	const { classname } = props
+	const { className } = props
 	return <input
-		className={styles.input + (classname ? ' ' + classname : '')}
+		className={styles.input + (className ? ' ' + className : '')}	
 		{...props} />
 }
 
-RHInput.Password = Password;
-RHInput.TextArea = TextArea;
 RHInput.Search = Search;
 
 export default RHInput;

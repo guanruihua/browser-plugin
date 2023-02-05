@@ -22,5 +22,5 @@ export { default as RHTextArea } from './RH-TextArea'
 export * from './RH-TextArea/type'
 
 export * as RHChart from './RH-Chart'
-export { default as RHSelect } from './RH-Select'
-export type { SelectProps, SelectOptionProps } from './RH-Select'
+// export { default as RHSelect } from './RH-Select'
+// export type { SelectProps, SelectOptionProps } from './RH-Select'

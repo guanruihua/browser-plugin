@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react"
+/* eslint-disable*/
+import React, { useState } from "react"
 import { Option, OptionProps } from './Option'
 import styles from './index.module.scss'
 
@@ -31,7 +32,6 @@ function Select(props: SelectProps) {
 		setValue(label)
 		name && setFormValue && setFormValue(name, value)
 	}
-	const clearValue = () => { setValue(undefined); name && setFormValue && setFormValue(name) }
 	return <div className={(className ? className + ' ' : '') + styles.select}>
 		<div>
 			<input
@@ -40,7 +40,6 @@ function Select(props: SelectProps) {
 				value={_value || ''}
 				onChange={() => { }}
 			/>
-			<span onClick={() => clearValue()}>x</span>
 		</div>
 		<div>
 			{[].concat(children).map((item: any, index: number) => {
