@@ -3,12 +3,14 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
+  background-color: transparent;
 
   &-textarea-content {
     width: 95% !important;
     border: 1px solid #808080;
     border-radius: 5px;
     margin: 6px auto;
+    background-color: transparent;
   }
 
   &-textarea {
@@ -21,10 +23,19 @@
     border: none;
     width: 98%;
     padding: 4px 5px;
+    background-color: transparent;
+    color: #eee;
   }
 
   &-code {
     margin-top: 15px;
     margin-bottom: 20px;
+    background-color: transparent;
+  }
+
+  canvas {
+    padding: 10px;
+    background: #fff;
+    border-radius: 12px;
   }
 }
