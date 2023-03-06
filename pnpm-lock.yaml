@@ -16,6 +16,7 @@ specifiers:
   babel-eslint: ^10.1.0
   babel-loader: ^8.2.2
   babel-preset-react-app: ^10.0.0
+  browser-helper-js: ^0.0.2
   clean-webpack-plugin: ^3.0.0
   copy-webpack-plugin: ^7.0.0
   css-loader: ^5.0.2
@@ -39,8 +40,8 @@ specifiers:
   prettier: ^2.2.1
   qrcode.react: ^1.0.1
   qs: ^6.11.0
-  react: '18'
-  react-dom: '18'
+  react: ^18.2.0
+  react-dom: ^18.2.0
   react-hot-loader: ^4.13.0
   react-json-view: ^1.21.3
   sass-loader: ^11.0.1
@@ -74,6 +75,7 @@ devDependencies:
   babel-eslint: 10.1.0_eslint@7.32.0
   babel-loader: 8.3.0_ztqwsvkb6z73luspkai6ilstpu
   babel-preset-react-app: 10.0.1
+  browser-helper-js: 0.0.2
   clean-webpack-plugin: 3.0.0_webpack@5.75.0
   copy-webpack-plugin: 7.0.0_webpack@5.75.0
   css-loader: 5.2.7_webpack@5.75.0
@@ -2614,6 +2616,11 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       fill-range: 7.0.1
+    dev: true
+
+  /browser-helper-js/0.0.2:
+    resolution: {integrity: sha512-W9EP180hoJ6++oJVcMLaTixd5AFPRW5ZcT18zdoaao1A1sO530N8IEW3aHOdeut03Fw0Q1XYoKT7dOmRT7gRTw==}
+    engines: {node: '>=16'}
     dev: true
 
   /browserslist/4.21.4:

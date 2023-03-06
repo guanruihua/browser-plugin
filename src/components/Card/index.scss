@@ -1,5 +1,6 @@
 .rh-card {
-  padding: 8px 10px;
+  // padding: 8px 10px;
+  padding: 0;
 
   &-title {
     padding: 4px 5px;
@@ -17,7 +18,8 @@
   }
 
   &-content {
-    padding: 4px 5px;
+    // padding: 4px 5px;
+    padding: 0;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
   }
