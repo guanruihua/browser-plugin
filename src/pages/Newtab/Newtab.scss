@@ -87,9 +87,13 @@ $w: $gap+7*($gap+$itemW);
   width: 100%;
   @extend %transition;
   padding-top: 5px;
+  column-count: 3;
+  column-gap: 0;
 
   .rh-card {
-    width: 99%;
+    box-sizing: border-box;
+    width: 100%;
+    break-inside: avoid;
     display: inline-block;
     vertical-align: top;
     border-radius: 6px;
@@ -97,6 +101,9 @@ $w: $gap+7*($gap+$itemW);
     height: auto;
     @extend %font;
     @extend %transition;
+    // background: #647a9c linear-gradient(135deg, #2a9a9c, #130cb7);
+
+    padding: 5px;
 
     &.Index {
       width: 100%;
@@ -146,44 +153,36 @@ $w: $gap+7*($gap+$itemW);
 
     &:hover {
       padding: 5px;
-      padding-bottom: 20px;
       height: fit-content;
       background: #647a9c linear-gradient(135deg, #2a9a9c, #130cb7);
 
       .rh-card-title {
-        font-size: xx-large;
         color: #eee;
         text-shadow: 0 0px 2px #fff;
         font-style: italic;
-        margin-bottom: 5px;
       }
 
 
       .webContent-card-item {
         color: rgb(189, 189, 189);
-        padding: 9px 12px;
-        background-color: rgba(#1d232e, .3);
-        border-radius: 12px;
-
-        box-sizing: content-box;
-        font-size: larger;
-        font-weight: bolder;
 
         &:hover {
           color: #fff;
-          background-color: rgba(#fff, .1);
           font-style: italic;
+          text-decoration: underline;
         }
       }
     }
 
     &-title {
+      font-size: 18px;
       font-weight: 800;
       border: none;
       color: rgba($color: #fff, $alpha: .6);
       border-radius: 3px;
       font-style: oblique;
       cursor: default;
+      margin-bottom: 4px;
     }
 
     &-content {
@@ -196,10 +195,14 @@ $w: $gap+7*($gap+$itemW);
       @extend %common-padding-margin;
       @extend %font;
       overflow: hidden;
-      border-radius: 3px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       box-sizing: border-box;
+      padding-right: 4px;
+      padding-bottom: 4px;
+      font-size: 12px;
+      font-weight: bolder;
     }
 
   }

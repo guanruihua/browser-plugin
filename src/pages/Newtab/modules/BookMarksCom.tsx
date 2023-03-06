@@ -2,11 +2,20 @@ import React from 'react'
 import { Card, Img } from '../../../components'
 import { windowOpenUrl } from '../utils'
 
-interface bookMarksItemProps {
+export interface bookMarksItemProps {
   bookMarks: any[]
   onlyShow?: string
   noShow?: string
   [key: string]: any
+}
+
+function handleTitle(title: string): string {
+  return title
+    .replaceAll(' ', '')
+    .replace(/(\?)|(!)/,'')
+    .replace(/(-掘金)|(-博客园)|(CSDN)|(博客)|(-SegmentFault思否)|(【.+】)|(-$)/gi, '')
+    .replace(/\(\d+条消息\)/gi, '')
+
 }
 
 const BookMarksCom = (props: bookMarksItemProps) => {
@@ -23,7 +32,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
             title={item.title}
             className={item.title === '' ? 'Index' : undefined}
             {...rest}>
-            {item.children && [].concat(item.children).map((iitem: any) =>
+            {item.children && [].concat(item.children).reverse().map((iitem: any) =>
             (<div
               key={iitem.id}
               onClick={(): void => {
@@ -38,7 +47,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
                   url={iitem.url}
                   alt={item.title}
                 />)
-                : (iitem.title && (iitem.title))}
+                : (iitem.title && handleTitle(iitem.title))}
             </div>)
             )}
           </Card>

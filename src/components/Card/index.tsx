@@ -1,4 +1,5 @@
 import React from 'react'
+import { classNames } from 'browser-helper-js'
 import './index.scss'
 
 interface iCard {
@@ -13,7 +14,10 @@ function Card(props: iCard): any {
 
   const { title, titleChildren, children, className, ...rest }: iCard = props
   return (
-    <div className={`rh-card ${className ? className : ''}`} {...rest}>
+    <div
+      className={classNames('rh-card', className)}
+      {...rest}
+    >
       <div className='rh-card-title'>
         {title || ''}
         {titleChildren && <div className='rh-card-title-right'>{titleChildren}</div>}
