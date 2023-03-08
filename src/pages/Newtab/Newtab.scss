@@ -83,7 +83,7 @@ $w: $gap+7*($gap+$itemW);
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   @extend %bg-image;
-  padding-left: 75px;
+  padding-left: 70px;
   width: 100%;
   @extend %transition;
   padding-top: 5px;
@@ -118,7 +118,6 @@ $w: $gap+7*($gap+$itemW);
 
       &:hover {
         height: 100%;
-        padding: 0;
       }
 
       .rh-card-title {
