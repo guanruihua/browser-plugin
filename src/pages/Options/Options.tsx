@@ -5,6 +5,7 @@ import TestComponent from './TestComponent'
 import CodePage from './Code'
 import './Options.scss'
 import FakingDataPage from './FakingData'
+import TranslateCMM from './translate'
 
 const TabPane: FC<any> = RHTab.TabPane
 const [Config, { setConfig, getConfig }] = useConfig()
@@ -35,6 +36,9 @@ const Options: React.FC = () => {
       </TabPane>
       <TabPane tab='Code' key='2' active='2'>
         <CodePage />
+      </TabPane>
+      <TabPane tab="translate" key='13' active='13'>
+        <TranslateCMM />
       </TabPane>
       <TabPane tab='Test Component' key='998' active='998'>
         <TestComponent />

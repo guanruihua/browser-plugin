@@ -1,8 +1,17 @@
+.translate{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  iframe{
+    width: 100%;
+    min-height: 100vh;
+  }
+}
+
 .rh-tab-content.OptionsContainer {
   min-height: 100vh;
 
-  background-color: red;
-  background: url('../../assets/img/filter-bg.jpg');
+  background-color: #0d1120;
+  // background: url('../../assets/img/filter-bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
