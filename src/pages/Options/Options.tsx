@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import { RHTab } from '@/components'
 import { useConfig } from '@/assets/config'
-import TestComponent from './TestComponent'
 import CodePage from './Code'
 import './Options.scss'
 import FakingDataPage from './FakingData'
@@ -39,9 +38,6 @@ const Options: React.FC = () => {
       </TabPane>
       <TabPane tab="translate" key='13' active='13'>
         <TranslateCMM />
-      </TabPane>
-      <TabPane tab='Test Component' key='998' active='998'>
-        <TestComponent />
       </TabPane>
       <TabPane tab='loading...' key='999' active='999'>
         待开发
