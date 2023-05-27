@@ -22,6 +22,8 @@ $max-width:49vw;
     resize: none;
     font-size: 16px;
     outline-style: none;
+    background: #123;
+    color: #fff;
   }
 
   &-translate {
@@ -70,10 +72,12 @@ $max-width:49vw;
     }
 
     img {
+      cursor: pointer;
       width: 100%;
       display: block;
       color: #fff;
-      background-color: #fff;
+      // background-color: #fff;
+      background-color: #333;
       min-height: 20px;
     }
   }

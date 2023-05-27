@@ -1,6 +1,6 @@
 {
   "name": "edge-plugin",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "浏览器插件",
   "main": "src/components/index.ts",
   "license": "MIT",
