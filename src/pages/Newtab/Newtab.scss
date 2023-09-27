@@ -57,7 +57,8 @@ $w: $gap+7*($gap+$itemW);
 }
 
 %font {
-  color: #8a96b9;
+  // color: #8a96b9;
+  color: rgba(255,255,255,.6);
   word-break: keep-all;
   word-wrap: break-word;
   cursor: pointer;
@@ -90,6 +91,9 @@ $w: $gap+7*($gap+$itemW);
   column-count: 3;
   column-gap: 0;
 
+  // background: #3b3b3b;
+  background: #1d1f20;
+
   .rh-card {
     box-sizing: border-box;
     width: 100%;
@@ -113,7 +117,7 @@ $w: $gap+7*($gap+$itemW);
       top: 0;
       width: 65px;
       border-radius: 0;
-      background: #647a9c linear-gradient(135deg, #2e4cb8, #0d111f);
+      // background: #647a9c linear-gradient(135deg, #2e4cb8, #0d111f);
       margin-bottom: 10px;
 
       &:hover {
@@ -130,6 +134,7 @@ $w: $gap+7*($gap+$itemW);
         color: rgb(189, 189, 189);
         padding: 9px 12px;
         background-color: rgba(#1d232e, .3);
+
         border-radius: 12px;
         box-sizing: content-box;
         font-size: larger;
@@ -153,7 +158,7 @@ $w: $gap+7*($gap+$itemW);
     &:hover {
       padding: 5px;
       height: fit-content;
-      background: #647a9c linear-gradient(135deg, #2a9a9c, #130cb7);
+      // background: #647a9c linear-gradient(135deg, #2a9a9c, #130cb7);
 
       .rh-card-title {
         color: #eee;
