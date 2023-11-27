@@ -9,7 +9,7 @@ const TabPane: FC<any> = RHTab.TabPane
 const Panel: React.FC = () => {
   return (
     <RHTab
-      defaultActiveKey={localStorage.panel_active_key || '1'}
+      defaultActiveKey={localStorage.panel_active_key || '2'}
       fontSize={14}
       onChange={(val: string): void => {
         localStorage.setItem('panel_active_key', val)
@@ -24,9 +24,6 @@ const Panel: React.FC = () => {
         <DiffStr />
       </TabPane>
 
-      <TabPane tab='Loading...' key='999' active='999'>
-        待开发
-      </TabPane>
     </RHTab>
   )
 }

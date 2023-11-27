@@ -1,31 +1,39 @@
 import React, { useState } from 'react'
 import { QRCodePage, Localhost } from './modules'
-import { RHTab } from '../../components'
 import './Popup.css'
-
-const TabPane = RHTab.TabPane
 
 export default () => {
   const [active, setActive] = useState<string>(localStorage.getItem('active') || '1')
   return (
     <div className='App'>
-      <RHTab
-        fontSize={14}
-        defaultActiveKey={active}
-        onChange={(val: string): void => {
-          setActive(val)
-          localStorage.setItem('active', val)
-        }}
-        key={'popup_key'}
-        style={{ border: 'none' }}
-      >
-        <TabPane tab='Href' key='href' active='href'>
-          <Localhost />
-        </TabPane>
-        <TabPane tab='QR Code' key='1' active='1'>
-          <QRCodePage />
-        </TabPane>
-      </RHTab>
+      <div style={{
+        textAlign: 'left'
+      }}>
+        {[
+          {
+            label: 'Href',
+            value: 'href',
+          },
+          {
+            label: 'QR Code',
+            value: 'qrCode',
+          }
+        ].map(item => {
+          return <div
+            className={`header-item${active === item.value ? ' active' : ''}`}
+            onClick={() => {
+              setActive(item.value)
+              localStorage.setItem('active', item.value)
+            }}>{item.label}</div>
+        })}
+      </div>
+      <div className='content'>
+        {
+          active === 'href' ? <Localhost /> :
+            active === 'qrCode' ? <QRCodePage /> :
+              <Localhost />
+        }
+      </div>
     </div>
   )
 }

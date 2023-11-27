@@ -4,7 +4,6 @@ export function windowSearch(
   params: string
 ): void {
   window.open(useUrl + inputValue + params, '_parent')
-  // console.log(useUrl + inputValue + params, '_parent')
 }
 
 export function windowOpenUrl(url: string): void {

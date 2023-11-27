@@ -1,1 +1,1 @@
-chrome.devtools.panels.create('RH Dev Tools', 'icon-34.png', 'panel.html') // eslint-disable-line
+chrome.devtools.panels.create('Ruihuag', 'icon-34.png', 'panel.html') // eslint-disable-line

@@ -58,7 +58,7 @@ $w: $gap+7*($gap+$itemW);
 
 %font {
   // color: #8a96b9;
-  color: rgba(255,255,255,.6);
+  color: rgba(255, 255, 255, .6);
   word-break: keep-all;
   word-wrap: break-word;
   cursor: pointer;
@@ -86,12 +86,11 @@ $w: $gap+7*($gap+$itemW);
   @extend %bg-image;
   padding-left: 70px;
   width: 100%;
-  @extend %transition;
+  // @extend %transition;
   padding-top: 5px;
   column-count: 3;
   column-gap: 0;
 
-  // background: #3b3b3b;
   background: #1d1f20;
 
   .rh-card {
@@ -117,8 +116,8 @@ $w: $gap+7*($gap+$itemW);
       top: 0;
       width: 65px;
       border-radius: 0;
-      // background: #647a9c linear-gradient(135deg, #2e4cb8, #0d111f);
-      margin-bottom: 10px;
+      background: #647a9c linear-gradient(195deg, #2e4cb8, #0d111f);
+      // background: #1d1f20;
 
       &:hover {
         height: 100%;
@@ -158,22 +157,22 @@ $w: $gap+7*($gap+$itemW);
     &:hover {
       padding: 5px;
       height: fit-content;
-      // background: #647a9c linear-gradient(135deg, #2a9a9c, #130cb7);
+      background: #647a9c linear-gradient(195deg, #2e4cb8, #0d111f);
 
       .rh-card-title {
         color: #eee;
         text-shadow: 0 0px 2px #fff;
-        font-style: italic;
       }
 
 
       .webContent-card-item {
         color: rgb(189, 189, 189);
-
+        
+        
         &:hover {
           color: #fff;
-          font-style: italic;
-          text-decoration: underline;
+          font-weight: bold;
+          text-shadow: 0 0px 1.2px #fff;
         }
       }
     }

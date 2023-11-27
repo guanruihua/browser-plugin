@@ -12,7 +12,7 @@ export interface bookMarksItemProps {
 function handleTitle(title: string): string {
   return title
     .replaceAll(' ', '')
-    .replace(/(\?)|(!)/,'')
+    .replace(/(\?)|(!)/, '')
     .replace(/(-掘金)|(-博客园)|(CSDN)|(博客)|(-SegmentFault思否)|(【.+】)|(-$)/gi, '')
     .replace(/\(\d+条消息\)/gi, '')
 
@@ -26,11 +26,14 @@ const BookMarksCom = (props: bookMarksItemProps) => {
         if (noShow && noShow === item.title) return
         if (onlyShow && onlyShow !== item.title) return
         if (item.title === 'Index') { item.title = '' }
+
+        const [title, showIcon = false] = item.title.split('_')
+
         return (
           <Card
             key={item.id}
-            title={item.title}
-            className={item.title === '' ? 'Index' : undefined}
+            title={title}
+            className={title === '' ? 'Index' : undefined}
             {...rest}>
             {item.children && [].concat(item.children).reverse().map((iitem: any) =>
             (<div
@@ -41,11 +44,22 @@ const BookMarksCom = (props: bookMarksItemProps) => {
               className='webContent-card-item'
               {...rest}
             >
+              {showIcon && (<Img
+                isFavicon
+                errorHidden
+                url={iitem.url}
+                alt={iitem.title}
+                style={{
+                  width: 12,
+                  height: 12,
+                  marginRight: 4
+                }}
+              />)}
               {item.title === ''
                 ? (<Img
                   isFavicon
                   url={iitem.url}
-                  alt={item.title}
+                  alt={iitem.title}
                 />)
                 : (iitem.title && handleTitle(iitem.title))}
             </div>)
