@@ -35,7 +35,7 @@ export default function CountdownCountdown(props: any) {
       // console.log(config[0])
       isArray(config) &&
         config.forEach(({ value, status }) => {
-          if (value == now && status === '0') {
+          if (value == now && status === '') {
             handle.setTime(-1)
           }else{
             handle.setTime(getCountdownWorkTime())

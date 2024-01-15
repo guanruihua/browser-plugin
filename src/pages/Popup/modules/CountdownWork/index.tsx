@@ -3,6 +3,8 @@ import { useLocalStorage } from '0hook'
 import dayjs from 'dayjs'
 import { isArray } from 'asura-eye'
 import { type ObjectType } from 'abandonjs'
+import './index.scss'
+
 type Config = ObjectType[]
 export const CountdownWork = () => {
   const [value, setValue] = useLocalStorage('CountdownWork')
@@ -23,7 +25,7 @@ export const CountdownWork = () => {
     }
   }
 
-  const setWorkStatus = (newStatus: '1' | '0' = '1') => {
+  const setWorkStatus = (newStatus: '1' | '' = '1') => {
     let val = getOldVal()
     let hasConfig = false
     if (val.length > 7) {
@@ -47,11 +49,12 @@ export const CountdownWork = () => {
 
   React.useEffect(() => {
     try {
+      _setWorkStatus('1')
       const config = JSON.parse(localStorage.getItem(key) || '[]')
       isArray(config) &&
         config.forEach(({ value, status }) => {
           if (value == now) {
-            _setWorkStatus(status)
+            _setWorkStatus(status==='1'?'1':'')
           }
         })
     } catch (error) {
@@ -60,16 +63,8 @@ export const CountdownWork = () => {
   }, [])
 
   return (
-    <div
-      style={{
-        color: '#fff',
-        display: 'grid',
-        gridTemplateColumns: 'auto 1fr',
-        gap: 12,
-        padding: '0 12px '
-      }}
-    >
-      <div style={{ display: 'flex', alignItems: 'center' }}>CountDown Work Time:</div>
+    <div className='countdown-work'>
+      <div>CountDown Work Time:</div>
       <input
         type='time'
         value={value as string}
@@ -77,12 +72,12 @@ export const CountdownWork = () => {
           setValue(e.target.value)
         }}
       />
-      <div>Working</div>
+      <div>Working:</div>
       <input
         type='checkbox'
         value={workStatus}
         onChange={() => {
-          setWorkStatus(workStatus === '1' ? '0' : '1')
+          setWorkStatus(workStatus === '1' ? '' : '1')
         }}
       />
     </div>
