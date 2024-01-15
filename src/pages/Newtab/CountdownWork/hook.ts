@@ -31,5 +31,5 @@ export function useCountdown(initialTime: number) {
     setIsRunning(false)
   }
 
-  return [time, { start, pause, reset }] as any
+  return [time, { start, pause, reset, setTime }] as any
 }
