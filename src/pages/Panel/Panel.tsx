@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import RHTab from '../../components/Tab'
 import './Panel.scss'
-import Fanyi from './Fanyi'
 import DiffStr from './DiffStr'
 
 const TabPane: FC<any> = RHTab.TabPane
@@ -15,11 +14,6 @@ const Panel: React.FC = () => {
         localStorage.setItem('panel_active_key', val)
       }}
     >
-
-      <TabPane tab='Translate' key='2' active='2'>
-        <Fanyi />
-      </TabPane>
-
       <TabPane tab='String Comparison' key='3' active='3'>
         <DiffStr />
       </TabPane>

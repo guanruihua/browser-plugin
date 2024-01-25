@@ -8,13 +8,10 @@ export interface bookMarksItemProps {
   noShow?: string
   [key: string]: any
 }
-
+const reg =
+  /\?|!|\s-?\s?npm|\s-?\s?掘金|\s-?\s?博客园|\s-?\s?CSDN|\s-?\s?博客|\s-?\s?知乎|\s-?\s?SegmentFault|思否|(【.+】)|(-$)|\(\d+条消息\)`/gi
 function handleTitle(title: string): string {
-  return title
-    .replaceAll(' ', '')
-    .replace(/(\?)|(!)/, '')
-    .replace(/(-掘金)|(-博客园)|(CSDN)|(博客)|(-SegmentFault思否)|(【.+】)|(-$)/gi, '')
-    .replace(/\(\d+条消息\)/gi, '')
+  return title.replace(reg, '')
 }
 
 const BookMarksCom = (props: bookMarksItemProps) => {
@@ -42,7 +39,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
               {item.children &&
                 []
                   .concat(item.children)
-                  .reverse()
+                  .sort((a: any, b: any) => a.title.length - b.title.length)
                   .map((iitem: any) => (
                     <div
                       key={iitem.id}
@@ -59,17 +56,15 @@ const BookMarksCom = (props: bookMarksItemProps) => {
                           url={iitem.url}
                           alt={iitem.title}
                           style={{
-                            width: 12,
-                            height: 12,
-                            marginRight: 4
+                            width: 14,
+                            height: 14,
+                            marginRight: 6
                           }}
                         />
                       )}
-                      {item.title === '' ? (
-                        <Img isFavicon url={iitem.url} alt={iitem.title} />
-                      ) : (
-                        iitem.title && handleTitle(iitem.title)
-                      )}
+                      <span title={iitem.title && handleTitle(iitem.title)}>
+                        {iitem.title && handleTitle(iitem.title)}
+                      </span>
                     </div>
                   ))}
             </Card>

@@ -27,6 +27,7 @@ export default () => {
         ].map(item => {
           return (
             <div
+              key={item.value}
               className={`header-item${active === item.value ? ' active' : ''}`}
               onClick={() => {
                 setActive(item.value)
