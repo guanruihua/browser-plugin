@@ -4,6 +4,7 @@ import BookMarksCom from './modules/BookMarksCom'
 import CountdownWork from './CountdownWork'
 import { Img } from '../../components'
 import { windowOpenUrl } from './utils'
+import { isArray } from 'asura-eye'
 import './Newtab.scss'
 
 export default function () {
@@ -27,24 +28,22 @@ export default function () {
       <div className='newTab'>
         <BookMarksCom bookMarks={restBookMarks} />
       </div>
+      <div className='bg'></div>
       <div className='nav'>
         {indexBookMarks.map((item: any) => (
           <React.Fragment>
-            {item.children &&
-              []
-                .concat(item.children)
-                .reverse()
-                .map((iitem: any) => (
-                  <div
-                    key={item.id + iitem.id}
-                    onClick={(): void => {
-                      windowOpenUrl(iitem.url)
-                    }}
-                    className='nav-item'
-                  >
-                    <Img isFavicon url={iitem.url} alt={iitem.title} />
-                  </div>
-                ))}
+            {isArray(item.children) &&
+              item.children.reverse().map((iitem: any) => (
+                <div
+                  key={item.id + iitem.id}
+                  onClick={(): void => {
+                    windowOpenUrl(iitem.url)
+                  }}
+                  className='nav-item'
+                >
+                  <Img isFavicon url={iitem.url} alt={iitem.title} />
+                </div>
+              ))}
           </React.Fragment>
         ))}
         <CountdownWork className='nav-item' />
