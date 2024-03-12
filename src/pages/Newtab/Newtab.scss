@@ -34,12 +34,6 @@ $w: $gap+7*($gap+$itemW);
   transition: all .15s linear;
 }
 
-%flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 %bg-image {
   background: url(../../assets/img/bg.jpg);
   background-repeat: no-repeat;
@@ -47,13 +41,6 @@ $w: $gap+7*($gap+$itemW);
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-}
-
-%common-padding-margin {
-  margin-right: 4px;
-  margin-bottom: 4px;
-  padding: 0;
-  padding: 1px 2px;
 }
 
 %font {
@@ -75,10 +62,6 @@ $w: $gap+7*($gap+$itemW);
   height: 13px;
   border-radius: 3px;
   margin-right: 5px;
-}
-
-.newTabBox {
-  background: #0c1120;
 }
 
 .nav {
@@ -125,67 +108,62 @@ $w: $gap+7*($gap+$itemW);
   z-index: 10;
 }
 
+.newTabBox {
+  background: #0c1120;
+
+  .search-input {
+    margin: 0;
+    padding: 0 12px;
+    outline: none;
+    border: none;
+    color: #fff;
+    border-radius: 100px;
+    background: rgba(0,0,0, .4);
+  }
+}
+
 .newTab {
   height: 100%;
   max-height: 100%;
   min-height: 100vh;
   width: 100%;
   overflow-y: auto;
-  column-count: 5;
-  column-gap: 0;
   padding: 10px 10px 60px 10px;
   position: relative;
   background: transparent;
   z-index: 100;
 
-  .rh-card {
-    box-sizing: border-box;
-    width: 100%;
-    break-inside: avoid;
-    display: inline-block;
-    vertical-align: top;
-    border-radius: 6px;
-    padding: 5px;
-    height: auto;
-    @extend %font;
-    @extend %transition;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
-    &-title {
-      font-size: 18px;
-      font-weight: 800;
+  .webContent-card-item-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px 5px;
+  }
+
+  .webContent-card-item {
+
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: rgba($color: #fff, $alpha: .9);
+    text-shadow: 0px 2px 4px #000;
+    padding: 3px 8px;
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 12px;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, .2);
+
+    &.title {
       border: none;
-      color: rgba($color: #fff, $alpha: .9);
-      text-shadow: 0px 2px 4px #000;
-      border-radius: 3px;
-      font-style: oblique;
-      cursor: default;
-      margin-bottom: 4px;
-    }
-
-    &-content {
-      display: grid;
-      width: auto;
-      gap: 1px;
-
-      div.webContent-card-item {
-        @extend %transition;
-        display: inline-flex;
-        align-items: center;
-        box-sizing: border-box;
-        padding: 2px 5px;
-        border-radius: 8px;
-        background: transparent;
-
-        span {
-          color: #d6f3ff;
-          // color: #81c529;
-          font-size: 12px;
-          font-family: Arial, Helvetica, sans-serif;
-          font-weight: bolder;
-          text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
-          white-space: wrap;
-        }
-      }
+      font-size: 16px;
+      font-weight: bold;
+      background-color: rgba(31, 69, 121, 0.8);
     }
   }
+
+
 }

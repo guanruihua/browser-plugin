@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Img } from '../../../components'
+import { Img } from '../../../components'
 import { windowOpenUrl } from '../utils'
 
 export interface bookMarksItemProps {
@@ -30,12 +30,8 @@ const BookMarksCom = (props: bookMarksItemProps) => {
           const itemConfig = [...config]
           if (itemConfig.includes('hidden')) return <div style={{ display: 'none' }}></div>
           return (
-            <Card
-              key={item.id}
-              title={title}
-              className={title === '' ? 'Index' : undefined}
-              {...rest}
-            >
+            <div className='webContent-card-item-box' key={item.title}>
+              <div className='webContent-card-item title'>{title}</div>
               {item.children &&
                 []
                   .concat(item.children)
@@ -67,7 +63,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
                       </span>
                     </div>
                   ))}
-            </Card>
+            </div>
           )
         })}
     </React.Fragment>
