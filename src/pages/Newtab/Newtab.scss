@@ -118,7 +118,7 @@ $w: $gap+7*($gap+$itemW);
     border: none;
     color: #fff;
     border-radius: 100px;
-    background: rgba(0,0,0, .4);
+    background: rgba(0, 0, 0, .4);
   }
 }
 
@@ -132,7 +132,7 @@ $w: $gap+7*($gap+$itemW);
   position: relative;
   background: transparent;
   z-index: 100;
-
+  padding: 20px 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -151,11 +151,17 @@ $w: $gap+7*($gap+$itemW);
     font-size: 14px;
     color: rgba($color: #fff, $alpha: .9);
     text-shadow: 0px 2px 4px #000;
-    padding: 3px 8px;
-    background-color: rgba(0, 0, 0, .2);
-    border-radius: 12px;
+    padding: 3px 18px 3px 4px;
+
+    // background-color: rgba(0, 0, 0, .2);
     cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, .2);
+    // border: 1px solid rgba(0, 0, 0, .2);
+    // border-right: 3px solid rgba(0, 0, 0, .5);
+
+    &:first-child {
+      border-radius: 12px;
+      padding: 3px 8px;
+    }
 
     &.title {
       border: none;
