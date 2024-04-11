@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { default as GithubLogo } from '@/assets/img/GitHub-Mark-32px.png'
-import { ObjectType } from 'abandonjs'
+import { ObjectType } from '0type'
 
 axios.defaults.timeout = 30000 //设置超时时间为30s
 

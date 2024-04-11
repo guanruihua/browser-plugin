@@ -8,6 +8,11 @@ import { isArray } from 'asura-eye'
 import './Newtab.scss'
 
 export default function () {
+
+  // window.setTimeout(function () {
+  //   window.location.reload()
+  // }, 6000)
+
   const [bookMarks] = useBookMarks()
   const getBookMarks = () => {
     const indexBookMarks: any[] = []

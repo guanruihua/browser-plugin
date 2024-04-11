@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { uid } from '../../assets/utils'
-import { tUseState, useWatch } from '../../assets/Hooks/hook'
+import { type tUseState, useWatch } from '../../assets/Hooks/hook'
 import { useTheme } from '../../assets/Hooks/theme'
 import { useBookMarks } from '../../assets/Hooks/useBookMarks'
 import { useConfig } from '../../assets/config'

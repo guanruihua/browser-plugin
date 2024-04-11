@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Ruihuag",
+  "name": "RuihuagDemo",
   "options_page": "options.html",
   "background": {
     "service_worker": "background.bundle.js"

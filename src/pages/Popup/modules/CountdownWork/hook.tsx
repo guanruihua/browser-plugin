@@ -1,6 +1,7 @@
 import React from 'react'
 import dayjs from 'dayjs'
-import { type ObjectType, stringify, parse } from 'abandonjs'
+import { stringify, parse } from 'abandonjs'
+import { type ObjectType } from '0type'
 
 type Config = {
   lastUpdate: string
@@ -11,7 +12,7 @@ type Config = {
 const key = '__CountdownWork__Config__'
 
 const getNow = () => dayjs().format('YYYY-MM-DD')
-const getStatus = ()=> [0,6].includes(dayjs().day()) ? '': '1'
+const getStatus = () => ([0, 6].includes(dayjs().day()) ? '' : '1')
 
 const defaultConfig = () => ({
   lastUpdate: getNow(),

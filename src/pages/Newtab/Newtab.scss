@@ -104,7 +104,7 @@ $w: $gap+7*($gap+$itemW);
   margin: auto;
   width: 100%;
   height: 100%;
-  filter: blur(2px);
+  filter: blur(3px);
   z-index: 10;
 }
 
@@ -128,46 +128,40 @@ $w: $gap+7*($gap+$itemW);
   min-height: 100vh;
   width: 100%;
   overflow-y: auto;
-  padding: 10px 10px 60px 10px;
   position: relative;
   background: transparent;
   z-index: 100;
-  padding: 20px 10px;
-  display: flex;
-  flex-direction: column;
+  padding: 16px 16px 64px;
   gap: 10px;
-
-  .webContent-card-item-box {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 4px 5px;
-  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
   .webContent-card-item {
-
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap;
+    white-space: wrap;
+    
     font-size: 14px;
     color: rgba($color: #fff, $alpha: .9);
-    text-shadow: 0px 2px 4px #000;
-    padding: 3px 18px 3px 4px;
-
-    // background-color: rgba(0, 0, 0, .2);
+    text-shadow: 0px 3px 9px #000;
+    padding: 4px;
+    background: transparent;
     cursor: pointer;
-    // border: 1px solid rgba(0, 0, 0, .2);
-    // border-right: 3px solid rgba(0, 0, 0, .5);
-
-    &:first-child {
-      border-radius: 12px;
-      padding: 3px 8px;
-    }
+    box-sizing: border-box;
 
     &.title {
+      border-radius: 12px;
       border: none;
-      font-size: 16px;
+      padding: 4px 12px;
       font-weight: bold;
+      cursor: default;
       background-color: rgba(31, 69, 121, 0.8);
+    }
+
+    &:hover {
+      color: rgba($color: #fff, $alpha: 1);
     }
   }
 
