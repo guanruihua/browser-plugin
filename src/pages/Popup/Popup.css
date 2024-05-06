@@ -5,6 +5,7 @@
   left: 0px;
   right: 0px;
   text-align: center;
+  background: transparent;
 }
 
 .App-logo {
@@ -16,6 +17,27 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.header-item {
+  display: inline-block;
+  background: transparent;
+  cursor: pointer;
+  color: #fff;
+  padding: 6px 9px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 12px;
+  font-weight: bold;
+
+  &:hover,
+  &:active,
+  &.active {
+    color: #61dafb;
+  }
+}
+.content{
+  padding: 10px;
 }
 
 .App-header {

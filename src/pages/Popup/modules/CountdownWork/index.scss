@@ -1,0 +1,22 @@
+.countdown-work {
+  color: #fff;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  padding: 0 12px;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  input {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    &[type=checkbox]{
+      width: 18px;
+    }
+  }
+}

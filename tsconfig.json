@@ -14,13 +14,14 @@
     "resolveJsonModule": true,
     "noEmit": false,
     "jsx": "react",
+    "checkJs": false,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
   "include": [
     "./src/**/*",
-    "node_modules/**/*.d.ts"
+    "node_modules/**/*.ts"
   ],
-  "exclude": ["build", "node_modules"]
+  "exclude": ["build", "node_modules", "utils"]
 }

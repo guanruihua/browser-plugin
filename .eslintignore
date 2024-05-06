@@ -4,3 +4,5 @@ lib/
 src/*/__test__
 webpack*
 *.js
+*.config.js
+*.config.cjs

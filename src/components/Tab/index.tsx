@@ -103,18 +103,16 @@ function Index(props: TabProps) {
         {[].concat(children).map((item: any) => {
           const { active = undefined, style = {}, ...rest } = item.props
 
-          if (active !== undefined)
+          if (active !== undefined && selectActive === active)
             return (
               <div
                 {...rest}
                 style={{
                   ...style,
                   display:
-                    selectActive === active
-                      ? position === 'left' || position === 'right'
-                        ? 'inline-block'
-                        : 'block'
-                      : 'none'
+                    position === 'left' || position === 'right'
+                      ? 'inline-block'
+                      : 'block'
                 }}
                 className={`rh-tab-pane ${selectActive === active ? `rh-tab-pane-select` : 'rh-tab-pane-noselect'
                   }`}

@@ -11,7 +11,14 @@ body {
   position: relative;
   /* border-radius: 12px; */
   background: #262626;
+  /* border: 10px solid red; */
+  /* background: transparent; */
 }
+
+/* html{
+  background: transparent;
+    border: 10px solid red;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

@@ -8,5 +8,3 @@ export { default as Button } from './Button'
 export { default as Card } from './Card'
 export { default as RHCommentList } from './Comment-List'
 export { default as Edit } from './Edit'
-
-export * as Chart from './Chart'

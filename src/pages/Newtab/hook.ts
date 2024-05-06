@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { uid } from '../../assets/utils'
-import { tUseState, useWatch } from '../../assets/Hooks/hook'
+import { type tUseState, useWatch } from '../../assets/Hooks/hook'
 import { useTheme } from '../../assets/Hooks/theme'
 import { useBookMarks } from '../../assets/Hooks/useBookMarks'
 import { useConfig } from '../../assets/config'
@@ -46,7 +46,7 @@ function useNewTabSetting() {
   const [params, updateParams] = useState('')
   const [useUrl, updateUseUrl] = useState('https://cn.bing.com/search?PC=U474&q=')
 
-  const handeSetFilterAndUse: any = (toFilters: settingItem[], toUses: settingItem[]): void => {
+  const handleSetFilterAndUse: any = (toFilters: settingItem[], toUses: settingItem[]): void => {
     setFilters(JSON.parse(JSON.stringify(toFilters)))
     setUses(JSON.parse(JSON.stringify(toUses)))
     setConfig({
@@ -74,14 +74,14 @@ function useNewTabSetting() {
   }
 
   React.useEffect((): void => {
-    handeSetFilterAndUse(filtersDefault, usesDefault)
+    handleSetFilterAndUse(filtersDefault, usesDefault)
 
     getConfig(newTabSetting, (value: any): void => {
       if (value === undefined) {
-        handeSetFilterAndUse(filtersDefault, usesDefault)
+        handleSetFilterAndUse(filtersDefault, usesDefault)
       } else {
         const { filters: tfilters = filtersDefault, uses: tuses = usesDefault }: any = value
-        handeSetFilterAndUse(tfilters, tuses)
+        handleSetFilterAndUse(tfilters, tuses)
       }
     })
   }, [])
@@ -98,7 +98,7 @@ function useNewTabSetting() {
       return item
     })
     updateParams(tempParams)
-    handeSetFilterAndUse(newFilters, uses)
+    handleSetFilterAndUse(newFilters, uses)
     return true
   }
 
@@ -119,7 +119,7 @@ function useNewTabSetting() {
 
       return item
     })
-    handeSetFilterAndUse(filters, newUses)
+    handleSetFilterAndUse(filters, newUses)
     return true
   }
 

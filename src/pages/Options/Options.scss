@@ -1,8 +1,44 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.534);
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0 0 6px 6px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 6px 6px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.translate {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  iframe {
+    width: 100%;
+    min-height: 100vh;
+  }
+}
+
 .rh-tab-content.OptionsContainer {
   min-height: 100vh;
 
-  background-color: red;
-  background: url('../../assets/img/filter-bg.jpg');
+  background-color: #0d1120;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -12,32 +48,4 @@
   right: 0;
   top: 0;
   bottom: 0;
-}
-
-
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.534);
-
-  &::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 0 0 6px 6px;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    background: rgba(0, 0, 0, 0.2);
-  }
-
-  &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 6px 6px;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.1);
-  }
 }

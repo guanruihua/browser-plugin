@@ -1,5 +1,5 @@
 import React from 'react'
-import { classNames } from 'browser-helper-js'
+import { classNames } from 'harpe'
 import './index.scss'
 
 interface iCard {

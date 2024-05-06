@@ -1,31 +1,55 @@
 import React, { useState } from 'react'
-import { QRCodePage, Localhost } from './modules'
-import { RHTab } from '../../components'
+import { QRCodePage, Localhost, CountdownWork } from './modules'
 import './Popup.css'
-
-const TabPane = RHTab.TabPane
 
 export default () => {
   const [active, setActive] = useState<string>(localStorage.getItem('active') || '1')
   return (
     <div className='App'>
-      <RHTab
-        fontSize={14}
-        defaultActiveKey={active}
-        onChange={(val: string): void => {
-          setActive(val)
-          localStorage.setItem('active', val)
+      <div
+        style={{
+          textAlign: 'left'
         }}
-        key={'popup_key'}
-        style={{ border: 'none' }}
       >
-        <TabPane tab='Href' key='href' active='href'>
+        {[
+          {
+            label: 'Href',
+            value: 'href'
+          },
+          {
+            label: 'QR Code',
+            value: 'qrCode'
+          },
+          {
+            label: 'Countdown Work',
+            value: 'CountdownWork'
+          }
+        ].map(item => {
+          return (
+            <div
+              key={item.value}
+              className={`header-item${active === item.value ? ' active' : ''}`}
+              onClick={() => {
+                setActive(item.value)
+                localStorage.setItem('active', item.value)
+              }}
+            >
+              {item.label}
+            </div>
+          )
+        })}
+      </div>
+      <div className='content'>
+        {active === 'href' ? (
           <Localhost />
-        </TabPane>
-        <TabPane tab='QR Code' key='1' active='1'>
+        ) : active === 'qrCode' ? (
           <QRCodePage />
-        </TabPane>
-      </RHTab>
+        ) : active === 'CountdownWork' ? (
+          <CountdownWork />
+        ) : (
+          <Localhost />
+        )}
+      </div>
     </div>
   )
 }
