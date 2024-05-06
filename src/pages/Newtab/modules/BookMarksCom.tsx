@@ -91,70 +91,20 @@ const BookMarksCom = (props: bookMarksItemProps) => {
       )
     }
     return (
-      <div
-        className={classNames('webContent-card-item', type)}
-        key={i}
-        onClick={(): void => {
-          url && windowOpenUrl(url)
-        }}
-      >
-        {label}
-      </div>
+      <React.Fragment>
+        {type === 'title' && i !== 0 && <div style={{ flexBasis: '100%' }} />}
+        <div
+          className={classNames('webContent-card-item', type)}
+          key={i}
+          onClick={(): void => {
+            url && windowOpenUrl(url)
+          }}
+        >
+          {label}
+        </div>
+      </React.Fragment>
     )
   })
-
-  return (
-    <React.Fragment>
-      {bookMarks &&
-        bookMarks.map((item: any): any => {
-          if (noShow && noShow === item.title) return
-          if (onlyShow && onlyShow !== item.title) return
-          if (item.title === 'Index') {
-            item.title = ''
-          }
-
-          const [title, ...config] = item.title.split('_')
-          const itemConfig = [...config]
-          if (itemConfig.includes('hidden')) return <div style={{ display: 'none' }}></div>
-          return (
-            <div className='webContent-card-item-box' key={item.title}>
-              <div className='webContent-card-item title'>{title}</div>
-              {item.children &&
-                []
-                  .concat(item.children)
-                  .sort((a: any, b: any) => a.title.length - b.title.length)
-                  .map((iitem: any) => (
-                    <div
-                      key={iitem.id}
-                      onClick={(): void => {
-                        windowOpenUrl(iitem.url)
-                      }}
-                      className='webContent-card-item'
-                      {...rest}
-                    >
-                      {itemConfig.includes('icon') && (
-                        <Img
-                          isFavicon
-                          errorHidden
-                          url={iitem.url}
-                          alt={iitem.title}
-                          style={{
-                            width: 14,
-                            height: 14,
-                            marginRight: 6
-                          }}
-                        />
-                      )}
-                      <span title={iitem.title && handleTitle(iitem.title)}>
-                        {iitem.title && handleTitle(iitem.title)}
-                      </span>
-                    </div>
-                  ))}
-            </div>
-          )
-        })}
-    </React.Fragment>
-  )
 }
 
 export default BookMarksCom
