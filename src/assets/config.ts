@@ -1,4 +1,4 @@
-export const Config: { [key: string]: string } = {
+export const Config = {
   // options
   optionsTabActive: 'Options-tab-active',
   newTabSetting: 'NEW-Tab-Setting',

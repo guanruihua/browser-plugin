@@ -20,6 +20,7 @@ interface ItemType {
   label: string
   type: 'title' | 'default'
   url?: string
+  urls?: string[]
   config?: string[]
 }
 
@@ -39,7 +40,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
         item.title = ''
       }
 
-      const [title, ...config] = item.title.split('_')
+      const [title, ...config] = item.title.split('_') as string[]
       const itemConfig = [...config]
       if (itemConfig.includes('hidden')) return
 
@@ -48,15 +49,26 @@ const BookMarksCom = (props: bookMarksItemProps) => {
         type: 'title',
         config
       })
+      if (title && 'WORKSPACE' === title.toUpperCase()) {
+        config.push('WORKSPACE')
+      }
 
       if (isEffectArray(item.children)) {
         item.children.forEach((iitem: any) => {
-          newList.push({
+          const temp: ItemType = {
             label: iitem.title && handleTitle(iitem.title),
             type: 'default',
             url: iitem.url,
+            urls: [],
             config
-          })
+          }
+          if (title && 'WORKSPACE' === title.toUpperCase() && isEffectArray(iitem.children)) {
+            iitem.children.forEach((j: any) => {
+              if (j.url) temp.urls?.push(j.url)
+            })
+          }
+
+          newList.push(temp)
         })
       }
     })
@@ -65,16 +77,25 @@ const BookMarksCom = (props: bookMarksItemProps) => {
   }, [bookMarks.length])
 
   return list.map((item, i) => {
-    const { label, type, config = [], url } = item
+    const { label, type, config = [], url, urls } = item
+    const handleClick = () => {
+      if (config.includes('WORKSPACE') && isEffectArray(urls)) {
+        urls.forEach((url, i) => {
+          if (!url) return
+          if (i + 1 == urls.length) {
+            window.location.replace(url)
+            // window.open(url, '_parent')
+            return
+          }
+          window.open(url, '_blank')
+        })
+        return
+      } else url && windowOpenUrl(url)
+    }
+
     if (config.includes('icon') && type !== 'title') {
       return (
-        <div
-          className={classNames('webContent-card-item', type)}
-          key={i}
-          onClick={(): void => {
-            url && windowOpenUrl(url)
-          }}
-        >
+        <div className={classNames('webContent-card-item', type)} key={i} onClick={handleClick}>
           <Img
             isFavicon
             errorHidden
@@ -93,13 +114,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
     return (
       <React.Fragment>
         {type === 'title' && i !== 0 && <div style={{ flexBasis: '100%' }} />}
-        <div
-          className={classNames('webContent-card-item', type)}
-          key={i}
-          onClick={(): void => {
-            url && windowOpenUrl(url)
-          }}
-        >
+        <div className={classNames('webContent-card-item', type)} key={i} onClick={handleClick}>
           {label}
         </div>
       </React.Fragment>
