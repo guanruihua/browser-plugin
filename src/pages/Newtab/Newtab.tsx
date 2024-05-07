@@ -8,7 +8,6 @@ import { isArray } from 'asura-eye'
 import './Newtab.scss'
 
 export default function () {
-
   const [bookMarks] = useBookMarks()
   const getBookMarks = () => {
     const indexBookMarks: any[] = []
@@ -23,6 +22,12 @@ export default function () {
     return [indexBookMarks, restBookMarks] as any[][]
   }
   const [indexBookMarks, restBookMarks] = getBookMarks()
+
+  React.useEffect(() => {
+    chrome.tabs.query({}, function (tabs) {
+      console.log(tabs)
+    })
+  }, [])
 
   return (
     <div className='newTabBox'>

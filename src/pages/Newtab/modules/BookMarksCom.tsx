@@ -1,8 +1,12 @@
 import React from 'react'
-import { Img } from '../../../components'
+// import { Img } from '../../../components'
 import { windowOpenUrl } from '../utils'
 import { isEffectArray } from 'asura-eye'
 import { classNames } from 'harpe'
+import type { ItemType } from './type'
+import { Child } from './child'
+import { useLocalStorage, useSetState } from '0hook'
+import { ObjectType } from '0type'
 
 export interface bookMarksItemProps {
   bookMarks: any[]
@@ -16,110 +20,68 @@ function handleTitle(title: string): string {
   return title.replace(reg, '')
 }
 
-interface ItemType {
-  label: string
-  type: 'title' | 'default'
-  url?: string
-  urls?: string[]
-  config?: string[]
-}
-
 const BookMarksCom = (props: bookMarksItemProps) => {
-  const { bookMarks = [], onlyShow, noShow, ...rest }: bookMarksItemProps = props
+  const { bookMarks = [], onlyShow, noShow }: bookMarksItemProps = props
 
   const [list, setList] = React.useState<ItemType[]>([])
 
-  React.useEffect(() => {
-    if (!bookMarks.length) return
+  const adapterBookMark = (list: any[], props?: ItemType): ItemType[] => {
+    if (!isEffectArray(list)) return []
     const newList: ItemType[] = []
-
-    bookMarks.forEach((item: any): any => {
+    const { depth = -1, config: fatherConfig = [] } = props || {}
+    list.forEach((item: any): any => {
       if (noShow && noShow === item.title) return
       if (onlyShow && onlyShow !== item.title) return
-      if (item.title === 'Index') {
-        item.title = ''
-      }
 
       const [title, ...config] = item.title.split('_') as string[]
       const itemConfig = [...config]
       if (itemConfig.includes('hidden')) return
 
-      newList.push({
-        label: title,
-        type: 'title',
-        config
-      })
-      if (title && 'WORKSPACE' === title.toUpperCase()) {
-        config.push('WORKSPACE')
+      const temp: ItemType = {
+        label: handleTitle(title),
+        config: [...fatherConfig, ...config],
+        url: item.url || '',
+        urls: [],
+        depth: depth + 1,
+        children: []
       }
 
-      if (isEffectArray(item.children)) {
-        item.children.forEach((iitem: any) => {
-          const temp: ItemType = {
-            label: iitem.title && handleTitle(iitem.title),
-            type: 'default',
-            url: iitem.url,
-            urls: [],
-            config
-          }
-          if (title && 'WORKSPACE' === title.toUpperCase() && isEffectArray(iitem.children)) {
-            iitem.children.forEach((j: any) => {
-              if (j.url) temp.urls?.push(j.url)
-            })
-          }
+      if (['INDEX', 'WORKSPACE'].includes(title.toUpperCase())) {
+        temp.config?.unshift(title.toUpperCase())
+      }
 
-          newList.push(temp)
+      if ('WORKSPACE' === title.toUpperCase() && isEffectArray(item.children)) {
+        item.children.forEach((iitem: any) => {
+          iitem?.children?.forEach((j: any) => {
+            if (j.url) temp.urls?.push(j.url)
+          })
         })
       }
-    })
 
-    setList(newList)
+      temp.children = adapterBookMark(item.children, temp)
+      newList.push(temp)
+    })
+    return newList
+  }
+
+  const [opens, _setOpens] = useSetState<ObjectType>({})
+  const setOpens = (val: ObjectType)=>{
+    localStorage.setItem('Newtab-opens', JSON.stringify({...opens, ...val}))
+    _setOpens(val)
+  }
+
+  React.useEffect(() => {
+    if (!bookMarks.length) return
+    setList(adapterBookMark(bookMarks))
+    try {
+      const cacheOpens = localStorage.getItem('Newtab-opens') || '{}'
+      _setOpens(JSON.parse(cacheOpens))
+    } catch (error) {
+      console.log('no newTab-opens cache')
+    }
   }, [bookMarks.length])
 
-  return list.map((item, i) => {
-    const { label, type, config = [], url, urls } = item
-    const handleClick = () => {
-      if (config.includes('WORKSPACE') && isEffectArray(urls)) {
-        urls.forEach((url, i) => {
-          if (!url) return
-          if (i + 1 == urls.length) {
-            window.location.replace(url)
-            // window.open(url, '_parent')
-            return
-          }
-          window.open(url, '_blank')
-        })
-        return
-      } else url && windowOpenUrl(url)
-    }
-
-    if (config.includes('icon') && type !== 'title') {
-      return (
-        <div className={classNames('webContent-card-item', type)} key={i} onClick={handleClick}>
-          <Img
-            isFavicon
-            errorHidden
-            url={url}
-            alt={label}
-            style={{
-              width: 14,
-              height: 14,
-              marginRight: 6
-            }}
-          />
-          <span title={label}>{label}</span>
-        </div>
-      )
-    }
-    return (
-      <React.Fragment>
-        {type === 'title' && i !== 0 && <div style={{ flexBasis: '100%' }} />}
-        <div className={classNames('webContent-card-item', type)} key={i} onClick={handleClick}>
-          {label}
-        </div>
-      </React.Fragment>
-    )
-  })
+  return <Child list={list} opens={opens} setOpens={setOpens} />
 }
 
 export default BookMarksCom

@@ -14,10 +14,12 @@
     "pub": "npm publish"
   },
   "devDependencies": {
+    "0hook": "workspace:^",
     "0type": "workspace:^",
     "@babel/core": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
+    "@types/chrome": "^0.0.267",
     "@types/react": "^18.2.75",
     "@types/react-dom": "^18.2.24",
     "abandonjs": "workspace:^",
