@@ -18,7 +18,7 @@ export function Child(props: ChildProps) {
     ? {
         display: 'block',
         width: '100%',
-        columnCount: 4
+        columnCount: 4,
       }
     : {}
   return (
@@ -52,7 +52,7 @@ export function Child(props: ChildProps) {
             })}
             key={i}
             style={{
-              marginLeft: depth * 10
+              marginLeft: depth * 8
             }}
           >
             {/* <Img

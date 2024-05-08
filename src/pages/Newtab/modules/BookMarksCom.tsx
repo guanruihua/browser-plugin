@@ -1,11 +1,9 @@
 import React from 'react'
 // import { Img } from '../../../components'
-import { windowOpenUrl } from '../utils'
 import { isEffectArray } from 'asura-eye'
-import { classNames } from 'harpe'
 import type { ItemType } from './type'
 import { Child } from './child'
-import { useLocalStorage, useSetState } from '0hook'
+import { useSetState } from '0hook'
 import { ObjectType } from '0type'
 
 export interface bookMarksItemProps {
@@ -39,7 +37,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
 
       const temp: ItemType = {
         label: handleTitle(title),
-        config: [...fatherConfig, ...config],
+        config: [...fatherConfig, ...config].map(_ => _.toUpperCase()),
         url: item.url || '',
         urls: [],
         depth: depth + 1,
@@ -50,11 +48,9 @@ const BookMarksCom = (props: bookMarksItemProps) => {
         temp.config?.unshift(title.toUpperCase())
       }
 
-      if ('WORKSPACE' === title.toUpperCase() && isEffectArray(item.children)) {
-        item.children.forEach((iitem: any) => {
-          iitem?.children?.forEach((j: any) => {
-            if (j.url) temp.urls?.push(j.url)
-          })
+      if (temp.config?.includes('WORKSPACE') && isEffectArray(item.children)) {
+        item?.children?.forEach((j: any) => {
+          if (j.url) temp.urls?.push(j.url)
         })
       }
 
@@ -65,8 +61,8 @@ const BookMarksCom = (props: bookMarksItemProps) => {
   }
 
   const [opens, _setOpens] = useSetState<ObjectType>({})
-  const setOpens = (val: ObjectType)=>{
-    localStorage.setItem('Newtab-opens', JSON.stringify({...opens, ...val}))
+  const setOpens = (val: ObjectType) => {
+    localStorage.setItem('Newtab-opens', JSON.stringify({ ...opens, ...val }))
     _setOpens(val)
   }
 

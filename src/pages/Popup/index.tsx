@@ -1,9 +1,11 @@
 import React from 'react';
-import { render } from 'react-dom';
-
 import Popup from './Popup';
 import './index.css';
+import { createRoot } from 'react-dom/client'
 
-render(<Popup />, window.document.querySelector('#app-container'));
+const container = window.document.querySelector('#app-container')
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const root = createRoot(container!)
+root.render(<Popup />)
+// render(<Popup />, window.document.querySelector('#app-container'));
 
-if (module.hot) module.hot.accept();

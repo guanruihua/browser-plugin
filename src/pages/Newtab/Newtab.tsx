@@ -23,12 +23,6 @@ export default function () {
   }
   const [indexBookMarks, restBookMarks] = getBookMarks()
 
-  React.useEffect(() => {
-    chrome.tabs.query({}, function (tabs) {
-      console.log(tabs)
-    })
-  }, [])
-
   return (
     <div className='newTabBox'>
       <div className='newTab'>

@@ -143,6 +143,7 @@ $w: $gap+7*($gap+$itemW);
     // align-items: center;
     // flex-wrap: wrap;
     white-space: wrap;
+    max-height: 40vw;
 
     font-size: 15px;
     color: rgba($color: #fff, $alpha: .9);
@@ -171,7 +172,7 @@ $w: $gap+7*($gap+$itemW);
         display: inline-block;
         width: auto;
         // width: 100%;
-        border-radius: 12px;
+        border-radius: 8px;
         border: none;
         padding: 4px 12px;
         font-weight: bold;

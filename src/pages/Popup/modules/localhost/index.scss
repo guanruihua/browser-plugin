@@ -25,6 +25,14 @@
       color: #eee;
     }
 
+    input {
+      display: inline-block;
+      outline: none;
+      border: 1px solid rgb(141, 140, 140);
+      border-radius: 4px;
+      padding: 5px 8px;
+    }
+
     &>input:first-child {
       min-height: 35px;
       grid-row: 1;
