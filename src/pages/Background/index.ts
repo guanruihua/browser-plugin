@@ -33,3 +33,4 @@ console.log('Plugin Loading,  This is the background page.')
 //   //   data: { [tab.id]: window.localStorage }
 //   // })
 // })
+
