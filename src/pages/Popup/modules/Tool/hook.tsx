@@ -19,9 +19,26 @@ export const useHook = () => {
     })
   }
 
+  const muteOne = (tab: any) => {
+    chrome.tabs.update(tab.id, { muted: !tab.mutedInfo.muted })
+  }
+
+  const mute = () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      muteOne(tabs[0])
+    })
+  }
+
+  const muteAll = () => {
+    chrome.tabs.query({ currentWindow: true }, function (tabs) {
+      tabs.forEach(item => muteOne(item))
+    })
+  }
   return {
     clone,
     pin,
-    pinAll
+    pinAll,
+    mute,
+    muteAll
   }
 }
