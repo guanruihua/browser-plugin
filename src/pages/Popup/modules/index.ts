@@ -1,4 +1,4 @@
 import QRCodePage from './QRCode'
 import Localhost from './localhost'
-export * from './CountdownWork'
+export * from './Tool'
 export { QRCodePage, Localhost }

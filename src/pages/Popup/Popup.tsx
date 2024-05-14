@@ -1,55 +1,40 @@
-import React, { useState } from 'react'
-import { QRCodePage, Localhost, CountdownWork } from './modules'
+import React from 'react'
+import { QRCodePage, Localhost, Tool } from './modules'
+import { Tab } from 'aurad'
 import './Popup.css'
+import { Test } from './modules/test'
 
 export default () => {
-  const [active, setActive] = useState<string>(localStorage.getItem('active') || '1')
   return (
     <div className='App'>
-      <div
-        style={{
-          textAlign: 'left'
+      <Tab
+        defaultValue={localStorage.getItem('popup-active') || '1'}
+        onChange={(val: string) => {
+          localStorage.setItem('popup-active', val)
         }}
-      >
-        {[
+        items={[
           {
-            label: 'Href',
-            value: 'href'
+            title: 'Href',
+            key: 'href',
+            children: <Localhost />
           },
           {
-            label: 'QR Code',
-            value: 'qrCode'
+            title: 'QR Code',
+            key: 'qrCode',
+            children: <QRCodePage />
           },
           {
-            label: 'Countdown Work',
-            value: 'CountdownWork'
+            title: 'TooL',
+            key: 'tool',
+            children: <Tool />
+          },
+          {
+            title: 'test',
+            key: 'test',
+            children: <Test />
           }
-        ].map(item => {
-          return (
-            <div
-              key={item.value}
-              className={`header-item${active === item.value ? ' active' : ''}`}
-              onClick={() => {
-                setActive(item.value)
-                localStorage.setItem('active', item.value)
-              }}
-            >
-              {item.label}
-            </div>
-          )
-        })}
-      </div>
-      <div className='content'>
-        {active === 'href' ? (
-          <Localhost />
-        ) : active === 'qrCode' ? (
-          <QRCodePage />
-        ) : active === 'CountdownWork' ? (
-          <CountdownWork />
-        ) : (
-          <Localhost />
-        )}
-      </div>
+        ]}
+      />
     </div>
   )
 }

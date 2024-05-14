@@ -6,8 +6,8 @@
   right: 0px;
   text-align: center;
   background: transparent;
+  padding: 10px;
 }
-
 .App-logo {
   height: 30vmin;
   pointer-events: none;
@@ -36,7 +36,8 @@
     color: #61dafb;
   }
 }
-.content{
+
+.content {
   padding: 10px;
 }
 

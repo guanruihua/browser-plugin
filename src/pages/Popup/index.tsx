@@ -1,6 +1,7 @@
-import React from 'react';
-import Popup from './Popup';
-import './index.css';
+import React from 'react'
+import Popup from './Popup'
+import './index.css'
+import 'aurad/dist/style.css'
 import { createRoot } from 'react-dom/client'
 
 const container = window.document.querySelector('#app-container')
@@ -8,4 +9,3 @@ const container = window.document.querySelector('#app-container')
 const root = createRoot(container!)
 root.render(<Popup />)
 // render(<Popup />, window.document.querySelector('#app-container'));
-

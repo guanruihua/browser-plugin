@@ -15,7 +15,8 @@ export interface bookMarksItemProps {
 const reg =
   /\?|!|\s-?\s?npm|\s-?\s?掘金|\s-?\s?博客园|\s-?\s?CSDN|\s-?\s?博客|\s-?\s?知乎|\s-?\s?SegmentFault|思否|(【.+】)|(-$)|\(\d+条消息\)`/gi
 function handleTitle(title: string): string {
-  return title.replace(reg, '')
+  // return title.replace(reg, '')
+  return title.trim()
 }
 
 const BookMarksCom = (props: bookMarksItemProps) => {
@@ -31,7 +32,13 @@ const BookMarksCom = (props: bookMarksItemProps) => {
       if (noShow && noShow === item.title) return
       if (onlyShow && onlyShow !== item.title) return
 
-      const [title, ...config] = item.title.split('_') as string[]
+      const getTitle = () => {
+        if (item.children) {
+          item.title.split('_') as string[]
+        }
+        return [item.title]
+      }
+      const [title, ...config] = getTitle()
       const itemConfig = [...config]
       if (itemConfig.includes('hidden')) return
 

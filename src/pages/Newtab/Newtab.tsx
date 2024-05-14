@@ -33,7 +33,7 @@ export default function () {
         {indexBookMarks.map((item: any) => (
           <React.Fragment>
             {isArray(item.children) &&
-              item.children.reverse().map((iitem: any) => (
+              item.children.map((iitem: any) => (
                 <div
                   key={item.id + iitem.id}
                   onClick={(): void => {

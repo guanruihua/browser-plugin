@@ -14,7 +14,12 @@
 
 .rh-deffStr {
   padding-top: 10px;
-
+  .equal>textarea{
+    border-color: #39853d;
+  }
+  .noEqual>textarea{
+    border-color: #9b2d2d;
+  }
   &>div {
     width: 100%;
     display: grid;
@@ -22,6 +27,7 @@
     grid-column-gap: 10px;
 
     textarea {
+      outline: none;
       display: block;
       box-sizing: border-box;
       font-size: 16px;
@@ -32,29 +38,6 @@
       border-radius: 5px;
       background: #123;
       color: #fff;
-    }
-  }
-
-  &>.btn {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    min-width: 100%;
-    max-width: 99vw;
-    height: 30px;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-
-    &.compare {
-      background-color: #6d6d6d;
-    }
-
-    &.equal {
-      background-color: #39853d;
-    }
-
-    &.noEqual {
-      background-color: #9b2d2d;
     }
   }
 }

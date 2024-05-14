@@ -21,7 +21,8 @@
   },
   "include": [
     "./src/**/*",
-    "node_modules/**/*.ts"
+    "node_modules/**/*.ts",
+    "node_modules/**/*.js",
   ],
-  "exclude": ["build", "node_modules", "utils"]
+  "exclude": ["build", "utils"]
 }

@@ -46,6 +46,33 @@ module.exports = {
   // },
   module: {
     rules: [
+       {
+        test: /\.css$/, // 匹配 CSS 文件
+        use: ['style-loader', 'css-loader'] // 使用 style-loader 和 css-loader 处理 CSS 文件
+      },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/preset-env', '@babel/preset-react']
+      //     }
+      //   }
+      // },
+      {
+        test: /\.jsx?$/,
+        use: [
+          {
+            // loader: 'esbuild-loader',
+            loader: 'babel-loader',
+            // options: {
+            //   loader: 'jsx'
+            // }
+          }
+        ],
+        exclude: /node_modules/
+      },
       {
         test: /\.(jpe?g|png|gif|)$/i,
         type: 'asset/resource',
@@ -96,7 +123,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.scss$/,
         use: [
           'style-loader',
           'css-loader',
@@ -143,10 +170,10 @@ module.exports = {
       // verbose: true,
       // cleanStaleWebpackAssets: true
     }),
-    new ESLintPlugin({
-      context: '../src', // 检查目录
-      extensions: ['js', 'jsx', 'ts', 'tsx']
-    }),
+    // new ESLintPlugin({
+    //   context: '../src', // 检查目录
+    //   extensions: ['js', 'jsx', 'ts', 'tsx']
+    // }),
     // new webpack.EnvironmentPlugin(['NODE_ENV']),
     new CopyWebpackPlugin({
       patterns: [
