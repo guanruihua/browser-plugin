@@ -14,8 +14,14 @@ export const useHook = () => {
     })
   }
   const pinAll = () => {
-    chrome.tabs.query({ currentWindow: true }, function (tabs) {
-      tabs.forEach(item => pinOne(item))
+    chrome.tabs.query({ currentWindow: true, pinned: false }, function (tabs) {
+      if (tabs.length) {
+        tabs.forEach(item => pinOne(item))
+      } else {
+        chrome.tabs.query({ currentWindow: true, pinned: true }, function (tabs) {
+          tabs.forEach(item => pinOne(item))
+        })
+      }
     })
   }
 
@@ -30,7 +36,7 @@ export const useHook = () => {
   }
 
   const muteAll = () => {
-    chrome.tabs.query({ currentWindow: true }, function (tabs) {
+    chrome.tabs.query({ currentWindow: true }, function (tabs: any[] = []) {
       tabs.forEach(item => muteOne(item))
     })
   }
