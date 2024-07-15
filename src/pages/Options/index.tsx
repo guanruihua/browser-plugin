@@ -1,11 +1,8 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from 'react'
+import { render } from 'react-dom'
 
-import Options from './Options';
+import Options from './Options'
 
-render(
-  <Options title={'settings'} />,
-  window.document.querySelector('#app-container')
-);
+render(<Options />, window.document.querySelector('#app-container'))
 
-if (module.hot) module.hot.accept();
+if (module.hot) module.hot.accept()
