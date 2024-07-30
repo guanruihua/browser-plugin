@@ -1,0 +1,72 @@
+.modules-layout {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.webContent-card-item {
+  white-space: wrap;
+  font-size: 15px;
+  color: #fff;
+  padding: 6px;
+  background: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &>.child {
+
+    padding: 4px 4px;
+    background-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 0 3px rgba(255, 255, 255, .3);
+    border-radius: 12px;
+  }
+
+  .label {
+    display: inline;
+    width: auto;
+    border-radius: 8px;
+    border: none;
+    padding: 2px 8px;
+    font-weight: bold;
+    border: none;
+    text-shadow: 0px 1px 4px #000;
+
+    span {
+      cursor: pointer;
+    }
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    visibility: hidden;
+  }
+
+  &.title {
+    .label {
+      display: inline-flex;
+      width: 100%;
+      justify-content: space-between;
+      font-size: 18px;
+    }
+
+    &>.child {
+      display: none;
+    }
+
+    &.open>.child {
+      display: block;
+    }
+  }
+
+  &:hover {
+    color: #20ff3e;
+    text-shadow: 0 0 8px #000;
+
+    .controls {
+      visibility: visible;
+    }
+  }
+}

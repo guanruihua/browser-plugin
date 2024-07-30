@@ -1,77 +1,91 @@
 import React from 'react'
 import { ItemType } from './type'
 import { classNames } from 'harpe'
-import { isEffectArray } from 'asura-eye'
+import { isNumber } from 'asura-eye'
 import { windowOpenUrl } from '../utils'
 import { ObjectType } from '0type'
+import './index.scss'
+import { Icon } from './icon'
 
 export interface ChildProps {
+  lv?: number
   list: ItemType[]
-  opens?: ObjectType
-  setOpens?(val: ObjectType): void
+  state?: ObjectType<any>
+  handleClick(record: ObjectType | any, flag?: 'open' | 'add' | 'minus'): void
+  style?: React.CSSProperties
   [key: string]: any
 }
 
+
+
 export function Child(props: ChildProps) {
-  const { list = [], opens = {}, setOpens } = props
-  const rootStyle: React.CSSProperties = setOpens
-    ? {
-        display: 'block',
-        width: '100%',
-        columnCount: 4,
-      }
-    : {}
+  const { list = [], state = {}, handleClick, style = {}, lv = 0 } = props
+
   return (
-    <div style={rootStyle}>
+    <div className={'modules-layout-child'} style={style}>
       {list.map((item, i) => {
-        const { label, config = [], url, urls, depth = 0, children } = item
-        const handleClick = () => {
-          if (depth === 0) {
-            setOpens && setOpens({ [label]: opens[label] ? false : true })
-            return
-          }
-          if (config.includes('WORKSPACE') && isEffectArray(urls)) {
-            urls.forEach((url, i) => {
-              if (!url) return
-              if (i + 1 == urls.length) {
-                window.location.replace(url)
-                // window.open(url, '_parent')
-                return
-              }
-              window.open(url, '_blank')
-            })
-            return
-          } else url && windowOpenUrl(url)
-        }
+        const { label, url, depth = 0, children } = item
+
         return (
           <div
             className={classNames('webContent-card-item', {
               title: depth === 0,
               child: depth > 0,
-              open: opens[label]
+              open: state[label]?.open !== '0'
             })}
             key={i}
-            style={{
-              marginLeft: depth * 8
-            }}
           >
-            {/* <Img
-             isFavicon
-             errorHidden
-             url={url}
-             alt={label}
-             style={{
-               width: 14,
-               height: 14,
-               marginRight: 6
-             }}
-           /> */}
-            <div className='label' onClick={handleClick}>
-              {label}
+            <div className='label'>
+              <span
+                onClick={e => {
+                  e.preventDefault()
+                  if (children?.length) {
+                    handleClick(item, 'open')
+                    return
+                  }
+                  url && windowOpenUrl(url)
+                }}
+              >
+                {label.replace('_icon', '')}
+              </span>
+              {children?.length ? (
+                <span className='controls'>
+                  <span
+                    onClick={e => {
+                      e.preventDefault()
+                      handleClick(item, 'add')
+                    }}
+                  >
+                    {Icon.Add}
+                  </span>
+                  <span
+                    onClick={e => {
+                      e.preventDefault()
+                      handleClick(item, 'minus')
+                    }}
+                  >
+                    {Icon.Minus}
+                  </span>
+                </span>
+              ) : (
+                <span></span>
+              )}
             </div>
             {children?.length ? (
               <div className='child'>
-                <Child list={children} />
+                <Child
+                  lv={lv + 1}
+                  list={children}
+                  state={state}
+                  handleClick={handleClick}
+                  style={
+                    isNumber(state[label]?.columnCount) && state[label].columnCount > 1
+                      ? {
+                          columnCount: state[label]?.columnCount
+                        }
+                      : {}
+                  }
+                />
               </div>
             ) : undefined}
           </div>

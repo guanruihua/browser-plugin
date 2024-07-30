@@ -1,10 +1,11 @@
 import React from 'react'
-// import { Img } from '../../../components'
-import { isEffectArray } from 'asura-eye'
+import { isEffectArray, isNumber, isString } from 'asura-eye'
 import type { ItemType } from './type'
 import { Child } from './child'
 import { useSetState } from '0hook'
 import { ObjectType } from '0type'
+import { getStat } from './util'
+import { deepClone } from 'abandonjs'
 
 export interface bookMarksItemProps {
   bookMarks: any[]
@@ -51,40 +52,70 @@ const BookMarksCom = (props: bookMarksItemProps) => {
         children: []
       }
 
-      if (['INDEX', 'WORKSPACE'].includes(title.toUpperCase())) {
-        temp.config?.unshift(title.toUpperCase())
-      }
-
-      if (temp.config?.includes('WORKSPACE') && isEffectArray(item.children)) {
-        item?.children?.forEach((j: any) => {
-          if (j.url) temp.urls?.push(j.url)
-        })
-      }
-
       temp.children = adapterBookMark(item.children, temp)
       newList.push(temp)
     })
     return newList
   }
 
-  const [opens, _setOpens] = useSetState<ObjectType>({})
-  const setOpens = (val: ObjectType) => {
-    localStorage.setItem('Newtab-opens', JSON.stringify({ ...opens, ...val }))
-    _setOpens(val)
+  const [state, _setState] = useSetState<
+    ObjectType<{
+      open: '0' | '1'
+      columnCount: number
+    }>
+  >({})
+
+  const cacheKey = 'Newtab-modules-conf'
+
+  const setState = (val: ObjectType) => {
+    localStorage.setItem(cacheKey, JSON.stringify({ ...state, ...val }))
+    _setState(val as any)
+  }
+
+  const handleClick = (record: ObjectType | any, flag: 'open' | 'add' | 'minus') => {
+    const { label } = record
+    if (!isString(label)) return
+
+    const conf = state[label] || { open: '0', columnCount: 1 }
+    if (flag === 'open') {
+      conf.open = conf.open === '1' ? '0' : '1'
+    }
+    if (flag === 'add') {
+      conf.columnCount =
+        isNumber(conf.columnCount) && conf.columnCount >= 0
+          ? Math.min(5, Math.max(2, conf.columnCount + 1))
+          : 1
+    }
+    if (flag === 'minus') {
+      conf.columnCount =
+        isNumber(conf.columnCount) && conf.columnCount >= 0 ? Math.max(1, conf.columnCount - 1) : 1
+    }
+
+    setState({
+      [label]: conf
+    })
   }
 
   React.useEffect(() => {
     if (!bookMarks.length) return
     setList(adapterBookMark(bookMarks))
     try {
-      const cacheOpens = localStorage.getItem('Newtab-opens') || '{}'
-      _setOpens(JSON.parse(cacheOpens))
+      const cache = localStorage.getItem(cacheKey) || '{}'
+      _setState(JSON.parse(cache))
     } catch (error) {
-      console.log('no newTab-opens cache')
+      console.log('no newTab cache')
     }
   }, [bookMarks.length])
 
-  return <Child list={list} opens={opens} setOpens={setOpens} />
+  const stat = getStat(deepClone(list))
+
+  return (
+    <div className='modules-layout'>
+      {stat.map((item, i) => (
+        <Child key={i} list={item.list} state={state} handleClick={handleClick} />
+      ))}
+    </div>
+  )
 }
 
 export default BookMarksCom

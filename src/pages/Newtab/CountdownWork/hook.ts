@@ -10,7 +10,8 @@ export function useCountdown(initialTime: number) {
   useEffect(() => {
     if (isRunning && time > 0) {
       const timerId = setTimeout(() => {
-        setTime(time - 1)
+        const newTime = (dayjs(getNow() + ' ' + config.time).valueOf() - dayjs().valueOf()) / 1000
+        setTime(newTime)
       }, 1000)
 
       return () => {
@@ -38,7 +39,6 @@ export function useCountdown(initialTime: number) {
 
   useEffect(() => {
     try {
-
       if (dayjs(config.lastUpdate).isBefore(dayjs(getNow()))) {
         setTime(getCountdownWorkTime())
       } else {
