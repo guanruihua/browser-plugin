@@ -16,8 +16,6 @@ export interface ChildProps {
   [key: string]: any
 }
 
-
-
 export function Child(props: ChildProps) {
   const { list = [], state = {}, handleClick, style = {}, lv = 0 } = props
 
@@ -37,6 +35,7 @@ export function Child(props: ChildProps) {
           >
             <div className='label'>
               <span
+                style={{ lineHeight: '28px' }}
                 onClick={e => {
                   e.preventDefault()
                   if (children?.length) {

@@ -3,6 +3,11 @@ $itemW: 100px;
 $gap: 6px;
 $w: $gap+7*($gap+$itemW);
 
+body {
+  word-spacing: 1.2px;
+  letter-spacing: 1px;
+}
+
 * {
   padding: 0;
   margin: 0;
