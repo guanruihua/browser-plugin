@@ -11,7 +11,7 @@ export interface ChildProps {
   lv?: number
   list: ItemType[]
   state?: ObjectType<any>
-  handleClick(record: ObjectType | any, flag?: 'open' | 'add' | 'minus'): void
+  handleClick(record: ObjectType | any, flag: 'open' | 'add' | 'minus', vid: string): void
   style?: React.CSSProperties
   [key: string]: any
 }
@@ -23,13 +23,13 @@ export function Child(props: ChildProps) {
     <div className={'modules-layout-child'} style={style}>
       {list.map((item, i) => {
         const { label, url, depth = 0, children } = item
-
+        const vid = label + '__vid__' + lv
         return (
           <div
             className={classNames('webContent-card-item', {
               title: depth === 0,
               child: depth > 0,
-              open: state[label]?.open !== '0'
+              open: state[vid]?.open !== '0'
             })}
             key={i}
           >
@@ -39,20 +39,20 @@ export function Child(props: ChildProps) {
                 onClick={e => {
                   e.preventDefault()
                   if (children?.length) {
-                    handleClick(item, 'open')
+                    handleClick(item, 'open', vid)
                     return
                   }
                   url && windowOpenUrl(url)
                 }}
               >
-                {label.replace('_icon', '')}
+                {label}
               </span>
               {children?.length ? (
                 <span className='controls'>
                   <span
                     onClick={e => {
                       e.preventDefault()
-                      handleClick(item, 'add')
+                      handleClick(item, 'add', vid)
                     }}
                   >
                     {Icon.Add}
@@ -60,17 +60,17 @@ export function Child(props: ChildProps) {
                   <span
                     onClick={e => {
                       e.preventDefault()
-                      handleClick(item, 'minus')
+                      handleClick(item, 'minus', vid)
                     }}
                   >
                     {Icon.Minus}
                   </span>
                 </span>
               ) : (
-                <span></span>
+                <span className='controls'></span>
               )}
             </div>
-            {children?.length ? (
+            {(children?.length && state[vid]?.open !== '0') ? (
               <div className='child'>
                 <Child
                   lv={lv + 1}
@@ -78,9 +78,9 @@ export function Child(props: ChildProps) {
                   state={state}
                   handleClick={handleClick}
                   style={
-                    isNumber(state[label]?.columnCount) && state[label].columnCount > 1
+                    isNumber(state[vid]?.columnCount) && state[vid].columnCount > 1
                       ? {
-                          columnCount: state[label]?.columnCount
+                          columnCount: state[vid]?.columnCount
                         }
                       : {}
                   }

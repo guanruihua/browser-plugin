@@ -13,12 +13,6 @@ export interface bookMarksItemProps {
   noShow?: string
   [key: string]: any
 }
-const reg =
-  /\?|!|\s-?\s?npm|\s-?\s?掘金|\s-?\s?博客园|\s-?\s?CSDN|\s-?\s?博客|\s-?\s?知乎|\s-?\s?SegmentFault|思否|(【.+】)|(-$)|\(\d+条消息\)`/gi
-function handleTitle(title: string): string {
-  // return title.replace(reg, '')
-  return title.trim()
-}
 
 const BookMarksCom = (props: bookMarksItemProps) => {
   const { bookMarks = [], onlyShow, noShow }: bookMarksItemProps = props
@@ -44,7 +38,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
       if (itemConfig.includes('hidden')) return
 
       const temp: ItemType = {
-        label: handleTitle(title),
+        label: title,
         config: [...fatherConfig, ...config].map(_ => _.toUpperCase()),
         url: item.url || '',
         urls: [],
@@ -72,7 +66,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
     _setState(val as any)
   }
 
-  const handleClick = (record: ObjectType | any, flag: 'open' | 'add' | 'minus') => {
+  const handleClick = (record: ObjectType | any, flag: 'open' | 'add' | 'minus', vid: string) => {
     const { label } = record
     if (!isString(label)) return
 
@@ -83,7 +77,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
     if (flag === 'add') {
       conf.columnCount =
         isNumber(conf.columnCount) && conf.columnCount >= 0
-          ? Math.min(5, Math.max(2, conf.columnCount + 1))
+          ? Math.min(4, Math.max(2, conf.columnCount + 1))
           : 1
     }
     if (flag === 'minus') {
@@ -92,7 +86,7 @@ const BookMarksCom = (props: bookMarksItemProps) => {
     }
 
     setState({
-      [label]: conf
+      [vid]: conf
     })
   }
 
