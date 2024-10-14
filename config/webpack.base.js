@@ -1,10 +1,10 @@
 const path = require('path')
-const webpack = require('webpack')
+// const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-const ESLintPlugin = require('eslint-webpack-plugin')
+// const TerserPlugin = require('terser-webpack-plugin')
+// const ESLintPlugin = require('eslint-webpack-plugin')
 
 const fileExtensions = [
   'jpg',

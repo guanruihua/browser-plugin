@@ -1,15 +1,16 @@
 .modules-layout {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 2fr 2fr 2fr 3fr;
+  // grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
 
 .webContent-card-item {
   white-space: wrap;
-  font-size: 15px;
+  // font-size: 15px;
   color: #fff;
-  padding: 6px;
+  // padding: 6px;
   background: transparent;
   cursor: pointer;
   box-sizing: border-box;
@@ -49,7 +50,7 @@
       display: inline-flex;
       width: 100%;
       justify-content: space-between;
-      font-size: 18px;
+      // font-size: 18px;
     }
   }
 

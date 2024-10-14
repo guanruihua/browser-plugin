@@ -6,6 +6,7 @@ import 'aurad/dist/style.css'
 import DiffStr from './DiffStr'
 import { CountdownWork } from './CountdownWork/index'
 import { Test } from './test'
+import { Transform } from './Transform'
 
 const Panel = () => {
   return (
@@ -18,13 +19,18 @@ const Panel = () => {
         items={[
           {
             title: 'String Comparison',
-            key: '3',
+            key: 'String Comparison',
             children: <DiffStr />
           },
           {
             title: 'CountDown Work',
             key: 'CountDown Work',
             children: <CountdownWork />
+          },
+          {
+            title: 'Transform',
+            key: 'transform',
+            children: <Transform />
           },
           {
             title: 'Test',

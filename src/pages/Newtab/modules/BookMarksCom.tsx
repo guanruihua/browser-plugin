@@ -103,6 +103,8 @@ const BookMarksCom = (props: bookMarksItemProps) => {
 
   const stat = getStat(deepClone(list))
 
+  // console.log(stat)
+
   return (
     <div className='modules-layout'>
       {stat.map((item, i) => (
