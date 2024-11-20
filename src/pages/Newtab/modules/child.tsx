@@ -4,7 +4,6 @@ import { classNames } from 'harpe'
 import { isNumber } from 'asura-eye'
 import { windowOpenUrl } from '../utils'
 import { ObjectType } from '0type'
-import './index.scss'
 import { Icon } from './icon'
 
 export interface ChildProps {

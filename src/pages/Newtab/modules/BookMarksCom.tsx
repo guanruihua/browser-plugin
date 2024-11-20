@@ -1,117 +1,148 @@
 import React from 'react'
-import { isEffectArray, isNumber, isString } from 'asura-eye'
-import type { ItemType } from './type'
-import { Child } from './child'
-import { useSetState } from '0hook'
-import { ObjectType } from '0type'
-import { getStat } from './util'
-import { deepClone } from 'abandonjs'
+import { isArray } from 'asura-eye'
+import { windowOpenUrl } from '../utils'
+import './index.scss'
+import { classNames } from 'harpe'
 
-export interface bookMarksItemProps {
+export interface BookMarksItemProps {
   bookMarks: any[]
   onlyShow?: string
   noShow?: string
   [key: string]: any
 }
 
-const BookMarksCom = (props: bookMarksItemProps) => {
-  const { bookMarks = [], onlyShow, noShow }: bookMarksItemProps = props
+export default (props: BookMarksItemProps) => {
+  const { bookMarks } = props
+  const cacheFoldKey = 'Newtab-modules-conf-fold'
+  const cacheCol2Key = 'Newtab-modules-conf-col2'
 
-  const [list, setList] = React.useState<ItemType[]>([])
-
-  const adapterBookMark = (list: any[], props?: ItemType): ItemType[] => {
-    if (!isEffectArray(list)) return []
-    const newList: ItemType[] = []
-    const { depth = -1, config: fatherConfig = [] } = props || {}
-    list.forEach((item: any): any => {
-      if (noShow && noShow === item.title) return
-      if (onlyShow && onlyShow !== item.title) return
-
-      const getTitle = () => {
-        if (item.children) {
-          item.title.split('_') as string[]
-        }
-        return [item.title]
-      }
-      const [title, ...config] = getTitle()
-      const itemConfig = [...config]
-      if (itemConfig.includes('hidden')) return
-
-      const temp: ItemType = {
-        label: title,
-        config: [...fatherConfig, ...config].map(_ => _.toUpperCase()),
-        url: item.url || '',
-        urls: [],
-        depth: depth + 1,
-        children: []
-      }
-
-      temp.children = adapterBookMark(item.children, temp)
-      newList.push(temp)
-    })
-    return newList
+  const [fold, _setFold] = React.useState<string[]>([])
+  const setFold = (list: string[]) => {
+    _setFold(list)
+    localStorage.setItem(cacheFoldKey, JSON.stringify(list))
   }
 
-  const [state, _setState] = useSetState<
-    ObjectType<{
-      open: '0' | '1'
-      columnCount: number
-    }>
-  >({})
-
-  const cacheKey = 'Newtab-modules-conf'
-
-  const setState = (val: ObjectType) => {
-    localStorage.setItem(cacheKey, JSON.stringify({ ...state, ...val }))
-    _setState(val as any)
+  const [col2, _setCol2] = React.useState<string[]>([])
+  const setCol2 = (newConf: string[]) => {
+    _setCol2(newConf)
+    localStorage.setItem(cacheCol2Key, JSON.stringify(newConf))
   }
-
-  const handleClick = (record: ObjectType | any, flag: 'open' | 'add' | 'minus', vid: string) => {
-    const { label } = record
-    if (!isString(label)) return
-
-    const conf = state[label] || { open: '0', columnCount: 1 }
-    if (flag === 'open') {
-      conf.open = conf.open === '1' ? '0' : '1'
-    }
-    if (flag === 'add') {
-      conf.columnCount =
-        isNumber(conf.columnCount) && conf.columnCount >= 0
-          ? Math.min(4, Math.max(2, conf.columnCount + 1))
-          : 1
-    }
-    if (flag === 'minus') {
-      conf.columnCount =
-        isNumber(conf.columnCount) && conf.columnCount >= 0 ? Math.max(1, conf.columnCount - 1) : 1
-    }
-
-    setState({
-      [vid]: conf
-    })
-  }
-
   React.useEffect(() => {
     if (!bookMarks.length) return
-    setList(adapterBookMark(bookMarks))
     try {
-      const cache = localStorage.getItem(cacheKey) || '{}'
-      _setState(JSON.parse(cache))
+      const cache = JSON.parse(localStorage.getItem(cacheFoldKey) || '[]') || []
+      if (isArray(cache)) {
+        _setFold(cache)
+      }
     } catch (error) {
-      console.log('no newTab cache')
+      console.error(error)
+    }
+    try {
+      const cache = JSON.parse(localStorage.getItem(cacheCol2Key) || '[]') || []
+      if (isArray(cache)) {
+        _setCol2(cache)
+      }
+    } catch (error) {
+      console.error(error)
     }
   }, [bookMarks.length])
 
-  const stat = getStat(deepClone(list))
-
-  // console.log(stat)
+  const Child = (props: any) => {
+    const { id, children = [], title } = props
+    return (
+      <div key={id} className='bookmark-item'>
+        <div className='header'>
+          <div className='left'></div>
+          <div className='center'>
+            <div
+              className='title'
+              onClick={() => {
+                const newFold = [...fold]
+                if (fold.includes(id)) {
+                  setFold(newFold.filter(_ => _ !== id))
+                  return
+                }
+                newFold.push(id)
+                setFold(newFold)
+              }}
+            >
+              {title}
+            </div>
+          </div>
+          <div className='right'>
+            <svg
+              className={classNames({
+                hidden: fold.includes(id)
+              })}
+              xmlns='http://www.w3.org/2000/svg'
+              width='1em'
+              height='1em'
+              viewBox='0 0 24 24'
+              onClick={() => {
+                const newCol2 = [...col2]
+                if (col2.includes(id)) {
+                  setCol2(newCol2.filter(_ => _ !== id))
+                  return
+                }
+                newCol2.push(id)
+                setCol2(newCol2)
+              }}
+            >
+              <path
+                fill='none'
+                stroke='currentColor'
+                strokeLinejoin='round'
+                strokeWidth='2'
+                d='M9 4v16m-5 0h16a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1z'
+              />
+            </svg>
+            <svg
+              className={classNames({
+                hidden: fold.includes(id)
+              })}
+              xmlns='http://www.w3.org/2000/svg'
+              width='1em'
+              height='1em'
+              viewBox='0 0 24 24'
+            >
+              <path
+                fill='currentColor'
+                d='M3 3h6v2H6.462l4.843 4.843l-1.415 1.414L5 6.367V9H3zm0 18h6v-2H6.376l4.929-4.928l-1.415-1.414L5 17.548V15H3zm12 0h6v-6h-2v2.524l-4.867-4.866l-1.414 1.414L17.647 19H15zm6-18h-6v2h2.562l-4.843 4.843l1.414 1.414L19 6.39V9h2z'
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          className={classNames('child', {
+            hidden: fold.includes(id),
+            col2: col2.includes(id)
+          })}
+        >
+          {children.map((child: any) => {
+            const { id, title, url } = child
+            return (
+              <div
+                key={id}
+                className='value'
+                onClick={() => {
+                  url && windowOpenUrl(url)
+                }}
+              >
+                {title}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <div className='modules-layout'>
-      {stat.map((item, i) => (
-        <Child key={i} list={item.list} state={state} handleClick={handleClick} />
-      ))}
+    <div className='bookmark-box'>
+      {bookMarks.map(item => {
+        const { id } = item
+        return <Child key={id} {...item} />
+      })}
     </div>
   )
 }
-
-export default BookMarksCom

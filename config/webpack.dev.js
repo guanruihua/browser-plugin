@@ -25,7 +25,8 @@ module.exports = merge(config, {
     compress: false, //gzip压缩，开发环境下不用开启，提升热更新的速度
     historyApiFallback: true, //解决history路由一刷新变404的问题
     bonjour: true,
-    // writeToDisk: true,
+    // test
+    writeToDisk: true,
     static: {
       directory: path.join(__dirname, '../build')
     }
