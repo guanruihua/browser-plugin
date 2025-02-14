@@ -3,6 +3,11 @@ $itemW: 100px;
 $gap: 6px;
 $w: $gap+7*($gap+$itemW);
 
+:root {
+  // 对 height: auto 过渡动画支持
+  interpolate-size: allow-keywords;
+}
+
 body {
   word-spacing: 1.2px;
   letter-spacing: 1px;

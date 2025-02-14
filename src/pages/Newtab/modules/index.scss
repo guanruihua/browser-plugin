@@ -17,6 +17,7 @@
     box-shadow: 0 0 3px rgba(0, 0, 0, .3);
     -webkit-column-break-inside: avoid;
     break-inside: avoid;
+    transition: all 3s;
 
 
     &>.header {
@@ -47,7 +48,8 @@
     }
 
     &>.child {
-      max-height: 100vh;
+      height: auto;
+      max-height: 60vh;
       margin-bottom: 10px;
 
       &.col2 {

@@ -9,6 +9,6 @@
   "jsxSingleQuote": true,
   "htmlWhitespaceSensitivity": "ignore",
   "endOfLine": "auto",
-  "trailingComma": "none",
+  "trailingComma": "all",
   "arrowParens": "avoid"
 }

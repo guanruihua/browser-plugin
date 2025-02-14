@@ -6,7 +6,7 @@ import { Nav } from './nav'
 
 export default function () {
   const [bookMarks] = useBookMarks()
-  console.log({bookMarks})
+  // console.log({bookMarks})
   return (
     <div className='newTabBox'>
       <div className='newTab'>

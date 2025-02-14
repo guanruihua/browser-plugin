@@ -26,14 +26,21 @@ module.exports = merge(config, {
     historyApiFallback: true, //解决history路由一刷新变404的问题
     bonjour: true,
     // test
-    writeToDisk: true,
+    // writeToDisk: true,
     static: {
       directory: path.join(__dirname, '../build')
-    }
+    },
     //  injectClient: false,
     // contentBase: path.join(__dirname, '../build')
     // static: {
     //   directory: path.join(__dirname, '../public') //托管静态资源public文件夹
     // }
-  }
+    devMiddleware: {
+      index: true,
+      // mimeTypes: { phtml: 'text/html' },
+      // publicPath: '/publicPathForDevServe',
+      // serverSideRender: true,
+      writeToDisk: true,
+    },
+  },
 })

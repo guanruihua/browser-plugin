@@ -1,9 +1,25 @@
 import React, { useState } from 'react'
 import './index.scss'
+import { isString } from 'asura-eye'
 
 export default () => {
-  const [aStr, setAStr] = useState<string>('')
-  const [bStr, setBStr] = useState<string>('')
+  const [aStr, _setAStr] = useState<string>('')
+  const [bStr, _setBStr] = useState<string>('')
+
+  const aKey = 'rh-diff-a-string'
+  const bKey = 'rh-diff-b-string'
+
+  const addCache = (key: string, val: string) => {
+    localStorage.setItem(key, val)
+  }
+  const setAStr = (val: any) => {
+    _setAStr(val)
+    addCache(aKey, val)
+  }
+  const setBStr = (val: any) => {
+    _setBStr(val)
+    addCache(bKey, val)
+  }
 
   const handleCompare = (aStr: string, bStr: string) => {
     const pat = /[ |\t|\n]/
@@ -14,10 +30,36 @@ export default () => {
     if (taStr !== tbStr) return 'noEqual'
     return 'compare'
   }
-
+  const initStr = (key: string, cb: any) => {
+    const val = localStorage.getItem(key)
+    if (isString(val)) {
+      cb(val)
+    }
+  }
+  const init = () => {
+    initStr(aKey, _setAStr)
+    initStr(bKey, _setBStr)
+  }
+  React.useEffect(() => {
+    init()
+  }, [])
+  const reg = /([,;|\s@/.:;'`])/
+  const aList = aStr.split(reg)
+  const bList = bStr.split(reg)
   return (
-    <div className='rh-deffStr'>
-      <div className={handleCompare(aStr, bStr)}>
+    <div className='rh-diff-Str'>
+      <div className='compare-string'>
+        {aList.map((a, i) => {
+          const b = bList[i] || ''
+          if (a === b) return <span key={i}>{a}</span>
+          return (
+            <span className={'error'} key={i}>
+              {`${a} => ${b} `}
+            </span>
+          )
+        })}
+      </div>
+      <div className={'input-area ' + handleCompare(aStr, bStr)}>
         <textarea placeholder='' value={aStr || ''} onChange={e => setAStr(e.target.value)} />
         <textarea placeholder='' value={bStr || ''} onChange={e => setBStr(e.target.value)} />
       </div>
