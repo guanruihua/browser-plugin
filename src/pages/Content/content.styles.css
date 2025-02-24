@@ -1,0 +1,33 @@
+/* csdn */
+html[data-host="blog.csdn.net"] .recommend-box.insert-baidu-box.recommend-box-style,
+html[data-host="blog.csdn.net"] .blog-footer-bottom,
+html[data-host="blog.csdn.net"] .recommend-right.align-items-stretch.clearfix,
+html[data-host="blog.csdn.net"] .recommend-right_aside,
+html[data-host="blog.csdn.net"] #toolBarBox>.left-toolbox,
+html[data-host="blog.csdn.net"] #blogColumnPayAdvert,
+html[data-host="blog.csdn.net"] #blogColumnPayAdvert .column-group,
+html[data-host="blog.csdn.net"] .first-recommend-box.recommend-box,
+html[data-host="blog.csdn.net"] .second-recommend-box.recommend-box,
+html[data-host="blog.csdn.net"] .blog_container_aside {
+  display: none !important;
+}
+
+html[data-host="blog.csdn.net"] .main_father>.container {
+  margin-right: 0 !important;
+  width: 100% !important;
+}
+
+html[data-host="blog.csdn.net"] .main_father>.container>main {
+  width: 100% !important;
+}
+
+
+/* t.bilibili.com */
+html[data-host="t.bilibili.com"] #app .bili-dyn-home--member>main {
+  width: calc(100vw - 320px);
+}
+
+html[data-host="t.bilibili.com"] #app .bili-dyn-home--member>main .bili-dyn-list__items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

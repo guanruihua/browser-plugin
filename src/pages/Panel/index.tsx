@@ -4,9 +4,10 @@ import './Panel.scss'
 import { Tab } from 'aurad'
 import 'aurad/dist/style.css'
 import DiffStr from './DiffStr'
-import { CountdownWork } from './CountdownWork/index'
+import { Countdown } from './Countdown'
 import { Test } from './test'
 import { Transform } from './Transform'
+import { Gen } from './gen'
 
 const Panel = () => {
   return (
@@ -18,14 +19,19 @@ const Panel = () => {
         }}
         items={[
           {
-            title: 'String Comparison',
-            key: 'String Comparison',
+            title: 'Diff',
+            key: 'Diff',
             children: <DiffStr />
+          },
+          {
+            title: 'Gen',
+            key: 'Gen',
+            children: <Gen />
           },
           {
             title: 'CountDown Work',
             key: 'CountDown Work',
-            children: <CountdownWork />
+            children: <Countdown />
           },
           {
             title: 'Transform',
