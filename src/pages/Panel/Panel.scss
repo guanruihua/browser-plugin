@@ -37,3 +37,15 @@ body,
   cursor: pointer;
   background: rgba(0, 0, 0, 0.1);
 }
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 12px;
+  padding: 4px 8px;
+  background-color: transparent;
+  outline: none;
+}

@@ -17,6 +17,21 @@
   },
   "content_scripts": [
     {
+      "matches": ["https://blog.csdn.net/*"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["csdn.styles.css"]
+    },
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["github.styles.css"]
+    },
+    {
+      "matches": ["https://t.bilibili.com/*"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["bilibili.styles.css"]
+    },
+    {
       "matches": ["<all_urls>"],
       "js": ["contentScript.bundle.js"],
       "css": ["content.styles.css"]

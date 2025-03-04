@@ -205,6 +205,33 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
+          from: path.join(__dirname, '../src/pages/Content/csdn.styles.css'),
+          to: path.join(__dirname, '../build'),
+          force: true
+        }
+      ]
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, '../src/pages/Content/bilibili.styles.css'),
+          to: path.join(__dirname, '../build'),
+          force: true
+        }
+      ]
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, '../src/pages/Content/github.styles.css'),
+          to: path.join(__dirname, '../build'),
+          force: true
+        }
+      ]
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
           from: path.join(__dirname, '../src/assets/img/icon-128.png'),
           to: path.join(__dirname, '../build'),
           force: true

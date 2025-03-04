@@ -1,0 +1,29 @@
+/* csdn */
+.recommend-box.insert-baidu-box.recommend-box-style,
+.blog-footer-bottom,
+.recommend-right.align-items-stretch.clearfix,
+.recommend-right_aside,
+#toolBarBox>.left-toolbox,
+#blogColumnPayAdvert,
+#blogColumnPayAdvert .column-group,
+.first-recommend-box.recommend-box,
+.second-recommend-box.recommend-box,
+.blog_container_aside {
+  display: none !important;
+}
+
+.main_father>.container {
+  margin-right: 0 !important;
+  width: 100% !important;
+}
+
+.main_father>.container>main {
+  width: 100% !important;
+}
+
+#toolbarBox #csdn-toolbar,
+.csdn-side-toolbar,
+#toolbarBox {
+  display: none !important;
+  min-height: 0 !important;
+}
