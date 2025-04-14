@@ -27,3 +27,8 @@
   display: none !important;
   min-height: 0 !important;
 }
+
+.blog-tags-box,
+.blogHuaweiyunAdvert{
+  display: none !important;
+}

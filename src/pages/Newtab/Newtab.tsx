@@ -12,7 +12,6 @@ export default function () {
       <div className='newTab'>
         <BookMarksCom bookMarks={bookMarks} />
       </div>
-      <div className='bg'></div>
       <Nav />
     </div>
   )

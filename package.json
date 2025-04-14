@@ -6,8 +6,6 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack -c config/webpack.base.js --watch",
-    "build": "node utils/build.js",
-    "start3": "webpack-dev-server -c config/webpack.dev.js",
     "prettier": "prettier --write '**/*.{js,jsx,css,html}'",
     "lint": "eslint ./src --ext .jsx,.js,.ts,.tsx",
     "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --fix --quiet",

@@ -18,7 +18,7 @@ const fileExtensions = [
   'woff',
   'woff2',
   'mp3',
-  'json'
+  'json',
 ]
 
 const include = [path.resolve(__dirname, '../src')]
@@ -33,12 +33,12 @@ module.exports = {
     background: path.join(__dirname, '../src/pages/Background/index.ts'),
     contentScript: path.join(__dirname, '../src/pages/Content/index.ts'),
     devtools: path.join(__dirname, '../src/pages/Devtools/index.ts'),
-    panel: path.join(__dirname, '../src/pages/Panel/index.tsx')
+    panel: path.join(__dirname, '../src/pages/Panel/index.tsx'),
   },
   output: {
     path: path.resolve(__dirname, '../build'),
     filename: '[name].bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   // devServer: {
   //   contentBase: path.resolve(__dirname, '../build'),
@@ -46,9 +46,9 @@ module.exports = {
   // },
   module: {
     rules: [
-       {
+      {
         test: /\.css$/, // 匹配 CSS 文件
-        use: ['style-loader', 'css-loader'] // 使用 style-loader 和 css-loader 处理 CSS 文件
+        use: ['style-loader', 'css-loader'], // 使用 style-loader 和 css-loader 处理 CSS 文件
       },
       // {
       //   test: /\.(js|jsx)$/,
@@ -69,22 +69,22 @@ module.exports = {
             // options: {
             //   loader: 'jsx'
             // }
-          }
+          },
         ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(jpe?g|png|gif|)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'img/[name][ext]'
-        }
+          filename: 'img/[name][ext]',
+        },
       },
       {
         test: /\.(svg|woff|woff2|eot|ttf|otf|ico)$/i,
         // test: /\.(jpe?g|png|gif|svg|woff|woff2|eot|ttf|otf|ico)$/i,
         type: 'asset/resource',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       // {
       //   test: new RegExp('.(' + fileExtensions.join('|') + ')$'),
@@ -103,10 +103,10 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '_[local]_[hash:base64:6]'
+                localIdentName: '_[local]_[hash:base64:6]',
               },
-              importLoaders: 2
-            }
+              importLoaders: 2,
+            },
           },
           {
             loader: 'sass-loader',
@@ -114,13 +114,13 @@ module.exports = {
               sassOptions: {
                 sourceMap: true,
                 importLoaders: 2,
-                javascriptEnabled: true
-              }
-            }
-          }
+                javascriptEnabled: true,
+              },
+            },
+          },
         ],
         include,
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
@@ -130,12 +130,12 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true
-            }
-          }
+              sourceMap: true,
+            },
+          },
         ],
         include,
-        exclude: /\.module.scss|node_modules/
+        exclude: /\.module.scss|node_modules/,
       },
       {
         test: /\.tsx?$/,
@@ -143,22 +143,22 @@ module.exports = {
           {
             loader: 'esbuild-loader',
             options: {
-              loader: 'tsx'
-            }
-          }
+              loader: 'tsx',
+            },
+          },
         ],
-        exclude: /node_modules/
-      }
-    ]
+        exclude: /node_modules/,
+      },
+    ],
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '../src')
+      '@': path.resolve(__dirname, '../src'),
       // 'react-dom': '@hot-loader/react-dom'
     },
     extensions: fileExtensions
       .map(extension => '.' + extension)
-      .concat(['.js', '.jsx', '.ts', '.tsx', '.css', '.d.ts', '.json'])
+      .concat(['.js', '.jsx', '.ts', '.tsx', '.css', '.d.ts', '.json']),
   },
   plugins: [
     // new webpack.HotModuleReplacementPlugin(),
@@ -186,101 +186,131 @@ module.exports = {
               JSON.stringify({
                 // description: process.env.npm_package_description,
                 version: process.env.npm_package_version,
-                ...JSON.parse(content.toString())
-              })
+                ...JSON.parse(content.toString()),
+              }),
             )
-          }
-        }
-      ]
+          },
+        },
+      ],
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, '../src/pages/Content/content.styles.css'),
-          to: path.join(__dirname, '../build'),
-          force: true
-        }
-      ]
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, '../src/pages/Content/csdn.styles.css'),
-          to: path.join(__dirname, '../build'),
-          force: true
-        }
-      ]
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, '../src/pages/Content/bilibili.styles.css'),
-          to: path.join(__dirname, '../build'),
-          force: true
-        }
-      ]
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, '../src/pages/Content/github.styles.css'),
-          to: path.join(__dirname, '../build'),
-          force: true
-        }
-      ]
-    }),
+    ...['content', 'bing', 'csdn', 'bilibili', 'github', 'juejin'].map(
+      name =>
+        new CopyWebpackPlugin({
+          patterns: [
+            {
+              from: path.join(__dirname, `../src/pages/Content/${name}.styles.css`),
+              to: path.join(__dirname, '../build'),
+              force: true,
+            },
+          ],
+        }),
+    ),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.join(__dirname, '../src/pages/Content/content.styles.css'),
+    //       to: path.join(__dirname, '../build'),
+    //       force: true,
+    //     },
+    //   ],
+    // }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.join(__dirname, '../src/pages/Content/bing.styles.css'),
+    //       to: path.join(__dirname, '../build'),
+    //       force: true,
+    //     },
+    //   ],
+    // }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.join(__dirname, '../src/pages/Content/csdn.styles.css'),
+    //       to: path.join(__dirname, '../build'),
+    //       force: true,
+    //     },
+    //   ],
+    // }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.join(__dirname, '../src/pages/Content/bilibili.styles.css'),
+    //       to: path.join(__dirname, '../build'),
+    //       force: true,
+    //     },
+    //   ],
+    // }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.join(__dirname, '../src/pages/Content/bilibili.styles.css'),
+    //       to: path.join(__dirname, '../build'),
+    //       force: true,
+    //     },
+    //   ],
+    // }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.join(__dirname, '../src/pages/Content/github.styles.css'),
+    //       to: path.join(__dirname, '../build'),
+    //       force: true,
+    //     },
+    //   ],
+    // }),
     new CopyWebpackPlugin({
       patterns: [
         {
           from: path.join(__dirname, '../src/assets/img/icon-128.png'),
           to: path.join(__dirname, '../build'),
-          force: true
-        }
-      ]
+          force: true,
+        },
+      ],
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
           from: path.join(__dirname, '../src/assets/img/icon-34.png'),
           to: path.join(__dirname, '../build'),
-          force: true
-        }
-      ]
+          force: true,
+        },
+      ],
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../src/pages/Newtab/index.html'),
       filename: 'newtab.html',
       chunks: ['newtab'],
-      cache: false
+      cache: false,
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../src/pages/Options/index.html'),
       filename: 'options.html',
       chunks: ['options'],
-      cache: false
+      cache: false,
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../src/pages/Popup/index.html'),
       filename: 'popup.html',
       chunks: ['popup'],
-      cache: false
+      cache: false,
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../src/pages/Devtools/index.html'),
       filename: 'devtools.html',
       chunks: ['devtools'],
-      cache: false
+      cache: false,
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../src/pages/Panel/index.html'),
       filename: 'panel.html',
       chunks: ['panel'],
-      cache: false
-    })
+      cache: false,
+    }),
   ],
   infrastructureLogging: {
-    level: 'info'
-  }
+    level: 'info',
+  },
 }
 
 // if (env.NODE_ENV === 'development') {

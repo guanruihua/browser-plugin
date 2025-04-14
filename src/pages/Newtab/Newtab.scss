@@ -4,7 +4,6 @@ $gap: 6px;
 $w: $gap+7*($gap+$itemW);
 
 :root {
-  // 对 height: auto 过渡动画支持
   interpolate-size: allow-keywords;
 }
 
@@ -25,32 +24,25 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    border-radius: 3px;
+    border-radius: 8px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    background: rgba(0, 0, 0, 0.3);
+    // background: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.3);
   }
 
   &::-webkit-scrollbar-button {
     height: 0;
   }
 
+  &::-webkit-scrollbar-track-piece {
+    // background: rgba(0, 0, 0, 0.9);
+    background: #000;
+  }
+
   &::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+
   }
-}
-
-%transition {
-  transition: all .15s linear;
-}
-
-%bg-image {
-  // background: url(../../assets/img/bg.jpg);
-  background: url(../../assets/img/bg2.jpg);
-  background-repeat: no-repeat;
-  background-origin: border-box;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
 }
 
 %font {
@@ -74,23 +66,8 @@ body {
   margin-right: 5px;
 }
 
-.bg {
-  @extend %bg-image;
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  filter: opacity(30%);
-  z-index: 10;
-}
-
 .newTabBox {
-  background: #0c1120;
+  background: #000;
 
   .search-input {
     margin: 0;

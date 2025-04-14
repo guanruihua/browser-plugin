@@ -5,7 +5,7 @@
 }
 
 .container-lg {
-  max-width: 100%;
+  max-width: 100% !important;
 }
 
 .Layout.react-repos-overview-margin {

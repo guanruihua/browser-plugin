@@ -17,6 +17,11 @@
   },
   "content_scripts": [
     {
+      "matches": ["https://cn.bing.com/*"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["bing.styles.css"]
+    },
+    {
       "matches": ["https://blog.csdn.net/*"],
       "js": ["contentScript.bundle.js"],
       "css": ["csdn.styles.css"]
@@ -30,6 +35,11 @@
       "matches": ["https://t.bilibili.com/*"],
       "js": ["contentScript.bundle.js"],
       "css": ["bilibili.styles.css"]
+    },
+    {
+      "matches": ["https://juejin.cn/*"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["juejin.styles.css"]
     },
     {
       "matches": ["<all_urls>"],

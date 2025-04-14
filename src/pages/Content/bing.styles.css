@@ -1,7 +1,31 @@
-#b_content{
+/* #b_content {
   padding-left: 24px;
 }
 
-#b_content .b_wpt_container .colSpan6{
+#b_content .b_wpt_container .colSpan6 {
   width: 100% !important;
+} */
+
+:root {
+  --lgutter: 15px !important;
+  --rgutter: 0 !important;
+}
+
+#b_results {
+  width: calc(100vw - 540px) !important;
+}
+
+#b_results .b_ans #brsv3 {
+  width: 100% !important;
+}
+
+.b_vList.b_divsec li {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.b_vList.b_divsec {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }

@@ -51,6 +51,7 @@ export default (props: BookMarksItemProps) => {
     const { id, children = [], title } = props
     return (
       <div key={id} className='bookmark-item'>
+        <div className='abg'></div>
         <div className='header'>
           <div className='left'></div>
           <div className='center'>
@@ -72,7 +73,7 @@ export default (props: BookMarksItemProps) => {
           <div className='right'>
             <svg
               className={classNames({
-                hidden: fold.includes(id)
+                hidden: fold.includes(id),
               })}
               xmlns='http://www.w3.org/2000/svg'
               width='1em'
@@ -115,7 +116,7 @@ export default (props: BookMarksItemProps) => {
         <div
           className={classNames('child', {
             hidden: fold.includes(id),
-            col2: col2.includes(id)
+            col2: col2.includes(id),
           })}
         >
           {children.map((child: any) => {

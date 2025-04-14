@@ -28,7 +28,7 @@ export function Child(props: ChildProps) {
             className={classNames('webContent-card-item', {
               title: depth === 0,
               child: depth > 0,
-              open: state[vid]?.open !== '0'
+              open: state[vid]?.open !== '0',
             })}
             key={i}
           >
@@ -69,7 +69,7 @@ export function Child(props: ChildProps) {
                 <span className='controls'></span>
               )}
             </div>
-            {(children?.length && state[vid]?.open !== '0') ? (
+            {children?.length && state[vid]?.open !== '0' ? (
               <div className='child'>
                 <Child
                   lv={lv + 1}
@@ -79,7 +79,7 @@ export function Child(props: ChildProps) {
                   style={
                     isNumber(state[vid]?.columnCount) && state[vid].columnCount > 1
                       ? {
-                          columnCount: state[vid]?.columnCount
+                          columnCount: state[vid]?.columnCount,
                         }
                       : {}
                   }
