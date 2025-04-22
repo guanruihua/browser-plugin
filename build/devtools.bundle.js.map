@@ -1,0 +1,1 @@
+{"version":3,"file":"devtools.bundle.js","mappings":";;;;;;AAAA","sources":["webpack://browser-plugin/./src/pages/Devtools/index.ts"],"sourcesContent":["chrome.devtools.panels.create('Ruihuag', 'icon-34.png', 'panel.html') // eslint-disable-line\r\n"],"names":[],"sourceRoot":""}

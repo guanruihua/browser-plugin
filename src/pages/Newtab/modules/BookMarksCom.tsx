@@ -1,8 +1,8 @@
 import React from 'react'
-import { isArray } from 'asura-eye'
 import { windowOpenUrl } from '../utils'
-import './index.scss'
 import { classNames } from 'harpe'
+import { useSetState } from '0hook'
+import './index.scss'
 
 export interface BookMarksItemProps {
   bookMarks: any[]
@@ -14,38 +14,20 @@ export interface BookMarksItemProps {
 export default (props: BookMarksItemProps) => {
   const { bookMarks } = props
   const cacheFoldKey = 'Newtab-modules-conf-fold'
-  const cacheCol2Key = 'Newtab-modules-conf-col2'
+  const [state, setState] = useSetState<{
+    fold: string[]
+    col2: string[]
+  }>(
+    {
+      fold: [],
+      col2: [],
+    },
+    cacheFoldKey,
+  )
+  const { fold = [], col2 = [] } = state
+  const setFold = (fold: string[]) => setState({ fold })
+  const setCol2 = (col2: string[]) => setState({ col2 })
 
-  const [fold, _setFold] = React.useState<string[]>([])
-  const setFold = (list: string[]) => {
-    _setFold(list)
-    localStorage.setItem(cacheFoldKey, JSON.stringify(list))
-  }
-
-  const [col2, _setCol2] = React.useState<string[]>([])
-  const setCol2 = (newConf: string[]) => {
-    _setCol2(newConf)
-    localStorage.setItem(cacheCol2Key, JSON.stringify(newConf))
-  }
-  React.useEffect(() => {
-    if (!bookMarks.length) return
-    try {
-      const cache = JSON.parse(localStorage.getItem(cacheFoldKey) || '[]') || []
-      if (isArray(cache)) {
-        _setFold(cache)
-      }
-    } catch (error) {
-      console.error(error)
-    }
-    try {
-      const cache = JSON.parse(localStorage.getItem(cacheCol2Key) || '[]') || []
-      if (isArray(cache)) {
-        _setCol2(cache)
-      }
-    } catch (error) {
-      console.error(error)
-    }
-  }, [bookMarks.length])
 
   const Child = (props: any) => {
     const { id, children = [], title } = props

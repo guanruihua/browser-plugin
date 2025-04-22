@@ -1,0 +1,9 @@
+/* https://t.bilibili.com/ */
+#app .bili-dyn-home--member>main {
+  width: calc(100vw - 320px);
+}
+
+#app .bili-dyn-home--member>main .bili-dyn-list__items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

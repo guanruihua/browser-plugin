@@ -1,0 +1,13 @@
+.container-xl {
+  max-width: 100vw !important;
+  padding-left: none;
+  padding-right: none;
+}
+
+.container-lg {
+  max-width: 100% !important;
+}
+
+.Layout.react-repos-overview-margin {
+  margin-right: 0 !important;
+}

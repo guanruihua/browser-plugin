@@ -1,0 +1,7 @@
+.top-banners-container{
+  display: none;
+}
+
+.header-with-banner {
+  top: 0 !important;
+}
