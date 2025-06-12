@@ -13,6 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   useBoolean: () => (/* binding */ useBoolean),
 /* harmony export */   useCount: () => (/* binding */ useCount),
 /* harmony export */   useDebounceEffect: () => (/* binding */ useDebounceEffect),
+/* harmony export */   useEventListener: () => (/* binding */ useEventListener),
 /* harmony export */   useInterval: () => (/* binding */ useInterval),
 /* harmony export */   useLocalStorage: () => (/* binding */ useLocalStorage),
 /* harmony export */   useMap: () => (/* binding */ useMap),
@@ -589,6 +590,36 @@ function useDebounceEffect(fn, waitTime, deps) {
       cb && cb();
     };
   }, deps);
+}
+
+/**
+ * @title useEventListener<T = any>
+ * @param {keyof WindowEventMap} type
+ * @param {(e:Event)=> T | undefined} listener 监听回调方法, 通过返回值对state赋值
+ * @param {T} [defaultValue]
+ * @param {boolean | AddEventListenerOptions} [options]
+ * @returns {[T | undefined, React.Dispatch<React.SetStateAction<T | undefined>>]}
+ */
+function useEventListener(type, listener, defaultValue, options) {
+  const ref = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(defaultValue);
+  const [state, _setState] = react__WEBPACK_IMPORTED_MODULE_0___default().useState(defaultValue);
+  const onListener = e => {
+    e?.preventDefault();
+    ref.current = listener(e);
+    _setState(ref.current);
+  };
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(() => {
+    window.removeEventListener(type, onListener);
+    window.addEventListener(type, onListener, isBoolean(options) ? options : {
+      passive: true,
+      ...options
+    });
+    onListener();
+    return () => {
+      window.removeEventListener(type, onListener);
+    };
+  }, []);
+  return [state, _setState];
 }
 
 

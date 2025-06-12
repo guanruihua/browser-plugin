@@ -2,7 +2,7 @@ import React from 'react'
 import { QRCodePage, Localhost, Tool } from './modules'
 import { Tab } from 'aurad'
 import './Popup.css'
-// import { Test } from './modules/test'
+import { Test } from './modules/test'
 
 export default () => {
   return (
@@ -28,11 +28,11 @@ export default () => {
             key: 'tool',
             children: <Tool />
           },
-          // {
-          //   title: 'test',
-          //   key: 'test',
-          //   children: <Test />
-          // }
+          {
+            title: 'test',
+            key: 'test',
+            children: <Test />
+          }
         ]}
       />
     </div>

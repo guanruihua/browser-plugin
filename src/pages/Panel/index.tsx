@@ -5,7 +5,6 @@ import { Tab } from 'aurad'
 import 'aurad/dist/style.css'
 import DiffStr from './DiffStr'
 import { Transform } from './Transform'
-import { Gen } from './gen'
 
 const Panel = () => {
   return (
@@ -47,11 +46,6 @@ const Panel = () => {
             title: 'Diff',
             key: 'Diff',
             children: <DiffStr />,
-          },
-          {
-            title: 'Gen',
-            key: 'Gen',
-            children: <Gen />,
           },
           {
             title: 'Transform',

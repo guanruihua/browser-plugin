@@ -6,4 +6,8 @@
 #app .bili-dyn-home--member>main .bili-dyn-list__items {
   display: grid;
   grid-template-columns: 1fr 1fr;
+} 
+
+.bili-dyn-home--member aside.right{
+  display: none;
 }

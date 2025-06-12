@@ -1,1 +1,1 @@
-window.document.querySelector('html')?.setAttribute('data-host', location.host);
+window.document.querySelector('html')?.setAttribute('data-host', location.host)

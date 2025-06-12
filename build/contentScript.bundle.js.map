@@ -1,1 +1,1 @@
-{"version":3,"file":"contentScript.bundle.js","mappings":";;;;;;AAAA;AAAA","sources":["webpack://browser-plugin/./src/pages/Content/index.ts"],"sourcesContent":["window.document.querySelector('html')?.setAttribute('data-host', location.host);"],"names":[],"sourceRoot":""}
+{"version":3,"file":"contentScript.bundle.js","mappings":";;;;;;AAAA;AAAA","sources":["webpack://browser-plugin/./src/pages/Content/index.ts"],"sourcesContent":["window.document.querySelector('html')?.setAttribute('data-host', location.host)"],"names":[],"sourceRoot":""}

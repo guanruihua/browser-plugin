@@ -9,7 +9,7 @@
     "prettier": "prettier --write '**/*.{js,jsx,css,html}'",
     "lint": "eslint ./src --ext .jsx,.js,.ts,.tsx",
     "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --fix --quiet",
-    "pub": "npm publish"
+    "publish": "node config/publish.cjs"
   },
   "devDependencies": {
     "0hook": "workspace:^",

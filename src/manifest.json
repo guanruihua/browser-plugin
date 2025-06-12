@@ -54,5 +54,14 @@
       "matches": []
     }
   ],
-  "permissions": ["bookmarks", "storage", "activeTab", "tabs", "scripting", "nativeMessaging"]
+  "commands": {
+    "toggle-blur": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+0"
+      },
+      "description": "Toggle blur effect",
+      "global": true
+    }
+  },
+  "permissions": ["bookmarks", "storage", "activeTab", "tabs", "scripting", "nativeMessaging", "commands"]
 }

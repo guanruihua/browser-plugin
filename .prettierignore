@@ -3,6 +3,6 @@ build
 components
 
 # Ignore all HTML files:
-*.html
+# *.html
 *.geo.json
 **/*.geo.json

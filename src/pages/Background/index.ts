@@ -1,4 +1,5 @@
-console.log('Plugin Loading,  This is the background page.')
+// console.log('Plugin Loading,  This is the background page.', chrome.commands)
+
 // console.log('Put the background scripts here.');
 
 // console.log(chrome.runtime)
@@ -34,3 +35,36 @@ console.log('Plugin Loading,  This is the background page.')
 //   // })
 // })
 
+
+// function applyBlur(amount: number | string) {
+//   const style = document.createElement('style')
+//   style.id = 'web-blur-style'
+//   style.textContent = `
+//     body {
+//       filter: blur(${amount}px) !important;
+//       transition: filter 0.3s ease;
+//     }
+//   `
+//   document.head.appendChild(style)
+// }
+
+// // 移除模糊效果
+// function removeBlur() {
+//   const style = document.getElementById('web-blur-style')
+//   if (style) {
+//     style.remove()
+//   }
+// }
+
+// console.log(chrome.commands?.onCommand?.addListener)
+// chrome.commands?.onCommand?.addListener(command => {
+//   console.log(`Command: ${command}`)
+//   if (command === 'toggle-blur') {
+//     const style = document.getElementById('web-blur-style')
+//     if (style) {
+//       removeBlur()
+//     } else {
+//       applyBlur(3)
+//     }
+//   }
+// })
