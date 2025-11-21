@@ -8,6 +8,7 @@
   background: transparent;
   padding: 10px;
 }
+
 .App-logo {
   height: 30vmin;
   pointer-events: none;
@@ -17,6 +18,11 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.au-tab>div.header {
+  font-weight: bolder;
+  color: #fff;
 }
 
 .header-item {

@@ -1,5 +1,5 @@
 {
-  root: 'D:\\dev\\npm\\dev_space\\plugin\\browser-plugin',
+  root: 'D:\\dev\\workspace\\plugin\\browser-plugin',
   registry: 'https://registry.npmmirror.com',
   pkgs: [],
   production: false,
@@ -8,11 +8,11 @@
   env: {
     npm_config_registry: 'https://registry.npmmirror.com',
     npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\ruihuag\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com"],"original":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\ruihuag\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com"]}',
-    npm_config_user_agent: 'npminstall/7.12.0 npm/? node/v20.9.0 win32 x64',
+    npm_config_user_agent: 'npminstall/7.12.0 npm/? node/v22.17.0 win32 x64',
     npm_config_cache: 'C:\\Users\\ruihuag\\.npminstall_tarball',
     NODE: 'D:\\env\\nvm\\nodejs\\node.exe',
     npm_node_execpath: 'D:\\env\\nvm\\nodejs\\node.exe',
-    npm_execpath: 'D:\\env\\nvm\\nvm\\v20.9.0\\node_modules\\cnpm\\node_modules\\npminstall\\bin\\install.js',
+    npm_execpath: 'D:\\env\\nvm\\nvm\\v22.17.0\\node_modules\\cnpm\\node_modules\\npminstall\\bin\\install.js',
     npm_config_userconfig: 'C:\\Users\\ruihuag\\.cnpmrc',
     npm_config_disturl: 'https://cdn.npmmirror.com/binaries/node',
     npm_config_r: 'https://registry.npmmirror.com',
@@ -45,8 +45,9 @@
     npm_config_sharp_libvips_binary_host: 'https://cdn.npmmirror.com/binaries/sharp-libvips',
     npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs',
     npm_config_gl_binary_host: 'https://cdn.npmmirror.com/binaries/gl',
-    npm_rootpath: 'D:\\dev\\npm\\dev_space\\plugin\\browser-plugin',
-    INIT_CWD: 'D:\\dev\\npm\\dev_space\\plugin\\browser-plugin'
+    RIPGREP_PREBUILT_BINARIES_MIRROR: 'https://registry.npmmirror.com/-/binary/ripgrep-prebuilt',
+    npm_rootpath: 'D:\\dev\\workspace\\plugin\\browser-plugin',
+    INIT_CWD: 'D:\\dev\\workspace\\plugin\\browser-plugin'
   },
   binaryMirrors: {
     ENVS: {
@@ -78,7 +79,8 @@
       npm_config_sharp_binary_host: 'https://cdn.npmmirror.com/binaries/sharp',
       npm_config_sharp_libvips_binary_host: 'https://cdn.npmmirror.com/binaries/sharp-libvips',
       npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs',
-      npm_config_gl_binary_host: 'https://cdn.npmmirror.com/binaries/gl'
+      npm_config_gl_binary_host: 'https://cdn.npmmirror.com/binaries/gl',
+      RIPGREP_PREBUILT_BINARIES_MIRROR: 'https://registry.npmmirror.com/-/binary/ripgrep-prebuilt'
     },
     '@ali/s2': { host: 'https://cdn.npmmirror.com/binaries/looksgood-s2' },
     sharp: { replaceHostFiles: [Array], replaceHostMap: [Object] },
@@ -188,7 +190,7 @@
   disableFallbackStore: false,
   workspacesMap: Map(0) {},
   enableWorkspace: false,
-  workspaceRoot: 'D:\\dev\\npm\\dev_space\\plugin\\browser-plugin',
+  workspaceRoot: 'D:\\dev\\workspace\\plugin\\browser-plugin',
   isWorkspaceRoot: true,
   isWorkspacePackage: false,
   offline: false,

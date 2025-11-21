@@ -79,6 +79,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   selects: () => (/* binding */ selects),
 /* harmony export */   serialize: () => (/* binding */ serialize),
 /* harmony export */   setValueByPath: () => (/* binding */ setValueByPath),
+/* harmony export */   sleep: () => (/* binding */ sleep),
 /* harmony export */   spLength: () => (/* binding */ spLength),
 /* harmony export */   stringify: () => (/* binding */ stringify),
 /* harmony export */   throttle: () => (/* binding */ throttle),
@@ -1594,6 +1595,23 @@ function has(beComparedValue, compareValue) {
 }
 
 /**
+ * @title  sleep
+ * @description 睡眠 / 异步延迟
+ * @param {number} [ms=500]
+ * @returns {Promise<void>}
+ */
+function sleep(ms = 500) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+// // 使用示例
+// async function doSomething() {
+//   console.log('Start');
+//   await sleep(2000);
+//   console.log('End after 2 seconds');
+// }
+// doSomething();
+
+/**
  * @title filter<T>
  * @description 单层过滤
  * @param {T[]} list 待过滤数组
@@ -2502,14 +2520,13 @@ function loop(target, callback) {
  * @description 节流: 用于限制函数触发频率, 每个delay时间间隔，最多只能执行函数一次
  * @param {Function} fn 待处理函数
  * @param {number} interval number 间隔
- * @returns {(...args: Params)=>void}
  */
 function throttle(fn, interval) {
   let lastTime = 0;
-  return function (...args) {
+  return function () {
     const timeSinceLastExecution = Date.now() - lastTime;
     if (!lastTime || timeSinceLastExecution >= interval) {
-      fn.apply(this, ...args);
+      fn.apply(this, arguments);
       lastTime = Date.now();
     }
   };
@@ -2528,13 +2545,12 @@ function throttle(fn, interval) {
  */
 function debounce(fn, interval) {
   let timer = 0;
-  const debounced = (...args) => {
+  return () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      fn.apply(this, args);
+      fn.apply(this, arguments);
     }, interval);
   };
-  return debounced;
 }
 
 /**

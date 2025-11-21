@@ -3,10 +3,14 @@ import React from 'react'
 
 export const useHook = () => {
   const [tabs, setTabs] = React.useState<ObjectType[]>([])
+  const [activeTab, setActiveTab] = React.useState<ObjectType>({})
 
   React.useEffect(() => {
     chrome.tabs.query({ currentWindow: true }, function (tabs) {
       setTabs(tabs as unknown as ObjectType[])
+    })
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      setActiveTab(tabs[0])
     })
   }, [])
 
@@ -26,7 +30,6 @@ export const useHook = () => {
   }
   const pinAll = (flag = true) => {
     chrome.tabs.query({ currentWindow: true }, function (tabs) {
-
       if (flag) {
         tabs.filter(_ => !_.pinned).forEach(pinOne)
         return
@@ -57,11 +60,12 @@ export const useHook = () => {
     })
   }
   return {
+    activeTab,
     tabs,
     clone,
     pin,
     pinAll,
     mute,
-    muteAll
+    muteAll,
   }
 }

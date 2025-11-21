@@ -1,41 +1,48 @@
-import { useState } from "react";
+import { useState } from 'react'
 import { useLocalStorage } from '@/assets'
 
 export const Blass = (name = ''): string => 'rh-popup-localhost-20220720083326' + name
 
 export function usePorts() {
-	const [port, setPort] = useState<string>('')
-		
-	const [baseUrl, setBaseUrl] = useLocalStorage<string>(Blass('lodb-baseUrl'), 'http://172.16.30.128:', false)
+  const [port, setPort] = useState<string>('')
 
-	const [ports, setPorts] = useLocalStorage<Array<string>>(Blass('lodb-ports'), [], true)
+  const [baseUrl, setBaseUrl] = useLocalStorage<string>(
+    Blass('lodb-baseUrl'),
+    'http://172.16.30.128:',
+    false,
+  )
 
-	const addPort = () => {
-		if (ports.includes(port) || !port) return
-		setPorts(ports.concat(port))
-		setPort('')
-	}
+  const [ports, setPorts] = useLocalStorage<Array<string>>(Blass('lodb-ports'), [], true)
 
-	const removePort = (index: number) => {
-		setPorts(ports.filter((v, i) => i !== index))
-	}
+  const addPort = () => {
+    if (ports.includes(port) || !port) return
+    setPorts(ports.concat(port))
+    setPort('')
+  }
 
-	const [err, setErr] = useState<string>()
+  const removePort = (index: number) => {
+    setPorts(ports.filter((v, i) => i !== index))
+  }
 
-	const open = (port: string) => {
-		try {
-			window.open(baseUrl + port)
-		} catch (error) {
-			setErr(JSON.stringify(error))
-		}
-	}
+  const [err, setErr] = useState<string>()
 
-	return {
-		open,
-		port, setPort,
-		ports, addPort,
-		baseUrl, setBaseUrl,
-		removePort,
-		error: err
-	}
+  const open = (port: string) => {
+    try {
+      window.open(baseUrl + port)
+    } catch (error) {
+      setErr(JSON.stringify(error))
+    }
+  }
+
+  return {
+    open,
+    port,
+    setPort,
+    ports,
+    addPort,
+    baseUrl,
+    setBaseUrl,
+    removePort,
+    error: err,
+  }
 }

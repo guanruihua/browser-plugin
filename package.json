@@ -8,8 +8,7 @@
     "start": "webpack -c config/webpack.base.js --watch",
     "prettier": "prettier --write '**/*.{js,jsx,css,html}'",
     "lint": "eslint ./src --ext .jsx,.js,.ts,.tsx",
-    "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --fix --quiet",
-    "publish": "node config/publish.cjs"
+    "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --fix --quiet"
   },
   "devDependencies": {
     "0hook": "workspace:^",

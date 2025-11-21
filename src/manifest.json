@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "RuihuagDemo",
+  "name": "Ruihuag Browser Plugin",
   "options_page": "options.html",
   "background": {
     "service_worker": "background.bundle.js"
@@ -54,14 +54,5 @@
       "matches": []
     }
   ],
-  "commands": {
-    "toggle-blur": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+0"
-      },
-      "description": "Toggle blur effect",
-      "global": true
-    }
-  },
   "permissions": ["bookmarks", "storage", "activeTab", "tabs", "scripting", "nativeMessaging", "commands"]
 }
