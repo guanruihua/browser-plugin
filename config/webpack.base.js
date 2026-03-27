@@ -111,6 +111,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
+              api: 'modern',
               sassOptions: {
                 sourceMap: true,
                 importLoaders: 2,
@@ -130,6 +131,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
+              api: 'modern',
               sourceMap: true,
             },
           },

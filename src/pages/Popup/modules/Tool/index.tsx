@@ -5,7 +5,7 @@ import { isEffectArray, isString } from 'asura-eye'
 import { Grid } from 'aurad'
 
 export function Tool() {
-  const { activeTab, tabs, pin, pinAll, clone, mute, muteAll } = useHook()
+  const { activeTab, tabs, pin, pinAll, clone, mute, muteAll, ...handle } = useHook()
   return (
     <Grid columns={1}>
       <Button
@@ -40,7 +40,10 @@ export function Tool() {
           Open Github Repo
         </Button>
       </Grid>
-      <Button onClick={() => clone()}>复制</Button>
+      <Grid columns={2}>
+        <Button onClick={() => handle.sameDomainReopen()}>同域名重新打开 </Button>
+        <Button onClick={() => clone()}>复制</Button>
+      </Grid>
       <Grid columns={3}>
         <Button onClick={() => pin()}>固定</Button>
         <Button onClick={() => pinAll()}>固定全部</Button>

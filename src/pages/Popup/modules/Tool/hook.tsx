@@ -67,5 +67,12 @@ export const useHook = () => {
     pinAll,
     mute,
     muteAll,
+    sameDomainReopen() {
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs: any[]) {
+        const tab = tabs[0]
+        chrome.tabs.remove(tab.id)
+        chrome.tabs.create({ url: new URL(tab.url).host })
+      })
+    },
   }
 }

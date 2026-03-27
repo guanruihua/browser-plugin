@@ -1,11 +1,11 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "../../packages/abandonjs/lib/index.esm.js":
-/*!*************************************************!*\
-  !*** ../../packages/abandonjs/lib/index.esm.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/.store/abandonjs@3.12.1/node_modules/abandonjs/lib/index.esm.js"
+/*!**************************************************************************************!*\
+  !*** ./node_modules/.store/abandonjs@3.12.1/node_modules/abandonjs/lib/index.esm.js ***!
+  \**************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -88,7 +88,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   toDate: () => (/* binding */ toDate),
 /* harmony export */   toFirstLowerCase: () => (/* binding */ toFirstLowerCase),
 /* harmony export */   toFirstUpperCase: () => (/* binding */ toFirstUpperCase),
-/* harmony export */   toFloat: () => (/* binding */ toFloat$1),
+/* harmony export */   toFloat: () => (/* binding */ toFloat),
 /* harmony export */   toLowerCase: () => (/* binding */ toLowerCase),
 /* harmony export */   toNumber: () => (/* binding */ toNumber),
 /* harmony export */   toPathObject: () => (/* binding */ toPathObject),
@@ -109,7 +109,7 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {boolean}
  */
 function isEmpty(value) {
-  return value === undefined || value === null || value !== value;
+    return value === undefined || value === null || value !== value;
 }
 /**
  * @title isNoEmpty<T>
@@ -119,7 +119,7 @@ function isEmpty(value) {
  * @version 0.3.0
  */
 function isNoEmpty(value) {
-  return value !== undefined && value !== null && value === value;
+    return value !== undefined && value !== null && value === value;
 }
 /**
  * @title isUndefined
@@ -127,7 +127,7 @@ function isNoEmpty(value) {
  * @returns {boolean}
  */
 function isUndefined(value) {
-  return value === undefined;
+    return value === undefined;
 }
 /**
  * @title isNaN
@@ -143,7 +143,7 @@ const isNaN$1 = Number.isNaN;
  * @returns {boolean}
  */
 function isArray(list) {
-  return Array.isArray(list);
+    return Array.isArray(list);
 }
 /**
  * @title isEffectArray
@@ -152,8 +152,9 @@ function isArray(list) {
  * @returns {boolean}
  */
 function isEffectArray(list) {
-  if (isEmpty(list)) return false;
-  return isArray(list) && list.length > 0;
+    if (isEmpty(list))
+        return false;
+    return isArray(list) && list.length > 0;
 }
 
 /**
@@ -163,18 +164,25 @@ function isEffectArray(list) {
  * @returns {boolean}
  */
 function isIterator(value) {
-  if (typeof value !== 'object' || isEmpty(value)) return false;
-  return /Iterator\]$/.test(value.toString());
+    if (typeof value !== 'object' || isEmpty(value))
+        return false;
+    return /Iterator\]$/.test(value.toString());
 }
+
 function type(param) {
-  try {
-    if (isIterator(param)) return 'Iterator';
-    const result = Object.prototype.toString.call(param).match(/\[object (\w+)\]/)[1];
-    if (result === 'Number' && isNaN(param)) return 'NaN';
-    return result;
-  } catch (error) {
-    return 'Undefined';
-  }
+    try {
+        if (isIterator(param))
+            return 'Iterator';
+        const result = Object.prototype.toString
+            .call(param)
+            .match(/\[object (\w+)\]/)[1];
+        if (result === 'Number' && isNaN(param))
+            return 'NaN';
+        return result;
+    }
+    catch (error) {
+        return 'Undefined';
+    }
 }
 
 /**
@@ -185,10 +193,10 @@ function type(param) {
  * @returns {boolean}
  */
 function isFunction(value, strict = false) {
-  if (strict) {
-    return typeof value === 'function';
-  }
-  return type(value) === 'Function';
+    if (strict) {
+        return typeof value === 'function';
+    }
+    return type(value) === 'Function';
 }
 /**
  * @title isAsyncFunction
@@ -197,7 +205,7 @@ function isFunction(value, strict = false) {
  * @returns {boolean}
  */
 function isAsyncFunction(value) {
-  return type(value) === 'AsyncFunction';
+    return type(value) === 'AsyncFunction';
 }
 const INFINITY$1 = Infinity; // 无限
 
@@ -208,7 +216,7 @@ const INFINITY$1 = Infinity; // 无限
  * @returns {boolean}
  */
 function isObject(value) {
-  return value !== null && typeof value === 'object' && type(value) === 'Object';
+    return value !== null && typeof value === 'object' && type(value) === 'Object';
 }
 /**
  * @title isEffectObject
@@ -217,8 +225,9 @@ function isObject(value) {
  * @returns {boolean}
  */
 function isEffectObject(value) {
-  if (isEmpty(value)) return false;
-  return isObject(value) && Reflect.ownKeys(value).length !== 0;
+    if (isEmpty(value))
+        return false;
+    return isObject(value) && Reflect.ownKeys(value).length !== 0;
 }
 
 /**
@@ -228,7 +237,7 @@ function isEffectObject(value) {
  * @returns {boolean}
  */
 function isString(value) {
-  return typeof value === 'string';
+    return typeof value === 'string';
 }
 
 /**
@@ -237,8 +246,8 @@ function isString(value) {
  * @param {unknown} value
  * @returns {boolean}
  */
-const isNumber = value => {
-  return typeof value === 'number' && type(value) === 'Number';
+const isNumber = (value) => {
+    return typeof value === 'number' && type(value) === 'Number';
 };
 /**
  * @title isEffectNumber
@@ -247,11 +256,12 @@ const isNumber = value => {
  * @returns {boolean}
  */
 function isEffectNumber(value) {
-  if (type(value) === 'Number') {
-    if (value === INFINITY$1 || value === -INFINITY$1) return false;
-    return true;
-  }
-  return false;
+    if (type(value) === 'Number') {
+        if (value === INFINITY$1 || value === -INFINITY$1)
+            return false;
+        return true;
+    }
+    return false;
 }
 /**
  * @title isFloat
@@ -259,9 +269,10 @@ function isEffectNumber(value) {
  * @param {unknown} value 待检测的数据类型
  * @returns {boolean}
  */
-function isFloat$1(value) {
-  if (!isNumber(value)) return false;
-  return value % 1 !== 0;
+function isFloat(value) {
+    if (!isNumber(value))
+        return false;
+    return (value % 1) !== 0;
 }
 /**
  * @title likeNumber
@@ -273,13 +284,18 @@ function isFloat$1(value) {
  * @version 0.1.0
  */
 function likeNumber(value) {
-  if (isNumber(value)) return true;
-  if (isString(value)) value = value.trim();
-  if (isEmpty(value) || isArray(value) || value === '') return false;
-  if (Number.isNaN(Number(value)) === false) {
-    return true;
-  }
-  return false;
+    if (isNumber(value))
+        return true;
+    if (isString(value))
+        value = value.trim();
+    if (isEmpty(value)
+        || isArray(value)
+        || value === '')
+        return false;
+    if (Number.isNaN(Number(value)) === false) {
+        return true;
+    }
+    return false;
 }
 
 /**
@@ -290,7 +306,7 @@ function likeNumber(value) {
  * @version 0.1.0
  */
 function isDate(date) {
-  return type(date) === 'Date';
+    return type(date) === 'Date';
 }
 /**
  * @title isTime
@@ -300,11 +316,13 @@ function isDate(date) {
  * @version 0.1.0
  */
 function isTime(time) {
-  if (isNumber(time)) {
-    if (time.toString().length === 13) return true;
-    if (time.toString().length === 10) return true;
-  }
-  return time instanceof Date && !isNaN(time.getTime());
+    if (isNumber(time)) {
+        if (time.toString().length === 13)
+            return true;
+        if (time.toString().length === 10)
+            return true;
+    }
+    return time instanceof Date && !isNaN(time.getTime());
 }
 /**
  * @title isBoolean
@@ -312,7 +330,7 @@ function isTime(time) {
  * @param {unknown} val
  * @returns {boolean}
  */
-const isBoolean = val => typeof val === 'boolean';
+const isBoolean = (val) => typeof val === 'boolean';
 
 /**
  * @title isRegExp
@@ -321,7 +339,7 @@ const isBoolean = val => typeof val === 'boolean';
  * @returns {boolean}
  */
 function isRegExp(value) {
-  return type(value) === 'RegExp';
+    return type(value) === 'RegExp';
 }
 
 /**
@@ -330,7 +348,7 @@ function isRegExp(value) {
  * @returns {boolean}
  */
 function isSymbol(value) {
-  return typeof value === 'symbol';
+    return typeof value === 'symbol';
 }
 
 /**
@@ -339,7 +357,7 @@ function isSymbol(value) {
  * @returns {boolean}
  */
 function isSet(value) {
-  return type(value) === 'Set';
+    return type(value) === 'Set';
 }
 
 /**
@@ -348,8 +366,9 @@ function isSet(value) {
  * @returns {boolean}
  */
 function isMap(value) {
-  return type(value) === 'Map';
+    return type(value) === 'Map';
 }
+
 const MAX_VALUES_NUMBER = 1.7976931348623157e+308;
 const MIN_VALUES_NUMBER = -1.7976931348623157e+308;
 const INFINITY = Infinity; // 无限
@@ -361,15 +380,17 @@ const INFINITY = Infinity; // 无限
  * @returns {number}
  */
 function toNumber(num) {
-  if (isString(num) || isNumber(num)) {
-    const value = isString(num) ? Number(num) : num;
-    if (isEffectNumber(value)) {
-      if (value === INFINITY) return MAX_VALUES_NUMBER;
-      if (value === -INFINITY) return MIN_VALUES_NUMBER;
-      return value;
+    if (isString(num) || isNumber(num)) {
+        const value = isString(num) ? Number(num) : num;
+        if (isEffectNumber(value)) {
+            if (value === INFINITY)
+                return MAX_VALUES_NUMBER;
+            if (value === -INFINITY)
+                return MIN_VALUES_NUMBER;
+            return value;
+        }
     }
-  }
-  return 0;
+    return 0;
 }
 /**
  * @title toFloat
@@ -378,8 +399,8 @@ function toNumber(num) {
  * @param {number} fixed 小数点位数
  * @returns {number}
  */
-function toFloat$1(num, fixed = 1) {
-  return Number(num.toFixed(fixed));
+function toFloat(num, fixed = 1) {
+    return Number(num.toFixed(fixed));
 }
 /**
  * @title toThousands
@@ -388,7 +409,7 @@ function toFloat$1(num, fixed = 1) {
  * @returns {string}
  */
 function toThousands(num) {
-  return num.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+    return num.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,');
 }
 
 /**
@@ -400,12 +421,15 @@ function toThousands(num) {
  * @returns {string}
  */
 function spLength(value, min = 0, max) {
-  const tmpValue = isNumber(value) ? value.toString() : value;
-  if (!/^[0-9]*$/.test(tmpValue)) return new Array(min).fill(0).join('');
-  const len = tmpValue.length;
-  if (len > max) return tmpValue.slice(len - max);
-  if (len < min) return new Array(min - len).fill(0).join('') + tmpValue;
-  return tmpValue;
+    const tmpValue = isNumber(value) ? value.toString() : value;
+    if (!/^[0-9]*$/.test(tmpValue))
+        return new Array(min).fill(0).join('');
+    const len = tmpValue.length;
+    if (len > max)
+        return tmpValue.slice(len - max);
+    if (len < min)
+        return new Array(min - len).fill(0).join('') + tmpValue;
+    return tmpValue;
 }
 /**
  * @title getDecimal
@@ -414,8 +438,9 @@ function spLength(value, min = 0, max) {
  * @returns {number}
  */
 function getDecimal(num) {
-  if (!isFloat$1(num)) return 0;
-  return num.toString().split('.')[1].length;
+    if (!isFloat(num))
+        return 0;
+    return num.toString().split('.')[1].length;
 }
 /**
  * @title clamp
@@ -426,9 +451,11 @@ function getDecimal(num) {
  * @returns 返回被限制的值
  */
 function clamp(num, lower = -INFINITY, upper = INFINITY) {
-  if (num < lower) return lower;
-  if (num > upper) return upper;
-  return num;
+    if (num < lower)
+        return lower;
+    if (num > upper)
+        return upper;
+    return num;
 }
 /**
  * @title inRange
@@ -439,10 +466,13 @@ function clamp(num, lower = -INFINITY, upper = INFINITY) {
  * @returns {boolean}
  */
 function inRange(num, start = 0, end = MAX_VALUES_NUMBER) {
-  if (end < start) return false;
-  if (num > end) return false;
-  if (num < start) return false;
-  return true;
+    if (end < start)
+        return false;
+    if (num > end)
+        return false;
+    if (num < start)
+        return false;
+    return true;
 }
 /**
  * @title between
@@ -453,10 +483,13 @@ function inRange(num, start = 0, end = MAX_VALUES_NUMBER) {
  * @returns {boolean}
  */
 function between(num, start = 0, end = MAX_VALUES_NUMBER) {
-  if (end < start) return false;
-  if (num >= end) return false;
-  if (num < start) return false;
-  return true;
+    if (end < start)
+        return false;
+    if (num >= end)
+        return false;
+    if (num < start)
+        return false;
+    return true;
 }
 
 /**
@@ -467,44 +500,51 @@ function between(num, start = 0, end = MAX_VALUES_NUMBER) {
  * @returns {string}
  */
 function padNumber(value, length, strict = false) {
-  const target = isNumber(value) ? String(value) : value;
-  const [leftNum, rightNum] = target.split('.');
-  const len = leftNum ? leftNum.length : 0;
-  if (isNumber(length)) {
-    if (length > 0) {
-      if (length > len) {
-        return new Array(length + 1 - len).join('0') + target;
-      }
-      if (strict) {
-        return new Array(length + 1).join('9');
-      }
-      return target;
+    const target = isNumber(value) ? String(value) : value;
+    const [leftNum, rightNum] = target.split('.');
+    const len = leftNum ? leftNum.length : 0;
+    if (isNumber(length)) {
+        if (length > 0) {
+            if (length > len) {
+                return new Array(length + 1 - len).join('0') + target;
+            }
+            if (strict) {
+                return new Array(length + 1).join('9');
+            }
+            return target;
+        }
+        if (length < 0) {
+            return Number(target).toFixed(-length);
+        }
+        return target;
     }
-    if (length < 0) {
-      return Number(target).toFixed(-length);
+    if (isString(length)) {
+        const [left, right] = length.split('.').map((v) => Math.abs(Number(v)));
+        let newTarget = leftNum;
+        if (!isNaN$1(left) && left > 0) {
+            if (left > len) {
+                newTarget = new Array(left + 1 - len).join('0') + leftNum;
+            }
+            else if (strict) {
+                newTarget = new Array(left + 1).join('9');
+            }
+        }
+        if (!isNaN$1(right) && right > 0) {
+            if (strict || !rightNum || right > rightNum.length) {
+                newTarget =
+                    newTarget +
+                        Number(rightNum || 0)
+                            .toFixed(right)
+                            .toString()
+                            .slice(1);
+            }
+            else {
+                newTarget = newTarget + '.' + rightNum;
+            }
+        }
+        return newTarget;
     }
     return target;
-  }
-  if (isString(length)) {
-    const [left, right] = length.split('.').map(v => Math.abs(Number(v)));
-    let newTarget = leftNum;
-    if (!isNaN$1(left) && left > 0) {
-      if (left > len) {
-        newTarget = new Array(left + 1 - len).join('0') + leftNum;
-      } else if (strict) {
-        newTarget = new Array(left + 1).join('9');
-      }
-    }
-    if (!isNaN$1(right) && right > 0) {
-      if (strict || !rightNum || right > rightNum.length) {
-        newTarget = newTarget + Number(rightNum || 0).toFixed(right).toString().slice(1);
-      } else {
-        newTarget = newTarget + '.' + rightNum;
-      }
-    }
-    return newTarget;
-  }
-  return target;
 }
 
 /**
@@ -514,7 +554,7 @@ function padNumber(value, length, strict = false) {
  * @return {string}
  */
 function reverseString(target) {
-  return target.split('').reverse().join('');
+    return target.split('').reverse().join('');
 }
 
 /**
@@ -525,12 +565,21 @@ function reverseString(target) {
  * @lastUpdate: 2.2.1
  */
 function toString(value) {
-  if (isString(value)) return value;
-  if (isEmpty(value)) return '';
-  if (['Function', 'AsyncFunction', 'GeneratorFunction', 'Symbol', 'RegExp', 'Promise', 'Date', 'Map', 'Set', 'WeakMap', 'WeakSet', 'BigInt'].includes(type(value))) return value.toString();
-  if (value === Infinity) return 'Infinity';
-  if (value === -Infinity) return '-Infinity';
-  return JSON.stringify(value);
+    if (isString(value))
+        return value;
+    if (isEmpty(value))
+        return '';
+    if ([
+        'Function', 'AsyncFunction', 'GeneratorFunction',
+        'Symbol', 'RegExp', 'Promise', 'Date',
+        'Map', 'Set', 'WeakMap', 'WeakSet', 'BigInt'
+    ].includes(type(value)))
+        return value.toString();
+    if (value === Infinity)
+        return 'Infinity';
+    if (value === -Infinity)
+        return '-Infinity';
+    return JSON.stringify(value);
 }
 /**
  * @title toStrings
@@ -539,7 +588,7 @@ function toString(value) {
  * @returns {string[]}
  */
 function toStrings(values) {
-  return values.map(i => toString(i));
+    return values.map(i => toString(i));
 }
 
 /**
@@ -552,24 +601,26 @@ function toStrings(values) {
  * @lastUpdate 2.2.1
  */
 function stringify(value, replacer, space) {
-  if (isEmpty(value)) {
-    return String(value);
-  }
-  if (isObject(value) || isArray(value)) {
-    return JSON.stringify(value, replacer, space);
-  }
-  if (isSymbol(value)) return value.toString();
-  return JSON.stringify(toString(value), replacer, space).replace(/^(")+|(")+$/g, '');
+    if (isEmpty(value)) {
+        return String(value);
+    }
+    if (isObject(value) || isArray(value)) {
+        return JSON.stringify(value, replacer, space);
+    }
+    if (isSymbol(value))
+        return value.toString();
+    return JSON.stringify(toString(value), replacer, space).replace(/^(")+|(")+$/g, '');
 }
 function parse(value, defaultValue) {
-  try {
-    if (isString(value)) {
-      return JSON.parse(value);
+    try {
+        if (isString(value)) {
+            return JSON.parse(value);
+        }
+        return defaultValue;
     }
-    return defaultValue;
-  } catch (error) {
-    return defaultValue;
-  }
+    catch (error) {
+        return defaultValue;
+    }
 }
 
 /**
@@ -582,25 +633,28 @@ function parse(value, defaultValue) {
  * @lastUpdate 2.2.1
  */
 function hide(target, start = 0, end) {
-  if (isEmpty(target)) return '';
-  if (type(target) !== 'String') {
-    target = toString(target);
-  }
-  if (start <= 0) start = 0;
-  if (!end || end > target.length) {
-    end = target.length;
-    if (start === 0) return target.replace(/./gi, '*');
-  }
-  const center_len = end - start;
-  const end_len = target.length - end || 0;
-  const reg = new RegExp(`(.{${start}})(.{${center_len}})(.{${end_len}})`, 'g');
-  const result = reg.exec(target);
-  if (result?.length === 4) {
-    result[2] = result[2].replace(/./gi, '*');
-    delete result[0];
-    return result.join('');
-  }
-  return target.replace(/./gi, '*');
+    if (isEmpty(target))
+        return '';
+    if (type(target) !== 'String') {
+        target = toString(target);
+    }
+    if (start <= 0)
+        start = 0;
+    if (!end || (end > target.length)) {
+        end = target.length;
+        if (start === 0)
+            return target.replace(/./gi, '*');
+    }
+    const center_len = end - start;
+    const end_len = (target.length - end) || 0;
+    const reg = new RegExp(`(.{${start}})(.{${center_len}})(.{${end_len}})`, 'g');
+    const result = reg.exec(target);
+    if (result?.length === 4) {
+        result[2] = result[2].replace(/./gi, '*');
+        delete result[0];
+        return result.join('');
+    }
+    return target.replace(/./gi, '*');
 }
 
 /**
@@ -609,7 +663,7 @@ function hide(target, start = 0, end) {
  * @returns {string}
  */
 const vid = () => {
-  return new Date().getTime().toString();
+    return new Date().getTime().toString();
 };
 
 /**
@@ -620,20 +674,20 @@ const vid = () => {
  * @returns {boolean}
  */
 function compareString(compare, compared) {
-  if (isString(compare) && isString(compared)) {
-    if (compare.length !== compared.length) {
-      return compare.length > compared.length;
+    if (isString(compare) && isString(compared)) {
+        if (compare.length !== compared.length) {
+            return compare.length > compared.length;
+        }
+        for (let i = 0; i < compare.length; i++) {
+            if (compare.charCodeAt(i) > compared.charCodeAt(i)) {
+                return true;
+            }
+            if (compare.charCodeAt(i) < compared.charCodeAt(i)) {
+                return false;
+            }
+        }
     }
-    for (let i = 0; i < compare.length; i++) {
-      if (compare.charCodeAt(i) > compared.charCodeAt(i)) {
-        return true;
-      }
-      if (compare.charCodeAt(i) < compared.charCodeAt(i)) {
-        return false;
-      }
-    }
-  }
-  return false;
+    return false;
 }
 
 /**
@@ -644,18 +698,16 @@ function compareString(compare, compared) {
  * @returns {string}
  */
 function replaces(target = '', regs = []) {
-  for (let i = 0; i < regs.length; i++) {
-    const {
-      reg,
-      value
-    } = regs[i];
-    target = target.replace(reg, value);
-  }
-  return target;
+    for (let i = 0; i < regs.length; i++) {
+        const { reg, value } = regs[i];
+        target = target.replace(reg, value);
+    }
+    return target;
 }
-function pad(value) {}
-function padStart(value) {}
-function padEnd(value) {}
+
+function pad(value) { }
+function padStart(value) { }
+function padEnd(value) { }
 
 /**
  * @title toDate
@@ -664,11 +716,11 @@ function padEnd(value) {}
  * @returns {Date}
  */
 function toDate(value) {
-  // ios 不支持 YYYY-MM-DD hh:mm:ss
-  if (/\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}/.test(value)) {
-    value.replaceAll('-', '/');
-  }
-  return new Date(value);
+    // ios 不支持 YYYY-MM-DD hh:mm:ss
+    if (/\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}/.test(value)) {
+        value.replaceAll('-', '/');
+    }
+    return new Date(value);
 }
 
 /**
@@ -680,36 +732,30 @@ function toDate(value) {
  * @returns {number}
  */
 function deadline(target, timeKey = 'day', now = new Date()) {
-  const surplusTimeStamp = target.getTime() - now.getTime();
-  const surplusDay = Math.ceil(surplusTimeStamp / 86400000);
-  switch (timeKey) {
-    case 'year':
-      return target.getFullYear() - now.getFullYear();
-    case 'mouth':
-      return (target.getFullYear() - now.getFullYear()) * 12 + (target.getDate() - now.getDate());
-    case 'day':
-      return surplusDay;
-    case 'hour':
-      return surplusDay * 24;
-    case 'minute':
-      return surplusDay * 1440;
-    case 'second':
-      return surplusDay * 8640086400;
-    case 'timeStamp':
-      return surplusDay;
-    default:
-      return surplusTimeStamp;
-  }
+    const surplusTimeStamp = target.getTime() - now.getTime();
+    const surplusDay = Math.ceil(surplusTimeStamp / 86400000);
+    switch (timeKey) {
+        case 'year': return target.getFullYear() - now.getFullYear();
+        case 'mouth': return (target.getFullYear() - now.getFullYear()) * 12 + (target.getDate() - now.getDate());
+        case 'day': return surplusDay;
+        case 'hour': return surplusDay * 24;
+        case 'minute': return surplusDay * 1440;
+        case 'second': return surplusDay * 8640086400;
+        case 'timeStamp': return surplusDay;
+        default: return surplusTimeStamp;
+    }
 }
+
 const getOffsetToTimezone = (date, format = 'Z') => {
-  const offsetMinutes = date.getTimezoneOffset();
-  const offsetHours = offsetMinutes / 60;
-  const sign = offsetHours > 0 ? '-' : '+';
-  const absOffsetHours = Math.abs(offsetHours);
-  const hours = Math.floor(absOffsetHours);
-  const minutes = Math.floor((absOffsetHours - hours) * 60);
-  if (format === 'ZZ') return sign + padNumber(hours, 2) + padNumber(minutes, 2);
-  return sign + padNumber(hours, 2) + ':' + padNumber(minutes, 2);
+    const offsetMinutes = date.getTimezoneOffset();
+    const offsetHours = offsetMinutes / 60;
+    const sign = offsetHours > 0 ? '-' : '+';
+    const absOffsetHours = Math.abs(offsetHours);
+    const hours = Math.floor(absOffsetHours);
+    const minutes = Math.floor((absOffsetHours - hours) * 60);
+    if (format === 'ZZ')
+        return sign + padNumber(hours, 2) + padNumber(minutes, 2);
+    return sign + padNumber(hours, 2) + ':' + padNumber(minutes, 2);
 };
 /**
  * @title format
@@ -737,52 +783,79 @@ const getOffsetToTimezone = (date, format = 'Z') => {
 | ZZ |+0500	| UTC 的偏移量，±HHmm
  */
 function format(time = new Date(), pattern = 'YYYY-MM-DD') {
-  if (type(time) === 'Number') {
-    if (time.toString().length === 10) time += '000';
-  }
-  const date = new Date(time);
-  const year = date.getFullYear();
-  // eslint-disable-next-line
-  if (isNaN$1(year)) {
-    return 'Invalid Date';
-  }
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  const week = date.getDay();
-  const hour = date.getHours();
-  const minutes = date.getMinutes();
-  const seconds = date.getSeconds();
-  const milliseconds = date.getMilliseconds();
-  const reg = /Y{4}|\[Y{4}\]|YY|\[YY\]|[DMHhmsZ]{1,2}|\[[DMHhmsZ]{1,2}\]|SSS|\[SSS\]|[AaXxd]|\[[AaXxd]\]|./gi;
-  const patterns = pattern.match(reg) || [];
-  const result = patterns.map(item => {
-    if (!item.match(reg)) return item;
-    if (item.match(/^\[.*?\]$/)) return item.replace(/\[|\]/gi, '');
-    if (item === 'YYYY') return padNumber(year, 4);
-    if (item === 'YY') return padNumber(year % 100, 2);
-    if (item === 'MM') return padNumber(month, 2);
-    if (item === 'M') return month;
-    if (item === 'DD') return padNumber(day, 2);
-    if (item === 'D') return day;
-    if (item === 'D') return week;
-    if (item === 'HH') return padNumber(hour, 2);
-    if (item === 'H') return hour;
-    if (item === 'hh') return padNumber(hour % 12, 2);
-    if (item === 'h') return hour % 12;
-    if (item === 'mm') return padNumber(minutes, 2);
-    if (item === 'm') return minutes;
-    if (item === 'A') return hour >= 12 ? 'PM' : 'AM';
-    if (item === 'a') return hour >= 12 ? 'pm' : 'am';
-    if (item === 'ss') return padNumber(seconds, 2);
-    if (item === 's') return seconds;
-    if (item === 'SSS') return padNumber(milliseconds, 3);
-    if (item === 'SS') return padNumber(Math.floor(milliseconds / 10), 2);
-    if (item === 'S') return padNumber(Math.floor(milliseconds / 100), 1);
-    if (item === 'ZZ') return getOffsetToTimezone(date, 'ZZ');
-    if (item === 'Z') return getOffsetToTimezone(date);
-    return item;
-  }).join('');
-  return result;
+    if (type(time) === 'Number') {
+        if (time.toString().length === 10)
+            time += '000';
+    }
+    const date = new Date(time);
+    const year = date.getFullYear();
+    // eslint-disable-next-line
+    if (isNaN$1(year)) {
+        return 'Invalid Date';
+    }
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const week = date.getDay();
+    const hour = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    const milliseconds = date.getMilliseconds();
+    const reg = /Y{4}|\[Y{4}\]|YY|\[YY\]|[DMHhmsZ]{1,2}|\[[DMHhmsZ]{1,2}\]|SSS|\[SSS\]|[AaXxd]|\[[AaXxd]\]|./gi;
+    const patterns = pattern.match(reg) || [];
+    const result = patterns
+        .map((item) => {
+        if (!item.match(reg))
+            return item;
+        if (item.match(/^\[.*?\]$/))
+            return item.replace(/\[|\]/gi, '');
+        if (item === 'YYYY')
+            return padNumber(year, 4);
+        if (item === 'YY')
+            return padNumber(year % 100, 2);
+        if (item === 'MM')
+            return padNumber(month, 2);
+        if (item === 'M')
+            return month;
+        if (item === 'DD')
+            return padNumber(day, 2);
+        if (item === 'D')
+            return day;
+        if (item === 'D')
+            return week;
+        if (item === 'HH')
+            return padNumber(hour, 2);
+        if (item === 'H')
+            return hour;
+        if (item === 'hh')
+            return padNumber(hour % 12, 2);
+        if (item === 'h')
+            return hour % 12;
+        if (item === 'mm')
+            return padNumber(minutes, 2);
+        if (item === 'm')
+            return minutes;
+        if (item === 'A')
+            return hour >= 12 ? 'PM' : 'AM';
+        if (item === 'a')
+            return hour >= 12 ? 'pm' : 'am';
+        if (item === 'ss')
+            return padNumber(seconds, 2);
+        if (item === 's')
+            return seconds;
+        if (item === 'SSS')
+            return padNumber(milliseconds, 3);
+        if (item === 'SS')
+            return padNumber(Math.floor(milliseconds / 10), 2);
+        if (item === 'S')
+            return padNumber(Math.floor(milliseconds / 100), 1);
+        if (item === 'ZZ')
+            return getOffsetToTimezone(date, 'ZZ');
+        if (item === 'Z')
+            return getOffsetToTimezone(date);
+        return item;
+    })
+        .join('');
+    return result;
 }
 
 /**
@@ -798,10 +871,10 @@ function format(time = new Date(), pattern = 'YYYY-MM-DD') {
  ```
  */
 function timezone(originOffset, targetOffset) {
-  const originOffsetNum = isString(originOffset) ? toNumber(originOffset) * 3600000 : originOffset;
-  const targetOffsetNum = isString(targetOffset) ? toNumber(targetOffset) * 3600000 : targetOffset;
-  const offset = targetOffsetNum - originOffsetNum;
-  return date => new Date(date.getTime() + offset);
+    const originOffsetNum = isString(originOffset) ? toNumber(originOffset) * 3600000 : originOffset;
+    const targetOffsetNum = isString(targetOffset) ? toNumber(targetOffset) * 3600000 : targetOffset;
+    const offset = targetOffsetNum - originOffsetNum;
+    return (date) => new Date(date.getTime() + offset);
 }
 
 /**
@@ -813,10 +886,13 @@ function timezone(originOffset, targetOffset) {
  * @version 2.4.0
  */
 function isSameDate(timeA, timeB) {
-  if (!isTime(timeA) || !isTime(timeB)) return false;
-  if (timeA.toString() === timeB.toString()) return true;
-  if (new Date(timeA).getTime() === new Date(timeB).getTime()) return true;
-  return false;
+    if (!isTime(timeA) || !isTime(timeB))
+        return false;
+    if (timeA.toString() === timeB.toString())
+        return true;
+    if (new Date(timeA).getTime() === new Date(timeB).getTime())
+        return true;
+    return false;
 }
 
 /**
@@ -843,125 +919,127 @@ const m = 6_0000;
 const h = 3600_000;
 const d = 86400_000;
 function cron(expression, date = new Date()) {
-  const expressions = expression.split(' ');
-  const [second, min, hour, day, month, week, year] = expressions;
-  const time = {
-    year: date.getFullYear(),
-    week: date.getDay(),
-    month: date.getMonth() + 1,
-    day: date.getDate(),
-    hour: date.getHours(),
-    minute: date.getMinutes(),
-    second: date.getSeconds(),
-    date,
-    gap: 0
-  };
-  let gap = 0;
-  if (day !== '*') {
-    const [start = '0', iGap] = day.split('/');
-    // 需要边界校验
-    date.setDate(Number(start));
-    iGap && (gap += Number(iGap) * d);
-    time.day = Number(start);
-  }
-  if (hour !== '*') {
-    const [start = '0', iGap] = hour.split('/');
-    date.setHours(Number(start));
-    iGap && (gap += Number(iGap) * h);
-    time.hour = Number(start);
-  }
-  if (min !== '*') {
-    const [start = '0', iGap] = min.split('/');
-    date.setMinutes(Number(start) * m);
-    iGap && (gap += Number(iGap) * m);
-    time.minute = Number(start);
-  }
-  if (second !== '*') {
-    const [start = '0', iGap] = second.split('/');
-    date.setSeconds(Number(start));
-    iGap && (gap += Number(iGap) * s);
-    time.second = Number(start);
-  }
-  if (gap === 0) {
-    gap = 1000;
-  }
-  const getDate = () => {
-    return new Date(time.year, time.month, time.day, time.hour, time.minute, time.second);
-  };
-  const newDate = getDate();
-  const timestamp = newDate.getTime();
-  return {
-    next: (count = 1) => {
-      return new Date(timestamp + gap * count);
-    },
-    pre: (count = 1) => {
-      return new Date(timestamp - gap * count);
+    const expressions = expression.split(' ');
+    const [second, min, hour, day, month, week, year] = expressions;
+    const time = {
+        year: date.getFullYear(),
+        week: date.getDay(),
+        month: date.getMonth() + 1,
+        day: date.getDate(),
+        hour: date.getHours(),
+        minute: date.getMinutes(),
+        second: date.getSeconds(),
+        date,
+        gap: 0,
+    };
+    let gap = 0;
+    if (day !== '*') {
+        const [start = '0', iGap] = day.split('/');
+        // 需要边界校验
+        date.setDate(Number(start));
+        iGap && (gap += Number(iGap) * d);
+        time.day = Number(start);
     }
-  };
+    if (hour !== '*') {
+        const [start = '0', iGap] = hour.split('/');
+        date.setHours(Number(start));
+        iGap && (gap += Number(iGap) * h);
+        time.hour = Number(start);
+    }
+    if (min !== '*') {
+        const [start = '0', iGap] = min.split('/');
+        date.setMinutes(Number(start) * m);
+        iGap && (gap += Number(iGap) * m);
+        time.minute = Number(start);
+    }
+    if (second !== '*') {
+        const [start = '0', iGap] = second.split('/');
+        date.setSeconds(Number(start));
+        iGap && (gap += Number(iGap) * s);
+        time.second = Number(start);
+    }
+    if (gap === 0) {
+        gap = 1000;
+    }
+    const getDate = () => {
+        return new Date(time.year, time.month, time.day, time.hour, time.minute, time.second);
+    };
+    const newDate = getDate();
+    const timestamp = newDate.getTime();
+    return {
+        next: (count = 1) => {
+            return new Date(timestamp + gap * count);
+        },
+        pre: (count = 1) => {
+            return new Date(timestamp - gap * count);
+        },
+    };
 }
 function cronToText(cronExpression) {
-  const cronParts = cronExpression.split(' ');
-  const minute = cronParts[0];
-  const hour = cronParts[1];
-  const dayOfMonth = cronParts[2];
-  const month = cronParts[3];
-  const dayOfWeek = cronParts[4];
-  let text = '';
-  // 解析分钟
-  if (minute === '0') {
-    text += 'every minute';
-  } else {
-    text += `every ${minute} minutes`;
-  }
-  // 解析小时
-  if (hour !== '0') {
-    text += ` past ${hour}`;
-  }
-  // 解析日期
-  if (dayOfMonth !== '*') {
-    text += ` on the ${dayOfMonth}th`;
-  }
-  // 解析月份
-  if (month !== '*') {
-    text += ` of ${month}`;
-  }
-  // 解析星期几
-  if (dayOfWeek !== '*') {
-    text += ` on ${dayOfWeek}`;
-  }
-  return text;
+    const cronParts = cronExpression.split(' ');
+    const minute = cronParts[0];
+    const hour = cronParts[1];
+    const dayOfMonth = cronParts[2];
+    const month = cronParts[3];
+    const dayOfWeek = cronParts[4];
+    let text = '';
+    // 解析分钟
+    if (minute === '0') {
+        text += 'every minute';
+    }
+    else {
+        text += `every ${minute} minutes`;
+    }
+    // 解析小时
+    if (hour !== '0') {
+        text += ` past ${hour}`;
+    }
+    // 解析日期
+    if (dayOfMonth !== '*') {
+        text += ` on the ${dayOfMonth}th`;
+    }
+    // 解析月份
+    if (month !== '*') {
+        text += ` of ${month}`;
+    }
+    // 解析星期几
+    if (dayOfWeek !== '*') {
+        text += ` on ${dayOfWeek}`;
+    }
+    return text;
 }
 function cronToChinese(cronExpression) {
-  const cronParts = cronExpression.split(' ');
-  const minute = cronParts[0];
-  const hour = cronParts[1];
-  const dayOfMonth = cronParts[2];
-  const month = cronParts[3];
-  const dayOfWeek = cronParts[4];
-  let text = '';
-  // 解析分钟
-  if (minute === '0') {
-    text += '每分钟';
-  } else {
-    text += `每隔${minute}分钟`;
-  }
-  // 解析小时
-  if (hour !== '0') {
-    text += `，从${hour}点开始`;
-  }
-  // 解析日期
-  if (dayOfMonth !== '*') {
-    text += `，每月${dayOfMonth}号`;
-  }
-  // 解析月份
-  if (month !== '*') {
-    text += `，在${month}月`;
-  }
-  // 解析星期几
-  if (dayOfWeek !== '*') {
-    text += `，星期${dayOfWeek}`;
-  }
-  return text;
+    const cronParts = cronExpression.split(' ');
+    const minute = cronParts[0];
+    const hour = cronParts[1];
+    const dayOfMonth = cronParts[2];
+    const month = cronParts[3];
+    const dayOfWeek = cronParts[4];
+    let text = '';
+    // 解析分钟
+    if (minute === '0') {
+        text += '每分钟';
+    }
+    else {
+        text += `每隔${minute}分钟`;
+    }
+    // 解析小时
+    if (hour !== '0') {
+        text += `，从${hour}点开始`;
+    }
+    // 解析日期
+    if (dayOfMonth !== '*') {
+        text += `，每月${dayOfMonth}号`;
+    }
+    // 解析月份
+    if (month !== '*') {
+        text += `，在${month}月`;
+    }
+    // 解析星期几
+    if (dayOfWeek !== '*') {
+        text += `，星期${dayOfWeek}`;
+    }
+    return text;
 }
 
 /**
@@ -972,11 +1050,11 @@ function cronToChinese(cronExpression) {
  * @example logGroup(name[, ...args])
  */
 function logGroup(name = '', ...args) {
-  console.groupCollapsed(`--- ${name} ---`);
-  args.forEach(item => {
-    console.log(item);
-  });
-  console.groupEnd();
+    console.groupCollapsed(`--- ${name} ---`);
+    args.forEach((item) => {
+        console.log(item);
+    });
+    console.groupEnd();
 }
 
 /**
@@ -987,48 +1065,52 @@ function logGroup(name = '', ...args) {
  * @returns 通过路径获取对应值
  */
 function getPathValue(val, path) {
-  if (isEmpty(path)) {
-    return val;
-  }
-  if (likeNumber(path)) {
-    if (isArray(val)) {
-      return val[Number(path)];
-    } else if (isString(val) || isObject(val)) return val[path];else {
-      return undefined;
+    if (isEmpty(path)) {
+        return val;
     }
-  }
-  if (!isString(path)) return undefined;
-  const paths = path.split(/(?<!\\)\./);
-  let tmpValue = val;
-  for (let i = 0; i < paths.length; i++) {
-    const item = paths[i].replaceAll('\\.', '.');
-    if (isObject(tmpValue)) {
-      tmpValue = tmpValue[item];
-    } else if (isArray(tmpValue) && likeNumber(item)) {
-      tmpValue = tmpValue[Number(item)];
-    } else {
-      return undefined;
+    if (likeNumber(path)) {
+        if (isArray(val)) {
+            return val[Number(path)];
+        }
+        else if (isString(val) || isObject(val))
+            return val[path];
+        else {
+            return undefined;
+        }
     }
-  }
-  return tmpValue;
+    if (!isString(path))
+        return undefined;
+    const paths = path.split(/(?<!\\)\./);
+    let tmpValue = val;
+    for (let i = 0; i < paths.length; i++) {
+        const item = paths[i].replaceAll('\\.', '.');
+        if (isObject(tmpValue)) {
+            tmpValue = tmpValue[item];
+        }
+        else if (isArray(tmpValue) && likeNumber(item)) {
+            tmpValue = tmpValue[Number(item)];
+        }
+        else {
+            return undefined;
+        }
+    }
+    return tmpValue;
 }
 /**
  * @deprecated
  * @replaceWith getPathValue
  */
 const toPathValue = getPathValue;
-const getConf = conf => {
-  if (isString(conf) || isNumber(conf)) return {
-    path: conf,
-    gap: '.'
-  };
-  if (isObject(conf)) {
-    if (isUndefined(conf.gap)) conf.gap = '.';
-    return conf;
-  }
-  return {
-    gap: '.'
-  };
+
+const getConf = (conf) => {
+    if (isString(conf) || isNumber(conf))
+        return { path: conf, gap: '.' };
+    if (isObject(conf)) {
+        if (isUndefined(conf.gap))
+            conf.gap = '.';
+        return conf;
+    }
+    return { gap: '.' };
 };
 
 /**
@@ -1052,23 +1134,22 @@ a: {
 }
  */
 function toPathObject(record, conf) {
-  const result = {};
-  const {
-    ignoreArray = false,
-    gap = '.'
-  } = getConf(conf);
-  const cb = (record, index = '') => {
-    if (ignoreArray && isEffectArray(record)) {
-      return;
-    }
-    if (isEffectObject(record) || isEffectArray(record)) {
-      for (const key in record) cb(record[key], index === '' ? key : index + gap + key);
-    } else if (index !== '') {
-      result[index] = record;
-    }
-  };
-  cb(record, '');
-  return result;
+    const result = {};
+    const { ignoreArray = false, gap = '.' } = getConf(conf);
+    const cb = (record, index = '') => {
+        if (ignoreArray && isEffectArray(record)) {
+            return;
+        }
+        if (isEffectObject(record) || isEffectArray(record)) {
+            for (const key in record)
+                cb(record[key], index === '' ? key : index + gap + key);
+        }
+        else if (index !== '') {
+            result[index] = record;
+        }
+    };
+    cb(record, '');
+    return result;
 }
 // const obj = {
 //   a: {
@@ -1105,25 +1186,27 @@ a: {
 }
  */
 function pathObject2Object(record, conf) {
-  const result = {};
-  const {
-    gap = '.'
-  } = getConf(conf);
-  const init = (keys, value, record) => {
-    if (keys.length === 1) record[keys[0]] = value;
-    if (keys.length > 1) {
-      const [key, ...restKey] = keys;
-      if (!record[key]) record[key] = {};
-      init(restKey, value, record[key]);
-      if (Object.keys(record[key]).filter(n => isNumber(Number(n))).length) {
-        const tmp = [];
-        for (const i in record[key]) tmp[i] = record[key][i];
-        record[key] = tmp;
-      }
-    }
-  };
-  for (const key in record) init(key.split(gap), record[key], result);
-  return result;
+    const result = {};
+    const { gap = '.' } = getConf(conf);
+    const init = (keys, value, record) => {
+        if (keys.length === 1)
+            record[keys[0]] = value;
+        if (keys.length > 1) {
+            const [key, ...restKey] = keys;
+            if (!record[key])
+                record[key] = {};
+            init(restKey, value, record[key]);
+            if (Object.keys(record[key]).filter((n) => isNumber(Number(n))).length) {
+                const tmp = [];
+                for (const i in record[key])
+                    tmp[i] = record[key][i];
+                record[key] = tmp;
+            }
+        }
+    };
+    for (const key in record)
+        init(key.split(gap), record[key], result);
+    return result;
 }
 // const record = {
 //   'a.b.c': 1,
@@ -1151,34 +1234,34 @@ function pathObject2Object(record, conf) {
  * @param {any} value
  */
 function setValueByPath(record, conf, value) {
-  const {
-    path,
-    gap
-  } = getConf(conf);
-  const cb = (obj, keys) => {
-    const [key, ...restKeys] = keys;
-    try {
-      if (!obj[key]) {
-        if (isNumber(Number(key))) {
-          obj[key] = [];
-        } else {
-          obj[key] = {};
+    const { path, gap } = getConf(conf);
+    const cb = (obj, keys) => {
+        const [key, ...restKeys] = keys;
+        try {
+            if (!obj[key]) {
+                if (isNumber(Number(key))) {
+                    obj[key] = [];
+                }
+                else {
+                    obj[key] = {};
+                }
+            }
+            if (restKeys.length) {
+                cb(obj[key], restKeys);
+                return;
+            }
+            obj[key] = value;
         }
-      }
-      if (restKeys.length) {
-        cb(obj[key], restKeys);
-        return;
-      }
-      obj[key] = value;
-    } catch (error) {
-      console.error(error);
+        catch (error) {
+            console.error(error);
+        }
+    };
+    if (isString(path)) {
+        cb(record, path.split(gap));
     }
-  };
-  if (isString(path)) {
-    cb(record, path.split(gap));
-  } else if (isNumber(path)) {
-    cb(record, [path.toString()]);
-  }
+    else if (isNumber(path)) {
+        cb(record, [path.toString()]);
+    }
 }
 /**
  * eg:
@@ -1219,10 +1302,11 @@ function setValueByPath(record, conf, value) {
  * @returns {boolean}
  */
 function equalHelper(compareValue, beCompareValue) {
-  const compareValueType = type(compareValue);
-  const beCompareValueType = type(beCompareValue);
-  if (compareValue !== beCompareValueType || compareValueType === 'Symbol') return false;
-  return compareValue === beCompareValue;
+    const compareValueType = type(compareValue);
+    const beCompareValueType = type(beCompareValue);
+    if (compareValue !== beCompareValueType || compareValueType === 'Symbol')
+        return false;
+    return compareValue === beCompareValue;
 }
 
 /**
@@ -1232,15 +1316,18 @@ function equalHelper(compareValue, beCompareValue) {
  * @returns {boolean}
  */
 function equalMap(compareMap, beCompareMap, equal = equalHelper) {
-  if (!isMap(compareMap) || !isMap(beCompareMap) || compareMap.size !== beCompareMap.size) return false;
-  for (const [key, value] of compareMap) {
-    const beCompareMapTempValue = beCompareMap.get(key);
-    if (equal(value, beCompareMapTempValue)) {
-      continue;
+    if (!isMap(compareMap) ||
+        !isMap(beCompareMap) ||
+        compareMap.size !== beCompareMap.size)
+        return false;
+    for (const [key, value] of compareMap) {
+        const beCompareMapTempValue = beCompareMap.get(key);
+        if (equal(value, beCompareMapTempValue)) {
+            continue;
+        }
+        return false;
     }
-    return false;
-  }
-  return true;
+    return true;
 }
 
 /**
@@ -1250,20 +1337,23 @@ function equalMap(compareMap, beCompareMap, equal = equalHelper) {
  * @returns {boolean}
  */
 function equalSet(compareSet, beCompareSet, equal = equalHelper) {
-  if (!isSet(compareSet) || !isSet(beCompareSet) || compareSet.size !== beCompareSet.size) return false;
-  const list = [...compareSet];
-  const beList = [...beCompareSet];
-  for (let i = 0; i < list.length; i++) {
-    if (equal(list[i], beList[i])) {
-      continue;
+    if (!isSet(compareSet) ||
+        !isSet(beCompareSet) ||
+        compareSet.size !== beCompareSet.size)
+        return false;
+    const list = [...compareSet];
+    const beList = [...beCompareSet];
+    for (let i = 0; i < list.length; i++) {
+        if (equal(list[i], beList[i])) {
+            continue;
+        }
+        return false;
     }
-    return false;
-  }
-  // for (const value of compareSet) {
-  //   if (beCompareSet.has(value)) continue
-  //   return false
-  // }
-  return true;
+    // for (const value of compareSet) {
+    //   if (beCompareSet.has(value)) continue
+    //   return false
+    // }
+    return true;
 }
 /**
  * @title equalSet2
@@ -1272,32 +1362,35 @@ function equalSet(compareSet, beCompareSet, equal = equalHelper) {
  * @returns {boolean}
  */
 function equalSet2(compareSet, beCompareSet, equal = equalHelper) {
-  if (!isSet(compareSet) || !isSet(beCompareSet) || compareSet.size !== beCompareSet.size) return false;
-  const list = [...compareSet];
-  const beList = [...beCompareSet];
-  for (let i = 0; i < list.length; i++) {
-    let flag = false;
-    for (let j = 0; j < beList.length; j++) {
-      if (equal(list[i], beList[j])) {
-        flag = true;
-        break;
-      }
+    if (!isSet(compareSet) ||
+        !isSet(beCompareSet) ||
+        compareSet.size !== beCompareSet.size)
+        return false;
+    const list = [...compareSet];
+    const beList = [...beCompareSet];
+    for (let i = 0; i < list.length; i++) {
+        let flag = false;
+        for (let j = 0; j < beList.length; j++) {
+            if (equal(list[i], beList[j])) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            return false;
+        }
     }
-    if (!flag) {
-      return false;
-    }
-  }
-  return true;
-  // for (let i = 0; i < list.length; i++) {
-  //   if (equal(list[i], beList[i])) {
-  //     continue
-  //   }
-  //   return false
-  // }
-  // for (const value of compareSet) {
-  //   if (beCompareSet.has(value)) continue
-  //   return false
-  // }
+    return true;
+    // for (let i = 0; i < list.length; i++) {
+    //   if (equal(list[i], beList[i])) {
+    //     continue
+    //   }
+    //   return false
+    // }
+    // for (const value of compareSet) {
+    //   if (beCompareSet.has(value)) continue
+    //   return false
+    // }
 }
 
 /**
@@ -1307,17 +1400,19 @@ function equalSet2(compareSet, beCompareSet, equal = equalHelper) {
  * @returns {boolean}
  */
 function equalArray(compare, beCompare, equal = equalHelper) {
-  if (isArray(compare) && isArray(beCompare) && compare.length === beCompare.length) {
-    for (let i = 0; i < compare.length; i++) {
-      const item = compare[i];
-      if (equal(item, beCompare[i])) {
-        continue;
-      }
-      return false;
+    if (isArray(compare) &&
+        isArray(beCompare) &&
+        compare.length === beCompare.length) {
+        for (let i = 0; i < compare.length; i++) {
+            const item = compare[i];
+            if (equal(item, beCompare[i])) {
+                continue;
+            }
+            return false;
+        }
+        return true;
     }
-    return true;
-  }
-  return false;
+    return false;
 }
 /**
  * @title equalArray2
@@ -1326,34 +1421,40 @@ function equalArray(compare, beCompare, equal = equalHelper) {
  * @returns {boolean}
  */
 function equalArray2(compare, beCompare, equal = equalHelper) {
-  if (isArray(compare) && isArray(beCompare) && compare.length === beCompare.length) {
-    for (let i = 0; i < compare.length; i++) {
-      let flag = false;
-      for (let j = 0; j < beCompare.length; j++) {
-        if (equal(compare[i], beCompare[j])) {
-          flag = true;
-          break;
+    if (isArray(compare) &&
+        isArray(beCompare) &&
+        compare.length === beCompare.length) {
+        for (let i = 0; i < compare.length; i++) {
+            let flag = false;
+            for (let j = 0; j < beCompare.length; j++) {
+                if (equal(compare[i], beCompare[j])) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                return false;
+            }
         }
-      }
-      if (!flag) {
+        return true;
+    }
+    return false;
+}
+
+function equalObject(compare, beCompare, equal = equalHelper) {
+    if (!isObject(compare) || !isObject(beCompare))
         return false;
-      }
+    const compareValueKeys = Object.keys(compare);
+    const beCompareValueKeys = Object.keys(beCompare);
+    if (compareValueKeys.length !== beCompareValueKeys.length)
+        return false;
+    for (let i = 0; i < compareValueKeys.length; i++) {
+        const key = compareValueKeys[i];
+        if (equal(compare[key], beCompare[key]))
+            continue;
+        return false;
     }
     return true;
-  }
-  return false;
-}
-function equalObject(compare, beCompare, equal = equalHelper) {
-  if (!isObject(compare) || !isObject(beCompare)) return false;
-  const compareValueKeys = Object.keys(compare);
-  const beCompareValueKeys = Object.keys(beCompare);
-  if (compareValueKeys.length !== beCompareValueKeys.length) return false;
-  for (let i = 0; i < compareValueKeys.length; i++) {
-    const key = compareValueKeys[i];
-    if (equal(compare[key], beCompare[key])) continue;
-    return false;
-  }
-  return true;
 }
 
 /**
@@ -1368,16 +1469,23 @@ function equalObject(compare, beCompare, equal = equalHelper) {
  * @lastUpdate 3.8.0
  */
 function equal(compareValue, beCompareValue) {
-  const compareValueType = type(compareValue);
-  const beCompareValueType = type(beCompareValue);
-  if (compareValueType !== beCompareValueType) return false;
-  if (compareValueType === 'Object') return equalObject(compareValue, beCompareValue, equal);
-  if (compareValueType === 'Array') return equalArray(compareValue, beCompareValue, equal);
-  if (compareValueType === 'Map') return equalMap(compareValue, beCompareValue, equal);
-  if (compareValueType === 'Set') return equalSet(compareValue, beCompareValue, equal);
-  if (Number.isNaN(compareValue)) return Number.isNaN(beCompareValue);
-  if (isDate(compareValue) && isDate(beCompareValue)) return compareValue.getTime() === beCompareValue.getTime();
-  return compareValue === beCompareValue;
+    const compareValueType = type(compareValue);
+    const beCompareValueType = type(beCompareValue);
+    if (compareValueType !== beCompareValueType)
+        return false;
+    if (compareValueType === 'Object')
+        return equalObject(compareValue, beCompareValue, equal);
+    if (compareValueType === 'Array')
+        return equalArray(compareValue, beCompareValue, equal);
+    if (compareValueType === 'Map')
+        return equalMap(compareValue, beCompareValue, equal);
+    if (compareValueType === 'Set')
+        return equalSet(compareValue, beCompareValue, equal);
+    if (Number.isNaN(compareValue))
+        return Number.isNaN(beCompareValue);
+    if (isDate(compareValue) && isDate(beCompareValue))
+        return compareValue.getTime() === beCompareValue.getTime();
+    return compareValue === beCompareValue;
 }
 
 /**
@@ -1391,23 +1499,30 @@ function equal(compareValue, beCompareValue) {
  * @version 3.8.0
  */
 function like(compareValue, beCompareValue) {
-  if (compareValue === beCompareValue) {
-    return true;
-  }
-  if ((isEmpty(compareValue) || compareValue === '') && (isEmpty(beCompareValue) || beCompareValue === '')) {
-    return true;
-  }
-  const compareValueType = type(compareValue);
-  // const beCompareValueType = type(beCompareValue)
-  if (compareValueType === 'Object') return equalObject(compareValue, beCompareValue, like);
-  if (compareValueType === 'Array') return equalArray2(compareValue, beCompareValue, like);
-  if (compareValueType === 'Set') return equalSet2(compareValue, beCompareValue, like);
-  if (compareValueType === 'Map') return equalMap(compareValue, beCompareValue, like);
-  if (Number.isNaN(compareValue)) return Number.isNaN(beCompareValue);
-  if (isDate(compareValue) && isDate(beCompareValue)) return compareValue.getTime() === beCompareValue.getTime();
-  const compareValueStr = stringify(compareValue).replace(/'|"|\s/gi, '');
-  const beCompareValueStr = stringify(beCompareValue).replace(/'|"|\s/gi, '');
-  return compareValueStr === beCompareValueStr;
+    if (compareValue === beCompareValue) {
+        return true;
+    }
+    if ((isEmpty(compareValue) || compareValue === '') &&
+        (isEmpty(beCompareValue) || beCompareValue === '')) {
+        return true;
+    }
+    const compareValueType = type(compareValue);
+    // const beCompareValueType = type(beCompareValue)
+    if (compareValueType === 'Object')
+        return equalObject(compareValue, beCompareValue, like);
+    if (compareValueType === 'Array')
+        return equalArray2(compareValue, beCompareValue, like);
+    if (compareValueType === 'Set')
+        return equalSet2(compareValue, beCompareValue, like);
+    if (compareValueType === 'Map')
+        return equalMap(compareValue, beCompareValue, like);
+    if (Number.isNaN(compareValue))
+        return Number.isNaN(beCompareValue);
+    if (isDate(compareValue) && isDate(beCompareValue))
+        return compareValue.getTime() === beCompareValue.getTime();
+    const compareValueStr = stringify(compareValue).replace(/'|"|\s/gi, '');
+    const beCompareValueStr = stringify(beCompareValue).replace(/'|"|\s/gi, '');
+    return compareValueStr === beCompareValueStr;
 }
 
 /**
@@ -1418,47 +1533,41 @@ function like(compareValue, beCompareValue) {
  * @lastUpdate @3.2.0
  */
 function compareNumber(val, valer) {
-  const valType = type(val);
-  const valerType = type(valer);
-  if (valerType === 'RegExp') {
-    return valer.test(String(val));
-  }
-  if (valType !== 'Number') {
+    const valType = type(val);
+    const valerType = type(valer);
+    if (valerType === 'RegExp') {
+        return valer.test(String(val));
+    }
+    if (valType !== 'Number') {
+        return false;
+    }
+    if (val === valer) {
+        return true;
+    }
+    if (isArray(valer) && valer.length > 0) {
+        let min = -Infinity;
+        let max = Infinity;
+        if (!isEmpty(valer[0])) {
+            min = Number(valer[0]);
+        }
+        if (valer.length > 1 && !isEmpty(valer[1])) {
+            max = Number(valer[1]);
+        }
+        return val > min && val < max;
+    }
+    if (valerType === 'String') {
+        const [matNum, Sym = '='] = /(?<=([<>=!]+))[0-9]+/gi.exec(valer) || [];
+        switch (Sym) {
+            case '=': return val === Number(matNum);
+            case '>': return val > Number(matNum);
+            case '>=': return val >= Number(matNum);
+            case '<': return val < Number(matNum);
+            case '<=': return val <= Number(matNum);
+            case '<>':
+            case '!=': return val != Number(matNum);
+        }
+    }
     return false;
-  }
-  if (val === valer) {
-    return true;
-  }
-  if (isArray(valer) && valer.length > 0) {
-    let min = -Infinity;
-    let max = Infinity;
-    if (!isEmpty(valer[0])) {
-      min = Number(valer[0]);
-    }
-    if (valer.length > 1 && !isEmpty(valer[1])) {
-      max = Number(valer[1]);
-    }
-    return val > min && val < max;
-  }
-  if (valerType === 'String') {
-    const [matNum, Sym = '='] = /(?<=([<>=!]+))[0-9]+/gi.exec(valer) || [];
-    switch (Sym) {
-      case '=':
-        return val === Number(matNum);
-      case '>':
-        return val > Number(matNum);
-      case '>=':
-        return val >= Number(matNum);
-      case '<':
-        return val < Number(matNum);
-      case '<=':
-        return val <= Number(matNum);
-      case '<>':
-      case '!=':
-        return val != Number(matNum);
-    }
-  }
-  return false;
 }
 /**
  * @title compareValue
@@ -1468,36 +1577,39 @@ function compareNumber(val, valer) {
  * @returns {boolean}
  */
 function compareValue(val, valer, path) {
-  if (path) {
-    val = toPathValue(val, path);
-  }
-  if (equal(val, valer)) return true;
-  if (isRegExp(valer)) return valer.test(String(val));
-  if (isNumber(val)) return compareNumber(val, valer);
-  if (isNumber(Number(val))) return compareNumber(Number(val), valer);
-  return false;
+    if (path) {
+        val = toPathValue(val, path);
+    }
+    if (equal(val, valer))
+        return true;
+    if (isRegExp(valer))
+        return valer.test(String(val));
+    if (isNumber(val))
+        return compareNumber(val, valer);
+    if (isNumber(Number(val)))
+        return compareNumber(Number(val), valer);
+    return false;
 }
+
 function deepClonePredicate(value) {
-  switch (type(value)) {
-    case 'RegExp':
-      return new RegExp(value);
-    case 'Array':
-    case 'Object':
-      {
-        const cloneObj = new value.constructor();
-        for (const key in value) {
-          if (value.hasOwnProperty(key)) {
-            cloneObj[key] = deepClonePredicate(value[key]); // 递归拷贝  
-          }
+    switch (type(value)) {
+        case 'RegExp':
+            return new RegExp(value);
+        case 'Array':
+        case 'Object': {
+            const cloneObj = new value.constructor();
+            for (const key in value) {
+                if (value.hasOwnProperty(key)) {
+                    cloneObj[key] = deepClonePredicate(value[key]); // 递归拷贝  
+                }
+            }
+            return cloneObj;
         }
-        return cloneObj;
-      }
-    case 'Date':
-      {
-        return new Date(value);
-      }
-  }
-  return value;
+        case 'Date': {
+            return new Date(value);
+        }
+    }
+    return value;
 }
 /**
  * @title deepClone
@@ -1507,29 +1619,29 @@ function deepClonePredicate(value) {
  * @version 2.4.1
  */
 function deepClone(value) {
-  return deepClonePredicate(value);
+    return deepClonePredicate(value);
 }
 
 /**
  * @title toFirstUpperCase
  * @description 首字母大写
  */
-const toFirstUpperCase = value => value.replace(/\b.*/g, word => word.substring(0, 1).toUpperCase() + word.substring(1));
+const toFirstUpperCase = (value) => value.replace(/\b.*/g, (word) => word.substring(0, 1).toUpperCase() + word.substring(1));
 /**
  * @title toFirstLowerCase
  * @description 首字母小写
  */
-const toFirstLowerCase = value => value.replace(/\b.*/g, word => word.substring(0, 1).toLowerCase() + word.substring(1));
+const toFirstLowerCase = (value) => value.replace(/\b.*/g, (word) => word.substring(0, 1).toLowerCase() + word.substring(1));
 /**
  * @title toUpperCase
  * @description 全部大写
  */
-const toUpperCase = value => value.toUpperCase();
+const toUpperCase = (value) => value.toUpperCase();
 /**
  * @title toLowerCase
  * @description 全部小写
  */
-const toLowerCase = value => value.toLowerCase();
+const toLowerCase = (value) => value.toLowerCase();
 
 /**
  * @title guard
@@ -1538,14 +1650,16 @@ const toLowerCase = value => value.toLowerCase();
  * @returns {(...args:unknown[])=>unknown}
  */
 function guard(func, errorReturnValue) {
-  return (...args) => {
-    try {
-      if (isFunction(func)) return func(...args);
-      return errorReturnValue;
-    } catch (error) {
-      return errorReturnValue;
-    }
-  };
+    return (...args) => {
+        try {
+            if (isFunction(func))
+                return func(...args);
+            return errorReturnValue;
+        }
+        catch (error) {
+            return errorReturnValue;
+        }
+    };
 }
 /**
  * @title asyncGuard
@@ -1554,15 +1668,18 @@ function guard(func, errorReturnValue) {
  * @returns {(...args:unknown[])=>unknown}
  */
 function asyncGuard(func, errorReturnValue) {
-  return async (...args) => {
-    try {
-      if (isAsyncFunction(func)) return await func(...args);
-      if (isFunction(func)) return func(...args);
-      return errorReturnValue;
-    } catch (error) {
-      return errorReturnValue;
-    }
-  };
+    return async (...args) => {
+        try {
+            if (isAsyncFunction(func))
+                return await func(...args);
+            if (isFunction(func))
+                return func(...args);
+            return errorReturnValue;
+        }
+        catch (error) {
+            return errorReturnValue;
+        }
+    };
 }
 
 /**
@@ -1574,24 +1691,25 @@ function asyncGuard(func, errorReturnValue) {
  * @returns {boolean}
  */
 function has(beComparedValue, compareValue) {
-  if (compareValue === beComparedValue && type(compareValue) === type(beComparedValue)) {
-    return true;
-  }
-  const newBeComparedValue = stringify(beComparedValue).replace(/'|"|\s/gi, '');
-  const newCompareValue = stringify(compareValue).replace(/'|"|\s/gi, '');
-  if (newBeComparedValue.includes(newCompareValue)) {
-    return true;
-  }
-  const compareValues = newCompareValue.split('');
-  let newBeValue = newBeComparedValue;
-  for (let i = 0; i < compareValues.length; i++) {
-    const item = compareValues[i];
-    if (!newBeValue.includes(item)) {
-      return false;
+    if (compareValue === beComparedValue &&
+        type(compareValue) === type(beComparedValue)) {
+        return true;
     }
-    newBeValue = newBeValue.replace(item, '');
-  }
-  return newBeValue.length >= 0;
+    const newBeComparedValue = stringify(beComparedValue).replace(/'|"|\s/gi, '');
+    const newCompareValue = stringify(compareValue).replace(/'|"|\s/gi, '');
+    if (newBeComparedValue.includes(newCompareValue)) {
+        return true;
+    }
+    const compareValues = newCompareValue.split('');
+    let newBeValue = newBeComparedValue;
+    for (let i = 0; i < compareValues.length; i++) {
+        const item = compareValues[i];
+        if (!newBeValue.includes(item)) {
+            return false;
+        }
+        newBeValue = newBeValue.replace(item, '');
+    }
+    return newBeValue.length >= 0;
 }
 
 /**
@@ -1601,7 +1719,7 @@ function has(beComparedValue, compareValue) {
  * @returns {Promise<void>}
  */
 function sleep(ms = 500) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }
 // // 使用示例
 // async function doSomething() {
@@ -1621,50 +1739,36 @@ function sleep(ms = 500) {
  * @version 2.3.1
  */
 function filter(list, filterCondition, retainNotObject = false) {
-  if (!isArray(list)) return [];
-  if (!filterCondition || !list || list.length === 0) return list;
-  if (isFunction(filterCondition)) {
-    return list.filter(filterCondition);
-  }
-  if (isEffectObject(filterCondition)) return list.filter(item => {
-    if (!isObject(item)) return retainNotObject;
-    for (const key in filterCondition) {
-      const unit = filterCondition[key];
-      const originValue = item[key];
-      if (originValue === unit) break;
-      if (isRegExp(unit)) {
-        const val = isString(originValue) ? originValue : stringify(originValue);
-        if (!unit.test(val)) return false;
-        break;
-      }
-      return false;
+    if (!isArray(list))
+        return [];
+    if (!filterCondition || !list || list.length === 0)
+        return list;
+    if (isFunction(filterCondition)) {
+        return list.filter(filterCondition);
     }
-    return true;
-  });
-  return list;
+    if (isEffectObject(filterCondition))
+        return list.filter((item) => {
+            if (!isObject(item))
+                return retainNotObject;
+            for (const key in filterCondition) {
+                const unit = filterCondition[key];
+                const originValue = item[key];
+                if (originValue === unit)
+                    break;
+                if (isRegExp(unit)) {
+                    const val = isString(originValue) ? originValue : stringify(originValue);
+                    if (!unit.test(val))
+                        return false;
+                    break;
+                }
+                return false;
+            }
+            return true;
+        });
+    return list;
 }
 
-/**
- * @title isFloat
- * @description 判断数是否为浮点型
- * @param num 待检测的数据类型
- * @returns boolean
- */
-function isFloat(num) {
-  return num % 1 !== 0;
-}
-/**
- * @title toFloat
- * @description 转换为指定位数的浮点数
- * @param num { number } 数字
- * @param fixed { number } 小数点位数
- * @returns { number }
- */
-// eslint-disable-next-line @typescript-eslint/no-inferrable-types
-function toFloat(num, fixed = 1) {
-  return Number(num.toFixed(fixed));
-}
-
+function t(t){return null==t||t!=t}function a(n){return "object"==typeof n&&!t(n)&&/Iterator\]$/.test(n.toString())}function p(t){try{if(a(t))return "Iterator";const n=Object.prototype.toString.call(t).match(/\[object (\w+)\]/)[1];return "Number"===n&&isNaN(t)?"NaN":n}catch(t){return "Undefined"}}const O=t=>"number"==typeof t&&"Number"===p(t);function I(t){return !!O(t)&&t%1!=0}function ht(t,n=1){return Number(t.toFixed(n))}
 /**
  * @title random
  * @description 随机数
@@ -1673,18 +1777,19 @@ function toFloat(num, fixed = 1) {
  * @param floating { number = 0 } 是否返回浮点数(位数), 0: 整数
  */
 function random(lower = 0, upper = 1, floating = 0) {
-  if (lower === 0 && upper === 1) {
-    return Math.random();
-  }
-  if (isFloat(upper) || isFloat(lower)) {
-    const len = upper > lower ? upper : lower;
-    if (floating === 0) {
-      floating = len;
+    if (lower === 0 && upper === 1) {
+        return Math.random();
     }
-  }
-  const result = lower + Math.random() * (upper - lower);
-  if (floating) return toFloat(result, floating);
-  return Math.ceil(result);
+    if (I(upper) || I(lower)) {
+        const len = upper > lower ? upper : lower;
+        if (floating === 0) {
+            floating = len;
+        }
+    }
+    const result = lower + Math.random() * (upper - lower);
+    if (floating)
+        return ht(result, floating);
+    return Math.ceil(result);
 }
 
 /**
@@ -1696,16 +1801,17 @@ function random(lower = 0, upper = 1, floating = 0) {
  * @returns {T[]}
  */
 function selects(list, min = 0, max = list.length - 1) {
-  if (max > list.length) max = list.length - 1;
-  let len = random(min, max);
-  const result = [];
-  let index = 0;
-  while (len--) {
-    index = ~~(Math.random() * list.length);
-    result.push(list[index]);
-    list.splice(index, 1);
-  }
-  return result;
+    if (max > list.length)
+        max = list.length - 1;
+    let len = random(min, max);
+    const result = [];
+    let index = 0;
+    while (len--) {
+        index = ~~(Math.random() * list.length);
+        result.push(list[index]);
+        list.splice(index, 1);
+    }
+    return result;
 }
 /**
  * @title select<T>
@@ -1715,15 +1821,20 @@ function selects(list, min = 0, max = list.length - 1) {
  * @returns {T|null} 选择项
  */
 function select(list = [], index) {
-  if (isArray(list)) {
-    const len = list.length;
-    if (len === 0) return null;
-    if (!index && index !== 0) return list[~~(Math.random() * list.length)];
-    if (index > len) return list[index % len];
-    if (index > -1) return list[index];
-    if (index < 0) return list[list.length + index % len];
-  }
-  return null;
+    if (isArray(list)) {
+        const len = list.length;
+        if (len === 0)
+            return null;
+        if (!index && index !== 0)
+            return list[~~(Math.random() * list.length)];
+        if (index > len)
+            return list[index % len];
+        if (index > -1)
+            return list[index];
+        if (index < 0)
+            return list[list.length + (index % len)];
+    }
+    return null;
 }
 
 /**
@@ -1734,18 +1845,21 @@ function select(list = [], index) {
  * @lastUpdate 3.3.0
  */
 function toArray(value) {
-  if (Array.isArray(value)) return value;
-  if (isEmpty(value)) return [];
-  if (isSet(value)) return [...value];
-  if (isMap(value)) {
-    return Array.from(value);
-  }
-  if (isObject(value)) {
-    return Object.keys(value).map(key => {
-      return [key, value[key]];
-    });
-  }
-  return [value];
+    if (Array.isArray(value))
+        return value;
+    if (isEmpty(value))
+        return [];
+    if (isSet(value))
+        return [...value];
+    if (isMap(value)) {
+        return Array.from(value);
+    }
+    if (isObject(value)) {
+        return Object.keys(value).map(key => {
+            return [key, value[key]];
+        });
+    }
+    return [value];
 }
 
 /**
@@ -1756,7 +1870,7 @@ function toArray(value) {
  * @returns {T[][]} [ [切割点前数据], [切割点后数据] ]
  */
 function chunk(list, size) {
-  return [list.slice(0, size), list.slice(size)];
+    return [list.slice(0, size), list.slice(size)];
 }
 
 /**
@@ -1771,17 +1885,17 @@ function chunk(list, size) {
  ```
  */
 function zip(...arrays) {
-  const result = [];
-  const length = arrays.length;
-  let index = 0;
-  while (index < length - 1) {
-    const item = arrays.map(item => {
-      return item[index];
-    });
-    result.push(item);
-    index++;
-  }
-  return result;
+    const result = [];
+    const length = arrays.length;
+    let index = 0;
+    while (index < length - 1) {
+        const item = arrays.map(item => {
+            return item[index];
+        });
+        result.push(item);
+        index++;
+    }
+    return result;
 }
 /**
  * @title zipObject<Value>
@@ -1796,11 +1910,11 @@ function zip(...arrays) {
  ```
  */
 function zipObject(keys, values) {
-  const record = {};
-  keys.forEach((key, index) => {
-    record[key] = values[index];
-  });
-  return record;
+    const record = {};
+    keys.forEach((key, index) => {
+        record[key] = values[index];
+    });
+    return record;
 }
 
 /**
@@ -1813,10 +1927,13 @@ function zipObject(keys, values) {
  * @lastUpdate 3.4.0
  */
 function flat(list, depth = 1) {
-  if (!Array.isArray(list)) return toArray(list);
-  if (list.length === 0 || depth < 1) return [];
-  if (depth === 1) return list.flatMap(i => i);
-  return list.flat(depth);
+    if (!Array.isArray(list))
+        return toArray(list);
+    if (list.length === 0 || depth < 1)
+        return [];
+    if (depth === 1)
+        return list.flatMap(i => i);
+    return list.flat(depth);
 }
 
 /**
@@ -1827,12 +1944,15 @@ function flat(list, depth = 1) {
  * @returns {T[]} 剩余切片
  */
 function drop(list = [], n = 0) {
-  if (!isArray(list)) return toArray(list);
-  while (n--) {
-    if (list.length < 1) return [];
-    if (list.length > 0) list.shift();
-  }
-  return list;
+    if (!isArray(list))
+        return toArray(list);
+    while (n--) {
+        if (list.length < 1)
+            return [];
+        if (list.length > 0)
+            list.shift();
+    }
+    return list;
 }
 /**
  * @title dropRight<T>
@@ -1842,7 +1962,7 @@ function drop(list = [], n = 0) {
  * @returns {T[]}
  */
 function dropRight(list, n = 1) {
-  return list.splice(0, list.length - n);
+    return list.splice(0, list.length - n);
 }
 
 /**
@@ -1852,7 +1972,7 @@ function dropRight(list, n = 1) {
  * @returns {T[]}
  */
 function unique(list) {
-  return [...new Set(list)];
+    return [...new Set(list)];
 }
 
 /**
@@ -1864,29 +1984,34 @@ function unique(list) {
  * @returns
  */
 function fill(array, value, num = 0) {
-  while (num--) {
-    array.push(isFunction(value) ? value(array.length) : value);
-  }
-  return array;
+    while (num--) {
+        array.push(isFunction(value)
+            ? value(array.length)
+            : value);
+    }
+    return array;
 }
+
 function getSortNum(value, sortIndex) {
-  if (isNumber(value)) return value;
-  if (isString(value)) {
-    const num = Number(value);
-    return isNumber(num) ? num : value;
-  }
-  if (isEmpty(sortIndex)) return 0;
-  if (isObject(value)) {
-    const newValue = toPathValue(value, sortIndex);
-    if (isString(newValue)) {
-      const num = Number(newValue);
-      return isNumber(num) ? num : newValue;
+    if (isNumber(value))
+        return value;
+    if (isString(value)) {
+        const num = Number(value);
+        return isNumber(num) ? num : value;
     }
-    if (isNumber(newValue)) {
-      return newValue;
+    if (isEmpty(sortIndex))
+        return 0;
+    if (isObject(value)) {
+        const newValue = toPathValue(value, sortIndex);
+        if (isString(newValue)) {
+            const num = Number(newValue);
+            return isNumber(num) ? num : newValue;
+        }
+        if (isNumber(newValue)) {
+            return newValue;
+        }
     }
-  }
-  return 0;
+    return 0;
 }
 /**
  * @title descSort<T=object>
@@ -1898,17 +2023,19 @@ function getSortNum(value, sortIndex) {
  * @lastUpdate 3.3.0
  */
 function descSort(list, sortIndex) {
-  const handler = (before, after) => {
-    const newAfter = getSortNum(after, sortIndex);
-    const newBefore = getSortNum(before, sortIndex);
-    if (isString(newAfter) && isString(newBefore)) return compareString(newAfter, newBefore) ? 1 : -1;
-    if (isNumber(newAfter) && isNumber(newBefore)) return newAfter - newBefore;
-    return 0;
-  };
-  if (isEffectArray(list)) {
-    return list.sort(handler);
-  }
-  return [];
+    const handler = (before, after) => {
+        const newAfter = getSortNum(after, sortIndex);
+        const newBefore = getSortNum(before, sortIndex);
+        if (isString(newAfter) && isString(newBefore))
+            return compareString(newAfter, newBefore) ? 1 : -1;
+        if (isNumber(newAfter) && isNumber(newBefore))
+            return newAfter - newBefore;
+        return 0;
+    };
+    if (isEffectArray(list)) {
+        return list.sort(handler);
+    }
+    return [];
 }
 /**
  * @title ascSort<T=object>
@@ -1920,17 +2047,19 @@ function descSort(list, sortIndex) {
  * @lastUpdate 3.3.0
  */
 function ascSort(list, sortIndex) {
-  const handler = (before, after) => {
-    const newAfter = getSortNum(after, sortIndex);
-    const newBefore = getSortNum(before, sortIndex);
-    if (isString(newAfter) && isString(newBefore)) return compareString(newAfter, newBefore) ? -1 : 1;
-    if (isNumber(newAfter) && isNumber(newBefore)) return newBefore - newAfter;
-    return 0;
-  };
-  if (isEffectArray(list)) {
-    return list.sort(handler);
-  }
-  return [];
+    const handler = (before, after) => {
+        const newAfter = getSortNum(after, sortIndex);
+        const newBefore = getSortNum(before, sortIndex);
+        if (isString(newAfter) && isString(newBefore))
+            return compareString(newAfter, newBefore) ? -1 : 1;
+        if (isNumber(newAfter) && isNumber(newBefore))
+            return newBefore - newAfter;
+        return 0;
+    };
+    if (isEffectArray(list)) {
+        return list.sort(handler);
+    }
+    return [];
 }
 
 /**
@@ -1940,133 +2069,129 @@ function ascSort(list, sortIndex) {
  * @returns
  */
 function pageQuery(originDataSource = [], props = {}) {
-  const {
-    uniqueIndex = 'id',
-    noRangeFields,
-    keepFields,
-    handleValue,
-    fields
-  } = props;
-  // 原始数据
-  let dataSource = [...originDataSource];
-  const getValue = (record, key) => {
-    let value = record[key];
-    if (fields && isFunction(fields[key])) {
-      return fields[key](value, key);
-    } else if (handleValue) {
-      return handleValue(value, key);
-    }
-    if (isEmpty(value)) return '';
-    if (isEffectArray(keepFields) && keepFields.includes(key)) {
-      return value;
-    }
-    if (isString(value)) {
-      return value.trim().toUpperCase();
-    }
-    if (isNumber(value)) {
-      return stringify(value);
-    }
-    return value;
-  };
-  const isEqual = (item, params, key) => {
-    const value = getValue(item, key);
-    const beValue = getValue(params, key);
-    if (!(isEffectArray(noRangeFields) && noRangeFields.includes(key)) && likeNumber(value) && isEffectArray(beValue) && beValue.length === 2) {
-      const [min, max] = beValue;
-      if (likeNumber(min) && likeNumber(max)) {
-        return Number(value) >= Number(min) && Number(value) <= Number(max);
-      }
-      return false;
-    }
-    if (isString(value) && isString(beValue)) {
-      return value.indexOf(beValue) > -1;
-    }
-    return equal(value, beValue);
-  };
-  const getDataSource = (params, config) => {
-    let newDataSource = [...dataSource];
-    if (isEffectObject(config)) {
-      const {
-        sortBy
-      } = config;
-      if (isEffectObject(sortBy)) {
-        for (const key in sortBy) {
-          const sortIndex = sortBy[key];
-          if (sortIndex === 'desc') {
-            newDataSource = descSort(newDataSource, key);
-          }
-          if (sortIndex === 'asc') {
-            newDataSource = ascSort(newDataSource, key);
-          }
+    const { uniqueIndex = 'id', noRangeFields, keepFields, handleValue, fields, } = props;
+    // 原始数据
+    let dataSource = [...originDataSource];
+    const getValue = (record, key) => {
+        let value = record[key];
+        if (fields && isFunction(fields[key])) {
+            return fields[key](value, key);
         }
-      }
-    }
-    if (isEffectObject(params)) {
-      newDataSource = newDataSource.filter(item => {
-        for (let key in params) {
-          if (!isEqual(item, params, key)) return false;
+        else if (handleValue) {
+            return handleValue(value, key);
         }
-        return true;
-      });
-    }
-    return newDataSource;
-  };
-  /**
-   * @title getPage
-   * @description 获取分页数据
-   * 1,params[key]. 若值为[number, number], 且被查询值为数字或数字字符串, [number, number]当做范围, 若不想这样子指定, 需要在 pageQuery 指定
-   * @param {Object} params 查询条件
-   * @param {Pagination} pagination 分页信息
-   * @returns {dataSource: DataSource, pagination: Pagination}
-   */
-  const getPage = (params, pagination = {}) => {
-    const {
-      current = 1,
-      pageSize = 10,
-      sortBy
-    } = pagination;
-    const newDataSource = getDataSource(params, {
-      sortBy
-    });
-    return {
-      dataSource: newDataSource.slice((current - 1) * pageSize, current * pageSize),
-      pagination: {
-        current,
-        pageSize,
-        total: newDataSource.length
-      }
+        if (isEmpty(value))
+            return '';
+        if (isEffectArray(keepFields) && keepFields.includes(key)) {
+            return value;
+        }
+        if (isString(value)) {
+            return value.trim().toUpperCase();
+        }
+        if (isNumber(value)) {
+            return stringify(value);
+        }
+        return value;
     };
-  };
-  const del = indexes => {
-    if (isEffectArray(indexes)) {
-      dataSource = getDataSource().filter(item => !indexes.includes(item[uniqueIndex]));
-      return;
-    }
-    if (isString(indexes)) {
-      dataSource = getDataSource().filter(item => item[uniqueIndex] !== indexes);
-      return;
-    }
-  };
-  const add = record => {
-    if (isObject(record)) {
-      if (isEmpty(record[uniqueIndex])) {
-        record[uniqueIndex] = '__vid__' + vid();
-      }
-      dataSource.unshift(record);
-      return;
-    }
-    if (isEffectArray(record)) {
-      record.forEach(add);
-      return;
-    }
-  };
-  return {
-    dataSource,
-    getPage,
-    getDataSource,
-    del,
-    add
-  };
+    const isEqual = (item, params, key) => {
+        const value = getValue(item, key);
+        const beValue = getValue(params, key);
+        if (!(isEffectArray(noRangeFields) &&
+            noRangeFields.includes(key)) &&
+            likeNumber(value) &&
+            isEffectArray(beValue) &&
+            beValue.length === 2) {
+            const [min, max] = beValue;
+            if (likeNumber(min) && likeNumber(max)) {
+                return Number(value) >= Number(min) &&
+                    Number(value) <= Number(max);
+            }
+            return false;
+        }
+        if (isString(value) && isString(beValue)) {
+            return value.indexOf(beValue) > -1;
+        }
+        return equal(value, beValue);
+    };
+    const getDataSource = (params, config) => {
+        let newDataSource = [...dataSource];
+        if (isEffectObject(config)) {
+            const { sortBy } = config;
+            if (isEffectObject(sortBy)) {
+                for (const key in sortBy) {
+                    const sortIndex = sortBy[key];
+                    if (sortIndex === 'desc') {
+                        newDataSource = descSort(newDataSource, key);
+                    }
+                    if (sortIndex === 'asc') {
+                        newDataSource = ascSort(newDataSource, key);
+                    }
+                }
+            }
+        }
+        if (isEffectObject(params)) {
+            newDataSource = newDataSource.filter(item => {
+                for (let key in params) {
+                    if (!isEqual(item, params, key))
+                        return false;
+                }
+                return true;
+            });
+        }
+        return newDataSource;
+    };
+    /**
+     * @title getPage
+     * @description 获取分页数据
+     * 1,params[key]. 若值为[number, number], 且被查询值为数字或数字字符串, [number, number]当做范围, 若不想这样子指定, 需要在 pageQuery 指定
+     * @param {Object} params 查询条件
+     * @param {Pagination} pagination 分页信息
+     * @returns {dataSource: DataSource, pagination: Pagination}
+     */
+    const getPage = (params, pagination = {}) => {
+        const { current = 1, pageSize = 10, sortBy } = pagination;
+        const newDataSource = getDataSource(params, { sortBy });
+        return {
+            dataSource: newDataSource.slice((current - 1) * pageSize, current * pageSize),
+            pagination: {
+                current,
+                pageSize,
+                total: newDataSource.length
+            }
+        };
+    };
+    const del = (indexes) => {
+        if (isEffectArray(indexes)) {
+            dataSource = getDataSource()
+                .filter(item => !indexes.includes(item[uniqueIndex]));
+            return;
+        }
+        if (isString(indexes)) {
+            dataSource = getDataSource()
+                .filter(item => item[uniqueIndex] !== indexes);
+            return;
+        }
+    };
+    const add = (record) => {
+        if (isObject(record)) {
+            if (isEmpty(record[uniqueIndex])) {
+                record[uniqueIndex] = '__vid__' + vid();
+            }
+            dataSource.unshift(record);
+            return;
+        }
+        if (isEffectArray(record)) {
+            record.forEach(add);
+            return;
+        }
+    };
+    return {
+        dataSource,
+        getPage,
+        getDataSource,
+        del,
+        add,
+    };
 }
 
 /**
@@ -2077,12 +2202,13 @@ function pageQuery(originDataSource = [], props = {}) {
  * @returns boolean
  */
 function existKeys(obj, keys) {
-  const objKeys = Object.keys(obj);
-  keys = toArray(keys);
-  for (let i = 0; i < keys.length; i++) {
-    if (objKeys.includes(keys[i])) return true;
-  }
-  return false;
+    const objKeys = Object.keys(obj);
+    keys = toArray(keys);
+    for (let i = 0; i < keys.length; i++) {
+        if (objKeys.includes(keys[i]))
+            return true;
+    }
+    return false;
 }
 
 /**
@@ -2093,24 +2219,24 @@ function existKeys(obj, keys) {
  * @returns {T|Map}
  */
 function omit(collection, propertys = []) {
-  if (isMap(collection)) {
-    const newMap = new Map(collection);
-    propertys.forEach(property => {
-      newMap.delete(property);
-    });
-    return newMap;
-  }
-  if (isObject(collection)) {
-    const newRecord = {
-      ...collection
-    };
-    const keys = Object.keys(collection);
-    propertys.forEach(property => {
-      isString(property) && keys.includes(property) && delete newRecord[property];
-    });
-    return newRecord;
-  }
-  return {};
+    if (isMap(collection)) {
+        const newMap = new Map(collection);
+        propertys.forEach(property => {
+            newMap.delete(property);
+        });
+        return newMap;
+    }
+    if (isObject(collection)) {
+        const newRecord = { ...collection };
+        const keys = Object.keys(collection);
+        propertys.forEach(property => {
+            isString(property)
+                && keys.includes(property)
+                && delete newRecord[property];
+        });
+        return newRecord;
+    }
+    return {};
 }
 
 /**
@@ -2121,48 +2247,57 @@ function omit(collection, propertys = []) {
  * @returns string
  */
 function serialize(query, encode = false) {
-  if (isObject(query)) return Object.keys(query).map(key => {
-    const value = query[key];
-    if (isString(value) || isNumber(value) || isBoolean(value)) return `${key}=${encode ? encodeURIComponent(value) : value}`;
-  }).join('&');
-  return '';
+    if (isObject(query))
+        return Object.keys(query)
+            .map((key) => {
+            const value = query[key];
+            if (isString(value)
+                || isNumber(value)
+                || isBoolean(value))
+                return `${key}=${encode
+                    ? encodeURIComponent(value)
+                    : value}`;
+        })
+            .join('&');
+    return '';
 }
+
 function ObjectEntity(target = {}, config) {
-  const {
-    defaultValue,
-    defaultKey
-  } = config || {};
-  const keys = Object.keys(target);
-  const values = Object.values(target);
-  const get = key => keys.includes(key) ? target[key] : defaultValue;
-  const getKey = value => {
-    if (values.includes(value)) {
-      for (let i = 0; i < keys.length; i++) if (equal(target[keys[i]], value)) return keys[i];
-    }
-    return defaultKey;
-  };
-  const list = (keyName = 'key', valueName = 'value', keyValueReverse = false) => {
-    return Object.entries(target).map(([key, value]) => {
-      if (keyValueReverse) {
-        return {
-          [valueName]: key,
-          [keyName]: value
-        };
-      }
-      return {
-        [keyName]: key,
-        [valueName]: value
-      };
-    });
-  };
-  return {
-    target,
-    keys,
-    values,
-    get,
-    getKey,
-    list
-  };
+    const { defaultValue, defaultKey } = config || {};
+    const keys = Object.keys(target);
+    const values = Object.values(target);
+    const get = (key) => keys.includes(key) ? target[key] : defaultValue;
+    const getKey = (value) => {
+        if (values.includes(value)) {
+            for (let i = 0; i < keys.length; i++)
+                if (equal(target[keys[i]], value))
+                    return keys[i];
+        }
+        return defaultKey;
+    };
+    const list = (keyName = 'key', valueName = 'value', keyValueReverse = false) => {
+        return Object.entries(target)
+            .map(([key, value]) => {
+            if (keyValueReverse) {
+                return {
+                    [valueName]: key,
+                    [keyName]: value,
+                };
+            }
+            return {
+                [keyName]: key,
+                [valueName]: value
+            };
+        });
+    };
+    return {
+        target,
+        keys,
+        values,
+        get,
+        getKey,
+        list,
+    };
 }
 
 /**
@@ -2173,15 +2308,16 @@ function ObjectEntity(target = {}, config) {
  * @returns {Promise<Result>} func执行结果(Promise)
  */
 function delay(func, delayTime = 0, ...args) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      if (isFunction(func)) {
-        resolve(func(...args));
-      } else {
-        resolve(undefined);
-      }
-    }, delayTime);
-  });
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            if (isFunction(func)) {
+                resolve(func(...args));
+            }
+            else {
+                resolve(undefined);
+            }
+        }, delayTime);
+    });
 }
 
 /**
@@ -2191,10 +2327,15 @@ function delay(func, delayTime = 0, ...args) {
  * @returns {number}
  */
 function getLength(collection) {
-  if (isArray(collection) || isString(collection)) return collection.length;
-  if (isObject(collection)) return Object.keys(collection).length;
-  if (isSet(collection) || isMap(collection)) return collection.size;
-  return 0;
+    if (isArray(collection)
+        || isString(collection))
+        return collection.length;
+    if (isObject(collection))
+        return Object.keys(collection).length;
+    if (isSet(collection)
+        || isMap(collection))
+        return collection.size;
+    return 0;
 }
 /**
  * @title getIndex
@@ -2204,21 +2345,30 @@ function getLength(collection) {
  * @returns {CollectionKey|undefined}
  */
 function getIndex(collection, key) {
-  if (isArray(collection) || isString(collection) || isSet(collection)) {
-    const len = getLength(collection);
-    let newIndex = isNumber(key) ? key : Number(key);
-    if (isEmpty(newIndex) || !isNumber(newIndex)) return undefined;
-    if (len === 0) return 0;
-    if (newIndex > len) return len - 1;
-    if (newIndex < 0) return len + newIndex;
-    return newIndex;
-  }
-  if (isMap(collection) && collection.has(key)) return key;
-  if (isEffectObject(collection)) {
-    const newKey = isString(key) ? key : stringify(key);
-    if (Object.keys(collection).includes(newKey)) return newKey;
-  }
-  return undefined;
+    if (isArray(collection)
+        || isString(collection)
+        || isSet(collection)) {
+        const len = getLength(collection);
+        let newIndex = isNumber(key) ? key : Number(key);
+        if (isEmpty(newIndex) || !isNumber(newIndex))
+            return undefined;
+        if (len === 0)
+            return 0;
+        if (newIndex > len)
+            return len - 1;
+        if (newIndex < 0)
+            return len + newIndex;
+        return newIndex;
+    }
+    if (isMap(collection) &&
+        collection.has(key))
+        return key;
+    if (isEffectObject(collection)) {
+        const newKey = isString(key) ? key : stringify(key);
+        if (Object.keys(collection).includes(newKey))
+            return newKey;
+    }
+    return undefined;
 }
 
 /**
@@ -2230,16 +2380,27 @@ function getIndex(collection, key) {
  * @version 2.6.0
  */
 function at(collection, index = 0) {
-  if (isEmpty(collection)) return undefined;
-  const len = getLength(collection);
-  if (len === 0) return undefined;
-  const newIndex = getIndex(collection, index);
-  if (isEmpty(newIndex)) return undefined;
-  if (isNumber(newIndex) && (isString(collection) || isArray(collection))) return collection[newIndex];
-  if (isObject(collection) && (isNumber(newIndex) || isString(newIndex))) return collection[newIndex];
-  if (isMap(collection)) return collection.get(newIndex);
-  let i = -1;
-  if (isSet(collection)) for (const value of collection) if (++i === newIndex) return value;
+    if (isEmpty(collection))
+        return undefined;
+    const len = getLength(collection);
+    if (len === 0)
+        return undefined;
+    const newIndex = getIndex(collection, index);
+    if (isEmpty(newIndex))
+        return undefined;
+    if (isNumber(newIndex) &&
+        (isString(collection) || isArray(collection)))
+        return collection[newIndex];
+    if (isObject(collection) &&
+        (isNumber(newIndex) || isString(newIndex)))
+        return collection[newIndex];
+    if (isMap(collection))
+        return collection.get(newIndex);
+    let i = -1;
+    if (isSet(collection))
+        for (const value of collection)
+            if (++i === newIndex)
+                return value;
 }
 
 /**
@@ -2250,37 +2411,41 @@ function at(collection, index = 0) {
  * @return {Collection|CollectionValue}
  */
 function nth(collection, index) {
-  if (isEmpty(index) || isEmpty(collection) || index === 'n') {
-    return collection;
-  }
-  if (isString(index) && index.includes('n') && /\d?n[+-]?\d?/.exec(index) && (isArray(collection) || isString(collection))) {
-    const params = /([-+]?\d)?n([+-]?\d)?/.exec(index);
-    if (isArray(params) && params.length === 3) {
-      const mult = Number(params[1]);
-      const gap = Number(params[2]);
-      const getNewIndex = num => {
-        if (isNumber(mult)) {
-          num = num * mult;
-        }
-        if (isNumber(gap)) {
-          num = num + gap;
-        }
-        return num;
-      };
-      let i = 0;
-      let j = 0;
-      const len = collection.length;
-      const result = [];
-      while (j < len && i < len) {
-        j = getNewIndex(i) + 1;
-        if (j >= len) break;
-        result.push(at(collection, j));
-        i++;
-      }
-      return result;
+    if (isEmpty(index) || isEmpty(collection) || index === 'n') {
+        return collection;
     }
-  }
-  return at(collection, index);
+    if (isString(index) &&
+        index.includes('n') &&
+        /\d?n[+-]?\d?/.exec(index) &&
+        (isArray(collection) || isString(collection))) {
+        const params = /([-+]?\d)?n([+-]?\d)?/.exec(index);
+        if (isArray(params) && params.length === 3) {
+            const mult = Number(params[1]);
+            const gap = Number(params[2]);
+            const getNewIndex = (num) => {
+                if (isNumber(mult)) {
+                    num = num * mult;
+                }
+                if (isNumber(gap)) {
+                    num = num + gap;
+                }
+                return num;
+            };
+            let i = 0;
+            let j = 0;
+            const len = collection.length;
+            const result = [];
+            while (j < len && i < len) {
+                j = getNewIndex(i) + 1;
+                if (j >= len)
+                    break;
+                result.push(at(collection, j));
+                i++;
+            }
+            return result;
+        }
+    }
+    return at(collection, index);
 }
 
 /**
@@ -2292,26 +2457,30 @@ function nth(collection, index) {
  * @returns {boolean}
  */
 function includes(collection, value, fromIndex = 0) {
-  const newIndex = getIndex(collection, fromIndex);
-  if (isString(collection) && isNumber(newIndex)) {
-    const newCollection = collection.substring(newIndex);
-    const newValue = isString(value) ? value : stringify(value);
-    return newCollection.indexOf(newValue) > -1;
-  }
-  if (isArray(collection)) {
-    if (fromIndex === 0) return collection.includes(value);
-    if (isNumber(newIndex)) {
-      for (let i = newIndex; i < collection.length; i++) if (equal(collection[i], value)) return true;
-      return false;
+    const newIndex = getIndex(collection, fromIndex);
+    if (isString(collection) && isNumber(newIndex)) {
+        const newCollection = collection.substring(newIndex);
+        const newValue = isString(value) ? value : stringify(value);
+        return newCollection.indexOf(newValue) > -1;
     }
-  }
-  if (isObject(collection)) {
-    if (fromIndex === 0) return Object.values(collection).includes(value);
-    if (isString(newIndex)) {
-      return equal(collection[newIndex], value);
+    if (isArray(collection)) {
+        if (fromIndex === 0)
+            return collection.includes(value);
+        if (isNumber(newIndex)) {
+            for (let i = newIndex; i < collection.length; i++)
+                if (equal(collection[i], value))
+                    return true;
+            return false;
+        }
     }
-  }
-  return false;
+    if (isObject(collection)) {
+        if (fromIndex === 0)
+            return Object.values(collection).includes(value);
+        if (isString(newIndex)) {
+            return equal(collection[newIndex], value);
+        }
+    }
+    return false;
 }
 
 /**
@@ -2322,23 +2491,24 @@ function includes(collection, value, fromIndex = 0) {
  * @lastUpdate 2.6.0
  */
 function concat(...list) {
-  if (!list || list.length === 0) return [];
-  const result = [];
-  const len = list.length;
-  let i = -1;
-  while (++i < len) {
-    const item = list[i];
-    if (isArray(item)) {
-      item.forEach(unit => result.push(unit));
-      continue;
+    if (!list || list.length === 0)
+        return [];
+    const result = [];
+    const len = list.length;
+    let i = -1;
+    while (++i < len) {
+        const item = list[i];
+        if (isArray(item)) {
+            item.forEach(unit => result.push(unit));
+            continue;
+        }
+        if (isSet(item)) {
+            item.forEach(unit => result.push(unit));
+            continue;
+        }
+        result.push(item);
     }
-    if (isSet(item)) {
-      item.forEach(unit => result.push(unit));
-      continue;
-    }
-    result.push(item);
-  }
-  return result;
+    return result;
 }
 
 /**
@@ -2352,11 +2522,12 @@ function concat(...list) {
  * @version 2.6.0
  */
 function copyWithin(value, target, start = 0, end) {
-  if (value.length === 0) return [];
-  if (isString(value)) {
-    return value.split('').copyWithin(target, start, end).join('');
-  }
-  return [...value].copyWithin(target, start, end);
+    if (value.length === 0)
+        return [];
+    if (isString(value)) {
+        return value.split('').copyWithin(target, start, end).join('');
+    }
+    return [...value].copyWithin(target, start, end);
 }
 
 /**
@@ -2366,10 +2537,10 @@ function copyWithin(value, target, start = 0, end) {
  * @returns
  */
 function entries(value) {
-  if (isString(value)) {
-    return value.split('').entries();
-  }
-  return value.entries();
+    if (isString(value)) {
+        return value.split('').entries();
+    }
+    return value.entries();
 }
 
 /**
@@ -2380,36 +2551,44 @@ function entries(value) {
  * @returns {CollectionKey}
  */
 function indexOf(collection, value) {
-  if (isString(collection)) return collection.indexOf(value);
-  if (isArray(collection)) {
-    return collection.indexOf(value);
-  }
-  if (isObject(collection)) {
-    const keys = Object.keys(collection);
-    if (keys.length === 0) return undefined;
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
-      if (equal(collection[key], value)) return key;
+    if (isString(collection))
+        return collection.indexOf(value);
+    if (isArray(collection)) {
+        return collection.indexOf(value);
+    }
+    if (isObject(collection)) {
+        const keys = Object.keys(collection);
+        if (keys.length === 0)
+            return undefined;
+        for (let i = 0; i < keys.length; i++) {
+            const key = keys[i];
+            if (equal(collection[key], value))
+                return key;
+        }
+        return undefined;
+    }
+    if (isMap(collection)) {
+        const mapCollection = collection;
+        if (mapCollection.size === 0)
+            return undefined;
+        for (const [key, mapValue] of mapCollection)
+            if (equal(mapValue, value))
+                return key;
+        return undefined;
+    }
+    if (isSet(collection)) {
+        const setCollection = collection;
+        let index = -1;
+        if (setCollection.size === 0)
+            return -1;
+        for (const setValue of setCollection) {
+            ++index;
+            if (equal(setValue, value))
+                return index;
+        }
+        return -1;
     }
     return undefined;
-  }
-  if (isMap(collection)) {
-    const mapCollection = collection;
-    if (mapCollection.size === 0) return undefined;
-    for (const [key, mapValue] of mapCollection) if (equal(mapValue, value)) return key;
-    return undefined;
-  }
-  if (isSet(collection)) {
-    const setCollection = collection;
-    let index = -1;
-    if (setCollection.size === 0) return -1;
-    for (const setValue of setCollection) {
-      ++index;
-      if (equal(setValue, value)) return index;
-    }
-    return -1;
-  }
-  return undefined;
 }
 
 /**
@@ -2419,17 +2598,17 @@ function indexOf(collection, value) {
  * @returns {(...args: Params)=>Result}
  */
 function pipe(...funcs) {
-  return function (...args) {
-    let params = args;
-    for (let i = 0; i < funcs.length; i++) {
-      const item = funcs[i];
-      if (isFunction(item)) {
-        params = toArray(item(...params));
-        continue;
-      }
-    }
-    return at(params);
-  };
+    return function (...args) {
+        let params = args;
+        for (let i = 0; i < funcs.length; i++) {
+            const item = funcs[i];
+            if (isFunction(item)) {
+                params = toArray(item(...params));
+                continue;
+            }
+        }
+        return at(params);
+    };
 }
 
 /**
@@ -2439,19 +2618,19 @@ function pipe(...funcs) {
  * @returns {(...args: Params)=>Result}
  */
 function memoize(func) {
-  const cache = new Map();
-  return function (...args) {
-    if (!isFunction(func)) {
-      return undefined;
-    }
-    const key = stringify(args);
-    if (cache.has(key)) {
-      return cache.get(key);
-    }
-    const result = func.apply(this, args);
-    cache.set(key, result);
-    return result;
-  };
+    const cache = new Map();
+    return function (...args) {
+        if (!isFunction(func)) {
+            return undefined;
+        }
+        const key = stringify(args);
+        if (cache.has(key)) {
+            return cache.get(key);
+        }
+        const result = func.apply(this, args);
+        cache.set(key, result);
+        return result;
+    };
 }
 
 /**
@@ -2461,15 +2640,15 @@ function memoize(func) {
  * @returns {Function} 返回封装后的方法
  */
 function once(func) {
-  let returnValue = undefined;
-  let canRun = true;
-  return function (...args) {
-    if (canRun) {
-      returnValue = func.apply(this, args);
-      canRun = false;
-    }
-    return returnValue;
-  };
+    let returnValue = undefined;
+    let canRun = true;
+    return function (...args) {
+        if (canRun) {
+            returnValue = func.apply(this, args);
+            canRun = false;
+        }
+        return returnValue;
+    };
 }
 
 /**
@@ -2480,27 +2659,30 @@ function once(func) {
  * @returns
  */
 function runFunc(func, ...args) {
-  if (type(func) === 'Function' || type(func) === 'AsyncFunction') {
-    return func(...args);
-  }
-}
-function loopCore(target, callback, index = 0, values = [], indexes = []) {
-  if (index < target.length) {
-    const nowTarget = target[index];
-    if (isArray(nowTarget)) {
-      for (let i = 0; i < nowTarget.length; i++) {
-        const newValues = values.concat(nowTarget[i]);
-        const newIndexes = indexes.concat(i);
-        loopCore(target, callback, index + 1, newValues, newIndexes);
-      }
-    } else {
-      const newValues = values.concat(nowTarget);
-      const newIndexes = indexes.concat(0);
-      return loopCore(target, callback, index + 1, newValues, newIndexes);
+    if (type(func) === 'Function' || type(func) === 'AsyncFunction') {
+        return func(...args);
     }
-  } else {
-    callback(values, indexes);
-  }
+}
+
+function loopCore(target, callback, index = 0, values = [], indexes = []) {
+    if (index < target.length) {
+        const nowTarget = target[index];
+        if (isArray(nowTarget)) {
+            for (let i = 0; i < nowTarget.length; i++) {
+                const newValues = values.concat(nowTarget[i]);
+                const newIndexes = indexes.concat(i);
+                loopCore(target, callback, index + 1, newValues, newIndexes);
+            }
+        }
+        else {
+            const newValues = values.concat(nowTarget);
+            const newIndexes = indexes.concat(0);
+            return loopCore(target, callback, index + 1, newValues, newIndexes);
+        }
+    }
+    else {
+        callback(values, indexes);
+    }
 }
 /**
  * @title loop<T>
@@ -2510,9 +2692,10 @@ function loopCore(target, callback, index = 0, values = [], indexes = []) {
  * @update 3.5.0
  */
 function loop(target, callback) {
-  if (isEmpty(callback)) return;
-  loopCore(target, callback);
-  return;
+    if (isEmpty(callback))
+        return;
+    loopCore(target, callback);
+    return;
 }
 
 /**
@@ -2522,14 +2705,14 @@ function loop(target, callback) {
  * @param {number} interval number 间隔
  */
 function throttle(fn, interval) {
-  let lastTime = 0;
-  return function () {
-    const timeSinceLastExecution = Date.now() - lastTime;
-    if (!lastTime || timeSinceLastExecution >= interval) {
-      fn.apply(this, arguments);
-      lastTime = Date.now();
-    }
-  };
+    let lastTime = 0;
+    return function () {
+        const timeSinceLastExecution = Date.now() - lastTime;
+        if (!lastTime || timeSinceLastExecution >= interval) {
+            fn.apply(this, arguments);
+            lastTime = Date.now();
+        }
+    };
 }
 
 /**
@@ -2544,13 +2727,13 @@ function throttle(fn, interval) {
  * @returns {Func<Params>}
  */
 function debounce(fn, interval) {
-  let timer = 0;
-  return () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      fn.apply(this, arguments);
-    }, interval);
-  };
+    let timer = 0;
+    return () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn.apply(this, arguments);
+        }, interval);
+    };
 }
 
 /**
@@ -2561,19 +2744,19 @@ function debounce(fn, interval) {
  * @returns 柯里化函数
  */
 function curry(func, len = 1) {
-  if (!isFunction(func)) {
-    return undefined;
-  }
-  // 第一次执行时，定义一个数组专门用来存储所有的参数
-  let _args = [];
-  const _resFn = function (...args) {
-    _args = _args.concat(args);
-    if (_args.length < len) {
-      return _resFn;
+    if (!isFunction(func)) {
+        return undefined;
     }
-    return func(..._args);
-  };
-  return _resFn;
+    // 第一次执行时，定义一个数组专门用来存储所有的参数
+    let _args = [];
+    const _resFn = function (...args) {
+        _args = _args.concat(args);
+        if (_args.length < len) {
+            return _resFn;
+        }
+        return func(..._args);
+    };
+    return _resFn;
 }
 
 /**
@@ -2584,10 +2767,11 @@ function curry(func, len = 1) {
  * @returns 新的绑定函数
  */
 function bind(func, ...partials) {
-  return function (...args) {
-    if (func) return func.call(this, ...[...partials, ...args]);
-    return undefined;
-  };
+    return function (...args) {
+        if (func)
+            return func.call(this, ...[...partials, ...args]);
+        return undefined;
+    };
 }
 
 /**
@@ -2609,56 +2793,59 @@ function bind(func, ...partials) {
  ```
  */
 class EventEmitter {
-  /**
-  * @description 事件缓存
-  */
-  $cache = {};
-  /**
-    * @description 绑定事件
-    * @param name 事件name
-    * @param fn 待触发事件
+    /**
+    * @description 事件缓存
     */
-  $on(name, fn) {
-    if (this.$cache[name]) {
-      if (Array.isArray(this.$cache[name])) {
-        this.$cache[name].push(fn);
-      } else {
+    $cache = {};
+    /**
+      * @description 绑定事件
+      * @param name 事件name
+      * @param fn 待触发事件
+      */
+    $on(name, fn) {
+        if (this.$cache[name]) {
+            if (Array.isArray(this.$cache[name])) {
+                this.$cache[name].push(fn);
+            }
+            else {
+                this.$cache[name] = [fn];
+            }
+            return;
+        }
         this.$cache[name] = [fn];
-      }
-      return;
     }
-    this.$cache[name] = [fn];
-  }
-  /**
-    * @param name 移除事件的名称
-    */
-  $off(name) {
-    if (!this.$cache[name]) return false;
-    delete this.$cache[name];
-    return true;
-  }
-  /**
-     * @description 触发后就移除当前事件
+    /**
+      * @param name 移除事件的名称
+      */
+    $off(name) {
+        if (!this.$cache[name])
+            return false;
+        delete this.$cache[name];
+        return true;
+    }
+    /**
+       * @description 触发后就移除当前事件
+       * @param name 待触发事件name
+       * @param args 触发事件的参数
+       */
+    $once(name, ...args) {
+        if (this.$cache && this.$cache[name]) {
+            const result = this.$cache[name].map((i) => runFunc(i, ...args));
+            delete this.$cache[name];
+            return result;
+        }
+        return [];
+    }
+    /**
      * @param name 待触发事件name
      * @param args 触发事件的参数
      */
-  $once(name, ...args) {
-    if (this.$cache && this.$cache[name]) {
-      const result = this.$cache[name].map(i => runFunc(i, ...args));
-      delete this.$cache[name];
-      return result;
+    $emit(name, ...args) {
+        // 创建副本，如果回调函数内继续注册相同事件，会造成死循环
+        if (!this.$cache[name])
+            return [];
+        return this.$cache[name].map((i) => runFunc(i, ...args));
     }
-    return [];
-  }
-  /**
-   * @param name 待触发事件name
-   * @param args 触发事件的参数
-   */
-  $emit(name, ...args) {
-    // 创建副本，如果回调函数内继续注册相同事件，会造成死循环
-    if (!this.$cache[name]) return [];
-    return this.$cache[name].map(i => runFunc(i, ...args));
-  }
 }
 
 /**
@@ -2670,50 +2857,57 @@ class EventEmitter {
  * @returns {Proxy<T>}
  */
 function ProxyObject(object, props, handler = {}) {
-  if (isEffectArray(props) && isObject(object)) {
-    const propsConfig = {};
-    const supplyConfigs = {};
-    for (let i = 0; i < props.length; i++) {
-      const prop = props[i];
-      const propName = prop.name;
-      const supplyConfig = prop;
-      if (isEmpty(propName)) continue;
-      let defaultValue = prop.default || undefined;
-      const types = new Array(0).concat(prop.type).map(item => item && item.toUpperCase()).filter(Boolean);
-      if (isEffectArray(types) && !types.includes(type(prop.default || undefined).toUpperCase())) {
-        defaultValue = undefined;
-      }
-      supplyConfig.assignCount = 0;
-      supplyConfig.default = defaultValue;
-      supplyConfig.types = types;
-      if (prop.initProp) object[propName] = defaultValue;
-      if (isNoEmpty(prop.default) && isEmpty(object[propName])) object[propName] = defaultValue;
-      const propConfig = {};
-      if (isNoEmpty(prop.configurable)) propConfig.configurable = prop.configurable;
-      if (isNoEmpty(prop.enumerable)) propConfig.enumerable = prop.enumerable;
-      if (isNoEmpty(prop.writable)) propConfig.writable = prop.writable;
-      if (isEffectObject(propConfig)) propsConfig[propName] = propConfig;
-      supplyConfigs[propName] = supplyConfig;
-    }
-    Object.defineProperties(object, propsConfig);
-    const {
-      set,
-      ...rest
-    } = handler;
-    return new Proxy(object, {
-      set(target, prop, newValue, receiver) {
-        const supplyConfig = supplyConfigs[prop];
-        const newValueType = type(newValue).toUpperCase();
-        if (set) return set(target, prop, newValue, receiver);
-        if (isEffectArray(supplyConfig.types) && !supplyConfig.types.includes(newValueType) || supplyConfig.required === true && isEmpty(newValue) || supplyConfig.once && supplyConfig.assignCount++ > 0) {
-          return Reflect.set(target, prop, target[prop], receiver);
+    if (isEffectArray(props) && isObject(object)) {
+        const propsConfig = {};
+        const supplyConfigs = {};
+        for (let i = 0; i < props.length; i++) {
+            const prop = props[i];
+            const propName = prop.name;
+            const supplyConfig = prop;
+            if (isEmpty(propName))
+                continue;
+            let defaultValue = prop.default || undefined;
+            const types = new Array(0).concat(prop.type).map((item) => item && item.toUpperCase()).filter(Boolean);
+            if (isEffectArray(types) && !types.includes(type(prop.default || undefined).toUpperCase())) {
+                defaultValue = undefined;
+            }
+            supplyConfig.assignCount = 0;
+            supplyConfig.default = defaultValue;
+            supplyConfig.types = types;
+            if (prop.initProp)
+                object[propName] = defaultValue;
+            if (isNoEmpty(prop.default) && isEmpty(object[propName]))
+                object[propName] = defaultValue;
+            const propConfig = {};
+            if (isNoEmpty(prop.configurable))
+                propConfig.configurable = prop.configurable;
+            if (isNoEmpty(prop.enumerable))
+                propConfig.enumerable = prop.enumerable;
+            if (isNoEmpty(prop.writable))
+                propConfig.writable = prop.writable;
+            if (isEffectObject(propConfig))
+                propsConfig[propName] = propConfig;
+            supplyConfigs[propName] = supplyConfig;
         }
-        return Reflect.set(target, prop, newValue, receiver);
-      },
-      ...rest
-    });
-  }
-  return object;
+        Object.defineProperties(object, propsConfig);
+        const { set, ...rest } = handler;
+        return new Proxy(object, {
+            set(target, prop, newValue, receiver) {
+                const supplyConfig = supplyConfigs[prop];
+                const newValueType = type(newValue).toUpperCase();
+                if (set)
+                    return set(target, prop, newValue, receiver);
+                if ((isEffectArray(supplyConfig.types) && !supplyConfig.types.includes(newValueType))
+                    || (supplyConfig.required === true && isEmpty(newValue))
+                    || (supplyConfig.once && supplyConfig.assignCount++ > 0)) {
+                    return Reflect.set(target, prop, target[prop], receiver);
+                }
+                return Reflect.set(target, prop, newValue, receiver);
+            },
+            ...rest
+        });
+    }
+    return object;
 }
 
 /**
@@ -2726,44 +2920,50 @@ function ProxyObject(object, props, handler = {}) {
  * @version 2.4.1
  */
 function arrayToTree(array, id = 'id', pid = 'pid', child = 'children') {
-  const list = deepClone(array);
-  const result = [];
-  const temp = {};
-  // 先把全部id对应项 用temp 存起来
-  for (let i = 0; i < list.length; i++) temp[list[i][id]] = list[i];
-  for (let k = 0; k < list.length; k++) {
-    if (temp[list[k][pid]] && list[k][id] !== list[k][pid]) {
-      if (!temp[list[k][pid]][child]) {
-        temp[list[k][pid]][child] = [];
-      }
-      temp[list[k][pid]][child].push(list[k]);
-    } else result.push(list[k]);
-  }
-  return result;
+    const list = deepClone(array);
+    const result = [];
+    const temp = {};
+    // 先把全部id对应项 用temp 存起来
+    for (let i = 0; i < list.length; i++)
+        temp[list[i][id]] = list[i];
+    for (let k = 0; k < list.length; k++) {
+        if (temp[list[k][pid]] && list[k][id] !== list[k][pid]) {
+            if (!temp[list[k][pid]][child]) {
+                temp[list[k][pid]][child] = [];
+            }
+            temp[list[k][pid]][child].push(list[k]);
+        }
+        else
+            result.push(list[k]);
+    }
+    return result;
 }
 
 
-/***/ }),
+//# sourceMappingURL=index.esm.js.map
 
-/***/ "../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@14.1.1_sass@1.72.0_webpack@5.96.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Countdown/index.scss":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@14.1.1_sass@1.72.0_webpack@5.96.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Countdown/index.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+/***/ },
+
+/***/ "./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/cjs.js!./node_modules/.store/sass-loader@14.2.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Countdown/index.scss"
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/cjs.js!./node_modules/.store/sass-loader@14.2.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Countdown/index.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/sourceMaps.js */ "../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/api.js */ "../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
 
-var ___CSS_LOADER_EXPORT___ = _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_EXPORT___ = _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.panel-countdown {
   color: #fff;
@@ -2798,32 +2998,32 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.panel-countdown {
   padding: 4px 8px;
   background-color: transparent;
   outline: none;
-}`, "",{"version":3,"sources":["webpack://./src/pages/Options/Countdown/index.scss"],"names":[],"mappings":"AAAA;EACE,WAAA;EACA,aAAA;EACA,+BAAA;EACA,SAAA;EACA,eAAA;AACF;AACE;EACE,aAAA;EACA,mBAAA;EACA,yBAAA;AACJ;AAEE;EACE,aAAA;EACA,mBAAA;EACA,2BAAA;EACA,0CAAA;EACA,WAAA;EACA,mBAAA;EACA,gBAAA;EACA,6BAAA;EACA,aAAA;AAAJ;AAEI;EACE,WAAA;AAAN;AAIE;EACE,sBAAA;EACA,WAAA;EACA,mBAAA;EACA,gBAAA;EACA,6BAAA;EACA,aAAA;AAFJ","sourcesContent":[".panel-countdown {\r\n  color: #fff;\r\n  display: grid;\r\n  grid-template-columns: auto 1fr;\r\n  gap: 12px;\r\n  padding: 0 12px;\r\n\r\n  div {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-end;\r\n  }\r\n\r\n  input {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-start;\r\n    border: 2px solid rgba(255,255,255, .3);\r\n    color: #fff;\r\n    border-radius: 12px;\r\n    padding: 4px 8px;\r\n    background-color: transparent;\r\n    outline: none;\r\n\r\n    &[type=checkbox] {\r\n      width: 18px;\r\n    }\r\n  }\r\n\r\n  button {\r\n    border: 1px solid #fff;\r\n    color: #fff;\r\n    border-radius: 12px;\r\n    padding: 4px 8px;\r\n    background-color: transparent;\r\n    outline: none;\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/pages/Options/Countdown/index.scss"],"names":[],"mappings":"AAAA;EACE,WAAA;EACA,aAAA;EACA,+BAAA;EACA,SAAA;EACA,eAAA;AACF;AACE;EACE,aAAA;EACA,mBAAA;EACA,yBAAA;AACJ;AAEE;EACE,aAAA;EACA,mBAAA;EACA,2BAAA;EACA,0CAAA;EACA,WAAA;EACA,mBAAA;EACA,gBAAA;EACA,6BAAA;EACA,aAAA;AAAJ;AAEI;EACE,WAAA;AAAN;AAIE;EACE,sBAAA;EACA,WAAA;EACA,mBAAA;EACA,gBAAA;EACA,6BAAA;EACA,aAAA;AAFJ","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@14.1.1_sass@1.72.0_webpack@5.96.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Options.scss":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@14.1.1_sass@1.72.0_webpack@5.96.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Options.scss ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/cjs.js!./node_modules/.store/sass-loader@14.2.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Options.scss"
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/cjs.js!./node_modules/.store/sass-loader@14.2.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Options.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/sourceMaps.js */ "../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/api.js */ "../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
 
-var ___CSS_LOADER_EXPORT___ = _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_EXPORT___ = _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
   padding: 0;
@@ -2871,18 +3071,18 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   right: 0;
   top: 0;
   bottom: 0;
-}`, "",{"version":3,"sources":["webpack://./src/pages/Options/Options.scss"],"names":[],"mappings":"AAAA;EACE,UAAA;EACA,SAAA;EACA,sBAAA;EACA,6BAAA;EACA,iCAAA;AACF;;AAGA;EACE,UAAA;EACA,WAAA;AAAF;;AAGA;EACE,0BAAA;EACA,4CAAA;EACA,8BAAA;AAAF;;AAGA;EACE,4CAAA;EACA,0BAAA;EACA,eAAA;EACA,8BAAA;AAAF;;AAGA;EACE,aAAA;EACA,8BAAA;AAAF;AAEE;EACE,WAAA;EACA,iBAAA;AAAJ;;AAIA;EACE,iBAAA;EAEA,yBAAA;EACA,sBAAA;EACA,4BAAA;EACA,kCAAA;EACA,4BAAA;EAEA,OAAA;EACA,QAAA;EACA,MAAA;EACA,SAAA;AAHF","sourcesContent":["* {\r\n  padding: 0;\r\n  margin: 0;\r\n  box-sizing: border-box;\r\n  background-color: transparent;\r\n  color: rgba(255, 255, 255, 0.534);\r\n}\r\n\r\n\r\n::-webkit-scrollbar {\r\n  width: 6px;\r\n  height: 6px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  border-radius: 0 0 6px 6px;\r\n  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);\r\n  background: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n::-webkit-scrollbar-track {\r\n  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);\r\n  border-radius: 0 0 6px 6px;\r\n  cursor: pointer;\r\n  background: rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.translate {\r\n  display: grid;\r\n  grid-template-columns: 1fr 1fr;\r\n\r\n  iframe {\r\n    width: 100%;\r\n    min-height: 100vh;\r\n  }\r\n}\r\n\r\n.rh-tab-content.OptionsContainer {\r\n  min-height: 100vh;\r\n\r\n  background-color: #0d1120;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n  background-attachment: fixed;\r\n\r\n  left: 0;\r\n  right: 0;\r\n  top: 0;\r\n  bottom: 0;\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/pages/Options/Options.scss"],"names":[],"mappings":"AAAA;EACE,UAAA;EACA,SAAA;EACA,sBAAA;EACA,6BAAA;EACA,iCAAA;AACF;;AAGA;EACE,UAAA;EACA,WAAA;AAAF;;AAGA;EACE,0BAAA;EACA,4CAAA;EACA,8BAAA;AAAF;;AAGA;EACE,4CAAA;EACA,0BAAA;EACA,eAAA;EACA,8BAAA;AAAF;;AAGA;EACE,aAAA;EACA,8BAAA;AAAF;AAEE;EACE,WAAA;EACA,iBAAA;AAAJ;;AAIA;EACE,iBAAA;EAEA,yBAAA;EACA,sBAAA;EACA,4BAAA;EACA,kCAAA;EACA,4BAAA;EAEA,OAAA;EACA,QAAA;EACA,MAAA;EACA,SAAA;AAHF","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/api.js":
-/*!************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/api.js ***!
-  \************************************************************************************************************/
-/***/ ((module) => {
+/***/ "./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/api.js"
+/*!******************************************************************************************!*\
+  !*** ./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/api.js ***!
+  \******************************************************************************************/
+(module) {
 
 "use strict";
 
@@ -2971,13 +3171,13 @@ module.exports = function (cssWithMappingToString) {
   return list;
 };
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/sourceMaps.js":
-/*!*******************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/runtime/sourceMaps.js ***!
-  \*******************************************************************************************************************/
-/***/ ((module) => {
+/***/ "./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/sourceMaps.js"
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/runtime/sourceMaps.js ***!
+  \*************************************************************************************************/
+(module) {
 
 "use strict";
 
@@ -2997,34 +3197,34 @@ module.exports = function (item) {
   return [content].join("\n");
 };
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/dayjs@1.11.10/node_modules/dayjs/dayjs.min.js":
-/*!******************************************************************************!*\
-  !*** ../../node_modules/.pnpm/dayjs@1.11.10/node_modules/dayjs/dayjs.min.js ***!
-  \******************************************************************************/
-/***/ (function(module) {
+/***/ "./node_modules/.store/dayjs@1.11.20/node_modules/dayjs/dayjs.min.js"
+/*!***************************************************************************!*\
+  !*** ./node_modules/.store/dayjs@1.11.20/node_modules/dayjs/dayjs.min.js ***!
+  \***************************************************************************/
+(module) {
 
 !function(t,e){ true?module.exports=e():0}(this,(function(){"use strict";var t=1e3,e=6e4,n=36e5,r="millisecond",i="second",s="minute",u="hour",a="day",o="week",c="month",f="quarter",h="year",d="date",l="Invalid Date",$=/^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/,y=/\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g,M={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ordinal:function(t){var e=["th","st","nd","rd"],n=t%100;return"["+t+(e[(n-20)%10]||e[n]||e[0])+"]"}},m=function(t,e,n){var r=String(t);return!r||r.length>=e?t:""+Array(e+1-r.length).join(n)+t},v={s:m,z:function(t){var e=-t.utcOffset(),n=Math.abs(e),r=Math.floor(n/60),i=n%60;return(e<=0?"+":"-")+m(r,2,"0")+":"+m(i,2,"0")},m:function t(e,n){if(e.date()<n.date())return-t(n,e);var r=12*(n.year()-e.year())+(n.month()-e.month()),i=e.clone().add(r,c),s=n-i<0,u=e.clone().add(r+(s?-1:1),c);return+(-(r+(n-i)/(s?i-u:u-i))||0)},a:function(t){return t<0?Math.ceil(t)||0:Math.floor(t)},p:function(t){return{M:c,y:h,w:o,d:a,D:d,h:u,m:s,s:i,ms:r,Q:f}[t]||String(t||"").toLowerCase().replace(/s$/,"")},u:function(t){return void 0===t}},g="en",D={};D[g]=M;var p="$isDayjsObject",S=function(t){return t instanceof _||!(!t||!t[p])},w=function t(e,n,r){var i;if(!e)return g;if("string"==typeof e){var s=e.toLowerCase();D[s]&&(i=s),n&&(D[s]=n,i=s);var u=e.split("-");if(!i&&u.length>1)return t(u[0])}else{var a=e.name;D[a]=e,i=a}return!r&&i&&(g=i),i||!r&&g},O=function(t,e){if(S(t))return t.clone();var n="object"==typeof e?e:{};return n.date=t,n.args=arguments,new _(n)},b=v;b.l=w,b.i=S,b.w=function(t,e){return O(t,{locale:e.$L,utc:e.$u,x:e.$x,$offset:e.$offset})};var _=function(){function M(t){this.$L=w(t.locale,null,!0),this.parse(t),this.$x=this.$x||t.x||{},this[p]=!0}var m=M.prototype;return m.parse=function(t){this.$d=function(t){var e=t.date,n=t.utc;if(null===e)return new Date(NaN);if(b.u(e))return new Date;if(e instanceof Date)return new Date(e);if("string"==typeof e&&!/Z$/i.test(e)){var r=e.match($);if(r){var i=r[2]-1||0,s=(r[7]||"0").substring(0,3);return n?new Date(Date.UTC(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)):new Date(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)}}return new Date(e)}(t),this.init()},m.init=function(){var t=this.$d;this.$y=t.getFullYear(),this.$M=t.getMonth(),this.$D=t.getDate(),this.$W=t.getDay(),this.$H=t.getHours(),this.$m=t.getMinutes(),this.$s=t.getSeconds(),this.$ms=t.getMilliseconds()},m.$utils=function(){return b},m.isValid=function(){return!(this.$d.toString()===l)},m.isSame=function(t,e){var n=O(t);return this.startOf(e)<=n&&n<=this.endOf(e)},m.isAfter=function(t,e){return O(t)<this.startOf(e)},m.isBefore=function(t,e){return this.endOf(e)<O(t)},m.$g=function(t,e,n){return b.u(t)?this[e]:this.set(n,t)},m.unix=function(){return Math.floor(this.valueOf()/1e3)},m.valueOf=function(){return this.$d.getTime()},m.startOf=function(t,e){var n=this,r=!!b.u(e)||e,f=b.p(t),l=function(t,e){var i=b.w(n.$u?Date.UTC(n.$y,e,t):new Date(n.$y,e,t),n);return r?i:i.endOf(a)},$=function(t,e){return b.w(n.toDate()[t].apply(n.toDate("s"),(r?[0,0,0,0]:[23,59,59,999]).slice(e)),n)},y=this.$W,M=this.$M,m=this.$D,v="set"+(this.$u?"UTC":"");switch(f){case h:return r?l(1,0):l(31,11);case c:return r?l(1,M):l(0,M+1);case o:var g=this.$locale().weekStart||0,D=(y<g?y+7:y)-g;return l(r?m-D:m+(6-D),M);case a:case d:return $(v+"Hours",0);case u:return $(v+"Minutes",1);case s:return $(v+"Seconds",2);case i:return $(v+"Milliseconds",3);default:return this.clone()}},m.endOf=function(t){return this.startOf(t,!1)},m.$set=function(t,e){var n,o=b.p(t),f="set"+(this.$u?"UTC":""),l=(n={},n[a]=f+"Date",n[d]=f+"Date",n[c]=f+"Month",n[h]=f+"FullYear",n[u]=f+"Hours",n[s]=f+"Minutes",n[i]=f+"Seconds",n[r]=f+"Milliseconds",n)[o],$=o===a?this.$D+(e-this.$W):e;if(o===c||o===h){var y=this.clone().set(d,1);y.$d[l]($),y.init(),this.$d=y.set(d,Math.min(this.$D,y.daysInMonth())).$d}else l&&this.$d[l]($);return this.init(),this},m.set=function(t,e){return this.clone().$set(t,e)},m.get=function(t){return this[b.p(t)]()},m.add=function(r,f){var d,l=this;r=Number(r);var $=b.p(f),y=function(t){var e=O(l);return b.w(e.date(e.date()+Math.round(t*r)),l)};if($===c)return this.set(c,this.$M+r);if($===h)return this.set(h,this.$y+r);if($===a)return y(1);if($===o)return y(7);var M=(d={},d[s]=e,d[u]=n,d[i]=t,d)[$]||1,m=this.$d.getTime()+r*M;return b.w(m,this)},m.subtract=function(t,e){return this.add(-1*t,e)},m.format=function(t){var e=this,n=this.$locale();if(!this.isValid())return n.invalidDate||l;var r=t||"YYYY-MM-DDTHH:mm:ssZ",i=b.z(this),s=this.$H,u=this.$m,a=this.$M,o=n.weekdays,c=n.months,f=n.meridiem,h=function(t,n,i,s){return t&&(t[n]||t(e,r))||i[n].slice(0,s)},d=function(t){return b.s(s%12||12,t,"0")},$=f||function(t,e,n){var r=t<12?"AM":"PM";return n?r.toLowerCase():r};return r.replace(y,(function(t,r){return r||function(t){switch(t){case"YY":return String(e.$y).slice(-2);case"YYYY":return b.s(e.$y,4,"0");case"M":return a+1;case"MM":return b.s(a+1,2,"0");case"MMM":return h(n.monthsShort,a,c,3);case"MMMM":return h(c,a);case"D":return e.$D;case"DD":return b.s(e.$D,2,"0");case"d":return String(e.$W);case"dd":return h(n.weekdaysMin,e.$W,o,2);case"ddd":return h(n.weekdaysShort,e.$W,o,3);case"dddd":return o[e.$W];case"H":return String(s);case"HH":return b.s(s,2,"0");case"h":return d(1);case"hh":return d(2);case"a":return $(s,u,!0);case"A":return $(s,u,!1);case"m":return String(u);case"mm":return b.s(u,2,"0");case"s":return String(e.$s);case"ss":return b.s(e.$s,2,"0");case"SSS":return b.s(e.$ms,3,"0");case"Z":return i}return null}(t)||i.replace(":","")}))},m.utcOffset=function(){return 15*-Math.round(this.$d.getTimezoneOffset()/15)},m.diff=function(r,d,l){var $,y=this,M=b.p(d),m=O(r),v=(m.utcOffset()-this.utcOffset())*e,g=this-m,D=function(){return b.m(y,m)};switch(M){case h:$=D()/12;break;case c:$=D();break;case f:$=D()/3;break;case o:$=(g-v)/6048e5;break;case a:$=(g-v)/864e5;break;case u:$=g/n;break;case s:$=g/e;break;case i:$=g/t;break;default:$=g}return l?$:b.a($)},m.daysInMonth=function(){return this.endOf(c).$D},m.$locale=function(){return D[this.$L]},m.locale=function(t,e){if(!t)return this.$L;var n=this.clone(),r=w(t,e,!0);return r&&(n.$L=r),n},m.clone=function(){return b.w(this.$d,this)},m.toDate=function(){return new Date(this.valueOf())},m.toJSON=function(){return this.isValid()?this.toISOString():null},m.toISOString=function(){return this.$d.toISOString()},m.toString=function(){return this.$d.toUTCString()},M}(),k=_.prototype;return O.prototype=k,[["$ms",r],["$s",i],["$m",s],["$H",u],["$W",a],["$M",c],["$y",h],["$D",d]].forEach((function(t){k[t[1]]=function(e){return this.$g(e,t[0],t[1])}})),O.extend=function(t,e){return t.$i||(t(e,_,O),t.$i=!0),O},O.locale=w,O.isDayjs=S,O.unix=function(t){return O(1e3*t)},O.en=D[g],O.Ls=D,O.p={},O}));
 
-/***/ }),
+/***/ },
 
-/***/ "./src/pages/Options/Countdown/hook.tsx":
+/***/ "./src/pages/Options/Countdown/hook.tsx"
 /*!**********************************************!*\
   !*** ./src/pages/Options/Countdown/hook.tsx ***!
   \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   useHook: () => (/* binding */ useHook)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../node_modules/.pnpm/react@18.2.0/node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/.store/react@18.3.1/node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dayjs */ "../../node_modules/.pnpm/dayjs@1.11.10/node_modules/dayjs/dayjs.min.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dayjs */ "./node_modules/.store/dayjs@1.11.20/node_modules/dayjs/dayjs.min.js");
 /* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var abandonjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! abandonjs */ "../../packages/abandonjs/lib/index.esm.js");
+/* harmony import */ var abandonjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! abandonjs */ "./node_modules/.store/abandonjs@3.12.1/node_modules/abandonjs/lib/index.esm.js");
 
 var __defProp = Object.defineProperty;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
@@ -3099,20 +3299,20 @@ const useHook = () => {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ "./src/pages/Options/Countdown/index.tsx":
+/***/ "./src/pages/Options/Countdown/index.tsx"
 /*!***********************************************!*\
   !*** ./src/pages/Options/Countdown/index.tsx ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Countdown: () => (/* binding */ Countdown)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../node_modules/.pnpm/react@18.2.0/node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/.store/react@18.3.1/node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hook__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hook */ "./src/pages/Options/Countdown/hook.tsx");
 /* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.scss */ "./src/pages/Options/Countdown/index.scss");
@@ -3144,20 +3344,20 @@ const Countdown = () => {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ "./src/pages/Options/Options.tsx":
+/***/ "./src/pages/Options/Options.tsx"
 /*!***************************************!*\
   !*** ./src/pages/Options/Options.tsx ***!
   \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../node_modules/.pnpm/react@18.2.0/node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/.store/react@18.3.1/node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Options_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Options.scss */ "./src/pages/Options/Options.scss");
 /* harmony import */ var _Countdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Countdown */ "./src/pages/Options/Countdown/index.tsx");
@@ -3171,13 +3371,13 @@ const Options = () => {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Options);
 
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/react-dom@18.2.0_react@18.2.0/node_modules/react-dom/cjs/react-dom.development.js":
-/*!******************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/react-dom@18.2.0_react@18.2.0/node_modules/react-dom/cjs/react-dom.development.js ***!
-  \******************************************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ "./node_modules/.store/react-dom@18.3.1/node_modules/react-dom/cjs/react-dom.development.js"
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/.store/react-dom@18.3.1/node_modules/react-dom/cjs/react-dom.development.js ***!
+  \**************************************************************************************************/
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 /**
@@ -3205,8 +3405,8 @@ if (
 ) {
   __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
 }
-          var React = __webpack_require__(/*! react */ "../../node_modules/.pnpm/react@18.2.0/node_modules/react/index.js");
-var Scheduler = __webpack_require__(/*! scheduler */ "../../node_modules/.pnpm/scheduler@0.23.0/node_modules/scheduler/index.js");
+          var React = __webpack_require__(/*! react */ "./node_modules/.store/react@18.3.1/node_modules/react/index.js");
+var Scheduler = __webpack_require__(/*! scheduler */ "./node_modules/.store/scheduler@0.23.2/node_modules/scheduler/index.js");
 
 var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 
@@ -3324,7 +3524,7 @@ var disableCommentsAsDOMContainers = true; // Disable javascript: URL strings in
 // https://github.com/facebook/react/issues/11347
 
 var enableCustomElementPropertySupport = false; // Disables children for <textarea> elements
-var warnAboutStringRefs = false; // -----------------------------------------------------------------------------
+var warnAboutStringRefs = true; // -----------------------------------------------------------------------------
 // Debugging and DevTools
 // -----------------------------------------------------------------------------
 // Adds user timing marks for e.g. state updates, suspense, and work loop stuff,
@@ -16166,1772 +16366,6 @@ var ReactStrictModeWarnings = {
   };
 }
 
-function resolveDefaultProps(Component, baseProps) {
-  if (Component && Component.defaultProps) {
-    // Resolve default props. Taken from ReactElement
-    var props = assign({}, baseProps);
-    var defaultProps = Component.defaultProps;
-
-    for (var propName in defaultProps) {
-      if (props[propName] === undefined) {
-        props[propName] = defaultProps[propName];
-      }
-    }
-
-    return props;
-  }
-
-  return baseProps;
-}
-
-var valueCursor = createCursor(null);
-var rendererSigil;
-
-{
-  // Use this to detect multiple renderers using the same context
-  rendererSigil = {};
-}
-
-var currentlyRenderingFiber = null;
-var lastContextDependency = null;
-var lastFullyObservedContext = null;
-var isDisallowedContextReadInDEV = false;
-function resetContextDependencies() {
-  // This is called right before React yields execution, to ensure `readContext`
-  // cannot be called outside the render phase.
-  currentlyRenderingFiber = null;
-  lastContextDependency = null;
-  lastFullyObservedContext = null;
-
-  {
-    isDisallowedContextReadInDEV = false;
-  }
-}
-function enterDisallowedContextReadInDEV() {
-  {
-    isDisallowedContextReadInDEV = true;
-  }
-}
-function exitDisallowedContextReadInDEV() {
-  {
-    isDisallowedContextReadInDEV = false;
-  }
-}
-function pushProvider(providerFiber, context, nextValue) {
-  {
-    push(valueCursor, context._currentValue, providerFiber);
-    context._currentValue = nextValue;
-
-    {
-      if (context._currentRenderer !== undefined && context._currentRenderer !== null && context._currentRenderer !== rendererSigil) {
-        error('Detected multiple renderers concurrently rendering the ' + 'same context provider. This is currently unsupported.');
-      }
-
-      context._currentRenderer = rendererSigil;
-    }
-  }
-}
-function popProvider(context, providerFiber) {
-  var currentValue = valueCursor.current;
-  pop(valueCursor, providerFiber);
-
-  {
-    {
-      context._currentValue = currentValue;
-    }
-  }
-}
-function scheduleContextWorkOnParentPath(parent, renderLanes, propagationRoot) {
-  // Update the child lanes of all the ancestors, including the alternates.
-  var node = parent;
-
-  while (node !== null) {
-    var alternate = node.alternate;
-
-    if (!isSubsetOfLanes(node.childLanes, renderLanes)) {
-      node.childLanes = mergeLanes(node.childLanes, renderLanes);
-
-      if (alternate !== null) {
-        alternate.childLanes = mergeLanes(alternate.childLanes, renderLanes);
-      }
-    } else if (alternate !== null && !isSubsetOfLanes(alternate.childLanes, renderLanes)) {
-      alternate.childLanes = mergeLanes(alternate.childLanes, renderLanes);
-    }
-
-    if (node === propagationRoot) {
-      break;
-    }
-
-    node = node.return;
-  }
-
-  {
-    if (node !== propagationRoot) {
-      error('Expected to find the propagation root when scheduling context work. ' + 'This error is likely caused by a bug in React. Please file an issue.');
-    }
-  }
-}
-function propagateContextChange(workInProgress, context, renderLanes) {
-  {
-    propagateContextChange_eager(workInProgress, context, renderLanes);
-  }
-}
-
-function propagateContextChange_eager(workInProgress, context, renderLanes) {
-
-  var fiber = workInProgress.child;
-
-  if (fiber !== null) {
-    // Set the return pointer of the child to the work-in-progress fiber.
-    fiber.return = workInProgress;
-  }
-
-  while (fiber !== null) {
-    var nextFiber = void 0; // Visit this fiber.
-
-    var list = fiber.dependencies;
-
-    if (list !== null) {
-      nextFiber = fiber.child;
-      var dependency = list.firstContext;
-
-      while (dependency !== null) {
-        // Check if the context matches.
-        if (dependency.context === context) {
-          // Match! Schedule an update on this fiber.
-          if (fiber.tag === ClassComponent) {
-            // Schedule a force update on the work-in-progress.
-            var lane = pickArbitraryLane(renderLanes);
-            var update = createUpdate(NoTimestamp, lane);
-            update.tag = ForceUpdate; // TODO: Because we don't have a work-in-progress, this will add the
-            // update to the current fiber, too, which means it will persist even if
-            // this render is thrown away. Since it's a race condition, not sure it's
-            // worth fixing.
-            // Inlined `enqueueUpdate` to remove interleaved update check
-
-            var updateQueue = fiber.updateQueue;
-
-            if (updateQueue === null) ; else {
-              var sharedQueue = updateQueue.shared;
-              var pending = sharedQueue.pending;
-
-              if (pending === null) {
-                // This is the first update. Create a circular list.
-                update.next = update;
-              } else {
-                update.next = pending.next;
-                pending.next = update;
-              }
-
-              sharedQueue.pending = update;
-            }
-          }
-
-          fiber.lanes = mergeLanes(fiber.lanes, renderLanes);
-          var alternate = fiber.alternate;
-
-          if (alternate !== null) {
-            alternate.lanes = mergeLanes(alternate.lanes, renderLanes);
-          }
-
-          scheduleContextWorkOnParentPath(fiber.return, renderLanes, workInProgress); // Mark the updated lanes on the list, too.
-
-          list.lanes = mergeLanes(list.lanes, renderLanes); // Since we already found a match, we can stop traversing the
-          // dependency list.
-
-          break;
-        }
-
-        dependency = dependency.next;
-      }
-    } else if (fiber.tag === ContextProvider) {
-      // Don't scan deeper if this is a matching provider
-      nextFiber = fiber.type === workInProgress.type ? null : fiber.child;
-    } else if (fiber.tag === DehydratedFragment) {
-      // If a dehydrated suspense boundary is in this subtree, we don't know
-      // if it will have any context consumers in it. The best we can do is
-      // mark it as having updates.
-      var parentSuspense = fiber.return;
-
-      if (parentSuspense === null) {
-        throw new Error('We just came from a parent so we must have had a parent. This is a bug in React.');
-      }
-
-      parentSuspense.lanes = mergeLanes(parentSuspense.lanes, renderLanes);
-      var _alternate = parentSuspense.alternate;
-
-      if (_alternate !== null) {
-        _alternate.lanes = mergeLanes(_alternate.lanes, renderLanes);
-      } // This is intentionally passing this fiber as the parent
-      // because we want to schedule this fiber as having work
-      // on its children. We'll use the childLanes on
-      // this fiber to indicate that a context has changed.
-
-
-      scheduleContextWorkOnParentPath(parentSuspense, renderLanes, workInProgress);
-      nextFiber = fiber.sibling;
-    } else {
-      // Traverse down.
-      nextFiber = fiber.child;
-    }
-
-    if (nextFiber !== null) {
-      // Set the return pointer of the child to the work-in-progress fiber.
-      nextFiber.return = fiber;
-    } else {
-      // No child. Traverse to next sibling.
-      nextFiber = fiber;
-
-      while (nextFiber !== null) {
-        if (nextFiber === workInProgress) {
-          // We're back to the root of this subtree. Exit.
-          nextFiber = null;
-          break;
-        }
-
-        var sibling = nextFiber.sibling;
-
-        if (sibling !== null) {
-          // Set the return pointer of the sibling to the work-in-progress fiber.
-          sibling.return = nextFiber.return;
-          nextFiber = sibling;
-          break;
-        } // No more siblings. Traverse up.
-
-
-        nextFiber = nextFiber.return;
-      }
-    }
-
-    fiber = nextFiber;
-  }
-}
-function prepareToReadContext(workInProgress, renderLanes) {
-  currentlyRenderingFiber = workInProgress;
-  lastContextDependency = null;
-  lastFullyObservedContext = null;
-  var dependencies = workInProgress.dependencies;
-
-  if (dependencies !== null) {
-    {
-      var firstContext = dependencies.firstContext;
-
-      if (firstContext !== null) {
-        if (includesSomeLane(dependencies.lanes, renderLanes)) {
-          // Context list has a pending update. Mark that this fiber performed work.
-          markWorkInProgressReceivedUpdate();
-        } // Reset the work-in-progress list
-
-
-        dependencies.firstContext = null;
-      }
-    }
-  }
-}
-function readContext(context) {
-  {
-    // This warning would fire if you read context inside a Hook like useMemo.
-    // Unlike the class check below, it's not enforced in production for perf.
-    if (isDisallowedContextReadInDEV) {
-      error('Context can only be read while React is rendering. ' + 'In classes, you can read it in the render method or getDerivedStateFromProps. ' + 'In function components, you can read it directly in the function body, but not ' + 'inside Hooks like useReducer() or useMemo().');
-    }
-  }
-
-  var value =  context._currentValue ;
-
-  if (lastFullyObservedContext === context) ; else {
-    var contextItem = {
-      context: context,
-      memoizedValue: value,
-      next: null
-    };
-
-    if (lastContextDependency === null) {
-      if (currentlyRenderingFiber === null) {
-        throw new Error('Context can only be read while React is rendering. ' + 'In classes, you can read it in the render method or getDerivedStateFromProps. ' + 'In function components, you can read it directly in the function body, but not ' + 'inside Hooks like useReducer() or useMemo().');
-      } // This is the first dependency for this component. Create a new list.
-
-
-      lastContextDependency = contextItem;
-      currentlyRenderingFiber.dependencies = {
-        lanes: NoLanes,
-        firstContext: contextItem
-      };
-    } else {
-      // Append a new context item.
-      lastContextDependency = lastContextDependency.next = contextItem;
-    }
-  }
-
-  return value;
-}
-
-// render. When this render exits, either because it finishes or because it is
-// interrupted, the interleaved updates will be transferred onto the main part
-// of the queue.
-
-var concurrentQueues = null;
-function pushConcurrentUpdateQueue(queue) {
-  if (concurrentQueues === null) {
-    concurrentQueues = [queue];
-  } else {
-    concurrentQueues.push(queue);
-  }
-}
-function finishQueueingConcurrentUpdates() {
-  // Transfer the interleaved updates onto the main queue. Each queue has a
-  // `pending` field and an `interleaved` field. When they are not null, they
-  // point to the last node in a circular linked list. We need to append the
-  // interleaved list to the end of the pending list by joining them into a
-  // single, circular list.
-  if (concurrentQueues !== null) {
-    for (var i = 0; i < concurrentQueues.length; i++) {
-      var queue = concurrentQueues[i];
-      var lastInterleavedUpdate = queue.interleaved;
-
-      if (lastInterleavedUpdate !== null) {
-        queue.interleaved = null;
-        var firstInterleavedUpdate = lastInterleavedUpdate.next;
-        var lastPendingUpdate = queue.pending;
-
-        if (lastPendingUpdate !== null) {
-          var firstPendingUpdate = lastPendingUpdate.next;
-          lastPendingUpdate.next = firstInterleavedUpdate;
-          lastInterleavedUpdate.next = firstPendingUpdate;
-        }
-
-        queue.pending = lastInterleavedUpdate;
-      }
-    }
-
-    concurrentQueues = null;
-  }
-}
-function enqueueConcurrentHookUpdate(fiber, queue, update, lane) {
-  var interleaved = queue.interleaved;
-
-  if (interleaved === null) {
-    // This is the first update. Create a circular list.
-    update.next = update; // At the end of the current render, this queue's interleaved updates will
-    // be transferred to the pending queue.
-
-    pushConcurrentUpdateQueue(queue);
-  } else {
-    update.next = interleaved.next;
-    interleaved.next = update;
-  }
-
-  queue.interleaved = update;
-  return markUpdateLaneFromFiberToRoot(fiber, lane);
-}
-function enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane) {
-  var interleaved = queue.interleaved;
-
-  if (interleaved === null) {
-    // This is the first update. Create a circular list.
-    update.next = update; // At the end of the current render, this queue's interleaved updates will
-    // be transferred to the pending queue.
-
-    pushConcurrentUpdateQueue(queue);
-  } else {
-    update.next = interleaved.next;
-    interleaved.next = update;
-  }
-
-  queue.interleaved = update;
-}
-function enqueueConcurrentClassUpdate(fiber, queue, update, lane) {
-  var interleaved = queue.interleaved;
-
-  if (interleaved === null) {
-    // This is the first update. Create a circular list.
-    update.next = update; // At the end of the current render, this queue's interleaved updates will
-    // be transferred to the pending queue.
-
-    pushConcurrentUpdateQueue(queue);
-  } else {
-    update.next = interleaved.next;
-    interleaved.next = update;
-  }
-
-  queue.interleaved = update;
-  return markUpdateLaneFromFiberToRoot(fiber, lane);
-}
-function enqueueConcurrentRenderForLane(fiber, lane) {
-  return markUpdateLaneFromFiberToRoot(fiber, lane);
-} // Calling this function outside this module should only be done for backwards
-// compatibility and should always be accompanied by a warning.
-
-var unsafe_markUpdateLaneFromFiberToRoot = markUpdateLaneFromFiberToRoot;
-
-function markUpdateLaneFromFiberToRoot(sourceFiber, lane) {
-  // Update the source fiber's lanes
-  sourceFiber.lanes = mergeLanes(sourceFiber.lanes, lane);
-  var alternate = sourceFiber.alternate;
-
-  if (alternate !== null) {
-    alternate.lanes = mergeLanes(alternate.lanes, lane);
-  }
-
-  {
-    if (alternate === null && (sourceFiber.flags & (Placement | Hydrating)) !== NoFlags) {
-      warnAboutUpdateOnNotYetMountedFiberInDEV(sourceFiber);
-    }
-  } // Walk the parent path to the root and update the child lanes.
-
-
-  var node = sourceFiber;
-  var parent = sourceFiber.return;
-
-  while (parent !== null) {
-    parent.childLanes = mergeLanes(parent.childLanes, lane);
-    alternate = parent.alternate;
-
-    if (alternate !== null) {
-      alternate.childLanes = mergeLanes(alternate.childLanes, lane);
-    } else {
-      {
-        if ((parent.flags & (Placement | Hydrating)) !== NoFlags) {
-          warnAboutUpdateOnNotYetMountedFiberInDEV(sourceFiber);
-        }
-      }
-    }
-
-    node = parent;
-    parent = parent.return;
-  }
-
-  if (node.tag === HostRoot) {
-    var root = node.stateNode;
-    return root;
-  } else {
-    return null;
-  }
-}
-
-var UpdateState = 0;
-var ReplaceState = 1;
-var ForceUpdate = 2;
-var CaptureUpdate = 3; // Global state that is reset at the beginning of calling `processUpdateQueue`.
-// It should only be read right after calling `processUpdateQueue`, via
-// `checkHasForceUpdateAfterProcessing`.
-
-var hasForceUpdate = false;
-var didWarnUpdateInsideUpdate;
-var currentlyProcessingQueue;
-
-{
-  didWarnUpdateInsideUpdate = false;
-  currentlyProcessingQueue = null;
-}
-
-function initializeUpdateQueue(fiber) {
-  var queue = {
-    baseState: fiber.memoizedState,
-    firstBaseUpdate: null,
-    lastBaseUpdate: null,
-    shared: {
-      pending: null,
-      interleaved: null,
-      lanes: NoLanes
-    },
-    effects: null
-  };
-  fiber.updateQueue = queue;
-}
-function cloneUpdateQueue(current, workInProgress) {
-  // Clone the update queue from current. Unless it's already a clone.
-  var queue = workInProgress.updateQueue;
-  var currentQueue = current.updateQueue;
-
-  if (queue === currentQueue) {
-    var clone = {
-      baseState: currentQueue.baseState,
-      firstBaseUpdate: currentQueue.firstBaseUpdate,
-      lastBaseUpdate: currentQueue.lastBaseUpdate,
-      shared: currentQueue.shared,
-      effects: currentQueue.effects
-    };
-    workInProgress.updateQueue = clone;
-  }
-}
-function createUpdate(eventTime, lane) {
-  var update = {
-    eventTime: eventTime,
-    lane: lane,
-    tag: UpdateState,
-    payload: null,
-    callback: null,
-    next: null
-  };
-  return update;
-}
-function enqueueUpdate(fiber, update, lane) {
-  var updateQueue = fiber.updateQueue;
-
-  if (updateQueue === null) {
-    // Only occurs if the fiber has been unmounted.
-    return null;
-  }
-
-  var sharedQueue = updateQueue.shared;
-
-  {
-    if (currentlyProcessingQueue === sharedQueue && !didWarnUpdateInsideUpdate) {
-      error('An update (setState, replaceState, or forceUpdate) was scheduled ' + 'from inside an update function. Update functions should be pure, ' + 'with zero side-effects. Consider using componentDidUpdate or a ' + 'callback.');
-
-      didWarnUpdateInsideUpdate = true;
-    }
-  }
-
-  if (isUnsafeClassRenderPhaseUpdate()) {
-    // This is an unsafe render phase update. Add directly to the update
-    // queue so we can process it immediately during the current render.
-    var pending = sharedQueue.pending;
-
-    if (pending === null) {
-      // This is the first update. Create a circular list.
-      update.next = update;
-    } else {
-      update.next = pending.next;
-      pending.next = update;
-    }
-
-    sharedQueue.pending = update; // Update the childLanes even though we're most likely already rendering
-    // this fiber. This is for backwards compatibility in the case where you
-    // update a different component during render phase than the one that is
-    // currently renderings (a pattern that is accompanied by a warning).
-
-    return unsafe_markUpdateLaneFromFiberToRoot(fiber, lane);
-  } else {
-    return enqueueConcurrentClassUpdate(fiber, sharedQueue, update, lane);
-  }
-}
-function entangleTransitions(root, fiber, lane) {
-  var updateQueue = fiber.updateQueue;
-
-  if (updateQueue === null) {
-    // Only occurs if the fiber has been unmounted.
-    return;
-  }
-
-  var sharedQueue = updateQueue.shared;
-
-  if (isTransitionLane(lane)) {
-    var queueLanes = sharedQueue.lanes; // If any entangled lanes are no longer pending on the root, then they must
-    // have finished. We can remove them from the shared queue, which represents
-    // a superset of the actually pending lanes. In some cases we may entangle
-    // more than we need to, but that's OK. In fact it's worse if we *don't*
-    // entangle when we should.
-
-    queueLanes = intersectLanes(queueLanes, root.pendingLanes); // Entangle the new transition lane with the other transition lanes.
-
-    var newQueueLanes = mergeLanes(queueLanes, lane);
-    sharedQueue.lanes = newQueueLanes; // Even if queue.lanes already include lane, we don't know for certain if
-    // the lane finished since the last time we entangled it. So we need to
-    // entangle it again, just to be sure.
-
-    markRootEntangled(root, newQueueLanes);
-  }
-}
-function enqueueCapturedUpdate(workInProgress, capturedUpdate) {
-  // Captured updates are updates that are thrown by a child during the render
-  // phase. They should be discarded if the render is aborted. Therefore,
-  // we should only put them on the work-in-progress queue, not the current one.
-  var queue = workInProgress.updateQueue; // Check if the work-in-progress queue is a clone.
-
-  var current = workInProgress.alternate;
-
-  if (current !== null) {
-    var currentQueue = current.updateQueue;
-
-    if (queue === currentQueue) {
-      // The work-in-progress queue is the same as current. This happens when
-      // we bail out on a parent fiber that then captures an error thrown by
-      // a child. Since we want to append the update only to the work-in
-      // -progress queue, we need to clone the updates. We usually clone during
-      // processUpdateQueue, but that didn't happen in this case because we
-      // skipped over the parent when we bailed out.
-      var newFirst = null;
-      var newLast = null;
-      var firstBaseUpdate = queue.firstBaseUpdate;
-
-      if (firstBaseUpdate !== null) {
-        // Loop through the updates and clone them.
-        var update = firstBaseUpdate;
-
-        do {
-          var clone = {
-            eventTime: update.eventTime,
-            lane: update.lane,
-            tag: update.tag,
-            payload: update.payload,
-            callback: update.callback,
-            next: null
-          };
-
-          if (newLast === null) {
-            newFirst = newLast = clone;
-          } else {
-            newLast.next = clone;
-            newLast = clone;
-          }
-
-          update = update.next;
-        } while (update !== null); // Append the captured update the end of the cloned list.
-
-
-        if (newLast === null) {
-          newFirst = newLast = capturedUpdate;
-        } else {
-          newLast.next = capturedUpdate;
-          newLast = capturedUpdate;
-        }
-      } else {
-        // There are no base updates.
-        newFirst = newLast = capturedUpdate;
-      }
-
-      queue = {
-        baseState: currentQueue.baseState,
-        firstBaseUpdate: newFirst,
-        lastBaseUpdate: newLast,
-        shared: currentQueue.shared,
-        effects: currentQueue.effects
-      };
-      workInProgress.updateQueue = queue;
-      return;
-    }
-  } // Append the update to the end of the list.
-
-
-  var lastBaseUpdate = queue.lastBaseUpdate;
-
-  if (lastBaseUpdate === null) {
-    queue.firstBaseUpdate = capturedUpdate;
-  } else {
-    lastBaseUpdate.next = capturedUpdate;
-  }
-
-  queue.lastBaseUpdate = capturedUpdate;
-}
-
-function getStateFromUpdate(workInProgress, queue, update, prevState, nextProps, instance) {
-  switch (update.tag) {
-    case ReplaceState:
-      {
-        var payload = update.payload;
-
-        if (typeof payload === 'function') {
-          // Updater function
-          {
-            enterDisallowedContextReadInDEV();
-          }
-
-          var nextState = payload.call(instance, prevState, nextProps);
-
-          {
-            if ( workInProgress.mode & StrictLegacyMode) {
-              setIsStrictModeForDevtools(true);
-
-              try {
-                payload.call(instance, prevState, nextProps);
-              } finally {
-                setIsStrictModeForDevtools(false);
-              }
-            }
-
-            exitDisallowedContextReadInDEV();
-          }
-
-          return nextState;
-        } // State object
-
-
-        return payload;
-      }
-
-    case CaptureUpdate:
-      {
-        workInProgress.flags = workInProgress.flags & ~ShouldCapture | DidCapture;
-      }
-    // Intentional fallthrough
-
-    case UpdateState:
-      {
-        var _payload = update.payload;
-        var partialState;
-
-        if (typeof _payload === 'function') {
-          // Updater function
-          {
-            enterDisallowedContextReadInDEV();
-          }
-
-          partialState = _payload.call(instance, prevState, nextProps);
-
-          {
-            if ( workInProgress.mode & StrictLegacyMode) {
-              setIsStrictModeForDevtools(true);
-
-              try {
-                _payload.call(instance, prevState, nextProps);
-              } finally {
-                setIsStrictModeForDevtools(false);
-              }
-            }
-
-            exitDisallowedContextReadInDEV();
-          }
-        } else {
-          // Partial state object
-          partialState = _payload;
-        }
-
-        if (partialState === null || partialState === undefined) {
-          // Null and undefined are treated as no-ops.
-          return prevState;
-        } // Merge the partial state and the previous state.
-
-
-        return assign({}, prevState, partialState);
-      }
-
-    case ForceUpdate:
-      {
-        hasForceUpdate = true;
-        return prevState;
-      }
-  }
-
-  return prevState;
-}
-
-function processUpdateQueue(workInProgress, props, instance, renderLanes) {
-  // This is always non-null on a ClassComponent or HostRoot
-  var queue = workInProgress.updateQueue;
-  hasForceUpdate = false;
-
-  {
-    currentlyProcessingQueue = queue.shared;
-  }
-
-  var firstBaseUpdate = queue.firstBaseUpdate;
-  var lastBaseUpdate = queue.lastBaseUpdate; // Check if there are pending updates. If so, transfer them to the base queue.
-
-  var pendingQueue = queue.shared.pending;
-
-  if (pendingQueue !== null) {
-    queue.shared.pending = null; // The pending queue is circular. Disconnect the pointer between first
-    // and last so that it's non-circular.
-
-    var lastPendingUpdate = pendingQueue;
-    var firstPendingUpdate = lastPendingUpdate.next;
-    lastPendingUpdate.next = null; // Append pending updates to base queue
-
-    if (lastBaseUpdate === null) {
-      firstBaseUpdate = firstPendingUpdate;
-    } else {
-      lastBaseUpdate.next = firstPendingUpdate;
-    }
-
-    lastBaseUpdate = lastPendingUpdate; // If there's a current queue, and it's different from the base queue, then
-    // we need to transfer the updates to that queue, too. Because the base
-    // queue is a singly-linked list with no cycles, we can append to both
-    // lists and take advantage of structural sharing.
-    // TODO: Pass `current` as argument
-
-    var current = workInProgress.alternate;
-
-    if (current !== null) {
-      // This is always non-null on a ClassComponent or HostRoot
-      var currentQueue = current.updateQueue;
-      var currentLastBaseUpdate = currentQueue.lastBaseUpdate;
-
-      if (currentLastBaseUpdate !== lastBaseUpdate) {
-        if (currentLastBaseUpdate === null) {
-          currentQueue.firstBaseUpdate = firstPendingUpdate;
-        } else {
-          currentLastBaseUpdate.next = firstPendingUpdate;
-        }
-
-        currentQueue.lastBaseUpdate = lastPendingUpdate;
-      }
-    }
-  } // These values may change as we process the queue.
-
-
-  if (firstBaseUpdate !== null) {
-    // Iterate through the list of updates to compute the result.
-    var newState = queue.baseState; // TODO: Don't need to accumulate this. Instead, we can remove renderLanes
-    // from the original lanes.
-
-    var newLanes = NoLanes;
-    var newBaseState = null;
-    var newFirstBaseUpdate = null;
-    var newLastBaseUpdate = null;
-    var update = firstBaseUpdate;
-
-    do {
-      var updateLane = update.lane;
-      var updateEventTime = update.eventTime;
-
-      if (!isSubsetOfLanes(renderLanes, updateLane)) {
-        // Priority is insufficient. Skip this update. If this is the first
-        // skipped update, the previous update/state is the new base
-        // update/state.
-        var clone = {
-          eventTime: updateEventTime,
-          lane: updateLane,
-          tag: update.tag,
-          payload: update.payload,
-          callback: update.callback,
-          next: null
-        };
-
-        if (newLastBaseUpdate === null) {
-          newFirstBaseUpdate = newLastBaseUpdate = clone;
-          newBaseState = newState;
-        } else {
-          newLastBaseUpdate = newLastBaseUpdate.next = clone;
-        } // Update the remaining priority in the queue.
-
-
-        newLanes = mergeLanes(newLanes, updateLane);
-      } else {
-        // This update does have sufficient priority.
-        if (newLastBaseUpdate !== null) {
-          var _clone = {
-            eventTime: updateEventTime,
-            // This update is going to be committed so we never want uncommit
-            // it. Using NoLane works because 0 is a subset of all bitmasks, so
-            // this will never be skipped by the check above.
-            lane: NoLane,
-            tag: update.tag,
-            payload: update.payload,
-            callback: update.callback,
-            next: null
-          };
-          newLastBaseUpdate = newLastBaseUpdate.next = _clone;
-        } // Process this update.
-
-
-        newState = getStateFromUpdate(workInProgress, queue, update, newState, props, instance);
-        var callback = update.callback;
-
-        if (callback !== null && // If the update was already committed, we should not queue its
-        // callback again.
-        update.lane !== NoLane) {
-          workInProgress.flags |= Callback;
-          var effects = queue.effects;
-
-          if (effects === null) {
-            queue.effects = [update];
-          } else {
-            effects.push(update);
-          }
-        }
-      }
-
-      update = update.next;
-
-      if (update === null) {
-        pendingQueue = queue.shared.pending;
-
-        if (pendingQueue === null) {
-          break;
-        } else {
-          // An update was scheduled from inside a reducer. Add the new
-          // pending updates to the end of the list and keep processing.
-          var _lastPendingUpdate = pendingQueue; // Intentionally unsound. Pending updates form a circular list, but we
-          // unravel them when transferring them to the base queue.
-
-          var _firstPendingUpdate = _lastPendingUpdate.next;
-          _lastPendingUpdate.next = null;
-          update = _firstPendingUpdate;
-          queue.lastBaseUpdate = _lastPendingUpdate;
-          queue.shared.pending = null;
-        }
-      }
-    } while (true);
-
-    if (newLastBaseUpdate === null) {
-      newBaseState = newState;
-    }
-
-    queue.baseState = newBaseState;
-    queue.firstBaseUpdate = newFirstBaseUpdate;
-    queue.lastBaseUpdate = newLastBaseUpdate; // Interleaved updates are stored on a separate queue. We aren't going to
-    // process them during this render, but we do need to track which lanes
-    // are remaining.
-
-    var lastInterleaved = queue.shared.interleaved;
-
-    if (lastInterleaved !== null) {
-      var interleaved = lastInterleaved;
-
-      do {
-        newLanes = mergeLanes(newLanes, interleaved.lane);
-        interleaved = interleaved.next;
-      } while (interleaved !== lastInterleaved);
-    } else if (firstBaseUpdate === null) {
-      // `queue.lanes` is used for entangling transitions. We can set it back to
-      // zero once the queue is empty.
-      queue.shared.lanes = NoLanes;
-    } // Set the remaining expiration time to be whatever is remaining in the queue.
-    // This should be fine because the only two other things that contribute to
-    // expiration time are props and context. We're already in the middle of the
-    // begin phase by the time we start processing the queue, so we've already
-    // dealt with the props. Context in components that specify
-    // shouldComponentUpdate is tricky; but we'll have to account for
-    // that regardless.
-
-
-    markSkippedUpdateLanes(newLanes);
-    workInProgress.lanes = newLanes;
-    workInProgress.memoizedState = newState;
-  }
-
-  {
-    currentlyProcessingQueue = null;
-  }
-}
-
-function callCallback(callback, context) {
-  if (typeof callback !== 'function') {
-    throw new Error('Invalid argument passed as callback. Expected a function. Instead ' + ("received: " + callback));
-  }
-
-  callback.call(context);
-}
-
-function resetHasForceUpdateBeforeProcessing() {
-  hasForceUpdate = false;
-}
-function checkHasForceUpdateAfterProcessing() {
-  return hasForceUpdate;
-}
-function commitUpdateQueue(finishedWork, finishedQueue, instance) {
-  // Commit the effects
-  var effects = finishedQueue.effects;
-  finishedQueue.effects = null;
-
-  if (effects !== null) {
-    for (var i = 0; i < effects.length; i++) {
-      var effect = effects[i];
-      var callback = effect.callback;
-
-      if (callback !== null) {
-        effect.callback = null;
-        callCallback(callback, instance);
-      }
-    }
-  }
-}
-
-var fakeInternalInstance = {}; // React.Component uses a shared frozen object by default.
-// We'll use it to determine whether we need to initialize legacy refs.
-
-var emptyRefsObject = new React.Component().refs;
-var didWarnAboutStateAssignmentForComponent;
-var didWarnAboutUninitializedState;
-var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
-var didWarnAboutLegacyLifecyclesAndDerivedState;
-var didWarnAboutUndefinedDerivedState;
-var warnOnUndefinedDerivedState;
-var warnOnInvalidCallback;
-var didWarnAboutDirectlyAssigningPropsToState;
-var didWarnAboutContextTypeAndContextTypes;
-var didWarnAboutInvalidateContextType;
-
-{
-  didWarnAboutStateAssignmentForComponent = new Set();
-  didWarnAboutUninitializedState = new Set();
-  didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate = new Set();
-  didWarnAboutLegacyLifecyclesAndDerivedState = new Set();
-  didWarnAboutDirectlyAssigningPropsToState = new Set();
-  didWarnAboutUndefinedDerivedState = new Set();
-  didWarnAboutContextTypeAndContextTypes = new Set();
-  didWarnAboutInvalidateContextType = new Set();
-  var didWarnOnInvalidCallback = new Set();
-
-  warnOnInvalidCallback = function (callback, callerName) {
-    if (callback === null || typeof callback === 'function') {
-      return;
-    }
-
-    var key = callerName + '_' + callback;
-
-    if (!didWarnOnInvalidCallback.has(key)) {
-      didWarnOnInvalidCallback.add(key);
-
-      error('%s(...): Expected the last optional `callback` argument to be a ' + 'function. Instead received: %s.', callerName, callback);
-    }
-  };
-
-  warnOnUndefinedDerivedState = function (type, partialState) {
-    if (partialState === undefined) {
-      var componentName = getComponentNameFromType(type) || 'Component';
-
-      if (!didWarnAboutUndefinedDerivedState.has(componentName)) {
-        didWarnAboutUndefinedDerivedState.add(componentName);
-
-        error('%s.getDerivedStateFromProps(): A valid state object (or null) must be returned. ' + 'You have returned undefined.', componentName);
-      }
-    }
-  }; // This is so gross but it's at least non-critical and can be removed if
-  // it causes problems. This is meant to give a nicer error message for
-  // ReactDOM15.unstable_renderSubtreeIntoContainer(reactDOM16Component,
-  // ...)) which otherwise throws a "_processChildContext is not a function"
-  // exception.
-
-
-  Object.defineProperty(fakeInternalInstance, '_processChildContext', {
-    enumerable: false,
-    value: function () {
-      throw new Error('_processChildContext is not available in React 16+. This likely ' + 'means you have multiple copies of React and are attempting to nest ' + 'a React 15 tree inside a React 16 tree using ' + "unstable_renderSubtreeIntoContainer, which isn't supported. Try " + 'to make sure you have only one copy of React (and ideally, switch ' + 'to ReactDOM.createPortal).');
-    }
-  });
-  Object.freeze(fakeInternalInstance);
-}
-
-function applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, nextProps) {
-  var prevState = workInProgress.memoizedState;
-  var partialState = getDerivedStateFromProps(nextProps, prevState);
-
-  {
-    if ( workInProgress.mode & StrictLegacyMode) {
-      setIsStrictModeForDevtools(true);
-
-      try {
-        // Invoke the function an extra time to help detect side-effects.
-        partialState = getDerivedStateFromProps(nextProps, prevState);
-      } finally {
-        setIsStrictModeForDevtools(false);
-      }
-    }
-
-    warnOnUndefinedDerivedState(ctor, partialState);
-  } // Merge the partial state and the previous state.
-
-
-  var memoizedState = partialState === null || partialState === undefined ? prevState : assign({}, prevState, partialState);
-  workInProgress.memoizedState = memoizedState; // Once the update queue is empty, persist the derived state onto the
-  // base state.
-
-  if (workInProgress.lanes === NoLanes) {
-    // Queue is always non-null for classes
-    var updateQueue = workInProgress.updateQueue;
-    updateQueue.baseState = memoizedState;
-  }
-}
-
-var classComponentUpdater = {
-  isMounted: isMounted,
-  enqueueSetState: function (inst, payload, callback) {
-    var fiber = get(inst);
-    var eventTime = requestEventTime();
-    var lane = requestUpdateLane(fiber);
-    var update = createUpdate(eventTime, lane);
-    update.payload = payload;
-
-    if (callback !== undefined && callback !== null) {
-      {
-        warnOnInvalidCallback(callback, 'setState');
-      }
-
-      update.callback = callback;
-    }
-
-    var root = enqueueUpdate(fiber, update, lane);
-
-    if (root !== null) {
-      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
-      entangleTransitions(root, fiber, lane);
-    }
-
-    {
-      markStateUpdateScheduled(fiber, lane);
-    }
-  },
-  enqueueReplaceState: function (inst, payload, callback) {
-    var fiber = get(inst);
-    var eventTime = requestEventTime();
-    var lane = requestUpdateLane(fiber);
-    var update = createUpdate(eventTime, lane);
-    update.tag = ReplaceState;
-    update.payload = payload;
-
-    if (callback !== undefined && callback !== null) {
-      {
-        warnOnInvalidCallback(callback, 'replaceState');
-      }
-
-      update.callback = callback;
-    }
-
-    var root = enqueueUpdate(fiber, update, lane);
-
-    if (root !== null) {
-      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
-      entangleTransitions(root, fiber, lane);
-    }
-
-    {
-      markStateUpdateScheduled(fiber, lane);
-    }
-  },
-  enqueueForceUpdate: function (inst, callback) {
-    var fiber = get(inst);
-    var eventTime = requestEventTime();
-    var lane = requestUpdateLane(fiber);
-    var update = createUpdate(eventTime, lane);
-    update.tag = ForceUpdate;
-
-    if (callback !== undefined && callback !== null) {
-      {
-        warnOnInvalidCallback(callback, 'forceUpdate');
-      }
-
-      update.callback = callback;
-    }
-
-    var root = enqueueUpdate(fiber, update, lane);
-
-    if (root !== null) {
-      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
-      entangleTransitions(root, fiber, lane);
-    }
-
-    {
-      markForceUpdateScheduled(fiber, lane);
-    }
-  }
-};
-
-function checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext) {
-  var instance = workInProgress.stateNode;
-
-  if (typeof instance.shouldComponentUpdate === 'function') {
-    var shouldUpdate = instance.shouldComponentUpdate(newProps, newState, nextContext);
-
-    {
-      if ( workInProgress.mode & StrictLegacyMode) {
-        setIsStrictModeForDevtools(true);
-
-        try {
-          // Invoke the function an extra time to help detect side-effects.
-          shouldUpdate = instance.shouldComponentUpdate(newProps, newState, nextContext);
-        } finally {
-          setIsStrictModeForDevtools(false);
-        }
-      }
-
-      if (shouldUpdate === undefined) {
-        error('%s.shouldComponentUpdate(): Returned undefined instead of a ' + 'boolean value. Make sure to return true or false.', getComponentNameFromType(ctor) || 'Component');
-      }
-    }
-
-    return shouldUpdate;
-  }
-
-  if (ctor.prototype && ctor.prototype.isPureReactComponent) {
-    return !shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState);
-  }
-
-  return true;
-}
-
-function checkClassInstance(workInProgress, ctor, newProps) {
-  var instance = workInProgress.stateNode;
-
-  {
-    var name = getComponentNameFromType(ctor) || 'Component';
-    var renderPresent = instance.render;
-
-    if (!renderPresent) {
-      if (ctor.prototype && typeof ctor.prototype.render === 'function') {
-        error('%s(...): No `render` method found on the returned component ' + 'instance: did you accidentally return an object from the constructor?', name);
-      } else {
-        error('%s(...): No `render` method found on the returned component ' + 'instance: you may have forgotten to define `render`.', name);
-      }
-    }
-
-    if (instance.getInitialState && !instance.getInitialState.isReactClassApproved && !instance.state) {
-      error('getInitialState was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Did you mean to define a state property instead?', name);
-    }
-
-    if (instance.getDefaultProps && !instance.getDefaultProps.isReactClassApproved) {
-      error('getDefaultProps was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Use a static property to define defaultProps instead.', name);
-    }
-
-    if (instance.propTypes) {
-      error('propTypes was defined as an instance property on %s. Use a static ' + 'property to define propTypes instead.', name);
-    }
-
-    if (instance.contextType) {
-      error('contextType was defined as an instance property on %s. Use a static ' + 'property to define contextType instead.', name);
-    }
-
-    {
-      if (instance.contextTypes) {
-        error('contextTypes was defined as an instance property on %s. Use a static ' + 'property to define contextTypes instead.', name);
-      }
-
-      if (ctor.contextType && ctor.contextTypes && !didWarnAboutContextTypeAndContextTypes.has(ctor)) {
-        didWarnAboutContextTypeAndContextTypes.add(ctor);
-
-        error('%s declares both contextTypes and contextType static properties. ' + 'The legacy contextTypes property will be ignored.', name);
-      }
-    }
-
-    if (typeof instance.componentShouldUpdate === 'function') {
-      error('%s has a method called ' + 'componentShouldUpdate(). Did you mean shouldComponentUpdate()? ' + 'The name is phrased as a question because the function is ' + 'expected to return a value.', name);
-    }
-
-    if (ctor.prototype && ctor.prototype.isPureReactComponent && typeof instance.shouldComponentUpdate !== 'undefined') {
-      error('%s has a method called shouldComponentUpdate(). ' + 'shouldComponentUpdate should not be used when extending React.PureComponent. ' + 'Please extend React.Component if shouldComponentUpdate is used.', getComponentNameFromType(ctor) || 'A pure component');
-    }
-
-    if (typeof instance.componentDidUnmount === 'function') {
-      error('%s has a method called ' + 'componentDidUnmount(). But there is no such lifecycle method. ' + 'Did you mean componentWillUnmount()?', name);
-    }
-
-    if (typeof instance.componentDidReceiveProps === 'function') {
-      error('%s has a method called ' + 'componentDidReceiveProps(). But there is no such lifecycle method. ' + 'If you meant to update the state in response to changing props, ' + 'use componentWillReceiveProps(). If you meant to fetch data or ' + 'run side-effects or mutations after React has updated the UI, use componentDidUpdate().', name);
-    }
-
-    if (typeof instance.componentWillRecieveProps === 'function') {
-      error('%s has a method called ' + 'componentWillRecieveProps(). Did you mean componentWillReceiveProps()?', name);
-    }
-
-    if (typeof instance.UNSAFE_componentWillRecieveProps === 'function') {
-      error('%s has a method called ' + 'UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?', name);
-    }
-
-    var hasMutatedProps = instance.props !== newProps;
-
-    if (instance.props !== undefined && hasMutatedProps) {
-      error('%s(...): When calling super() in `%s`, make sure to pass ' + "up the same props that your component's constructor was passed.", name, name);
-    }
-
-    if (instance.defaultProps) {
-      error('Setting defaultProps as an instance property on %s is not supported and will be ignored.' + ' Instead, define defaultProps as a static property on %s.', name, name);
-    }
-
-    if (typeof instance.getSnapshotBeforeUpdate === 'function' && typeof instance.componentDidUpdate !== 'function' && !didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.has(ctor)) {
-      didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.add(ctor);
-
-      error('%s: getSnapshotBeforeUpdate() should be used with componentDidUpdate(). ' + 'This component defines getSnapshotBeforeUpdate() only.', getComponentNameFromType(ctor));
-    }
-
-    if (typeof instance.getDerivedStateFromProps === 'function') {
-      error('%s: getDerivedStateFromProps() is defined as an instance method ' + 'and will be ignored. Instead, declare it as a static method.', name);
-    }
-
-    if (typeof instance.getDerivedStateFromError === 'function') {
-      error('%s: getDerivedStateFromError() is defined as an instance method ' + 'and will be ignored. Instead, declare it as a static method.', name);
-    }
-
-    if (typeof ctor.getSnapshotBeforeUpdate === 'function') {
-      error('%s: getSnapshotBeforeUpdate() is defined as a static method ' + 'and will be ignored. Instead, declare it as an instance method.', name);
-    }
-
-    var _state = instance.state;
-
-    if (_state && (typeof _state !== 'object' || isArray(_state))) {
-      error('%s.state: must be set to an object or null', name);
-    }
-
-    if (typeof instance.getChildContext === 'function' && typeof ctor.childContextTypes !== 'object') {
-      error('%s.getChildContext(): childContextTypes must be defined in order to ' + 'use getChildContext().', name);
-    }
-  }
-}
-
-function adoptClassInstance(workInProgress, instance) {
-  instance.updater = classComponentUpdater;
-  workInProgress.stateNode = instance; // The instance needs access to the fiber so that it can schedule updates
-
-  set(instance, workInProgress);
-
-  {
-    instance._reactInternalInstance = fakeInternalInstance;
-  }
-}
-
-function constructClassInstance(workInProgress, ctor, props) {
-  var isLegacyContextConsumer = false;
-  var unmaskedContext = emptyContextObject;
-  var context = emptyContextObject;
-  var contextType = ctor.contextType;
-
-  {
-    if ('contextType' in ctor) {
-      var isValid = // Allow null for conditional declaration
-      contextType === null || contextType !== undefined && contextType.$$typeof === REACT_CONTEXT_TYPE && contextType._context === undefined; // Not a <Context.Consumer>
-
-      if (!isValid && !didWarnAboutInvalidateContextType.has(ctor)) {
-        didWarnAboutInvalidateContextType.add(ctor);
-        var addendum = '';
-
-        if (contextType === undefined) {
-          addendum = ' However, it is set to undefined. ' + 'This can be caused by a typo or by mixing up named and default imports. ' + 'This can also happen due to a circular dependency, so ' + 'try moving the createContext() call to a separate file.';
-        } else if (typeof contextType !== 'object') {
-          addendum = ' However, it is set to a ' + typeof contextType + '.';
-        } else if (contextType.$$typeof === REACT_PROVIDER_TYPE) {
-          addendum = ' Did you accidentally pass the Context.Provider instead?';
-        } else if (contextType._context !== undefined) {
-          // <Context.Consumer>
-          addendum = ' Did you accidentally pass the Context.Consumer instead?';
-        } else {
-          addendum = ' However, it is set to an object with keys {' + Object.keys(contextType).join(', ') + '}.';
-        }
-
-        error('%s defines an invalid contextType. ' + 'contextType should point to the Context object returned by React.createContext().%s', getComponentNameFromType(ctor) || 'Component', addendum);
-      }
-    }
-  }
-
-  if (typeof contextType === 'object' && contextType !== null) {
-    context = readContext(contextType);
-  } else {
-    unmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
-    var contextTypes = ctor.contextTypes;
-    isLegacyContextConsumer = contextTypes !== null && contextTypes !== undefined;
-    context = isLegacyContextConsumer ? getMaskedContext(workInProgress, unmaskedContext) : emptyContextObject;
-  }
-
-  var instance = new ctor(props, context); // Instantiate twice to help detect side-effects.
-
-  {
-    if ( workInProgress.mode & StrictLegacyMode) {
-      setIsStrictModeForDevtools(true);
-
-      try {
-        instance = new ctor(props, context); // eslint-disable-line no-new
-      } finally {
-        setIsStrictModeForDevtools(false);
-      }
-    }
-  }
-
-  var state = workInProgress.memoizedState = instance.state !== null && instance.state !== undefined ? instance.state : null;
-  adoptClassInstance(workInProgress, instance);
-
-  {
-    if (typeof ctor.getDerivedStateFromProps === 'function' && state === null) {
-      var componentName = getComponentNameFromType(ctor) || 'Component';
-
-      if (!didWarnAboutUninitializedState.has(componentName)) {
-        didWarnAboutUninitializedState.add(componentName);
-
-        error('`%s` uses `getDerivedStateFromProps` but its initial state is ' + '%s. This is not recommended. Instead, define the initial state by ' + 'assigning an object to `this.state` in the constructor of `%s`. ' + 'This ensures that `getDerivedStateFromProps` arguments have a consistent shape.', componentName, instance.state === null ? 'null' : 'undefined', componentName);
-      }
-    } // If new component APIs are defined, "unsafe" lifecycles won't be called.
-    // Warn about these lifecycles if they are present.
-    // Don't warn about react-lifecycles-compat polyfilled methods though.
-
-
-    if (typeof ctor.getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function') {
-      var foundWillMountName = null;
-      var foundWillReceivePropsName = null;
-      var foundWillUpdateName = null;
-
-      if (typeof instance.componentWillMount === 'function' && instance.componentWillMount.__suppressDeprecationWarning !== true) {
-        foundWillMountName = 'componentWillMount';
-      } else if (typeof instance.UNSAFE_componentWillMount === 'function') {
-        foundWillMountName = 'UNSAFE_componentWillMount';
-      }
-
-      if (typeof instance.componentWillReceiveProps === 'function' && instance.componentWillReceiveProps.__suppressDeprecationWarning !== true) {
-        foundWillReceivePropsName = 'componentWillReceiveProps';
-      } else if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
-        foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
-      }
-
-      if (typeof instance.componentWillUpdate === 'function' && instance.componentWillUpdate.__suppressDeprecationWarning !== true) {
-        foundWillUpdateName = 'componentWillUpdate';
-      } else if (typeof instance.UNSAFE_componentWillUpdate === 'function') {
-        foundWillUpdateName = 'UNSAFE_componentWillUpdate';
-      }
-
-      if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
-        var _componentName = getComponentNameFromType(ctor) || 'Component';
-
-        var newApiName = typeof ctor.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
-
-        if (!didWarnAboutLegacyLifecyclesAndDerivedState.has(_componentName)) {
-          didWarnAboutLegacyLifecyclesAndDerivedState.add(_componentName);
-
-          error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + '%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\n' + 'The above lifecycles should be removed. Learn more about this warning here:\n' + 'https://reactjs.org/link/unsafe-component-lifecycles', _componentName, newApiName, foundWillMountName !== null ? "\n  " + foundWillMountName : '', foundWillReceivePropsName !== null ? "\n  " + foundWillReceivePropsName : '', foundWillUpdateName !== null ? "\n  " + foundWillUpdateName : '');
-        }
-      }
-    }
-  } // Cache unmasked context so we can avoid recreating masked context unless necessary.
-  // ReactFiberContext usually updates this cache but can't for newly-created instances.
-
-
-  if (isLegacyContextConsumer) {
-    cacheContext(workInProgress, unmaskedContext, context);
-  }
-
-  return instance;
-}
-
-function callComponentWillMount(workInProgress, instance) {
-  var oldState = instance.state;
-
-  if (typeof instance.componentWillMount === 'function') {
-    instance.componentWillMount();
-  }
-
-  if (typeof instance.UNSAFE_componentWillMount === 'function') {
-    instance.UNSAFE_componentWillMount();
-  }
-
-  if (oldState !== instance.state) {
-    {
-      error('%s.componentWillMount(): Assigning directly to this.state is ' + "deprecated (except inside a component's " + 'constructor). Use setState instead.', getComponentNameFromFiber(workInProgress) || 'Component');
-    }
-
-    classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
-  }
-}
-
-function callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext) {
-  var oldState = instance.state;
-
-  if (typeof instance.componentWillReceiveProps === 'function') {
-    instance.componentWillReceiveProps(newProps, nextContext);
-  }
-
-  if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
-    instance.UNSAFE_componentWillReceiveProps(newProps, nextContext);
-  }
-
-  if (instance.state !== oldState) {
-    {
-      var componentName = getComponentNameFromFiber(workInProgress) || 'Component';
-
-      if (!didWarnAboutStateAssignmentForComponent.has(componentName)) {
-        didWarnAboutStateAssignmentForComponent.add(componentName);
-
-        error('%s.componentWillReceiveProps(): Assigning directly to ' + "this.state is deprecated (except inside a component's " + 'constructor). Use setState instead.', componentName);
-      }
-    }
-
-    classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
-  }
-} // Invokes the mount life-cycles on a previously never rendered instance.
-
-
-function mountClassInstance(workInProgress, ctor, newProps, renderLanes) {
-  {
-    checkClassInstance(workInProgress, ctor, newProps);
-  }
-
-  var instance = workInProgress.stateNode;
-  instance.props = newProps;
-  instance.state = workInProgress.memoizedState;
-  instance.refs = emptyRefsObject;
-  initializeUpdateQueue(workInProgress);
-  var contextType = ctor.contextType;
-
-  if (typeof contextType === 'object' && contextType !== null) {
-    instance.context = readContext(contextType);
-  } else {
-    var unmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
-    instance.context = getMaskedContext(workInProgress, unmaskedContext);
-  }
-
-  {
-    if (instance.state === newProps) {
-      var componentName = getComponentNameFromType(ctor) || 'Component';
-
-      if (!didWarnAboutDirectlyAssigningPropsToState.has(componentName)) {
-        didWarnAboutDirectlyAssigningPropsToState.add(componentName);
-
-        error('%s: It is not recommended to assign props directly to state ' + "because updates to props won't be reflected in state. " + 'In most cases, it is better to use props directly.', componentName);
-      }
-    }
-
-    if (workInProgress.mode & StrictLegacyMode) {
-      ReactStrictModeWarnings.recordLegacyContextWarning(workInProgress, instance);
-    }
-
-    {
-      ReactStrictModeWarnings.recordUnsafeLifecycleWarnings(workInProgress, instance);
-    }
-  }
-
-  instance.state = workInProgress.memoizedState;
-  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
-
-  if (typeof getDerivedStateFromProps === 'function') {
-    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
-    instance.state = workInProgress.memoizedState;
-  } // In order to support react-lifecycles-compat polyfilled components,
-  // Unsafe lifecycles should not be invoked for components using the new APIs.
-
-
-  if (typeof ctor.getDerivedStateFromProps !== 'function' && typeof instance.getSnapshotBeforeUpdate !== 'function' && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.componentWillMount === 'function')) {
-    callComponentWillMount(workInProgress, instance); // If we had additional state updates during this life-cycle, let's
-    // process them now.
-
-    processUpdateQueue(workInProgress, newProps, instance, renderLanes);
-    instance.state = workInProgress.memoizedState;
-  }
-
-  if (typeof instance.componentDidMount === 'function') {
-    var fiberFlags = Update;
-
-    {
-      fiberFlags |= LayoutStatic;
-    }
-
-    if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
-      fiberFlags |= MountLayoutDev;
-    }
-
-    workInProgress.flags |= fiberFlags;
-  }
-}
-
-function resumeMountClassInstance(workInProgress, ctor, newProps, renderLanes) {
-  var instance = workInProgress.stateNode;
-  var oldProps = workInProgress.memoizedProps;
-  instance.props = oldProps;
-  var oldContext = instance.context;
-  var contextType = ctor.contextType;
-  var nextContext = emptyContextObject;
-
-  if (typeof contextType === 'object' && contextType !== null) {
-    nextContext = readContext(contextType);
-  } else {
-    var nextLegacyUnmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
-    nextContext = getMaskedContext(workInProgress, nextLegacyUnmaskedContext);
-  }
-
-  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
-  var hasNewLifecycles = typeof getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function'; // Note: During these life-cycles, instance.props/instance.state are what
-  // ever the previously attempted to render - not the "current". However,
-  // during componentDidUpdate we pass the "current" props.
-  // In order to support react-lifecycles-compat polyfilled components,
-  // Unsafe lifecycles should not be invoked for components using the new APIs.
-
-  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
-    if (oldProps !== newProps || oldContext !== nextContext) {
-      callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext);
-    }
-  }
-
-  resetHasForceUpdateBeforeProcessing();
-  var oldState = workInProgress.memoizedState;
-  var newState = instance.state = oldState;
-  processUpdateQueue(workInProgress, newProps, instance, renderLanes);
-  newState = workInProgress.memoizedState;
-
-  if (oldProps === newProps && oldState === newState && !hasContextChanged() && !checkHasForceUpdateAfterProcessing()) {
-    // If an update was already in progress, we should schedule an Update
-    // effect even though we're bailing out, so that cWU/cDU are called.
-    if (typeof instance.componentDidMount === 'function') {
-      var fiberFlags = Update;
-
-      {
-        fiberFlags |= LayoutStatic;
-      }
-
-      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
-        fiberFlags |= MountLayoutDev;
-      }
-
-      workInProgress.flags |= fiberFlags;
-    }
-
-    return false;
-  }
-
-  if (typeof getDerivedStateFromProps === 'function') {
-    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
-    newState = workInProgress.memoizedState;
-  }
-
-  var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext);
-
-  if (shouldUpdate) {
-    // In order to support react-lifecycles-compat polyfilled components,
-    // Unsafe lifecycles should not be invoked for components using the new APIs.
-    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.componentWillMount === 'function')) {
-      if (typeof instance.componentWillMount === 'function') {
-        instance.componentWillMount();
-      }
-
-      if (typeof instance.UNSAFE_componentWillMount === 'function') {
-        instance.UNSAFE_componentWillMount();
-      }
-    }
-
-    if (typeof instance.componentDidMount === 'function') {
-      var _fiberFlags = Update;
-
-      {
-        _fiberFlags |= LayoutStatic;
-      }
-
-      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
-        _fiberFlags |= MountLayoutDev;
-      }
-
-      workInProgress.flags |= _fiberFlags;
-    }
-  } else {
-    // If an update was already in progress, we should schedule an Update
-    // effect even though we're bailing out, so that cWU/cDU are called.
-    if (typeof instance.componentDidMount === 'function') {
-      var _fiberFlags2 = Update;
-
-      {
-        _fiberFlags2 |= LayoutStatic;
-      }
-
-      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
-        _fiberFlags2 |= MountLayoutDev;
-      }
-
-      workInProgress.flags |= _fiberFlags2;
-    } // If shouldComponentUpdate returned false, we should still update the
-    // memoized state to indicate that this work can be reused.
-
-
-    workInProgress.memoizedProps = newProps;
-    workInProgress.memoizedState = newState;
-  } // Update the existing instance's state, props, and context pointers even
-  // if shouldComponentUpdate returns false.
-
-
-  instance.props = newProps;
-  instance.state = newState;
-  instance.context = nextContext;
-  return shouldUpdate;
-} // Invokes the update life-cycles and returns false if it shouldn't rerender.
-
-
-function updateClassInstance(current, workInProgress, ctor, newProps, renderLanes) {
-  var instance = workInProgress.stateNode;
-  cloneUpdateQueue(current, workInProgress);
-  var unresolvedOldProps = workInProgress.memoizedProps;
-  var oldProps = workInProgress.type === workInProgress.elementType ? unresolvedOldProps : resolveDefaultProps(workInProgress.type, unresolvedOldProps);
-  instance.props = oldProps;
-  var unresolvedNewProps = workInProgress.pendingProps;
-  var oldContext = instance.context;
-  var contextType = ctor.contextType;
-  var nextContext = emptyContextObject;
-
-  if (typeof contextType === 'object' && contextType !== null) {
-    nextContext = readContext(contextType);
-  } else {
-    var nextUnmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
-    nextContext = getMaskedContext(workInProgress, nextUnmaskedContext);
-  }
-
-  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
-  var hasNewLifecycles = typeof getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function'; // Note: During these life-cycles, instance.props/instance.state are what
-  // ever the previously attempted to render - not the "current". However,
-  // during componentDidUpdate we pass the "current" props.
-  // In order to support react-lifecycles-compat polyfilled components,
-  // Unsafe lifecycles should not be invoked for components using the new APIs.
-
-  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
-    if (unresolvedOldProps !== unresolvedNewProps || oldContext !== nextContext) {
-      callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext);
-    }
-  }
-
-  resetHasForceUpdateBeforeProcessing();
-  var oldState = workInProgress.memoizedState;
-  var newState = instance.state = oldState;
-  processUpdateQueue(workInProgress, newProps, instance, renderLanes);
-  newState = workInProgress.memoizedState;
-
-  if (unresolvedOldProps === unresolvedNewProps && oldState === newState && !hasContextChanged() && !checkHasForceUpdateAfterProcessing() && !(enableLazyContextPropagation   )) {
-    // If an update was already in progress, we should schedule an Update
-    // effect even though we're bailing out, so that cWU/cDU are called.
-    if (typeof instance.componentDidUpdate === 'function') {
-      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
-        workInProgress.flags |= Update;
-      }
-    }
-
-    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
-      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
-        workInProgress.flags |= Snapshot;
-      }
-    }
-
-    return false;
-  }
-
-  if (typeof getDerivedStateFromProps === 'function') {
-    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
-    newState = workInProgress.memoizedState;
-  }
-
-  var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext) || // TODO: In some cases, we'll end up checking if context has changed twice,
-  // both before and after `shouldComponentUpdate` has been called. Not ideal,
-  // but I'm loath to refactor this function. This only happens for memoized
-  // components so it's not that common.
-  enableLazyContextPropagation   ;
-
-  if (shouldUpdate) {
-    // In order to support react-lifecycles-compat polyfilled components,
-    // Unsafe lifecycles should not be invoked for components using the new APIs.
-    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillUpdate === 'function' || typeof instance.componentWillUpdate === 'function')) {
-      if (typeof instance.componentWillUpdate === 'function') {
-        instance.componentWillUpdate(newProps, newState, nextContext);
-      }
-
-      if (typeof instance.UNSAFE_componentWillUpdate === 'function') {
-        instance.UNSAFE_componentWillUpdate(newProps, newState, nextContext);
-      }
-    }
-
-    if (typeof instance.componentDidUpdate === 'function') {
-      workInProgress.flags |= Update;
-    }
-
-    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
-      workInProgress.flags |= Snapshot;
-    }
-  } else {
-    // If an update was already in progress, we should schedule an Update
-    // effect even though we're bailing out, so that cWU/cDU are called.
-    if (typeof instance.componentDidUpdate === 'function') {
-      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
-        workInProgress.flags |= Update;
-      }
-    }
-
-    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
-      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
-        workInProgress.flags |= Snapshot;
-      }
-    } // If shouldComponentUpdate returned false, we should still update the
-    // memoized props/state to indicate that this work can be reused.
-
-
-    workInProgress.memoizedProps = newProps;
-    workInProgress.memoizedState = newState;
-  } // Update the existing instance's state, props, and context pointers even
-  // if shouldComponentUpdate returns false.
-
-
-  instance.props = newProps;
-  instance.state = newState;
-  instance.context = nextContext;
-  return shouldUpdate;
-}
-
 var didWarnAboutMaps;
 var didWarnAboutGenerators;
 var didWarnAboutStringRefs;
@@ -17979,6 +16413,10 @@ var warnForMissingKey = function (child, returnFiber) {};
   };
 }
 
+function isReactClass(type) {
+  return type.prototype && type.prototype.isReactComponent;
+}
+
 function coerceRef(returnFiber, current, element) {
   var mixedRef = element.ref;
 
@@ -17989,12 +16427,15 @@ function coerceRef(returnFiber, current, element) {
       if ((returnFiber.mode & StrictLegacyMode || warnAboutStringRefs) && // We warn in ReactElement.js if owner and self are equal for string refs
       // because these cannot be automatically converted to an arrow function
       // using a codemod. Therefore, we don't have to warn about string refs again.
-      !(element._owner && element._self && element._owner.stateNode !== element._self)) {
+      !(element._owner && element._self && element._owner.stateNode !== element._self) && // Will already throw with "Function components cannot have string refs"
+      !(element._owner && element._owner.tag !== ClassComponent) && // Will already warn with "Function components cannot be given refs"
+      !(typeof element.type === 'function' && !isReactClass(element.type)) && // Will already throw with "Element ref was specified as a string (someStringRef) but no owner was set"
+      element._owner) {
         var componentName = getComponentNameFromFiber(returnFiber) || 'Component';
 
         if (!didWarnAboutStringRefs[componentName]) {
           {
-            error('A string ref, "%s", has been found within a strict mode tree. ' + 'String refs are a source of potential bugs and should be avoided. ' + 'We recommend using useRef() or createRef() instead. ' + 'Learn more about using refs safely here: ' + 'https://reactjs.org/link/strict-mode-string-ref', mixedRef);
+            error('Component "%s" contains the string ref "%s". Support for string refs ' + 'will be removed in a future major release. We recommend using ' + 'useRef() or createRef() instead. ' + 'Learn more about using refs safely here: ' + 'https://reactjs.org/link/strict-mode-string-ref', componentName, mixedRef);
           }
 
           didWarnAboutStringRefs[componentName] = true;
@@ -18035,11 +16476,6 @@ function coerceRef(returnFiber, current, element) {
 
       var ref = function (value) {
         var refs = resolvedInst.refs;
-
-        if (refs === emptyRefsObject) {
-          // This is a lazy pooled frozen object, so we need to initialize.
-          refs = resolvedInst.refs = {};
-        }
 
         if (value === null) {
           delete refs[stringRef];
@@ -19058,6 +17494,951 @@ function resetChildFibers(workInProgress, lanes) {
   while (child !== null) {
     resetWorkInProgress(child, lanes);
     child = child.sibling;
+  }
+}
+
+var valueCursor = createCursor(null);
+var rendererSigil;
+
+{
+  // Use this to detect multiple renderers using the same context
+  rendererSigil = {};
+}
+
+var currentlyRenderingFiber = null;
+var lastContextDependency = null;
+var lastFullyObservedContext = null;
+var isDisallowedContextReadInDEV = false;
+function resetContextDependencies() {
+  // This is called right before React yields execution, to ensure `readContext`
+  // cannot be called outside the render phase.
+  currentlyRenderingFiber = null;
+  lastContextDependency = null;
+  lastFullyObservedContext = null;
+
+  {
+    isDisallowedContextReadInDEV = false;
+  }
+}
+function enterDisallowedContextReadInDEV() {
+  {
+    isDisallowedContextReadInDEV = true;
+  }
+}
+function exitDisallowedContextReadInDEV() {
+  {
+    isDisallowedContextReadInDEV = false;
+  }
+}
+function pushProvider(providerFiber, context, nextValue) {
+  {
+    push(valueCursor, context._currentValue, providerFiber);
+    context._currentValue = nextValue;
+
+    {
+      if (context._currentRenderer !== undefined && context._currentRenderer !== null && context._currentRenderer !== rendererSigil) {
+        error('Detected multiple renderers concurrently rendering the ' + 'same context provider. This is currently unsupported.');
+      }
+
+      context._currentRenderer = rendererSigil;
+    }
+  }
+}
+function popProvider(context, providerFiber) {
+  var currentValue = valueCursor.current;
+  pop(valueCursor, providerFiber);
+
+  {
+    {
+      context._currentValue = currentValue;
+    }
+  }
+}
+function scheduleContextWorkOnParentPath(parent, renderLanes, propagationRoot) {
+  // Update the child lanes of all the ancestors, including the alternates.
+  var node = parent;
+
+  while (node !== null) {
+    var alternate = node.alternate;
+
+    if (!isSubsetOfLanes(node.childLanes, renderLanes)) {
+      node.childLanes = mergeLanes(node.childLanes, renderLanes);
+
+      if (alternate !== null) {
+        alternate.childLanes = mergeLanes(alternate.childLanes, renderLanes);
+      }
+    } else if (alternate !== null && !isSubsetOfLanes(alternate.childLanes, renderLanes)) {
+      alternate.childLanes = mergeLanes(alternate.childLanes, renderLanes);
+    }
+
+    if (node === propagationRoot) {
+      break;
+    }
+
+    node = node.return;
+  }
+
+  {
+    if (node !== propagationRoot) {
+      error('Expected to find the propagation root when scheduling context work. ' + 'This error is likely caused by a bug in React. Please file an issue.');
+    }
+  }
+}
+function propagateContextChange(workInProgress, context, renderLanes) {
+  {
+    propagateContextChange_eager(workInProgress, context, renderLanes);
+  }
+}
+
+function propagateContextChange_eager(workInProgress, context, renderLanes) {
+
+  var fiber = workInProgress.child;
+
+  if (fiber !== null) {
+    // Set the return pointer of the child to the work-in-progress fiber.
+    fiber.return = workInProgress;
+  }
+
+  while (fiber !== null) {
+    var nextFiber = void 0; // Visit this fiber.
+
+    var list = fiber.dependencies;
+
+    if (list !== null) {
+      nextFiber = fiber.child;
+      var dependency = list.firstContext;
+
+      while (dependency !== null) {
+        // Check if the context matches.
+        if (dependency.context === context) {
+          // Match! Schedule an update on this fiber.
+          if (fiber.tag === ClassComponent) {
+            // Schedule a force update on the work-in-progress.
+            var lane = pickArbitraryLane(renderLanes);
+            var update = createUpdate(NoTimestamp, lane);
+            update.tag = ForceUpdate; // TODO: Because we don't have a work-in-progress, this will add the
+            // update to the current fiber, too, which means it will persist even if
+            // this render is thrown away. Since it's a race condition, not sure it's
+            // worth fixing.
+            // Inlined `enqueueUpdate` to remove interleaved update check
+
+            var updateQueue = fiber.updateQueue;
+
+            if (updateQueue === null) ; else {
+              var sharedQueue = updateQueue.shared;
+              var pending = sharedQueue.pending;
+
+              if (pending === null) {
+                // This is the first update. Create a circular list.
+                update.next = update;
+              } else {
+                update.next = pending.next;
+                pending.next = update;
+              }
+
+              sharedQueue.pending = update;
+            }
+          }
+
+          fiber.lanes = mergeLanes(fiber.lanes, renderLanes);
+          var alternate = fiber.alternate;
+
+          if (alternate !== null) {
+            alternate.lanes = mergeLanes(alternate.lanes, renderLanes);
+          }
+
+          scheduleContextWorkOnParentPath(fiber.return, renderLanes, workInProgress); // Mark the updated lanes on the list, too.
+
+          list.lanes = mergeLanes(list.lanes, renderLanes); // Since we already found a match, we can stop traversing the
+          // dependency list.
+
+          break;
+        }
+
+        dependency = dependency.next;
+      }
+    } else if (fiber.tag === ContextProvider) {
+      // Don't scan deeper if this is a matching provider
+      nextFiber = fiber.type === workInProgress.type ? null : fiber.child;
+    } else if (fiber.tag === DehydratedFragment) {
+      // If a dehydrated suspense boundary is in this subtree, we don't know
+      // if it will have any context consumers in it. The best we can do is
+      // mark it as having updates.
+      var parentSuspense = fiber.return;
+
+      if (parentSuspense === null) {
+        throw new Error('We just came from a parent so we must have had a parent. This is a bug in React.');
+      }
+
+      parentSuspense.lanes = mergeLanes(parentSuspense.lanes, renderLanes);
+      var _alternate = parentSuspense.alternate;
+
+      if (_alternate !== null) {
+        _alternate.lanes = mergeLanes(_alternate.lanes, renderLanes);
+      } // This is intentionally passing this fiber as the parent
+      // because we want to schedule this fiber as having work
+      // on its children. We'll use the childLanes on
+      // this fiber to indicate that a context has changed.
+
+
+      scheduleContextWorkOnParentPath(parentSuspense, renderLanes, workInProgress);
+      nextFiber = fiber.sibling;
+    } else {
+      // Traverse down.
+      nextFiber = fiber.child;
+    }
+
+    if (nextFiber !== null) {
+      // Set the return pointer of the child to the work-in-progress fiber.
+      nextFiber.return = fiber;
+    } else {
+      // No child. Traverse to next sibling.
+      nextFiber = fiber;
+
+      while (nextFiber !== null) {
+        if (nextFiber === workInProgress) {
+          // We're back to the root of this subtree. Exit.
+          nextFiber = null;
+          break;
+        }
+
+        var sibling = nextFiber.sibling;
+
+        if (sibling !== null) {
+          // Set the return pointer of the sibling to the work-in-progress fiber.
+          sibling.return = nextFiber.return;
+          nextFiber = sibling;
+          break;
+        } // No more siblings. Traverse up.
+
+
+        nextFiber = nextFiber.return;
+      }
+    }
+
+    fiber = nextFiber;
+  }
+}
+function prepareToReadContext(workInProgress, renderLanes) {
+  currentlyRenderingFiber = workInProgress;
+  lastContextDependency = null;
+  lastFullyObservedContext = null;
+  var dependencies = workInProgress.dependencies;
+
+  if (dependencies !== null) {
+    {
+      var firstContext = dependencies.firstContext;
+
+      if (firstContext !== null) {
+        if (includesSomeLane(dependencies.lanes, renderLanes)) {
+          // Context list has a pending update. Mark that this fiber performed work.
+          markWorkInProgressReceivedUpdate();
+        } // Reset the work-in-progress list
+
+
+        dependencies.firstContext = null;
+      }
+    }
+  }
+}
+function readContext(context) {
+  {
+    // This warning would fire if you read context inside a Hook like useMemo.
+    // Unlike the class check below, it's not enforced in production for perf.
+    if (isDisallowedContextReadInDEV) {
+      error('Context can only be read while React is rendering. ' + 'In classes, you can read it in the render method or getDerivedStateFromProps. ' + 'In function components, you can read it directly in the function body, but not ' + 'inside Hooks like useReducer() or useMemo().');
+    }
+  }
+
+  var value =  context._currentValue ;
+
+  if (lastFullyObservedContext === context) ; else {
+    var contextItem = {
+      context: context,
+      memoizedValue: value,
+      next: null
+    };
+
+    if (lastContextDependency === null) {
+      if (currentlyRenderingFiber === null) {
+        throw new Error('Context can only be read while React is rendering. ' + 'In classes, you can read it in the render method or getDerivedStateFromProps. ' + 'In function components, you can read it directly in the function body, but not ' + 'inside Hooks like useReducer() or useMemo().');
+      } // This is the first dependency for this component. Create a new list.
+
+
+      lastContextDependency = contextItem;
+      currentlyRenderingFiber.dependencies = {
+        lanes: NoLanes,
+        firstContext: contextItem
+      };
+    } else {
+      // Append a new context item.
+      lastContextDependency = lastContextDependency.next = contextItem;
+    }
+  }
+
+  return value;
+}
+
+// render. When this render exits, either because it finishes or because it is
+// interrupted, the interleaved updates will be transferred onto the main part
+// of the queue.
+
+var concurrentQueues = null;
+function pushConcurrentUpdateQueue(queue) {
+  if (concurrentQueues === null) {
+    concurrentQueues = [queue];
+  } else {
+    concurrentQueues.push(queue);
+  }
+}
+function finishQueueingConcurrentUpdates() {
+  // Transfer the interleaved updates onto the main queue. Each queue has a
+  // `pending` field and an `interleaved` field. When they are not null, they
+  // point to the last node in a circular linked list. We need to append the
+  // interleaved list to the end of the pending list by joining them into a
+  // single, circular list.
+  if (concurrentQueues !== null) {
+    for (var i = 0; i < concurrentQueues.length; i++) {
+      var queue = concurrentQueues[i];
+      var lastInterleavedUpdate = queue.interleaved;
+
+      if (lastInterleavedUpdate !== null) {
+        queue.interleaved = null;
+        var firstInterleavedUpdate = lastInterleavedUpdate.next;
+        var lastPendingUpdate = queue.pending;
+
+        if (lastPendingUpdate !== null) {
+          var firstPendingUpdate = lastPendingUpdate.next;
+          lastPendingUpdate.next = firstInterleavedUpdate;
+          lastInterleavedUpdate.next = firstPendingUpdate;
+        }
+
+        queue.pending = lastInterleavedUpdate;
+      }
+    }
+
+    concurrentQueues = null;
+  }
+}
+function enqueueConcurrentHookUpdate(fiber, queue, update, lane) {
+  var interleaved = queue.interleaved;
+
+  if (interleaved === null) {
+    // This is the first update. Create a circular list.
+    update.next = update; // At the end of the current render, this queue's interleaved updates will
+    // be transferred to the pending queue.
+
+    pushConcurrentUpdateQueue(queue);
+  } else {
+    update.next = interleaved.next;
+    interleaved.next = update;
+  }
+
+  queue.interleaved = update;
+  return markUpdateLaneFromFiberToRoot(fiber, lane);
+}
+function enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane) {
+  var interleaved = queue.interleaved;
+
+  if (interleaved === null) {
+    // This is the first update. Create a circular list.
+    update.next = update; // At the end of the current render, this queue's interleaved updates will
+    // be transferred to the pending queue.
+
+    pushConcurrentUpdateQueue(queue);
+  } else {
+    update.next = interleaved.next;
+    interleaved.next = update;
+  }
+
+  queue.interleaved = update;
+}
+function enqueueConcurrentClassUpdate(fiber, queue, update, lane) {
+  var interleaved = queue.interleaved;
+
+  if (interleaved === null) {
+    // This is the first update. Create a circular list.
+    update.next = update; // At the end of the current render, this queue's interleaved updates will
+    // be transferred to the pending queue.
+
+    pushConcurrentUpdateQueue(queue);
+  } else {
+    update.next = interleaved.next;
+    interleaved.next = update;
+  }
+
+  queue.interleaved = update;
+  return markUpdateLaneFromFiberToRoot(fiber, lane);
+}
+function enqueueConcurrentRenderForLane(fiber, lane) {
+  return markUpdateLaneFromFiberToRoot(fiber, lane);
+} // Calling this function outside this module should only be done for backwards
+// compatibility and should always be accompanied by a warning.
+
+var unsafe_markUpdateLaneFromFiberToRoot = markUpdateLaneFromFiberToRoot;
+
+function markUpdateLaneFromFiberToRoot(sourceFiber, lane) {
+  // Update the source fiber's lanes
+  sourceFiber.lanes = mergeLanes(sourceFiber.lanes, lane);
+  var alternate = sourceFiber.alternate;
+
+  if (alternate !== null) {
+    alternate.lanes = mergeLanes(alternate.lanes, lane);
+  }
+
+  {
+    if (alternate === null && (sourceFiber.flags & (Placement | Hydrating)) !== NoFlags) {
+      warnAboutUpdateOnNotYetMountedFiberInDEV(sourceFiber);
+    }
+  } // Walk the parent path to the root and update the child lanes.
+
+
+  var node = sourceFiber;
+  var parent = sourceFiber.return;
+
+  while (parent !== null) {
+    parent.childLanes = mergeLanes(parent.childLanes, lane);
+    alternate = parent.alternate;
+
+    if (alternate !== null) {
+      alternate.childLanes = mergeLanes(alternate.childLanes, lane);
+    } else {
+      {
+        if ((parent.flags & (Placement | Hydrating)) !== NoFlags) {
+          warnAboutUpdateOnNotYetMountedFiberInDEV(sourceFiber);
+        }
+      }
+    }
+
+    node = parent;
+    parent = parent.return;
+  }
+
+  if (node.tag === HostRoot) {
+    var root = node.stateNode;
+    return root;
+  } else {
+    return null;
+  }
+}
+
+var UpdateState = 0;
+var ReplaceState = 1;
+var ForceUpdate = 2;
+var CaptureUpdate = 3; // Global state that is reset at the beginning of calling `processUpdateQueue`.
+// It should only be read right after calling `processUpdateQueue`, via
+// `checkHasForceUpdateAfterProcessing`.
+
+var hasForceUpdate = false;
+var didWarnUpdateInsideUpdate;
+var currentlyProcessingQueue;
+
+{
+  didWarnUpdateInsideUpdate = false;
+  currentlyProcessingQueue = null;
+}
+
+function initializeUpdateQueue(fiber) {
+  var queue = {
+    baseState: fiber.memoizedState,
+    firstBaseUpdate: null,
+    lastBaseUpdate: null,
+    shared: {
+      pending: null,
+      interleaved: null,
+      lanes: NoLanes
+    },
+    effects: null
+  };
+  fiber.updateQueue = queue;
+}
+function cloneUpdateQueue(current, workInProgress) {
+  // Clone the update queue from current. Unless it's already a clone.
+  var queue = workInProgress.updateQueue;
+  var currentQueue = current.updateQueue;
+
+  if (queue === currentQueue) {
+    var clone = {
+      baseState: currentQueue.baseState,
+      firstBaseUpdate: currentQueue.firstBaseUpdate,
+      lastBaseUpdate: currentQueue.lastBaseUpdate,
+      shared: currentQueue.shared,
+      effects: currentQueue.effects
+    };
+    workInProgress.updateQueue = clone;
+  }
+}
+function createUpdate(eventTime, lane) {
+  var update = {
+    eventTime: eventTime,
+    lane: lane,
+    tag: UpdateState,
+    payload: null,
+    callback: null,
+    next: null
+  };
+  return update;
+}
+function enqueueUpdate(fiber, update, lane) {
+  var updateQueue = fiber.updateQueue;
+
+  if (updateQueue === null) {
+    // Only occurs if the fiber has been unmounted.
+    return null;
+  }
+
+  var sharedQueue = updateQueue.shared;
+
+  {
+    if (currentlyProcessingQueue === sharedQueue && !didWarnUpdateInsideUpdate) {
+      error('An update (setState, replaceState, or forceUpdate) was scheduled ' + 'from inside an update function. Update functions should be pure, ' + 'with zero side-effects. Consider using componentDidUpdate or a ' + 'callback.');
+
+      didWarnUpdateInsideUpdate = true;
+    }
+  }
+
+  if (isUnsafeClassRenderPhaseUpdate()) {
+    // This is an unsafe render phase update. Add directly to the update
+    // queue so we can process it immediately during the current render.
+    var pending = sharedQueue.pending;
+
+    if (pending === null) {
+      // This is the first update. Create a circular list.
+      update.next = update;
+    } else {
+      update.next = pending.next;
+      pending.next = update;
+    }
+
+    sharedQueue.pending = update; // Update the childLanes even though we're most likely already rendering
+    // this fiber. This is for backwards compatibility in the case where you
+    // update a different component during render phase than the one that is
+    // currently renderings (a pattern that is accompanied by a warning).
+
+    return unsafe_markUpdateLaneFromFiberToRoot(fiber, lane);
+  } else {
+    return enqueueConcurrentClassUpdate(fiber, sharedQueue, update, lane);
+  }
+}
+function entangleTransitions(root, fiber, lane) {
+  var updateQueue = fiber.updateQueue;
+
+  if (updateQueue === null) {
+    // Only occurs if the fiber has been unmounted.
+    return;
+  }
+
+  var sharedQueue = updateQueue.shared;
+
+  if (isTransitionLane(lane)) {
+    var queueLanes = sharedQueue.lanes; // If any entangled lanes are no longer pending on the root, then they must
+    // have finished. We can remove them from the shared queue, which represents
+    // a superset of the actually pending lanes. In some cases we may entangle
+    // more than we need to, but that's OK. In fact it's worse if we *don't*
+    // entangle when we should.
+
+    queueLanes = intersectLanes(queueLanes, root.pendingLanes); // Entangle the new transition lane with the other transition lanes.
+
+    var newQueueLanes = mergeLanes(queueLanes, lane);
+    sharedQueue.lanes = newQueueLanes; // Even if queue.lanes already include lane, we don't know for certain if
+    // the lane finished since the last time we entangled it. So we need to
+    // entangle it again, just to be sure.
+
+    markRootEntangled(root, newQueueLanes);
+  }
+}
+function enqueueCapturedUpdate(workInProgress, capturedUpdate) {
+  // Captured updates are updates that are thrown by a child during the render
+  // phase. They should be discarded if the render is aborted. Therefore,
+  // we should only put them on the work-in-progress queue, not the current one.
+  var queue = workInProgress.updateQueue; // Check if the work-in-progress queue is a clone.
+
+  var current = workInProgress.alternate;
+
+  if (current !== null) {
+    var currentQueue = current.updateQueue;
+
+    if (queue === currentQueue) {
+      // The work-in-progress queue is the same as current. This happens when
+      // we bail out on a parent fiber that then captures an error thrown by
+      // a child. Since we want to append the update only to the work-in
+      // -progress queue, we need to clone the updates. We usually clone during
+      // processUpdateQueue, but that didn't happen in this case because we
+      // skipped over the parent when we bailed out.
+      var newFirst = null;
+      var newLast = null;
+      var firstBaseUpdate = queue.firstBaseUpdate;
+
+      if (firstBaseUpdate !== null) {
+        // Loop through the updates and clone them.
+        var update = firstBaseUpdate;
+
+        do {
+          var clone = {
+            eventTime: update.eventTime,
+            lane: update.lane,
+            tag: update.tag,
+            payload: update.payload,
+            callback: update.callback,
+            next: null
+          };
+
+          if (newLast === null) {
+            newFirst = newLast = clone;
+          } else {
+            newLast.next = clone;
+            newLast = clone;
+          }
+
+          update = update.next;
+        } while (update !== null); // Append the captured update the end of the cloned list.
+
+
+        if (newLast === null) {
+          newFirst = newLast = capturedUpdate;
+        } else {
+          newLast.next = capturedUpdate;
+          newLast = capturedUpdate;
+        }
+      } else {
+        // There are no base updates.
+        newFirst = newLast = capturedUpdate;
+      }
+
+      queue = {
+        baseState: currentQueue.baseState,
+        firstBaseUpdate: newFirst,
+        lastBaseUpdate: newLast,
+        shared: currentQueue.shared,
+        effects: currentQueue.effects
+      };
+      workInProgress.updateQueue = queue;
+      return;
+    }
+  } // Append the update to the end of the list.
+
+
+  var lastBaseUpdate = queue.lastBaseUpdate;
+
+  if (lastBaseUpdate === null) {
+    queue.firstBaseUpdate = capturedUpdate;
+  } else {
+    lastBaseUpdate.next = capturedUpdate;
+  }
+
+  queue.lastBaseUpdate = capturedUpdate;
+}
+
+function getStateFromUpdate(workInProgress, queue, update, prevState, nextProps, instance) {
+  switch (update.tag) {
+    case ReplaceState:
+      {
+        var payload = update.payload;
+
+        if (typeof payload === 'function') {
+          // Updater function
+          {
+            enterDisallowedContextReadInDEV();
+          }
+
+          var nextState = payload.call(instance, prevState, nextProps);
+
+          {
+            if ( workInProgress.mode & StrictLegacyMode) {
+              setIsStrictModeForDevtools(true);
+
+              try {
+                payload.call(instance, prevState, nextProps);
+              } finally {
+                setIsStrictModeForDevtools(false);
+              }
+            }
+
+            exitDisallowedContextReadInDEV();
+          }
+
+          return nextState;
+        } // State object
+
+
+        return payload;
+      }
+
+    case CaptureUpdate:
+      {
+        workInProgress.flags = workInProgress.flags & ~ShouldCapture | DidCapture;
+      }
+    // Intentional fallthrough
+
+    case UpdateState:
+      {
+        var _payload = update.payload;
+        var partialState;
+
+        if (typeof _payload === 'function') {
+          // Updater function
+          {
+            enterDisallowedContextReadInDEV();
+          }
+
+          partialState = _payload.call(instance, prevState, nextProps);
+
+          {
+            if ( workInProgress.mode & StrictLegacyMode) {
+              setIsStrictModeForDevtools(true);
+
+              try {
+                _payload.call(instance, prevState, nextProps);
+              } finally {
+                setIsStrictModeForDevtools(false);
+              }
+            }
+
+            exitDisallowedContextReadInDEV();
+          }
+        } else {
+          // Partial state object
+          partialState = _payload;
+        }
+
+        if (partialState === null || partialState === undefined) {
+          // Null and undefined are treated as no-ops.
+          return prevState;
+        } // Merge the partial state and the previous state.
+
+
+        return assign({}, prevState, partialState);
+      }
+
+    case ForceUpdate:
+      {
+        hasForceUpdate = true;
+        return prevState;
+      }
+  }
+
+  return prevState;
+}
+
+function processUpdateQueue(workInProgress, props, instance, renderLanes) {
+  // This is always non-null on a ClassComponent or HostRoot
+  var queue = workInProgress.updateQueue;
+  hasForceUpdate = false;
+
+  {
+    currentlyProcessingQueue = queue.shared;
+  }
+
+  var firstBaseUpdate = queue.firstBaseUpdate;
+  var lastBaseUpdate = queue.lastBaseUpdate; // Check if there are pending updates. If so, transfer them to the base queue.
+
+  var pendingQueue = queue.shared.pending;
+
+  if (pendingQueue !== null) {
+    queue.shared.pending = null; // The pending queue is circular. Disconnect the pointer between first
+    // and last so that it's non-circular.
+
+    var lastPendingUpdate = pendingQueue;
+    var firstPendingUpdate = lastPendingUpdate.next;
+    lastPendingUpdate.next = null; // Append pending updates to base queue
+
+    if (lastBaseUpdate === null) {
+      firstBaseUpdate = firstPendingUpdate;
+    } else {
+      lastBaseUpdate.next = firstPendingUpdate;
+    }
+
+    lastBaseUpdate = lastPendingUpdate; // If there's a current queue, and it's different from the base queue, then
+    // we need to transfer the updates to that queue, too. Because the base
+    // queue is a singly-linked list with no cycles, we can append to both
+    // lists and take advantage of structural sharing.
+    // TODO: Pass `current` as argument
+
+    var current = workInProgress.alternate;
+
+    if (current !== null) {
+      // This is always non-null on a ClassComponent or HostRoot
+      var currentQueue = current.updateQueue;
+      var currentLastBaseUpdate = currentQueue.lastBaseUpdate;
+
+      if (currentLastBaseUpdate !== lastBaseUpdate) {
+        if (currentLastBaseUpdate === null) {
+          currentQueue.firstBaseUpdate = firstPendingUpdate;
+        } else {
+          currentLastBaseUpdate.next = firstPendingUpdate;
+        }
+
+        currentQueue.lastBaseUpdate = lastPendingUpdate;
+      }
+    }
+  } // These values may change as we process the queue.
+
+
+  if (firstBaseUpdate !== null) {
+    // Iterate through the list of updates to compute the result.
+    var newState = queue.baseState; // TODO: Don't need to accumulate this. Instead, we can remove renderLanes
+    // from the original lanes.
+
+    var newLanes = NoLanes;
+    var newBaseState = null;
+    var newFirstBaseUpdate = null;
+    var newLastBaseUpdate = null;
+    var update = firstBaseUpdate;
+
+    do {
+      var updateLane = update.lane;
+      var updateEventTime = update.eventTime;
+
+      if (!isSubsetOfLanes(renderLanes, updateLane)) {
+        // Priority is insufficient. Skip this update. If this is the first
+        // skipped update, the previous update/state is the new base
+        // update/state.
+        var clone = {
+          eventTime: updateEventTime,
+          lane: updateLane,
+          tag: update.tag,
+          payload: update.payload,
+          callback: update.callback,
+          next: null
+        };
+
+        if (newLastBaseUpdate === null) {
+          newFirstBaseUpdate = newLastBaseUpdate = clone;
+          newBaseState = newState;
+        } else {
+          newLastBaseUpdate = newLastBaseUpdate.next = clone;
+        } // Update the remaining priority in the queue.
+
+
+        newLanes = mergeLanes(newLanes, updateLane);
+      } else {
+        // This update does have sufficient priority.
+        if (newLastBaseUpdate !== null) {
+          var _clone = {
+            eventTime: updateEventTime,
+            // This update is going to be committed so we never want uncommit
+            // it. Using NoLane works because 0 is a subset of all bitmasks, so
+            // this will never be skipped by the check above.
+            lane: NoLane,
+            tag: update.tag,
+            payload: update.payload,
+            callback: update.callback,
+            next: null
+          };
+          newLastBaseUpdate = newLastBaseUpdate.next = _clone;
+        } // Process this update.
+
+
+        newState = getStateFromUpdate(workInProgress, queue, update, newState, props, instance);
+        var callback = update.callback;
+
+        if (callback !== null && // If the update was already committed, we should not queue its
+        // callback again.
+        update.lane !== NoLane) {
+          workInProgress.flags |= Callback;
+          var effects = queue.effects;
+
+          if (effects === null) {
+            queue.effects = [update];
+          } else {
+            effects.push(update);
+          }
+        }
+      }
+
+      update = update.next;
+
+      if (update === null) {
+        pendingQueue = queue.shared.pending;
+
+        if (pendingQueue === null) {
+          break;
+        } else {
+          // An update was scheduled from inside a reducer. Add the new
+          // pending updates to the end of the list and keep processing.
+          var _lastPendingUpdate = pendingQueue; // Intentionally unsound. Pending updates form a circular list, but we
+          // unravel them when transferring them to the base queue.
+
+          var _firstPendingUpdate = _lastPendingUpdate.next;
+          _lastPendingUpdate.next = null;
+          update = _firstPendingUpdate;
+          queue.lastBaseUpdate = _lastPendingUpdate;
+          queue.shared.pending = null;
+        }
+      }
+    } while (true);
+
+    if (newLastBaseUpdate === null) {
+      newBaseState = newState;
+    }
+
+    queue.baseState = newBaseState;
+    queue.firstBaseUpdate = newFirstBaseUpdate;
+    queue.lastBaseUpdate = newLastBaseUpdate; // Interleaved updates are stored on a separate queue. We aren't going to
+    // process them during this render, but we do need to track which lanes
+    // are remaining.
+
+    var lastInterleaved = queue.shared.interleaved;
+
+    if (lastInterleaved !== null) {
+      var interleaved = lastInterleaved;
+
+      do {
+        newLanes = mergeLanes(newLanes, interleaved.lane);
+        interleaved = interleaved.next;
+      } while (interleaved !== lastInterleaved);
+    } else if (firstBaseUpdate === null) {
+      // `queue.lanes` is used for entangling transitions. We can set it back to
+      // zero once the queue is empty.
+      queue.shared.lanes = NoLanes;
+    } // Set the remaining expiration time to be whatever is remaining in the queue.
+    // This should be fine because the only two other things that contribute to
+    // expiration time are props and context. We're already in the middle of the
+    // begin phase by the time we start processing the queue, so we've already
+    // dealt with the props. Context in components that specify
+    // shouldComponentUpdate is tricky; but we'll have to account for
+    // that regardless.
+
+
+    markSkippedUpdateLanes(newLanes);
+    workInProgress.lanes = newLanes;
+    workInProgress.memoizedState = newState;
+  }
+
+  {
+    currentlyProcessingQueue = null;
+  }
+}
+
+function callCallback(callback, context) {
+  if (typeof callback !== 'function') {
+    throw new Error('Invalid argument passed as callback. Expected a function. Instead ' + ("received: " + callback));
+  }
+
+  callback.call(context);
+}
+
+function resetHasForceUpdateBeforeProcessing() {
+  hasForceUpdate = false;
+}
+function checkHasForceUpdateAfterProcessing() {
+  return hasForceUpdate;
+}
+function commitUpdateQueue(finishedWork, finishedQueue, instance) {
+  // Commit the effects
+  var effects = finishedQueue.effects;
+  finishedQueue.effects = null;
+
+  if (effects !== null) {
+    for (var i = 0; i < effects.length; i++) {
+      var effect = effects[i];
+      var callback = effect.callback;
+
+      if (callback !== null) {
+        effect.callback = null;
+        callCallback(callback, instance);
+      }
+    }
   }
 }
 
@@ -21789,6 +21170,842 @@ function transferActualDuration(fiber) {
   }
 }
 
+function resolveDefaultProps(Component, baseProps) {
+  if (Component && Component.defaultProps) {
+    // Resolve default props. Taken from ReactElement
+    var props = assign({}, baseProps);
+    var defaultProps = Component.defaultProps;
+
+    for (var propName in defaultProps) {
+      if (props[propName] === undefined) {
+        props[propName] = defaultProps[propName];
+      }
+    }
+
+    return props;
+  }
+
+  return baseProps;
+}
+
+var fakeInternalInstance = {};
+var didWarnAboutStateAssignmentForComponent;
+var didWarnAboutUninitializedState;
+var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
+var didWarnAboutLegacyLifecyclesAndDerivedState;
+var didWarnAboutUndefinedDerivedState;
+var warnOnUndefinedDerivedState;
+var warnOnInvalidCallback;
+var didWarnAboutDirectlyAssigningPropsToState;
+var didWarnAboutContextTypeAndContextTypes;
+var didWarnAboutInvalidateContextType;
+var didWarnAboutLegacyContext$1;
+
+{
+  didWarnAboutStateAssignmentForComponent = new Set();
+  didWarnAboutUninitializedState = new Set();
+  didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate = new Set();
+  didWarnAboutLegacyLifecyclesAndDerivedState = new Set();
+  didWarnAboutDirectlyAssigningPropsToState = new Set();
+  didWarnAboutUndefinedDerivedState = new Set();
+  didWarnAboutContextTypeAndContextTypes = new Set();
+  didWarnAboutInvalidateContextType = new Set();
+  didWarnAboutLegacyContext$1 = new Set();
+  var didWarnOnInvalidCallback = new Set();
+
+  warnOnInvalidCallback = function (callback, callerName) {
+    if (callback === null || typeof callback === 'function') {
+      return;
+    }
+
+    var key = callerName + '_' + callback;
+
+    if (!didWarnOnInvalidCallback.has(key)) {
+      didWarnOnInvalidCallback.add(key);
+
+      error('%s(...): Expected the last optional `callback` argument to be a ' + 'function. Instead received: %s.', callerName, callback);
+    }
+  };
+
+  warnOnUndefinedDerivedState = function (type, partialState) {
+    if (partialState === undefined) {
+      var componentName = getComponentNameFromType(type) || 'Component';
+
+      if (!didWarnAboutUndefinedDerivedState.has(componentName)) {
+        didWarnAboutUndefinedDerivedState.add(componentName);
+
+        error('%s.getDerivedStateFromProps(): A valid state object (or null) must be returned. ' + 'You have returned undefined.', componentName);
+      }
+    }
+  }; // This is so gross but it's at least non-critical and can be removed if
+  // it causes problems. This is meant to give a nicer error message for
+  // ReactDOM15.unstable_renderSubtreeIntoContainer(reactDOM16Component,
+  // ...)) which otherwise throws a "_processChildContext is not a function"
+  // exception.
+
+
+  Object.defineProperty(fakeInternalInstance, '_processChildContext', {
+    enumerable: false,
+    value: function () {
+      throw new Error('_processChildContext is not available in React 16+. This likely ' + 'means you have multiple copies of React and are attempting to nest ' + 'a React 15 tree inside a React 16 tree using ' + "unstable_renderSubtreeIntoContainer, which isn't supported. Try " + 'to make sure you have only one copy of React (and ideally, switch ' + 'to ReactDOM.createPortal).');
+    }
+  });
+  Object.freeze(fakeInternalInstance);
+}
+
+function applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, nextProps) {
+  var prevState = workInProgress.memoizedState;
+  var partialState = getDerivedStateFromProps(nextProps, prevState);
+
+  {
+    if ( workInProgress.mode & StrictLegacyMode) {
+      setIsStrictModeForDevtools(true);
+
+      try {
+        // Invoke the function an extra time to help detect side-effects.
+        partialState = getDerivedStateFromProps(nextProps, prevState);
+      } finally {
+        setIsStrictModeForDevtools(false);
+      }
+    }
+
+    warnOnUndefinedDerivedState(ctor, partialState);
+  } // Merge the partial state and the previous state.
+
+
+  var memoizedState = partialState === null || partialState === undefined ? prevState : assign({}, prevState, partialState);
+  workInProgress.memoizedState = memoizedState; // Once the update queue is empty, persist the derived state onto the
+  // base state.
+
+  if (workInProgress.lanes === NoLanes) {
+    // Queue is always non-null for classes
+    var updateQueue = workInProgress.updateQueue;
+    updateQueue.baseState = memoizedState;
+  }
+}
+
+var classComponentUpdater = {
+  isMounted: isMounted,
+  enqueueSetState: function (inst, payload, callback) {
+    var fiber = get(inst);
+    var eventTime = requestEventTime();
+    var lane = requestUpdateLane(fiber);
+    var update = createUpdate(eventTime, lane);
+    update.payload = payload;
+
+    if (callback !== undefined && callback !== null) {
+      {
+        warnOnInvalidCallback(callback, 'setState');
+      }
+
+      update.callback = callback;
+    }
+
+    var root = enqueueUpdate(fiber, update, lane);
+
+    if (root !== null) {
+      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
+      entangleTransitions(root, fiber, lane);
+    }
+
+    {
+      markStateUpdateScheduled(fiber, lane);
+    }
+  },
+  enqueueReplaceState: function (inst, payload, callback) {
+    var fiber = get(inst);
+    var eventTime = requestEventTime();
+    var lane = requestUpdateLane(fiber);
+    var update = createUpdate(eventTime, lane);
+    update.tag = ReplaceState;
+    update.payload = payload;
+
+    if (callback !== undefined && callback !== null) {
+      {
+        warnOnInvalidCallback(callback, 'replaceState');
+      }
+
+      update.callback = callback;
+    }
+
+    var root = enqueueUpdate(fiber, update, lane);
+
+    if (root !== null) {
+      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
+      entangleTransitions(root, fiber, lane);
+    }
+
+    {
+      markStateUpdateScheduled(fiber, lane);
+    }
+  },
+  enqueueForceUpdate: function (inst, callback) {
+    var fiber = get(inst);
+    var eventTime = requestEventTime();
+    var lane = requestUpdateLane(fiber);
+    var update = createUpdate(eventTime, lane);
+    update.tag = ForceUpdate;
+
+    if (callback !== undefined && callback !== null) {
+      {
+        warnOnInvalidCallback(callback, 'forceUpdate');
+      }
+
+      update.callback = callback;
+    }
+
+    var root = enqueueUpdate(fiber, update, lane);
+
+    if (root !== null) {
+      scheduleUpdateOnFiber(root, fiber, lane, eventTime);
+      entangleTransitions(root, fiber, lane);
+    }
+
+    {
+      markForceUpdateScheduled(fiber, lane);
+    }
+  }
+};
+
+function checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext) {
+  var instance = workInProgress.stateNode;
+
+  if (typeof instance.shouldComponentUpdate === 'function') {
+    var shouldUpdate = instance.shouldComponentUpdate(newProps, newState, nextContext);
+
+    {
+      if ( workInProgress.mode & StrictLegacyMode) {
+        setIsStrictModeForDevtools(true);
+
+        try {
+          // Invoke the function an extra time to help detect side-effects.
+          shouldUpdate = instance.shouldComponentUpdate(newProps, newState, nextContext);
+        } finally {
+          setIsStrictModeForDevtools(false);
+        }
+      }
+
+      if (shouldUpdate === undefined) {
+        error('%s.shouldComponentUpdate(): Returned undefined instead of a ' + 'boolean value. Make sure to return true or false.', getComponentNameFromType(ctor) || 'Component');
+      }
+    }
+
+    return shouldUpdate;
+  }
+
+  if (ctor.prototype && ctor.prototype.isPureReactComponent) {
+    return !shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState);
+  }
+
+  return true;
+}
+
+function checkClassInstance(workInProgress, ctor, newProps) {
+  var instance = workInProgress.stateNode;
+
+  {
+    var name = getComponentNameFromType(ctor) || 'Component';
+    var renderPresent = instance.render;
+
+    if (!renderPresent) {
+      if (ctor.prototype && typeof ctor.prototype.render === 'function') {
+        error('%s(...): No `render` method found on the returned component ' + 'instance: did you accidentally return an object from the constructor?', name);
+      } else {
+        error('%s(...): No `render` method found on the returned component ' + 'instance: you may have forgotten to define `render`.', name);
+      }
+    }
+
+    if (instance.getInitialState && !instance.getInitialState.isReactClassApproved && !instance.state) {
+      error('getInitialState was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Did you mean to define a state property instead?', name);
+    }
+
+    if (instance.getDefaultProps && !instance.getDefaultProps.isReactClassApproved) {
+      error('getDefaultProps was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Use a static property to define defaultProps instead.', name);
+    }
+
+    if (instance.propTypes) {
+      error('propTypes was defined as an instance property on %s. Use a static ' + 'property to define propTypes instead.', name);
+    }
+
+    if (instance.contextType) {
+      error('contextType was defined as an instance property on %s. Use a static ' + 'property to define contextType instead.', name);
+    }
+
+    {
+      if (ctor.childContextTypes && !didWarnAboutLegacyContext$1.has(ctor) && // Strict Mode has its own warning for legacy context, so we can skip
+      // this one.
+      (workInProgress.mode & StrictLegacyMode) === NoMode) {
+        didWarnAboutLegacyContext$1.add(ctor);
+
+        error('%s uses the legacy childContextTypes API which is no longer ' + 'supported and will be removed in the next major release. Use ' + 'React.createContext() instead\n\n.' + 'Learn more about this warning here: https://reactjs.org/link/legacy-context', name);
+      }
+
+      if (ctor.contextTypes && !didWarnAboutLegacyContext$1.has(ctor) && // Strict Mode has its own warning for legacy context, so we can skip
+      // this one.
+      (workInProgress.mode & StrictLegacyMode) === NoMode) {
+        didWarnAboutLegacyContext$1.add(ctor);
+
+        error('%s uses the legacy contextTypes API which is no longer supported ' + 'and will be removed in the next major release. Use ' + 'React.createContext() with static contextType instead.\n\n' + 'Learn more about this warning here: https://reactjs.org/link/legacy-context', name);
+      }
+
+      if (instance.contextTypes) {
+        error('contextTypes was defined as an instance property on %s. Use a static ' + 'property to define contextTypes instead.', name);
+      }
+
+      if (ctor.contextType && ctor.contextTypes && !didWarnAboutContextTypeAndContextTypes.has(ctor)) {
+        didWarnAboutContextTypeAndContextTypes.add(ctor);
+
+        error('%s declares both contextTypes and contextType static properties. ' + 'The legacy contextTypes property will be ignored.', name);
+      }
+    }
+
+    if (typeof instance.componentShouldUpdate === 'function') {
+      error('%s has a method called ' + 'componentShouldUpdate(). Did you mean shouldComponentUpdate()? ' + 'The name is phrased as a question because the function is ' + 'expected to return a value.', name);
+    }
+
+    if (ctor.prototype && ctor.prototype.isPureReactComponent && typeof instance.shouldComponentUpdate !== 'undefined') {
+      error('%s has a method called shouldComponentUpdate(). ' + 'shouldComponentUpdate should not be used when extending React.PureComponent. ' + 'Please extend React.Component if shouldComponentUpdate is used.', getComponentNameFromType(ctor) || 'A pure component');
+    }
+
+    if (typeof instance.componentDidUnmount === 'function') {
+      error('%s has a method called ' + 'componentDidUnmount(). But there is no such lifecycle method. ' + 'Did you mean componentWillUnmount()?', name);
+    }
+
+    if (typeof instance.componentDidReceiveProps === 'function') {
+      error('%s has a method called ' + 'componentDidReceiveProps(). But there is no such lifecycle method. ' + 'If you meant to update the state in response to changing props, ' + 'use componentWillReceiveProps(). If you meant to fetch data or ' + 'run side-effects or mutations after React has updated the UI, use componentDidUpdate().', name);
+    }
+
+    if (typeof instance.componentWillRecieveProps === 'function') {
+      error('%s has a method called ' + 'componentWillRecieveProps(). Did you mean componentWillReceiveProps()?', name);
+    }
+
+    if (typeof instance.UNSAFE_componentWillRecieveProps === 'function') {
+      error('%s has a method called ' + 'UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?', name);
+    }
+
+    var hasMutatedProps = instance.props !== newProps;
+
+    if (instance.props !== undefined && hasMutatedProps) {
+      error('%s(...): When calling super() in `%s`, make sure to pass ' + "up the same props that your component's constructor was passed.", name, name);
+    }
+
+    if (instance.defaultProps) {
+      error('Setting defaultProps as an instance property on %s is not supported and will be ignored.' + ' Instead, define defaultProps as a static property on %s.', name, name);
+    }
+
+    if (typeof instance.getSnapshotBeforeUpdate === 'function' && typeof instance.componentDidUpdate !== 'function' && !didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.has(ctor)) {
+      didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.add(ctor);
+
+      error('%s: getSnapshotBeforeUpdate() should be used with componentDidUpdate(). ' + 'This component defines getSnapshotBeforeUpdate() only.', getComponentNameFromType(ctor));
+    }
+
+    if (typeof instance.getDerivedStateFromProps === 'function') {
+      error('%s: getDerivedStateFromProps() is defined as an instance method ' + 'and will be ignored. Instead, declare it as a static method.', name);
+    }
+
+    if (typeof instance.getDerivedStateFromError === 'function') {
+      error('%s: getDerivedStateFromError() is defined as an instance method ' + 'and will be ignored. Instead, declare it as a static method.', name);
+    }
+
+    if (typeof ctor.getSnapshotBeforeUpdate === 'function') {
+      error('%s: getSnapshotBeforeUpdate() is defined as a static method ' + 'and will be ignored. Instead, declare it as an instance method.', name);
+    }
+
+    var _state = instance.state;
+
+    if (_state && (typeof _state !== 'object' || isArray(_state))) {
+      error('%s.state: must be set to an object or null', name);
+    }
+
+    if (typeof instance.getChildContext === 'function' && typeof ctor.childContextTypes !== 'object') {
+      error('%s.getChildContext(): childContextTypes must be defined in order to ' + 'use getChildContext().', name);
+    }
+  }
+}
+
+function adoptClassInstance(workInProgress, instance) {
+  instance.updater = classComponentUpdater;
+  workInProgress.stateNode = instance; // The instance needs access to the fiber so that it can schedule updates
+
+  set(instance, workInProgress);
+
+  {
+    instance._reactInternalInstance = fakeInternalInstance;
+  }
+}
+
+function constructClassInstance(workInProgress, ctor, props) {
+  var isLegacyContextConsumer = false;
+  var unmaskedContext = emptyContextObject;
+  var context = emptyContextObject;
+  var contextType = ctor.contextType;
+
+  {
+    if ('contextType' in ctor) {
+      var isValid = // Allow null for conditional declaration
+      contextType === null || contextType !== undefined && contextType.$$typeof === REACT_CONTEXT_TYPE && contextType._context === undefined; // Not a <Context.Consumer>
+
+      if (!isValid && !didWarnAboutInvalidateContextType.has(ctor)) {
+        didWarnAboutInvalidateContextType.add(ctor);
+        var addendum = '';
+
+        if (contextType === undefined) {
+          addendum = ' However, it is set to undefined. ' + 'This can be caused by a typo or by mixing up named and default imports. ' + 'This can also happen due to a circular dependency, so ' + 'try moving the createContext() call to a separate file.';
+        } else if (typeof contextType !== 'object') {
+          addendum = ' However, it is set to a ' + typeof contextType + '.';
+        } else if (contextType.$$typeof === REACT_PROVIDER_TYPE) {
+          addendum = ' Did you accidentally pass the Context.Provider instead?';
+        } else if (contextType._context !== undefined) {
+          // <Context.Consumer>
+          addendum = ' Did you accidentally pass the Context.Consumer instead?';
+        } else {
+          addendum = ' However, it is set to an object with keys {' + Object.keys(contextType).join(', ') + '}.';
+        }
+
+        error('%s defines an invalid contextType. ' + 'contextType should point to the Context object returned by React.createContext().%s', getComponentNameFromType(ctor) || 'Component', addendum);
+      }
+    }
+  }
+
+  if (typeof contextType === 'object' && contextType !== null) {
+    context = readContext(contextType);
+  } else {
+    unmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
+    var contextTypes = ctor.contextTypes;
+    isLegacyContextConsumer = contextTypes !== null && contextTypes !== undefined;
+    context = isLegacyContextConsumer ? getMaskedContext(workInProgress, unmaskedContext) : emptyContextObject;
+  }
+
+  var instance = new ctor(props, context); // Instantiate twice to help detect side-effects.
+
+  {
+    if ( workInProgress.mode & StrictLegacyMode) {
+      setIsStrictModeForDevtools(true);
+
+      try {
+        instance = new ctor(props, context); // eslint-disable-line no-new
+      } finally {
+        setIsStrictModeForDevtools(false);
+      }
+    }
+  }
+
+  var state = workInProgress.memoizedState = instance.state !== null && instance.state !== undefined ? instance.state : null;
+  adoptClassInstance(workInProgress, instance);
+
+  {
+    if (typeof ctor.getDerivedStateFromProps === 'function' && state === null) {
+      var componentName = getComponentNameFromType(ctor) || 'Component';
+
+      if (!didWarnAboutUninitializedState.has(componentName)) {
+        didWarnAboutUninitializedState.add(componentName);
+
+        error('`%s` uses `getDerivedStateFromProps` but its initial state is ' + '%s. This is not recommended. Instead, define the initial state by ' + 'assigning an object to `this.state` in the constructor of `%s`. ' + 'This ensures that `getDerivedStateFromProps` arguments have a consistent shape.', componentName, instance.state === null ? 'null' : 'undefined', componentName);
+      }
+    } // If new component APIs are defined, "unsafe" lifecycles won't be called.
+    // Warn about these lifecycles if they are present.
+    // Don't warn about react-lifecycles-compat polyfilled methods though.
+
+
+    if (typeof ctor.getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function') {
+      var foundWillMountName = null;
+      var foundWillReceivePropsName = null;
+      var foundWillUpdateName = null;
+
+      if (typeof instance.componentWillMount === 'function' && instance.componentWillMount.__suppressDeprecationWarning !== true) {
+        foundWillMountName = 'componentWillMount';
+      } else if (typeof instance.UNSAFE_componentWillMount === 'function') {
+        foundWillMountName = 'UNSAFE_componentWillMount';
+      }
+
+      if (typeof instance.componentWillReceiveProps === 'function' && instance.componentWillReceiveProps.__suppressDeprecationWarning !== true) {
+        foundWillReceivePropsName = 'componentWillReceiveProps';
+      } else if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
+        foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
+      }
+
+      if (typeof instance.componentWillUpdate === 'function' && instance.componentWillUpdate.__suppressDeprecationWarning !== true) {
+        foundWillUpdateName = 'componentWillUpdate';
+      } else if (typeof instance.UNSAFE_componentWillUpdate === 'function') {
+        foundWillUpdateName = 'UNSAFE_componentWillUpdate';
+      }
+
+      if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
+        var _componentName = getComponentNameFromType(ctor) || 'Component';
+
+        var newApiName = typeof ctor.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
+
+        if (!didWarnAboutLegacyLifecyclesAndDerivedState.has(_componentName)) {
+          didWarnAboutLegacyLifecyclesAndDerivedState.add(_componentName);
+
+          error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + '%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\n' + 'The above lifecycles should be removed. Learn more about this warning here:\n' + 'https://reactjs.org/link/unsafe-component-lifecycles', _componentName, newApiName, foundWillMountName !== null ? "\n  " + foundWillMountName : '', foundWillReceivePropsName !== null ? "\n  " + foundWillReceivePropsName : '', foundWillUpdateName !== null ? "\n  " + foundWillUpdateName : '');
+        }
+      }
+    }
+  } // Cache unmasked context so we can avoid recreating masked context unless necessary.
+  // ReactFiberContext usually updates this cache but can't for newly-created instances.
+
+
+  if (isLegacyContextConsumer) {
+    cacheContext(workInProgress, unmaskedContext, context);
+  }
+
+  return instance;
+}
+
+function callComponentWillMount(workInProgress, instance) {
+  var oldState = instance.state;
+
+  if (typeof instance.componentWillMount === 'function') {
+    instance.componentWillMount();
+  }
+
+  if (typeof instance.UNSAFE_componentWillMount === 'function') {
+    instance.UNSAFE_componentWillMount();
+  }
+
+  if (oldState !== instance.state) {
+    {
+      error('%s.componentWillMount(): Assigning directly to this.state is ' + "deprecated (except inside a component's " + 'constructor). Use setState instead.', getComponentNameFromFiber(workInProgress) || 'Component');
+    }
+
+    classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
+  }
+}
+
+function callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext) {
+  var oldState = instance.state;
+
+  if (typeof instance.componentWillReceiveProps === 'function') {
+    instance.componentWillReceiveProps(newProps, nextContext);
+  }
+
+  if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
+    instance.UNSAFE_componentWillReceiveProps(newProps, nextContext);
+  }
+
+  if (instance.state !== oldState) {
+    {
+      var componentName = getComponentNameFromFiber(workInProgress) || 'Component';
+
+      if (!didWarnAboutStateAssignmentForComponent.has(componentName)) {
+        didWarnAboutStateAssignmentForComponent.add(componentName);
+
+        error('%s.componentWillReceiveProps(): Assigning directly to ' + "this.state is deprecated (except inside a component's " + 'constructor). Use setState instead.', componentName);
+      }
+    }
+
+    classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
+  }
+} // Invokes the mount life-cycles on a previously never rendered instance.
+
+
+function mountClassInstance(workInProgress, ctor, newProps, renderLanes) {
+  {
+    checkClassInstance(workInProgress, ctor, newProps);
+  }
+
+  var instance = workInProgress.stateNode;
+  instance.props = newProps;
+  instance.state = workInProgress.memoizedState;
+  instance.refs = {};
+  initializeUpdateQueue(workInProgress);
+  var contextType = ctor.contextType;
+
+  if (typeof contextType === 'object' && contextType !== null) {
+    instance.context = readContext(contextType);
+  } else {
+    var unmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
+    instance.context = getMaskedContext(workInProgress, unmaskedContext);
+  }
+
+  {
+    if (instance.state === newProps) {
+      var componentName = getComponentNameFromType(ctor) || 'Component';
+
+      if (!didWarnAboutDirectlyAssigningPropsToState.has(componentName)) {
+        didWarnAboutDirectlyAssigningPropsToState.add(componentName);
+
+        error('%s: It is not recommended to assign props directly to state ' + "because updates to props won't be reflected in state. " + 'In most cases, it is better to use props directly.', componentName);
+      }
+    }
+
+    if (workInProgress.mode & StrictLegacyMode) {
+      ReactStrictModeWarnings.recordLegacyContextWarning(workInProgress, instance);
+    }
+
+    {
+      ReactStrictModeWarnings.recordUnsafeLifecycleWarnings(workInProgress, instance);
+    }
+  }
+
+  instance.state = workInProgress.memoizedState;
+  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
+
+  if (typeof getDerivedStateFromProps === 'function') {
+    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
+    instance.state = workInProgress.memoizedState;
+  } // In order to support react-lifecycles-compat polyfilled components,
+  // Unsafe lifecycles should not be invoked for components using the new APIs.
+
+
+  if (typeof ctor.getDerivedStateFromProps !== 'function' && typeof instance.getSnapshotBeforeUpdate !== 'function' && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.componentWillMount === 'function')) {
+    callComponentWillMount(workInProgress, instance); // If we had additional state updates during this life-cycle, let's
+    // process them now.
+
+    processUpdateQueue(workInProgress, newProps, instance, renderLanes);
+    instance.state = workInProgress.memoizedState;
+  }
+
+  if (typeof instance.componentDidMount === 'function') {
+    var fiberFlags = Update;
+
+    {
+      fiberFlags |= LayoutStatic;
+    }
+
+    if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
+      fiberFlags |= MountLayoutDev;
+    }
+
+    workInProgress.flags |= fiberFlags;
+  }
+}
+
+function resumeMountClassInstance(workInProgress, ctor, newProps, renderLanes) {
+  var instance = workInProgress.stateNode;
+  var oldProps = workInProgress.memoizedProps;
+  instance.props = oldProps;
+  var oldContext = instance.context;
+  var contextType = ctor.contextType;
+  var nextContext = emptyContextObject;
+
+  if (typeof contextType === 'object' && contextType !== null) {
+    nextContext = readContext(contextType);
+  } else {
+    var nextLegacyUnmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
+    nextContext = getMaskedContext(workInProgress, nextLegacyUnmaskedContext);
+  }
+
+  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
+  var hasNewLifecycles = typeof getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function'; // Note: During these life-cycles, instance.props/instance.state are what
+  // ever the previously attempted to render - not the "current". However,
+  // during componentDidUpdate we pass the "current" props.
+  // In order to support react-lifecycles-compat polyfilled components,
+  // Unsafe lifecycles should not be invoked for components using the new APIs.
+
+  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
+    if (oldProps !== newProps || oldContext !== nextContext) {
+      callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext);
+    }
+  }
+
+  resetHasForceUpdateBeforeProcessing();
+  var oldState = workInProgress.memoizedState;
+  var newState = instance.state = oldState;
+  processUpdateQueue(workInProgress, newProps, instance, renderLanes);
+  newState = workInProgress.memoizedState;
+
+  if (oldProps === newProps && oldState === newState && !hasContextChanged() && !checkHasForceUpdateAfterProcessing()) {
+    // If an update was already in progress, we should schedule an Update
+    // effect even though we're bailing out, so that cWU/cDU are called.
+    if (typeof instance.componentDidMount === 'function') {
+      var fiberFlags = Update;
+
+      {
+        fiberFlags |= LayoutStatic;
+      }
+
+      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
+        fiberFlags |= MountLayoutDev;
+      }
+
+      workInProgress.flags |= fiberFlags;
+    }
+
+    return false;
+  }
+
+  if (typeof getDerivedStateFromProps === 'function') {
+    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
+    newState = workInProgress.memoizedState;
+  }
+
+  var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext);
+
+  if (shouldUpdate) {
+    // In order to support react-lifecycles-compat polyfilled components,
+    // Unsafe lifecycles should not be invoked for components using the new APIs.
+    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.componentWillMount === 'function')) {
+      if (typeof instance.componentWillMount === 'function') {
+        instance.componentWillMount();
+      }
+
+      if (typeof instance.UNSAFE_componentWillMount === 'function') {
+        instance.UNSAFE_componentWillMount();
+      }
+    }
+
+    if (typeof instance.componentDidMount === 'function') {
+      var _fiberFlags = Update;
+
+      {
+        _fiberFlags |= LayoutStatic;
+      }
+
+      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
+        _fiberFlags |= MountLayoutDev;
+      }
+
+      workInProgress.flags |= _fiberFlags;
+    }
+  } else {
+    // If an update was already in progress, we should schedule an Update
+    // effect even though we're bailing out, so that cWU/cDU are called.
+    if (typeof instance.componentDidMount === 'function') {
+      var _fiberFlags2 = Update;
+
+      {
+        _fiberFlags2 |= LayoutStatic;
+      }
+
+      if ( (workInProgress.mode & StrictEffectsMode) !== NoMode) {
+        _fiberFlags2 |= MountLayoutDev;
+      }
+
+      workInProgress.flags |= _fiberFlags2;
+    } // If shouldComponentUpdate returned false, we should still update the
+    // memoized state to indicate that this work can be reused.
+
+
+    workInProgress.memoizedProps = newProps;
+    workInProgress.memoizedState = newState;
+  } // Update the existing instance's state, props, and context pointers even
+  // if shouldComponentUpdate returns false.
+
+
+  instance.props = newProps;
+  instance.state = newState;
+  instance.context = nextContext;
+  return shouldUpdate;
+} // Invokes the update life-cycles and returns false if it shouldn't rerender.
+
+
+function updateClassInstance(current, workInProgress, ctor, newProps, renderLanes) {
+  var instance = workInProgress.stateNode;
+  cloneUpdateQueue(current, workInProgress);
+  var unresolvedOldProps = workInProgress.memoizedProps;
+  var oldProps = workInProgress.type === workInProgress.elementType ? unresolvedOldProps : resolveDefaultProps(workInProgress.type, unresolvedOldProps);
+  instance.props = oldProps;
+  var unresolvedNewProps = workInProgress.pendingProps;
+  var oldContext = instance.context;
+  var contextType = ctor.contextType;
+  var nextContext = emptyContextObject;
+
+  if (typeof contextType === 'object' && contextType !== null) {
+    nextContext = readContext(contextType);
+  } else {
+    var nextUnmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
+    nextContext = getMaskedContext(workInProgress, nextUnmaskedContext);
+  }
+
+  var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
+  var hasNewLifecycles = typeof getDerivedStateFromProps === 'function' || typeof instance.getSnapshotBeforeUpdate === 'function'; // Note: During these life-cycles, instance.props/instance.state are what
+  // ever the previously attempted to render - not the "current". However,
+  // during componentDidUpdate we pass the "current" props.
+  // In order to support react-lifecycles-compat polyfilled components,
+  // Unsafe lifecycles should not be invoked for components using the new APIs.
+
+  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
+    if (unresolvedOldProps !== unresolvedNewProps || oldContext !== nextContext) {
+      callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext);
+    }
+  }
+
+  resetHasForceUpdateBeforeProcessing();
+  var oldState = workInProgress.memoizedState;
+  var newState = instance.state = oldState;
+  processUpdateQueue(workInProgress, newProps, instance, renderLanes);
+  newState = workInProgress.memoizedState;
+
+  if (unresolvedOldProps === unresolvedNewProps && oldState === newState && !hasContextChanged() && !checkHasForceUpdateAfterProcessing() && !(enableLazyContextPropagation   )) {
+    // If an update was already in progress, we should schedule an Update
+    // effect even though we're bailing out, so that cWU/cDU are called.
+    if (typeof instance.componentDidUpdate === 'function') {
+      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
+        workInProgress.flags |= Update;
+      }
+    }
+
+    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
+      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
+        workInProgress.flags |= Snapshot;
+      }
+    }
+
+    return false;
+  }
+
+  if (typeof getDerivedStateFromProps === 'function') {
+    applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
+    newState = workInProgress.memoizedState;
+  }
+
+  var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext) || // TODO: In some cases, we'll end up checking if context has changed twice,
+  // both before and after `shouldComponentUpdate` has been called. Not ideal,
+  // but I'm loath to refactor this function. This only happens for memoized
+  // components so it's not that common.
+  enableLazyContextPropagation   ;
+
+  if (shouldUpdate) {
+    // In order to support react-lifecycles-compat polyfilled components,
+    // Unsafe lifecycles should not be invoked for components using the new APIs.
+    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillUpdate === 'function' || typeof instance.componentWillUpdate === 'function')) {
+      if (typeof instance.componentWillUpdate === 'function') {
+        instance.componentWillUpdate(newProps, newState, nextContext);
+      }
+
+      if (typeof instance.UNSAFE_componentWillUpdate === 'function') {
+        instance.UNSAFE_componentWillUpdate(newProps, newState, nextContext);
+      }
+    }
+
+    if (typeof instance.componentDidUpdate === 'function') {
+      workInProgress.flags |= Update;
+    }
+
+    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
+      workInProgress.flags |= Snapshot;
+    }
+  } else {
+    // If an update was already in progress, we should schedule an Update
+    // effect even though we're bailing out, so that cWU/cDU are called.
+    if (typeof instance.componentDidUpdate === 'function') {
+      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
+        workInProgress.flags |= Update;
+      }
+    }
+
+    if (typeof instance.getSnapshotBeforeUpdate === 'function') {
+      if (unresolvedOldProps !== current.memoizedProps || oldState !== current.memoizedState) {
+        workInProgress.flags |= Snapshot;
+      }
+    } // If shouldComponentUpdate returned false, we should still update the
+    // memoized props/state to indicate that this work can be reused.
+
+
+    workInProgress.memoizedProps = newProps;
+    workInProgress.memoizedState = newState;
+  } // Update the existing instance's state, props, and context pointers even
+  // if shouldComponentUpdate returns false.
+
+
+  instance.props = newProps;
+  instance.state = newState;
+  instance.context = nextContext;
+  return shouldUpdate;
+}
+
 function createCapturedValueAtFiber(value, source) {
   // If the value is an error, call this function immediately after it is thrown
   // so the stack is accurate.
@@ -21867,7 +22084,8 @@ function logCapturedError(boundary, errorInfo) {
       // displayed by the browser thanks to the DEV-only fake event trick in ReactErrorUtils.
 
       console['error'](combinedMessage); // Don't transform to our wrapper
-    } else {}
+    } else // removed by dead control flow
+{}
   } catch (e) {
     // This method must not throw, or React internal state will get messed up.
     // If console.error is overridden, or logCapturedError() shows a dialog that throws,
@@ -22323,6 +22541,7 @@ var didWarnAboutFunctionRefs;
 var didWarnAboutReassigningProps;
 var didWarnAboutRevealOrder;
 var didWarnAboutTailOptions;
+var didWarnAboutDefaultPropsOnFunctionComponent;
 
 {
   didWarnAboutBadClass = {};
@@ -22333,6 +22552,7 @@ var didWarnAboutTailOptions;
   didWarnAboutReassigningProps = false;
   didWarnAboutRevealOrder = {};
   didWarnAboutTailOptions = {};
+  didWarnAboutDefaultPropsOnFunctionComponent = {};
 }
 
 function reconcileChildren(current, workInProgress, nextChildren, renderLanes) {
@@ -22469,6 +22689,16 @@ function updateMemoComponent(current, workInProgress, Component, nextProps, rend
         // We could move it there, but we'd still need this for lazy code path.
         checkPropTypes(innerPropTypes, nextProps, // Resolved props
         'prop', getComponentNameFromType(type));
+      }
+
+      if ( Component.defaultProps !== undefined) {
+        var componentName = getComponentNameFromType(type) || 'Unknown';
+
+        if (!didWarnAboutDefaultPropsOnFunctionComponent[componentName]) {
+          error('%s: Support for defaultProps will be removed from memo components ' + 'in a future major release. Use JavaScript default parameters instead.', componentName);
+
+          didWarnAboutDefaultPropsOnFunctionComponent[componentName] = true;
+        }
       }
     }
 
@@ -23368,6 +23598,16 @@ function validateFunctionComponentInDev(workInProgress, Component) {
         didWarnAboutFunctionRefs[warningKey] = true;
 
         error('Function components cannot be given refs. ' + 'Attempts to access this ref will fail. ' + 'Did you mean to use React.forwardRef()?%s', info);
+      }
+    }
+
+    if ( Component.defaultProps !== undefined) {
+      var componentName = getComponentNameFromType(Component) || 'Unknown';
+
+      if (!didWarnAboutDefaultPropsOnFunctionComponent[componentName]) {
+        error('%s: Support for defaultProps will be removed from function components ' + 'in a future major release. Use JavaScript default parameters instead.', componentName);
+
+        didWarnAboutDefaultPropsOnFunctionComponent[componentName] = true;
       }
     }
 
@@ -31859,7 +32099,7 @@ identifierPrefix, onRecoverableError, transitionCallbacks) {
   return root;
 }
 
-var ReactVersion = '18.2.0';
+var ReactVersion = '18.3.1';
 
 function createPortal(children, containerInfo, // TODO: figure out the API for cross-renderer implementation.
 implementation) {
@@ -32795,8 +33035,15 @@ function legacyRenderSubtreeIntoContainer(parentComponent, children, container, 
   return getPublicRootInstance(root);
 }
 
+var didWarnAboutFindDOMNode = false;
 function findDOMNode(componentOrElement) {
   {
+    if (!didWarnAboutFindDOMNode) {
+      didWarnAboutFindDOMNode = true;
+
+      error('findDOMNode is deprecated and will be removed in the next major ' + 'release. Instead, add a ref directly to the element you want ' + 'to reference. Learn more about using refs safely here: ' + 'https://reactjs.org/link/strict-mode-find-node');
+    }
+
     var owner = ReactCurrentOwner$3.current;
 
     if (owner !== null && owner.stateNode !== null) {
@@ -32876,7 +33123,16 @@ function unstable_renderSubtreeIntoContainer(parentComponent, element, container
 
   return legacyRenderSubtreeIntoContainer(parentComponent, element, containerNode, false, callback);
 }
+var didWarnAboutUnmountComponentAtNode = false;
 function unmountComponentAtNode(container) {
+  {
+    if (!didWarnAboutUnmountComponentAtNode) {
+      didWarnAboutUnmountComponentAtNode = true;
+
+      error('unmountComponentAtNode is deprecated and will be removed in the ' + 'next major release. Switch to the createRoot API. Learn ' + 'more: https://reactjs.org/link/switch-to-createroot');
+    }
+  }
+
   if (!isValidContainerLegacy(container)) {
     throw new Error('unmountComponentAtNode(...): Target container is not a DOM element.');
   }
@@ -33045,13 +33301,13 @@ if (
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/react-dom@18.2.0_react@18.2.0/node_modules/react-dom/index.js":
-/*!**********************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/react-dom@18.2.0_react@18.2.0/node_modules/react-dom/index.js ***!
-  \**********************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./node_modules/.store/react-dom@18.3.1/node_modules/react-dom/index.js"
+/*!******************************************************************************!*\
+  !*** ./node_modules/.store/react-dom@18.3.1/node_modules/react-dom/index.js ***!
+  \******************************************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 
@@ -33074,28 +33330,23 @@ function checkDCE() {
     // a false positive.
     throw new Error('^_^');
   }
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
+  // removed by dead control flow
+
 }
 
-if (false) {} else {
-  module.exports = __webpack_require__(/*! ./cjs/react-dom.development.js */ "../../node_modules/.pnpm/react-dom@18.2.0_react@18.2.0/node_modules/react-dom/cjs/react-dom.development.js");
+if (false) // removed by dead control flow
+{} else {
+  module.exports = __webpack_require__(/*! ./cjs/react-dom.development.js */ "./node_modules/.store/react-dom@18.3.1/node_modules/react-dom/cjs/react-dom.development.js");
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/react@18.2.0/node_modules/react/cjs/react.development.js":
-/*!*****************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/react@18.2.0/node_modules/react/cjs/react.development.js ***!
-  \*****************************************************************************************/
-/***/ ((module, exports, __webpack_require__) => {
+/***/ "./node_modules/.store/react@18.3.1/node_modules/react/cjs/react.development.js"
+/*!**************************************************************************************!*\
+  !*** ./node_modules/.store/react@18.3.1/node_modules/react/cjs/react.development.js ***!
+  \**************************************************************************************/
+(module, exports, __webpack_require__) {
 
 "use strict";
 /* module decorator */ module = __webpack_require__.nmd(module);
@@ -33124,7 +33375,7 @@ if (
 ) {
   __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
 }
-          var ReactVersion = '18.2.0';
+          var ReactVersion = '18.3.1';
 
 // ATTENTION
 // When adding new symbols to this file,
@@ -35800,6 +36051,7 @@ exports.PureComponent = PureComponent;
 exports.StrictMode = REACT_STRICT_MODE_TYPE;
 exports.Suspense = REACT_SUSPENSE_TYPE;
 exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
+exports.act = act;
 exports.cloneElement = cloneElement$1;
 exports.createContext = createContext;
 exports.createElement = createElement$1;
@@ -35840,29 +36092,30 @@ if (
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/react@18.2.0/node_modules/react/index.js":
-/*!*************************************************************************!*\
-  !*** ../../node_modules/.pnpm/react@18.2.0/node_modules/react/index.js ***!
-  \*************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./node_modules/.store/react@18.3.1/node_modules/react/index.js"
+/*!**********************************************************************!*\
+  !*** ./node_modules/.store/react@18.3.1/node_modules/react/index.js ***!
+  \**********************************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 
 
-if (false) {} else {
-  module.exports = __webpack_require__(/*! ./cjs/react.development.js */ "../../node_modules/.pnpm/react@18.2.0/node_modules/react/cjs/react.development.js");
+if (false) // removed by dead control flow
+{} else {
+  module.exports = __webpack_require__(/*! ./cjs/react.development.js */ "./node_modules/.store/react@18.3.1/node_modules/react/cjs/react.development.js");
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/scheduler@0.23.0/node_modules/scheduler/cjs/scheduler.development.js":
-/*!*****************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/scheduler@0.23.0/node_modules/scheduler/cjs/scheduler.development.js ***!
-  \*****************************************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ "./node_modules/.store/scheduler@0.23.2/node_modules/scheduler/cjs/scheduler.development.js"
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/.store/scheduler@0.23.2/node_modules/scheduler/cjs/scheduler.development.js ***!
+  \**************************************************************************************************/
+(__unused_webpack_module, exports) {
 
 "use strict";
 /**
@@ -36501,48 +36754,49 @@ if (
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/scheduler@0.23.0/node_modules/scheduler/index.js":
-/*!*********************************************************************************!*\
-  !*** ../../node_modules/.pnpm/scheduler@0.23.0/node_modules/scheduler/index.js ***!
-  \*********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./node_modules/.store/scheduler@0.23.2/node_modules/scheduler/index.js"
+/*!******************************************************************************!*\
+  !*** ./node_modules/.store/scheduler@0.23.2/node_modules/scheduler/index.js ***!
+  \******************************************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 
 
-if (false) {} else {
-  module.exports = __webpack_require__(/*! ./cjs/scheduler.development.js */ "../../node_modules/.pnpm/scheduler@0.23.0/node_modules/scheduler/cjs/scheduler.development.js");
+if (false) // removed by dead control flow
+{} else {
+  module.exports = __webpack_require__(/*! ./cjs/scheduler.development.js */ "./node_modules/.store/scheduler@0.23.2/node_modules/scheduler/cjs/scheduler.development.js");
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ "./src/pages/Options/Countdown/index.scss":
+/***/ "./src/pages/Options/Countdown/index.scss"
 /*!************************************************!*\
   !*** ./src/pages/Options/Countdown/index.scss ***!
   \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleDomAPI.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleDomAPI.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertBySelector.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertBySelector.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertStyleElement.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertStyleElement.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleTagTransform.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleTagTransform.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_sass_loader_14_1_1_sass_1_72_0_webpack_5_96_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_index_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/cjs.js!../../../../../../node_modules/.pnpm/sass-loader@14.1.1_sass@1.72.0_webpack@5.96.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./index.scss */ "../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@14.1.1_sass@1.72.0_webpack@5.96.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Countdown/index.scss");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_cjs_js_node_modules_store_sass_loader_14_2_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_index_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/cjs.js!../../../../node_modules/.store/sass-loader@14.2.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./index.scss */ "./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/cjs.js!./node_modules/.store/sass-loader@14.2.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Countdown/index.scss");
 
       
       
@@ -36556,46 +36810,46 @@ __webpack_require__.r(__webpack_exports__);
 
 var options = {};
 
-options.styleTagTransform = (_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
-options.setAttributes = (_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
-options.insert = _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
-options.domAPI = (_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
-options.insertStyleElement = (_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+options.styleTagTransform = (_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+options.insert = _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+options.domAPI = (_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
 
-var update = _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_sass_loader_14_1_1_sass_1_72_0_webpack_5_96_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_index_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
-
-
+var update = _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_cjs_js_node_modules_store_sass_loader_14_2_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_index_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_sass_loader_14_1_1_sass_1_72_0_webpack_5_96_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_index_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_sass_loader_14_1_1_sass_1_72_0_webpack_5_96_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_index_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_sass_loader_14_1_1_sass_1_72_0_webpack_5_96_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_index_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
-/***/ }),
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_cjs_js_node_modules_store_sass_loader_14_2_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_index_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_cjs_js_node_modules_store_sass_loader_14_2_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_index_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_cjs_js_node_modules_store_sass_loader_14_2_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_index_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
-/***/ "./src/pages/Options/Options.scss":
+
+/***/ },
+
+/***/ "./src/pages/Options/Options.scss"
 /*!****************************************!*\
   !*** ./src/pages/Options/Options.scss ***!
   \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleDomAPI.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleDomAPI.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertBySelector.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertBySelector.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertStyleElement.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertStyleElement.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleTagTransform.js */ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleTagTransform.js");
-/* harmony import */ var _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_sass_loader_14_1_1_sass_1_72_0_webpack_5_96_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_Options_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@14.1.1_sass@1.72.0_webpack@5.96.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./Options.scss */ "../../node_modules/.pnpm/css-loader@7.1.0_webpack@5.96.1/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@14.1.1_sass@1.72.0_webpack@5.96.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Options.scss");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_cjs_js_node_modules_store_sass_loader_14_2_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_Options_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/cjs.js!../../../node_modules/.store/sass-loader@14.2.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./Options.scss */ "./node_modules/.store/css-loader@7.1.4/node_modules/css-loader/dist/cjs.js!./node_modules/.store/sass-loader@14.2.1/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[2]!./src/pages/Options/Options.scss");
 
       
       
@@ -36609,27 +36863,27 @@ __webpack_require__.r(__webpack_exports__);
 
 var options = {};
 
-options.styleTagTransform = (_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
-options.setAttributes = (_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
-options.insert = _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
-options.domAPI = (_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
-options.insertStyleElement = (_node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+options.styleTagTransform = (_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+options.insert = _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+options.domAPI = (_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
 
-var update = _node_modules_pnpm_style_loader_4_0_0_webpack_5_96_1_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_sass_loader_14_1_1_sass_1_72_0_webpack_5_96_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_Options_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
-
-
+var update = _node_modules_store_style_loader_4_0_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_cjs_js_node_modules_store_sass_loader_14_2_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_Options_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_sass_loader_14_1_1_sass_1_72_0_webpack_5_96_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_Options_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_sass_loader_14_1_1_sass_1_72_0_webpack_5_96_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_Options_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_pnpm_css_loader_7_1_0_webpack_5_96_1_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_sass_loader_14_1_1_sass_1_72_0_webpack_5_96_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_Options_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
-/***/ }),
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_cjs_js_node_modules_store_sass_loader_14_2_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_Options_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_cjs_js_node_modules_store_sass_loader_14_2_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_Options_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_store_css_loader_7_1_4_node_modules_css_loader_dist_cjs_js_node_modules_store_sass_loader_14_2_1_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_5_use_2_Options_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
-/***/ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
-/*!*************************************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
-  \*************************************************************************************************************************************/
-/***/ ((module) => {
+
+/***/ },
+
+/***/ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js"
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \*******************************************************************************************************************/
+(module) {
 
 "use strict";
 
@@ -36717,13 +36971,13 @@ module.exports = function (list, options) {
   };
 };
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertBySelector.js":
-/*!*****************************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertBySelector.js ***!
-  \*****************************************************************************************************************************/
-/***/ ((module) => {
+/***/ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertBySelector.js"
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertBySelector.js ***!
+  \***********************************************************************************************************/
+(module) {
 
 "use strict";
 
@@ -36761,13 +37015,13 @@ function insertBySelector(insert, style) {
 }
 module.exports = insertBySelector;
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertStyleElement.js":
-/*!*******************************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/insertStyleElement.js ***!
-  \*******************************************************************************************************************************/
-/***/ ((module) => {
+/***/ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertStyleElement.js"
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/insertStyleElement.js ***!
+  \*************************************************************************************************************/
+(module) {
 
 "use strict";
 
@@ -36781,13 +37035,13 @@ function insertStyleElement(options) {
 }
 module.exports = insertStyleElement;
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js":
-/*!*******************************************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js ***!
-  \*******************************************************************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js"
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js ***!
+  \*************************************************************************************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 
@@ -36801,13 +37055,13 @@ function setAttributesWithoutAttributes(styleElement) {
 }
 module.exports = setAttributesWithoutAttributes;
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleDomAPI.js":
-/*!************************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleDomAPI.js ***!
-  \************************************************************************************************************************/
-/***/ ((module) => {
+/***/ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleDomAPI.js"
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleDomAPI.js ***!
+  \******************************************************************************************************/
+(module) {
 
 "use strict";
 
@@ -36872,13 +37126,13 @@ function domAPI(options) {
 }
 module.exports = domAPI;
 
-/***/ }),
+/***/ },
 
-/***/ "../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleTagTransform.js":
-/*!******************************************************************************************************************************!*\
-  !*** ../../node_modules/.pnpm/style-loader@4.0.0_webpack@5.96.1/node_modules/style-loader/dist/runtime/styleTagTransform.js ***!
-  \******************************************************************************************************************************/
-/***/ ((module) => {
+/***/ "./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleTagTransform.js"
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/.store/style-loader@4.0.0/node_modules/style-loader/dist/runtime/styleTagTransform.js ***!
+  \************************************************************************************************************/
+(module) {
 
 "use strict";
 
@@ -36896,7 +37150,7 @@ function styleTagTransform(css, styleElement) {
 }
 module.exports = styleTagTransform;
 
-/***/ })
+/***/ }
 
 /******/ 	});
 /************************************************************************/
@@ -36918,6 +37172,12 @@ module.exports = styleTagTransform;
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
+/******/ 		if (!(moduleId in __webpack_modules__)) {
+/******/ 			delete __webpack_module_cache__[moduleId];
+/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
+/******/ 		}
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Flag the module as loaded
@@ -36991,17 +37251,17 @@ var __webpack_exports__ = {};
   !*** ./src/pages/Options/index.tsx ***!
   \*************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../node_modules/.pnpm/react@18.2.0/node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/.store/react@18.3.1/node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "../../node_modules/.pnpm/react-dom@18.2.0_react@18.2.0/node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/.store/react-dom@18.3.1/node_modules/react-dom/index.js");
 /* harmony import */ var _Options__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Options */ "./src/pages/Options/Options.tsx");
 
 
 
 
 (0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)(/* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Options__WEBPACK_IMPORTED_MODULE_2__["default"], null), window.document.querySelector("#app-container"));
-if (false)
-  {}
+if (false) // removed by dead control flow
+{}
 
 })();
 
