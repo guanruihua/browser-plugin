@@ -13,11 +13,11 @@ export default () => {
           localStorage.setItem('popup-active', val)
         }}
         items={[
-          {
-            title: 'Href',
-            key: 'href',
-            children: <Localhost />
-          },
+          // {
+          //   title: 'Href',
+          //   key: 'href',
+          //   children: <Localhost />
+          // },
           {
             title: 'QR Code',
             key: 'qrCode',
@@ -28,11 +28,11 @@ export default () => {
             key: 'tool',
             children: <Tool />
           },
-          {
-            title: 'test',
-            key: 'test',
-            children: <Test />
-          }
+          // {
+          //   title: 'test',
+          //   key: 'test',
+          //   children: <Test />
+          // }
         ]}
       />
     </div>

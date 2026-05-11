@@ -1,4 +1,5 @@
 import { ObjectType } from '0type'
+import { copyToClip } from '@/assets/utils'
 import React from 'react'
 
 export const useHook = () => {
@@ -6,9 +7,9 @@ export const useHook = () => {
   const [activeTab, setActiveTab] = React.useState<ObjectType>({})
 
   React.useEffect(() => {
-    chrome.tabs.query({ currentWindow: true }, function (tabs) {
-      setTabs(tabs as unknown as ObjectType[])
-    })
+    // chrome.tabs.query({ currentWindow: true }, function (tabs) {
+    //   setTabs(tabs as unknown as ObjectType[])
+    // })
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       setActiveTab(tabs[0])
     })
@@ -59,6 +60,8 @@ export const useHook = () => {
       tabs.forEach(item => muteOne(item))
     })
   }
+
+
   return {
     activeTab,
     tabs,
