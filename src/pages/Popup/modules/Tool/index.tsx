@@ -10,9 +10,9 @@ export function Tool() {
   const { activeTab, tabs, pin, pinAll, clone, mute, muteAll, ...handle } = useHook()
   const { url, title } = activeTab
   const review = [
-    ['URL', url],
-    ['Title', title],
     ['Markdown', `[${title}](${url})`],
+    ['Title', title],
+    ['URL', url],
   ]
   const [tip, setTip] = React.useState({
     type: 'idle',

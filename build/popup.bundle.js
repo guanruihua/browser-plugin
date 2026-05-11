@@ -2455,9 +2455,9 @@ function Tool() {
   const _a = (0,_hook__WEBPACK_IMPORTED_MODULE_2__.useHook)(), { activeTab, tabs, pin, pinAll, clone, mute, muteAll } = _a, handle = __objRest(_a, ["activeTab", "tabs", "pin", "pinAll", "clone", "mute", "muteAll"]);
   const { url, title } = activeTab;
   const review = [
-    ["URL", url],
+    ["Markdown", `[${title}](${url})`],
     ["Title", title],
-    ["Markdown", `[${title}](${url})`]
+    ["URL", url]
   ];
   const [tip, setTip] = react__WEBPACK_IMPORTED_MODULE_0___default().useState({
     type: "idle",
