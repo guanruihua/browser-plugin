@@ -3,6 +3,7 @@ import { QRCodePage, Localhost, Tool } from './modules'
 import { Tab } from 'aurad'
 import './Popup.css'
 import { Test } from './modules/test'
+import { PageInfo } from './modules/pageInfo'
 
 export default () => {
   return (
@@ -21,12 +22,17 @@ export default () => {
           {
             title: 'QR Code',
             key: 'qrCode',
-            children: <QRCodePage />
+            children: <QRCodePage />,
+          },
+          {
+            title: 'Page Info',
+            key: 'pageInfo',
+            children: <PageInfo />,
           },
           {
             title: 'TooL',
             key: 'tool',
-            children: <Tool />
+            children: <Tool />,
           },
           // {
           //   title: 'test',

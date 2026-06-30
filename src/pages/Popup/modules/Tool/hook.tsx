@@ -1,7 +1,9 @@
 import { ObjectType } from '0type'
-import { copyToClip } from '@/assets/utils'
 import React from 'react'
 
+const css = `body {
+  filter: invert(1) hue-rotate(180deg) brightness(1.3);
+}`
 export const useHook = () => {
   const [tabs, setTabs] = React.useState<ObjectType[]>([])
   const [activeTab, setActiveTab] = React.useState<ObjectType>({})
@@ -14,6 +16,40 @@ export const useHook = () => {
       setActiveTab(tabs[0])
     })
   }, [])
+
+  const night = () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
+      const tab = tabs[0]
+
+      if (tab.id) {
+        // 注入到页面
+        await chrome.scripting.insertCSS({
+          target: { tabId: tab.id },
+          css,
+        })
+
+        // （可选）关闭 popup
+        window.close()
+      }
+    })
+  }
+
+  const cancelNight = () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
+      const tab = tabs[0]
+
+      if (tab.id) {
+        // 注入到页面
+        await chrome.scripting.removeCSS({
+          target: { tabId: tab.id },
+          css,
+        })
+
+        // （可选）关闭 popup
+        window.close()
+      }
+    })
+  }
 
   const clone = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs: any[]) {
@@ -61,7 +97,6 @@ export const useHook = () => {
     })
   }
 
-
   return {
     activeTab,
     tabs,
@@ -70,6 +105,8 @@ export const useHook = () => {
     pinAll,
     mute,
     muteAll,
+    night,
+    cancelNight,
     sameDomainReopen() {
       chrome.tabs.query({ active: true, currentWindow: true }, function (tabs: any[]) {
         const tab = tabs[0]

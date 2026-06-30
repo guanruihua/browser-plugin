@@ -2,6 +2,10 @@
   background-color: rgba(0, 0, 0, .3);
 } */
 
-html[data-host='homdgcat.wiki'] .a_section_content{
+html[data-host='homdgcat.wiki'] .a_section_content {
   overflow-x: auto;
 }
+
+/* html {
+  filter: invert(1) hue-rotate(180deg) brightness(1.3);
+} */
